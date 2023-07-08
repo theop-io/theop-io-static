@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theop.io experimental: Words</title>
+
+    <!-- Some basic CSS styling so we don't lose our minds -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+    <!-- floating-ui.com -->
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.3.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.4.4"></script>
+
+    <style>
+        .tooltip_button {
+            color: red;
+        }
+
+        .tooltip_popup {
+            /* Display */
+            display: none;
+
+            /* Position */
+            position: absolute;
+            width: max-content;
+            max-width: 90%;
+            top: 0;
+            left: 0;
+
+            /* Style */
+            background: #222;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+
+        .tooltip_arrow {
+            position: absolute;
+            background: #222;
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 50% width on desktops (not small), otherwise default to 80% width (i.e. mobile) -->
+    <div class="w-80 w-50-ns center sans-serif f2 lh-copy">
+        <div class="glossary">
+            <a href="#glossary_word1">My button</a> is a powerful <a href="#glossary_word2">feature</a>
+            blah blah stuffy stuff. blah blah. Loads more text <a href="#glossary_notfound">here</a> to follow.
+        </div>
+    </div>
+
+    <script type="module">
+        import { computePosition, autoPlacement, offset, arrow } from 'https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.4.4/+esm';
+
+        //
+        // Configuration
+        //
+
+        // Glossary database
+        const glossaryDb = {
+            "word1": "Definition for word 1",
+            "word2": "Definition for word 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula id arcu sit amet egestas. Morbi sagittis pretium magna non vestibulum. Ut rutrum nunc ac finibus maximus. Duis magna mauris, iaculis eu velit a, aliquet iaculis urna. Curabitur condimentum non diam at malesuada. Donec ullamcorper ullamcorper ipsum at bibendum. Fusce felis eros, mattis a rhoncus vel, interdum egestas lectus. Vestibulum nisl erat, bibendum sit amet lorem eget, viverra malesuada metus. Donec sit amet laoreet urna, quis tempus odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris sollicitudin eros a arcu tempus ultrices. Suspendisse aliquet erat.",
+        }
+
+        // Glossary configuration
+        const glossaryLinkPrefix = "#glossary_"; // Used to identify glossary links when configuring the page
+        const glossaryKeyAttribute = "data-glossary-key"; // Used to find glossary key after page has been configured
+
+        const glossaryTooltip_OffsetFromParent = 5;
+
+        // Glossary tooltips (starts empty)
+        const glossaryTooltips = {};
+
+        //
+        // Building tooltips
+        //
+
+        function buildTooltipElement(glossaryKey) {
+            // Create <div>
+            const divElement = document.createElement("div");
+
+            // Configure <div>
+            divElement.classList.add("tooltip_popup");
+            divElement.role = "tooltip";
+            divElement.id = `tooltip_popup_${glossaryKey}`;
+
+            // Create and append content
+            divElement.appendChild(document.createTextNode(glossaryDb[glossaryKey]));
+
+            // Create and append inner arrow <div>
+            const arrowDivElement = document.createElement("div");
+            arrowDivElement.classList.add("tooltip_arrow");
+            divElement.appendChild(arrowDivElement);
+
+            // Add to document
+            document.body.appendChild(divElement);
+
+            return divElement;
+        }
+
+        //
+        // Listeners
+        //
+
+        function showGlossaryTooltip(event) {
+            const linkElement = event.target;
+            const glossaryKey = linkElement.getAttribute(glossaryKeyAttribute);
+            const tooltipElement = glossaryTooltips[glossaryKey];
+
+            if (tooltipElement === undefined) {
+                return;
+            }
+
+            // Fish out inner arrow <div> inside the tooltip <div>
+            const arrowElement = tooltipElement.querySelector('.tooltip_arrow');
+
+            // Update tooltip position
+            computePosition(linkElement, tooltipElement, {
+                middleware: [
+                    offset(glossaryTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
+                    autoPlacement(), // Automatically place on side with the most space
+                    arrow({ element: arrowElement }),
+                ]
+            }).then(({ x, y, placement, middlewareData }) => {
+                // Position tooltip
+                Object.assign(tooltipElement.style, {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                });
+
+                // Position tooltip arrow
+                const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+                const placementInversionMap = {
+                    top: 'bottom',
+                    right: 'left',
+                    bottom: 'top',
+                    left: 'right',
+                };
+
+                const tooltipPlacementSide = placement.split('-')[0]; // Simplify chosen placement side (i.e. drop `-start`, ...)
+                const arrowSide = placementInversionMap[tooltipPlacementSide]; // Invert side (e.g. top -> bottom, ...)
+
+                Object.assign(arrowElement.style, {
+                    left: arrowX != null ? `${arrowX}px` : '',
+                    top: arrowY != null ? `${arrowY}px` : '',
+                    right: '',
+                    bottom: '',
+                    [arrowSide]: '-4px',
+                });
+            });
+
+            // Show tooltip
+            tooltipElement.style.display = 'block';
+        }
+
+        function hideGlossaryTooltip(event) {
+            const linkElement = event.target;
+            const glossaryKey = linkElement.getAttribute(glossaryKeyAttribute);
+            const tooltipElement = glossaryTooltips[glossaryKey];
+
+            if (tooltipElement === undefined) {
+                return;
+            }
+
+            // Hide tooltip
+            tooltipElement.style.display = '';
+        }
+
+
+        //
+        // Build and bind tooltips
+        //
+
+        // Find all eligible tooltip sources: anchors with an href starting with (thus ^=) our link prefix
+        const allLinks = document.querySelectorAll(`a[href^="${glossaryLinkPrefix}"]`);
+
+        // Bind listeners for all tooltip sources
+        allLinks.forEach(linkElement => {
+            // Link elements' `href` will contain a full URI at runtime -> find our local link prefix
+            const linkPrefixIndex = linkElement.href.indexOf(glossaryLinkPrefix);
+
+            if (linkPrefixIndex < 0) {
+                // Invalid link - ignore
+                return;
+            }
+
+            const glossaryKey = linkElement.href.slice(linkPrefixIndex + glossaryLinkPrefix.length);
+
+            // Try to retrieve definition from database
+            const glossaryDefinition = glossaryDb[glossaryKey];
+
+            if (glossaryDefinition === undefined) {
+                // Invalid link - ignore
+                return;
+            }
+
+            // Build tooltip element, if it hasn't been built previously for this key
+            if (glossaryTooltips[glossaryKey] === undefined) {
+                glossaryTooltips[glossaryKey] = buildTooltipElement(glossaryKey);
+            }
+
+            // Apply settings to link element
+            // - Data (so we can find the glossary key later)
+            linkElement.setAttribute(glossaryKeyAttribute, glossaryKey)
+
+            // - Remove link destination (no longer need this to function as an actual link)
+            linkElement.removeAttribute("href");
+
+            // - Styling
+            linkElement.classList.add("tooltip_button");
+
+            // - Accessibility
+            linkElement.setAttribute("aria-describedby", glossaryTooltips[glossaryKey].id);
+
+            // Bind listeners
+            [
+                ['mouseenter', showGlossaryTooltip],
+                ['mouseleave', hideGlossaryTooltip],
+                ['focus', showGlossaryTooltip],
+                ['blur', hideGlossaryTooltip],
+            ].forEach(([event, listener]) => {
+                linkElement.addEventListener(event, listener);
+            });
+        });
+    </script>
+</body>
+
+</html>
