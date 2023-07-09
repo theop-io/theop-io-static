@@ -1,4 +1,4 @@
-import { computePosition, autoPlacement, offset, arrow } from "@floating-ui/dom";
+import { computePosition, shift, offset, arrow } from "@floating-ui/dom";
 import { wordsList } from "./words-list";
 
 // How to reference glossary entries:
@@ -70,7 +70,7 @@ function showGlossaryTooltip(event: Event) {
   // Build core middleware for FloatingUI
   const middleware = [
     offset(glossaryTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
-    autoPlacement(), // Automatically place on side with the most space
+    shift(), // Automatically shift into view
   ];
 
   // Fish out inner arrow <div> inside the tooltip <div>
@@ -82,6 +82,7 @@ function showGlossaryTooltip(event: Event) {
 
   // Update tooltip position
   computePosition(linkElement, tooltipElement, {
+    placement: "bottom",
     middleware,
   }).then(({ x, y, placement, middlewareData }) => {
     // Position tooltip
