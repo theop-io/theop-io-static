@@ -16,8 +16,7 @@ Various approaches considered:
 ```
 
 Works-ish but the layout gets weird with lots of elements.
-Same with the other ideas on https://stackoverflow.com/questions/5210033/using-only-css-show-div-on-hover-over-another-element . 
-
+Same with the other ideas on https://stackoverflow.com/questions/5210033/using-only-css-show-div-on-hover-over-another-element .
 
 ### `details` / `summary`
 
