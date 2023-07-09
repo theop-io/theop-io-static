@@ -1,2 +1,1 @@
-import "./experimental/landing-page/";
-import "./experimental/words-js/";
+// This file intentionally left blank (for now)

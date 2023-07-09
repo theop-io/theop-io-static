@@ -4,21 +4,23 @@
   "description": "Static assets for https://theop.io",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "gulp",
-    "serve": "gulp serve"
+    "build": "webpack --mode production",
+    "serve": "webpack serve"
   },
   "author": "Robin Giese",
   "private": true,
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-webserver": "^0.9.1",
-    "npm-run-all": "^4.1.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "html-bundler-webpack-plugin": "^2.0.1",
     "rimraf": "^5.0.1",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
-    "webpack-stream": "^7.0.0"
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.4.4"
