@@ -1,4 +1,4 @@
-export const wordsList: [string, string][] = [
+export const theWordsList: [string, string][] = [
   ["blah", "Definition for blah"],
   ["stuffy_stuff", "Lots of stuff"],
   ["word1", "Definition for word 1"],

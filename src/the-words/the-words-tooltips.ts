@@ -1,41 +1,44 @@
 import { computePosition, shift, offset, arrow } from "@floating-ui/dom";
-import { wordsList } from "./words-list";
+import { theWordsList } from "./the-words-list";
 
-// How to reference glossary entries:
-// <a href="#glossary_termFoo">Blah blah</a> -> finds the definition for glossary key `termFoo`; the anchor text (i.e. the reference) may be anything
-// <a href="#glossary">word</a> -> finds the definition for glossary key `word`, i.e. the anchor body _is_ the key (case-insensitive, will convert spaces to underscores)
+//
+// How to reference The Words (glossary) entries:
+//
+// <a href="#thewords_termFoo">Blah blah</a> -> finds the definition for theWords key `termFoo`; the anchor text (i.e. the reference) may be anything
+// <a href="#thewords">word</a> -> finds the definition for theWords key `word`, i.e. the anchor body _is_ the key (case-insensitive, will convert spaces to underscores)
+//
 
 //
 // Configuration
 //
 
-// Glossary configuration
-const glossaryLinkPrefix = "#glossary"; // Used to identify glossary links when configuring the page
-const glossaryKeyAttribute = "data-glossary-key"; // Used to find glossary key after page has been configured
+// TheWords configuration
+const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
+const theWordsKeyAttribute = "data-the-words-key"; // Used to find theWords key after page has been configured
 
-const glossaryTooltip_OffsetFromParent = 5;
+const theWordsTooltip_OffsetFromParent = 5;
 
-// Glossary database
-const glossaryDb = new Map<string, string>(wordsList);
+// TheWords database
+const theWordsDb = new Map<string, string>(theWordsList);
 
-// Glossary tooltips (starts empty)
-const glossaryTooltips = new Map<string, HTMLElement>();
+// TheWords tooltips (starts empty)
+const theWordsTooltips = new Map<string, HTMLElement>();
 
 //
 // Building tooltips
 //
 
-function buildTooltipElement(glossaryKey: string): HTMLDivElement {
+function buildTooltipElement(theWordsKey: string): HTMLDivElement {
   // Create <div>
   const divElement = document.createElement("div");
 
   // Configure <div>
   divElement.classList.add("tooltip_popup");
   divElement.role = "tooltip";
-  divElement.id = `tooltip_popup_${glossaryKey}`;
+  divElement.id = `tooltip_popup_${theWordsKey}`;
 
   // Create and append content
-  divElement.appendChild(document.createTextNode(glossaryDb.get(glossaryKey) ?? ""));
+  divElement.appendChild(document.createTextNode(theWordsDb.get(theWordsKey) ?? ""));
 
   // Create and append inner arrow <div>
   const arrowDivElement = document.createElement("div");
@@ -52,16 +55,16 @@ function buildTooltipElement(glossaryKey: string): HTMLDivElement {
 // Listeners
 //
 
-function showGlossaryTooltip(event: Event) {
+function showTheWordsTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
-  const glossaryKey = linkElement.getAttribute(glossaryKeyAttribute);
+  const theWordsKey = linkElement.getAttribute(theWordsKeyAttribute);
 
-  if (glossaryKey === null) {
+  if (theWordsKey === null) {
     return;
   }
 
-  const tooltipElement = glossaryTooltips.get(glossaryKey);
+  const tooltipElement = theWordsTooltips.get(theWordsKey);
 
   if (tooltipElement === undefined) {
     return;
@@ -69,7 +72,7 @@ function showGlossaryTooltip(event: Event) {
 
   // Build core middleware for FloatingUI
   const middleware = [
-    offset(glossaryTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
+    offset(theWordsTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
     shift(), // Automatically shift into view
   ];
 
@@ -119,16 +122,16 @@ function showGlossaryTooltip(event: Event) {
   tooltipElement.style.display = "block";
 }
 
-function hideGlossaryTooltip(event: Event) {
+function hideTheWordsTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
-  const glossaryKey = linkElement.getAttribute(glossaryKeyAttribute);
+  const theWordsKey = linkElement.getAttribute(theWordsKeyAttribute);
 
-  if (glossaryKey === null) {
+  if (theWordsKey === null) {
     return;
   }
 
-  const tooltipElement = glossaryTooltips.get(glossaryKey);
+  const tooltipElement = theWordsTooltips.get(theWordsKey);
 
   if (tooltipElement === undefined) {
     return;
@@ -143,57 +146,58 @@ function hideGlossaryTooltip(event: Event) {
 //
 
 // Find all eligible tooltip sources: anchors with an href starting with (thus ^=) our link prefix
-const allLinks = document.querySelectorAll(`a[href^="${glossaryLinkPrefix}"]`);
+const allLinks = document.querySelectorAll(`a[href^="${theWordsLinkPrefix}"]`);
 
 // Bind listeners for all tooltip sources
 allLinks.forEach((linkElement) => {
-  function inferGlossaryKeyFromLink(linkElement: HTMLAnchorElement) {
+  function inferTheWordsKeyFromLink(linkElement: HTMLAnchorElement) {
     // Link elements' `href` will contain a full URI at runtime -> find our local link prefix
-    const linkPrefixIndex = linkElement.href.indexOf(glossaryLinkPrefix);
+    const linkPrefixIndex = linkElement.href.indexOf(theWordsLinkPrefix);
 
     if (linkPrefixIndex < 0) {
       // Invalid link
       return undefined;
     }
 
-    const linkPrefixRemainder = linkElement.href.slice(linkPrefixIndex + glossaryLinkPrefix.length);
+    const linkPrefixRemainder = linkElement.href.slice(linkPrefixIndex + theWordsLinkPrefix.length);
 
     if (linkPrefixRemainder.length === 0) {
-      // Infer glossary key from the word(s) within the link
+      // Infer theWords key from the word(s) within the link
       return linkElement.textContent?.toLowerCase().replace(/ /g, "_") ?? undefined;
     }
 
     if (linkPrefixRemainder[0] === "_") {
-      // Glossary key is specified within the anchor itself
+      // TheWords key is specified within the anchor itself
       return linkPrefixRemainder.slice(1);
     }
 
     return undefined;
   }
 
-  const glossaryKey = inferGlossaryKeyFromLink(linkElement as HTMLAnchorElement);
+  const theWordsKey = inferTheWordsKeyFromLink(linkElement as HTMLAnchorElement);
 
-  if (glossaryKey === undefined) {
+  if (theWordsKey === undefined) {
     // Invalid link - ignore
     return;
   }
 
   // Try to retrieve definition from database
-  const glossaryDefinition = glossaryDb.get(glossaryKey);
+  const theWordsDefinition = theWordsDb.get(theWordsKey);
 
-  if (glossaryDefinition === undefined) {
+  if (theWordsDefinition === undefined) {
     // Invalid link - ignore
+    console.log(`TheWords: term "${theWordsKey}" not found.`);
     return;
   }
 
   // Build tooltip element, if it hasn't been built previously for this key
-  if (glossaryTooltips.get(glossaryKey) === undefined) {
-    glossaryTooltips.set(glossaryKey, buildTooltipElement(glossaryKey));
+  if (theWordsTooltips.get(theWordsKey) === undefined) {
+    theWordsTooltips.set(theWordsKey, buildTooltipElement(theWordsKey));
   }
 
   // Apply settings to link element
-  // - Data (so we can find the glossary key later)
-  linkElement.setAttribute(glossaryKeyAttribute, glossaryKey);
+  // - Data (so we can find the theWords key later)
+  linkElement.setAttribute(theWordsKeyAttribute, theWordsKey);
 
   // - Remove link destination (no longer need this to function as an actual link)
   linkElement.removeAttribute("href");
@@ -202,12 +206,12 @@ allLinks.forEach((linkElement) => {
   linkElement.classList.add("tooltip_button");
 
   // - Accessibility
-  linkElement.setAttribute("aria-describedby", glossaryTooltips.get(glossaryKey)?.id ?? "");
+  linkElement.setAttribute("aria-describedby", theWordsTooltips.get(theWordsKey)?.id ?? "");
 
   // Bind listeners
-  linkElement.addEventListener("mouseenter", showGlossaryTooltip);
-  linkElement.addEventListener("focus", showGlossaryTooltip);
+  linkElement.addEventListener("mouseenter", showTheWordsTooltip);
+  linkElement.addEventListener("focus", showTheWordsTooltip);
 
-  linkElement.addEventListener("mouseleave", hideGlossaryTooltip);
-  linkElement.addEventListener("blur", hideGlossaryTooltip);
+  linkElement.addEventListener("mouseleave", hideTheWordsTooltip);
+  linkElement.addEventListener("blur", hideTheWordsTooltip);
 });

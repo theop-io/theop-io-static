@@ -1,4 +1,4 @@
-# Glossary ("Words")
+# Glossary ("The Words")
 
 ## iPhone compatibility
 
