@@ -13,8 +13,8 @@ import { theWordsList } from "./the-words-list";
 //
 
 // TheWords configuration
-const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
-const theWordsKeyAttribute = "data-the-words-key"; // Used to find theWords key after page has been configured
+export const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
+const theWordsKeyAttribute = "data-word-key"; // Used to find theWords key after page has been configured
 
 const theWordsTooltip_OffsetFromParent = 5;
 
@@ -28,17 +28,21 @@ const theWordsTooltips = new Map<string, HTMLElement>();
 // Building tooltips
 //
 
-function buildTooltipElement(theWordsKey: string): HTMLDivElement {
+export function wordKeyFromWord(word: string) {
+  return word.toLowerCase().replace(/ /g, "_");
+}
+
+function buildTooltipElement(wordKey: string): HTMLDivElement {
   // Create <div>
   const divElement = document.createElement("div");
 
   // Configure <div>
   divElement.classList.add("tooltip_popup");
   divElement.role = "tooltip";
-  divElement.id = `tooltip_popup_${theWordsKey}`;
+  divElement.id = `tooltip_popup_${wordKey}`;
 
   // Create and append content
-  divElement.appendChild(document.createTextNode(theWordsDb.get(theWordsKey) ?? ""));
+  divElement.appendChild(document.createTextNode(theWordsDb.get(wordKey) ?? ""));
 
   // Create and append inner arrow <div>
   const arrowDivElement = document.createElement("div");
@@ -55,16 +59,16 @@ function buildTooltipElement(theWordsKey: string): HTMLDivElement {
 // Listeners
 //
 
-function showTheWordsTooltip(event: Event) {
+function showWordTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
-  const theWordsKey = linkElement.getAttribute(theWordsKeyAttribute);
+  const wordKey = linkElement.getAttribute(theWordsKeyAttribute);
 
-  if (theWordsKey === null) {
+  if (wordKey === null) {
     return;
   }
 
-  const tooltipElement = theWordsTooltips.get(theWordsKey);
+  const tooltipElement = theWordsTooltips.get(wordKey);
 
   if (tooltipElement === undefined) {
     return;
@@ -122,7 +126,7 @@ function showTheWordsTooltip(event: Event) {
   tooltipElement.style.display = "block";
 }
 
-function hideTheWordsTooltip(event: Event) {
+function hideWordTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
   const theWordsKey = linkElement.getAttribute(theWordsKeyAttribute);
@@ -146,11 +150,11 @@ function hideTheWordsTooltip(event: Event) {
 //
 
 // Find all eligible tooltip sources: anchors with an href starting with (thus ^=) our link prefix
-const allLinks = document.querySelectorAll(`a[href^="${theWordsLinkPrefix}"]`);
+const allWordsLinks = document.querySelectorAll(`a[href^="${theWordsLinkPrefix}"]`);
 
 // Bind listeners for all tooltip sources
-allLinks.forEach((linkElement) => {
-  function inferTheWordsKeyFromLink(linkElement: HTMLAnchorElement) {
+allWordsLinks.forEach((linkElement) => {
+  function inferWordKeyFromLink(linkElement: HTMLAnchorElement) {
     // Link elements' `href` will contain a full URI at runtime -> find our local link prefix
     const linkPrefixIndex = linkElement.href.indexOf(theWordsLinkPrefix);
 
@@ -163,7 +167,11 @@ allLinks.forEach((linkElement) => {
 
     if (linkPrefixRemainder.length === 0) {
       // Infer theWords key from the word(s) within the link
-      return linkElement.textContent?.toLowerCase().replace(/ /g, "_") ?? undefined;
+      if (!linkElement.textContent) {
+        return undefined;
+      }
+
+      return wordKeyFromWord(linkElement.textContent);
     }
 
     if (linkPrefixRemainder[0] === "_") {
@@ -174,30 +182,30 @@ allLinks.forEach((linkElement) => {
     return undefined;
   }
 
-  const theWordsKey = inferTheWordsKeyFromLink(linkElement as HTMLAnchorElement);
+  const wordKey = inferWordKeyFromLink(linkElement as HTMLAnchorElement);
 
-  if (theWordsKey === undefined) {
+  if (wordKey === undefined) {
     // Invalid link - ignore
     return;
   }
 
   // Try to retrieve definition from database
-  const theWordsDefinition = theWordsDb.get(theWordsKey);
+  const wordDefinition = theWordsDb.get(wordKey);
 
-  if (theWordsDefinition === undefined) {
+  if (wordDefinition === undefined) {
     // Invalid link - ignore
-    console.log(`TheWords: term "${theWordsKey}" not found.`);
+    console.log(`TheWords: term "${wordKey}" not found.`);
     return;
   }
 
   // Build tooltip element, if it hasn't been built previously for this key
-  if (theWordsTooltips.get(theWordsKey) === undefined) {
-    theWordsTooltips.set(theWordsKey, buildTooltipElement(theWordsKey));
+  if (theWordsTooltips.get(wordKey) === undefined) {
+    theWordsTooltips.set(wordKey, buildTooltipElement(wordKey));
   }
 
   // Apply settings to link element
   // - Data (so we can find the theWords key later)
-  linkElement.setAttribute(theWordsKeyAttribute, theWordsKey);
+  linkElement.setAttribute(theWordsKeyAttribute, wordKey);
 
   // - Remove link destination (no longer need this to function as an actual link)
   linkElement.removeAttribute("href");
@@ -206,12 +214,12 @@ allLinks.forEach((linkElement) => {
   linkElement.classList.add("tooltip_button");
 
   // - Accessibility
-  linkElement.setAttribute("aria-describedby", theWordsTooltips.get(theWordsKey)?.id ?? "");
+  linkElement.setAttribute("aria-describedby", theWordsTooltips.get(wordKey)?.id ?? "");
 
   // Bind listeners
-  linkElement.addEventListener("mouseenter", showTheWordsTooltip);
-  linkElement.addEventListener("focus", showTheWordsTooltip);
+  linkElement.addEventListener("mouseenter", showWordTooltip);
+  linkElement.addEventListener("focus", showWordTooltip);
 
-  linkElement.addEventListener("mouseleave", hideTheWordsTooltip);
-  linkElement.addEventListener("blur", hideTheWordsTooltip);
+  linkElement.addEventListener("mouseleave", hideWordTooltip);
+  linkElement.addEventListener("blur", hideWordTooltip);
 });
