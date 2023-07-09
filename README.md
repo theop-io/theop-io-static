@@ -1,4 +1,4 @@
-# theop-io.github.io
+# theop-io-static
 
 Static assets for https://theop.io
 
