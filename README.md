@@ -1,5 +1,7 @@
 # theop-io-static
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f89d3b3-8a11-475a-a87d-e59647a42e42/deploy-status)](https://app.netlify.com/sites/theop-io-static/deploys)
+
 Static assets for https://theop.io
 
 # Developer setup
