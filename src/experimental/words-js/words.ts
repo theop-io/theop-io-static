@@ -166,8 +166,6 @@ allLinks.forEach((linkElement) => {
 
     if (linkPrefixRemainder.length === 0) {
       // Infer glossary key from the word(s) within the link
-      console.log(`Inferring from ${linkElement.textContent}`);
-
       return linkElement.textContent?.toLowerCase().replace(/ /g, "_") ?? undefined;
     }
 
