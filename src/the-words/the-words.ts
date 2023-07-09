@@ -1,5 +1,4 @@
 import { computePosition, shift, offset, arrow } from "@floating-ui/dom";
-import { theWordsLinkPrefix, wordKeyFromWord } from "./the-words-core";
 import { theWordsList } from "./the-words-list";
 
 //
@@ -14,11 +13,16 @@ import { theWordsList } from "./the-words-list";
 //
 
 // TheWords configuration
+const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
 const theWordsKeyAttribute = "data-word-key"; // Used to find theWords key after page has been configured
 
 const theWordsTooltip_OffsetFromParent = 5;
 
 // TheWords database
+function wordKeyFromWord(word: string) {
+  return word.toLowerCase().replace(/ /g, "_");
+}
+
 const theWordsDb = new Map<string, string>(
   // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
   theWordsList.map(([wordDisplayName, wordDefinition]) => [
@@ -145,6 +149,35 @@ function hideWordTooltip(event: Event) {
 
   // Hide tooltip
   tooltipElement.style.display = "";
+}
+
+//
+// Build index, if page wants one
+// (do this before we build and bind the tooltips below so these also get tooltip'd)
+//
+
+const wordIndexParentDiv = document.querySelector("#the_words_index");
+
+if (wordIndexParentDiv) {
+  theWordsList
+    .map((x) => x[0])
+    .forEach((theWord) => {
+      // Create <a>
+      const anchorElement = document.createElement("a");
+
+      // Configure <a>
+      anchorElement.classList.add("the_words_index_word");
+      anchorElement.href = theWordsLinkPrefix + "_" + wordKeyFromWord(theWord);
+
+      // Create and append content
+      anchorElement.appendChild(document.createTextNode(theWord));
+
+      // Add to parent div
+      wordIndexParentDiv.appendChild(anchorElement);
+
+      // Add spacer in parent div
+      wordIndexParentDiv.appendChild(document.createTextNode(" "));
+    });
 }
 
 //
