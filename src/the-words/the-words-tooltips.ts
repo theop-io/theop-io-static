@@ -1,4 +1,5 @@
 import { computePosition, shift, offset, arrow } from "@floating-ui/dom";
+import { theWordsLinkPrefix, wordKeyFromWord } from "./the-words-core";
 import { theWordsList } from "./the-words-list";
 
 //
@@ -13,13 +14,15 @@ import { theWordsList } from "./the-words-list";
 //
 
 // TheWords configuration
-export const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
 const theWordsKeyAttribute = "data-word-key"; // Used to find theWords key after page has been configured
 
 const theWordsTooltip_OffsetFromParent = 5;
 
 // TheWords database
-const theWordsDb = new Map<string, string>(theWordsList);
+const theWordsDb = new Map<string, string>(
+  // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
+  theWordsList.map((value) => [wordKeyFromWord(value[0]), value[1]])
+);
 
 // TheWords tooltips (starts empty)
 const theWordsTooltips = new Map<string, HTMLElement>();
@@ -27,10 +30,6 @@ const theWordsTooltips = new Map<string, HTMLElement>();
 //
 // Building tooltips
 //
-
-export function wordKeyFromWord(word: string) {
-  return word.toLowerCase().replace(/ /g, "_");
-}
 
 function buildTooltipElement(wordKey: string): HTMLDivElement {
   // Create <div>
