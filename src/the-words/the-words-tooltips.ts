@@ -21,7 +21,10 @@ const theWordsTooltip_OffsetFromParent = 5;
 // TheWords database
 const theWordsDb = new Map<string, string>(
   // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
-  theWordsList.map((value) => [wordKeyFromWord(value[0]), value[1]])
+  theWordsList.map(([wordDisplayName, wordDefinition]) => [
+    wordKeyFromWord(wordDisplayName),
+    wordDefinition,
+  ])
 );
 
 // TheWords tooltips (starts empty)
