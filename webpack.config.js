@@ -3,7 +3,6 @@ const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.ts",
   mode: "development",
   target: ["web", "es5"],
   devServer: {
