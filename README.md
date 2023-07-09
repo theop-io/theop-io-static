@@ -1,4 +1,5 @@
 # theop-io.github.io
+
 Static assets for https://theop.io
 
 # Developer setup
@@ -9,3 +10,4 @@ Static assets for https://theop.io
 
 - `npm build`
 - `npm serve` -> serves on port 5055
+- `npm format:fix`
