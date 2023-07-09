@@ -1,1 +1,7 @@
 generated/
+
+# npm
+/node_modules/
+
+# Gulp/etc. output
+/dist/

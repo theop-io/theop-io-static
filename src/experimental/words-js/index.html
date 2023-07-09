@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theop.io experimental: Words</title>
+
+    <!-- Some basic CSS styling so we don't lose our minds -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+    <style>
+        .tooltip_button {
+            color: red;
+        }
+
+        .tooltip_popup {
+            /* Display */
+            display: none;
+
+            /* Position */
+            position: absolute;
+            width: max-content;
+            max-width: 90%;
+            top: 0;
+            left: 0;
+
+            /* Style */
+            background: #222;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+
+        .tooltip_arrow {
+            position: absolute;
+            background: #222;
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 50% width on desktops (not small), otherwise default to 80% width (i.e. mobile) -->
+    <div class="w-80 w-50-ns center sans-serif f2 lh-copy">
+        <div class="glossary">
+            <a href="#glossary_word1">My button</a> is quite a powerful <a href="#glossary_word2">feature</a>
+            blah blah <a href="#glossary">stuffy stuff</a>. <a href="#glossary">Blah</a> blah blah. Loads more text <a
+                href="#glossary_notfound">here</a> to follow.
+        </div>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+
+</html>

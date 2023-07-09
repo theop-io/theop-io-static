@@ -1,0 +1,26 @@
+{
+  "name": "theop-io.github.io",
+  "version": "1.0.0",
+  "description": "Static assets for https://theop.io",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "gulp",
+    "serve": "gulp serve"
+  },
+  "author": "Robin Giese",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-webserver": "^0.9.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.1",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.4.4"
+  }
+}
