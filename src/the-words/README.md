@@ -18,6 +18,8 @@ We have two modes for looking up the definition of a word: automatic and explici
 
 Since some of our words have multiple keys (e.g. "flop/floppy"), they get automatically broken into "flop" and "floppy" (but are also available as "flop/floppy").
 
+Also check out [this test page](https://theop-io-static.netlify.app/the-words/) and [the code behind it](index.html).
+
 ### Maintaining the word list
 
 [the-words-list.ts](the-words-list.ts) contains the list of words for our site-wide glossary.
