@@ -55,7 +55,7 @@ function buildTooltipElement(wordKey: string): HTMLDivElement {
   // Configure <div>
   divElement.classList.add("tooltip_popup");
   divElement.role = "tooltip";
-  divElement.id = `tooltip_popup_${wordKey}`;
+  divElement.id = `tooltip_popup_${wordKey}`.replace(/\//g, "_"); // Word keys may be multi-keys, i.e. have slashes -> fix that for our ID
 
   // Create and append content
   divElement.appendChild(document.createTextNode(theWordsDb.get(wordKey) ?? ""));
