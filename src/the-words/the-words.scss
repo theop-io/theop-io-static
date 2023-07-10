@@ -19,6 +19,9 @@
     max-width: 50%;
   }
 
+  /* Z-order */
+  z-index: 10; // Make sure this is on top
+
   /* Style */
   background: #222;
   color: white;
