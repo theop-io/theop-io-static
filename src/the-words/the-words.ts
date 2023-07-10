@@ -171,7 +171,12 @@ const wordIndexParentDiv = document.querySelector("#the_words_index");
 if (wordIndexParentDiv) {
   theWordsList
     .map((x) => x[0])
-    .forEach((theWord) => {
+    .forEach((theWord, idx) => {
+      if (idx > 0) {
+        // Add spacer in parent div
+        wordIndexParentDiv.appendChild(document.createTextNode(" \u2022 "));
+      }
+
       // Create <a>
       const anchorElement = document.createElement("a");
 
@@ -184,9 +189,6 @@ if (wordIndexParentDiv) {
 
       // Add to parent div
       wordIndexParentDiv.appendChild(anchorElement);
-
-      // Add spacer in parent div
-      wordIndexParentDiv.appendChild(document.createTextNode(" "));
     });
 }
 
