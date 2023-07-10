@@ -4,6 +4,10 @@
   color: red;
 }
 
+.tooltip_button:hover {
+  background: #ddd;
+}
+
 .tooltip_popup {
   /* Display */
   display: none;
