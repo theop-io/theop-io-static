@@ -22,13 +22,21 @@
   /* Z-order */
   z-index: 10; // Make sure this is on top
 
-  /* Style */
+  /* Outline style */
   background: #222;
   color: white;
   font-weight: bold;
-  padding: 5px;
-  border-radius: 4px;
-  font-size: 90%;
+  padding: 1em;
+  border-radius: 0;
+
+  /* Text style (lifted from SquareSpace site design) */
+  font-family: "itc-avant-garde-gothic-pro", "proxima-nova", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .tooltip_arrow {
