@@ -1,7 +1,9 @@
 @import "../index.scss";
 
 .tooltip_button {
-  color: red;
+  // !important these to override SquareSpace link styling
+  color: red !important;
+  text-decoration-line: none !important;
 }
 
 .tooltip_button:hover {
