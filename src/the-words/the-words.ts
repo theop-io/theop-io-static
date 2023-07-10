@@ -23,13 +23,23 @@ function wordKeyFromWord(word: string) {
   return word.toLowerCase().replace(/ /g, "_");
 }
 
-const theWordsDb = new Map<string, string>(
-  // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
-  theWordsList.map(([wordDisplayName, wordDefinition]) => [
-    wordKeyFromWord(wordDisplayName),
-    wordDefinition,
-  ])
-);
+const theWordsDb = new Map<string, string>();
+
+theWordsList.forEach(([wordDisplayName, wordDefinition]) => {
+  // Words may have multiple keys, e.g. "Flop/Floppies" -> break on slash...
+  const splitWordDisplayNames = wordDisplayName.split("/");
+
+  // ...and insert each as their own entry
+  splitWordDisplayNames.forEach((wordDisplayName_Single) => {
+    // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
+    theWordsDb.set(wordKeyFromWord(wordDisplayName_Single), wordDefinition);
+  });
+
+  if (splitWordDisplayNames.length > 1) {
+    // ...and also insert the original combined word key so the Index lookup works
+    theWordsDb.set(wordKeyFromWord(wordDisplayName), wordDefinition);
+  }
+});
 
 // TheWords tooltips (starts empty)
 const theWordsTooltips = new Map<string, HTMLElement>();
