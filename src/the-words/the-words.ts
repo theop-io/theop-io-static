@@ -216,7 +216,11 @@ allWordsLinks.forEach((linkElement) => {
         return undefined;
       }
 
-      return wordKeyFromWord(linkElement.textContent);
+      // Remove punctuation-style characters that might be included in the link text
+      // so they don't contaminate our word lookup.
+      const linkText = linkElement.textContent.replace(/[\.,'"“”]/g, "");
+
+      return wordKeyFromWord(linkText);
     }
 
     if (linkPrefixRemainder[0] === "_") {
