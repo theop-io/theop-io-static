@@ -25,6 +25,18 @@ This tweak evaluates all links on every page, searches for (and removes) the `#n
 
 **Note that this tweak is currently commented-out because it presumably has worse performance than the simple CSS-based tweak.**
 
+## "Become a member!" button quotes
+
+These buttons are regular links; just add a `#member_signup` suffix to the link target and we'll replace the button content with a random quote
+from [member-signup-button-quotes.ts](member-signup-button-quotes).
+
+### How it's done
+
+The only tool we have for identifying links programmatically is the link target itself (much like for [The Words](../the-words/README.md)).
+
+This tweak evaluates all links on every page, searches for (and removes) the `#member_signup` suffix,
+and replaces the link's content with a quote from [member-signup-button-quotes.ts](member-signup-button-quotes).
+
 ## Sundry engineering notes
 
 - to color text site-standard red, use `var(--paragraphLinkColor)`.
