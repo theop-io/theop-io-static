@@ -182,7 +182,7 @@ function showWordTooltip(event: Event) {
   theWordsActiveWordKey = wordKey;
 }
 
-function hideWordTooltip(_event: Event) {
+function hideWordTooltip() {
   // Cancel previously active timer, if any
   cancelHideTooltipTimer();
 
@@ -252,7 +252,7 @@ allWordsLinks.forEach((linkElement) => {
 
       // Remove punctuation-style characters that might be included in the link text
       // so they don't contaminate our word lookup.
-      const linkText = linkElement.textContent.replace(/[\.,'"“”]/g, "");
+      const linkText = linkElement.textContent.replace(/[.,'"“”]/g, "");
 
       return wordKeyFromWord(linkText);
     }
