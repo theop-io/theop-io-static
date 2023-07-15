@@ -1,0 +1,43 @@
+//
+// Links without underlines
+//
+
+.no_underline {
+  /* Making this available for any custom-styled text that might want it */
+  text-decoration-line: none !important;
+}
+
+a {
+  //
+  // For this hack, we're selecting anchors that contain a child span with an explicit inline style
+  // calling for a strike-through (`line-through`) which is what the SquareSpace editor generates, i.e.:
+  //
+  // - an interior span, it doesn't decorate the <a> itself
+  // - an interior span with an inline `style=""` attribute
+  //
+  // Because the CSS attribute selector is a direct text match and not a regular expression,
+  // we have to specify this twice:
+  //
+  // - once without a space in the middle of the `style` attribute (what SquareSpace generates)
+  // - once with a space in the middle of the `style` attribute (which is what our VSCode-formatted test code defines)
+  //
+  // This hack is obviously on the fragile side, it's just (probably) the better choice compared to doing this in JavaScript.
+  //
+  // Note that we're selecting for spans inside an <a> so that non-anchor text can still get normal strike-throughs.
+  //
+
+  @mixin no_underline_span {
+    // Remove underline
+    text-decoration: none !important;
+
+    // Treat this span as an inline block so we can break the inheritance of the text-decoration from its <a> parent
+    display: inline-block;
+  }
+
+  span[style="text-decoration:line-through"] {
+    @include no_underline_span();
+  }
+  span[style="text-decoration: line-through"] {
+    @include no_underline_span();
+  }
+}
