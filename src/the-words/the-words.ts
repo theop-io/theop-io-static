@@ -18,6 +18,8 @@ const theWordsKeyAttribute = "data-word-key"; // Used to find theWords key after
 
 const theWordsTooltip_OffsetFromParent = 5;
 
+const theWordsTooltip_DelayBeforeClosing_msec = 1000;
+
 // TheWords database
 function wordKeyFromWord(word: string) {
   return word.toLowerCase().replace(/ /g, "_");
@@ -75,6 +77,34 @@ function buildTooltipElement(wordKey: string): HTMLDivElement {
 // Listeners
 //
 
+let theWordsActiveWordKey: string | undefined = undefined;
+let theWordsHideTooltipTimer: number | undefined = undefined;
+
+function hideTooltipForWordKey(wordKey: string) {
+  const tooltipElement = theWordsTooltips.get(wordKey);
+
+  if (tooltipElement === undefined) {
+    return;
+  }
+
+  // Hide tooltip
+  tooltipElement.style.display = "";
+}
+
+function hideActiveWordTooltip() {
+  if (theWordsActiveWordKey != undefined) {
+    hideTooltipForWordKey(theWordsActiveWordKey);
+    theWordsActiveWordKey = undefined;
+  }
+}
+
+function cancelHideTooltipTimer() {
+  if (theWordsHideTooltipTimer !== undefined) {
+    window.clearTimeout(theWordsHideTooltipTimer);
+    theWordsHideTooltipTimer = undefined;
+  }
+}
+
 function showWordTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
@@ -90,7 +120,14 @@ function showWordTooltip(event: Event) {
     return;
   }
 
-  // Build core middleware for FloatingUI
+  // Cancel previously active timer, if any
+  cancelHideTooltipTimer();
+
+  // Close previously active tooltip, if any
+  hideActiveWordTooltip();
+
+  // Set up new tooltip
+  // - Build core middleware for FloatingUI
   const middleware = [
     offset(theWordsTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
     shift(), // Automatically shift into view
@@ -103,7 +140,7 @@ function showWordTooltip(event: Event) {
     middleware.push(arrow({ element: arrowElement }));
   }
 
-  // Update tooltip position
+  // - Update tooltip position
   computePosition(linkElement, tooltipElement, {
     placement: "bottom",
     middleware,
@@ -140,25 +177,20 @@ function showWordTooltip(event: Event) {
 
   // Show tooltip
   tooltipElement.style.display = "block";
+
+  // Commit state
+  theWordsActiveWordKey = wordKey;
 }
 
-function hideWordTooltip(event: Event) {
-  const linkElement = event.target as HTMLLinkElement;
+function hideWordTooltip(_event: Event) {
+  // Cancel previously active timer, if any
+  cancelHideTooltipTimer();
 
-  const theWordsKey = linkElement.getAttribute(theWordsKeyAttribute);
-
-  if (theWordsKey === null) {
-    return;
-  }
-
-  const tooltipElement = theWordsTooltips.get(theWordsKey);
-
-  if (tooltipElement === undefined) {
-    return;
-  }
-
-  // Hide tooltip
-  tooltipElement.style.display = "";
+  // Schedule hiding tooltip after a delay
+  theWordsHideTooltipTimer = window.setTimeout(
+    hideActiveWordTooltip,
+    theWordsTooltip_DelayBeforeClosing_msec
+  );
 }
 
 //
