@@ -46,6 +46,23 @@ For example:
 
 is available for lookup as `flop`, `floppy`, and `flop/floppy`.
 
+### Including the word index on the main index page
+
+Provide the following HTML code block:
+
+```
+<div class="clearfix">
+  <!-- Search bar -->
+  <form id="the_words_search_form">
+    <input id="the_words_search_input" type="search" placeholder="Search..." />
+  </form>
+</div>
+<div id="the_words_index">
+  <!-- Word index gets injected here -->
+  Loading...
+</div>
+```
+
 ## Engineering notes
 
 ### iPhone compatibility
