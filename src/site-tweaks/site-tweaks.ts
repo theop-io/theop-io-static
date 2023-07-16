@@ -92,15 +92,8 @@ function styleNavigationElement(element: HTMLLinkElement | HTMLSpanElement) {
     )
     .forEach(styleNavigationElement);
 
-  // - Top-level mobile menu links
+  // - Top-level and nested mobile menu links
   document
-    .querySelectorAll<HTMLLinkElement>("div.header-menu-nav-item a")
-    .forEach(styleNavigationElement);
-
-  // - Nested mobile menu links
-  document
-    .querySelectorAll<HTMLLinkElement>(
-      "div.header-menu-nav-item a div.header-menu-nav-item-content"
-    )
+    .querySelectorAll<HTMLLinkElement>("div.header-menu-nav-item-content")
     .forEach(styleNavigationElement);
 }
