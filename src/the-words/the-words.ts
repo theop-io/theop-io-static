@@ -22,7 +22,10 @@ const theWordsTooltip_DelayBeforeClosing_msec = 1000;
 
 // TheWords database
 function wordKeyFromWord(word: string) {
-  return word.toLowerCase().replace(/ /g, "_");
+  return word
+    .toLowerCase()
+    .replace(/[`'“’]/g, "")
+    .replace(/ /g, "_");
 }
 
 const theWordsDb = new Map<string, string>();
