@@ -41,3 +41,14 @@ a {
     @include no_underline_span();
   }
 }
+
+//
+// Navigation: design preference: don't show underline for nav link for active section
+// - for large screens only
+// - for small screens, the media query-based underline in the full screen menu still works as intended
+//
+
+body:not(.header--menu-open) .header-nav-item--active > a {
+  background-image: none;
+  background-size: 0;
+}
