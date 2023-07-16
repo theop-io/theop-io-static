@@ -1,16 +1,16 @@
 export const theWordsList: [string, string][] = [
   [
     "Skate Wheels",
-    "Two rows of skateboard wheels placed at 90 degrees to each other used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track.
-",
+    "Two rows of skateboard wheels placed at 90 degrees to each other used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track."
+    ,
   ],[
     "Master",
-    "Usually the first wide shot of a scene that sees the entire story and all the players. The average master will generally run the entire scene and coverage will be determines off it it as well as things like the line.
-",
+    "Usually the first wide shot of a scene that sees the entire story and all the players. The average master will generally run the entire scene and coverage will be determines off it it as well as things like the line."
+    ,
   ],[
     "Remote Head",
-    "a two (pan/tilt) or three (pan/tilt/roll) axis head that is remotely controlled by either wheels or a joystick. These can generally be found on the end of a crane allowing the operator to operate a shot where they can’t get near the camera, but they can also be on a dolly, on a ladder, or anywhere that a camera could be put where the operator can’t easily access it.
-",
+    "a two (pan/tilt) or three (pan/tilt/roll) axis head that is remotely controlled by either wheels or a joystick. These can generally be found on the end of a crane allowing the operator to operate a shot where they can’t get near the camera, but they can also be on a dolly, on a ladder, or anywhere that a camera could be put where the operator can’t easily access it."
+    ,
   ],[
     "Practical",
     "Something that is real and not fake or a prop. A practical location is an actual location - a diner, a drug store, a restaurant - as opposed to a set. A practical when talking about a light is a light that exists in the world of the movie and is being used for lighting but can be seen on camera. “The actor will then turn off the practical before she gets into bed.”
