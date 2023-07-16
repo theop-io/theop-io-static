@@ -374,7 +374,9 @@ if (theWordsSearchButton) {
           return 100;
         }
 
-        if (searchTermRegEx.test(theWordsKeyToDefinition.get(wordKey) ?? "")) {
+        const definitionText = theWordsKeyToDefinition.get(wordKey);
+
+        if (definitionText && searchTermRegEx.test(definitionText)) {
           return 50;
         }
 
