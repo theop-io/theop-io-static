@@ -12,4 +12,5 @@ export const memberSignupButtonQuotes = [
   "“I want to be alone, so I can click this button and become a member today.”",
   "“Mama always said that life is like a box of chocolates, you never know what you are gonna get. But if you become a member today, you will.”",
   "“Houston, we have a problem. But I'm pretty sure you can fix it by becoming a member today. ”",
+  "“What we've got here is a failure to communicate. Which is why you need to become a member.”",
 ];
