@@ -53,24 +53,28 @@ theWordsList.forEach(([wordDisplayName, wordDefinition]) => {
   }
 });
 
-// TheWords tooltips (starts empty)
-const theWordsTooltips = new Map<string, HTMLElement>();
+// State
+// - Map of tooltips (starts empty, built out as we identify links requiring tooltips on the page)
+//   NOTE: We inject tooltip <div>'s for each identified link so screen readers can follow them via `aria-labelledby="the-div's-id"`,
+//         rather than instantiating a tooltip transiently on hover (though that would be more efficient).
+const theWordsTooltips = new Map<string, HTMLDivElement>();
+
+// - Latest search term
+let theWordsCurrentSearchTerm = "";
+
+// - Active tooltip
+let theWordsActiveWordKey: string | undefined = undefined;
+let theWordsHideTooltipTimer: number | undefined = undefined;
 
 //
 // Building tooltips
 //
 
-function buildTooltipElement(wordKey: string): HTMLDivElement {
-  // Create <div>
-  const divElement = document.createElement("div");
+function updateTheWordsTooltipBody(wordKey: string, divElement: HTMLDivElement) {
+  // Clear out any old content
+  divElement.innerHTML = "";
 
-  // Configure <div>
-  divElement.classList.add("tooltip_popup");
-  divElement.role = "tooltip";
-  divElement.id = `tooltip_popup_${wordKey}`.replace(/\//g, "_"); // Word keys may be multi-keys, i.e. have slashes -> fix that for our ID
-
-  // Create and append content
-  // - Term
+  // Term
   const displayName = theWordsKeyToDisplayName.get(wordKey);
 
   if (displayName) {
@@ -81,13 +85,42 @@ function buildTooltipElement(wordKey: string): HTMLDivElement {
     divElement.appendChild(termElement);
   }
 
-  // - Definition
-  divElement.appendChild(document.createTextNode(theWordsKeyToDefinition.get(wordKey) ?? ""));
+  // Definition
+  const definitionText = theWordsKeyToDefinition.get(wordKey) ?? "";
+
+  if (!theWordsCurrentSearchTerm) {
+    // Insert simple text
+    divElement.appendChild(document.createTextNode(definitionText));
+  } else {
+    // Insert text with search term matches wrapped in <span>s
+    const searchTermRegEx = new RegExp(`(${theWordsCurrentSearchTerm})`, "ig");
+
+    divElement.insertAdjacentHTML(
+      "beforeend",
+      definitionText.replace(
+        searchTermRegEx,
+        "<span class='tooltip_definition_search_match'>$&</span>" // $& == insert matched text
+      )
+    );
+  }
 
   // Create and append inner arrow <div>
   const arrowDivElement = document.createElement("div");
   arrowDivElement.classList.add("tooltip_arrow");
   divElement.appendChild(arrowDivElement);
+}
+
+function buildTheWordsTooltipElement(wordKey: string): HTMLDivElement {
+  // Create <div>
+  const divElement = document.createElement("div");
+
+  // Configure <div>
+  divElement.classList.add("tooltip_popup");
+  divElement.role = "tooltip";
+  divElement.id = `tooltip_popup_${wordKey}`.replace(/\//g, "_"); // Word keys may be multi-keys, i.e. have slashes -> fix that for our ID
+
+  // Create and append content
+  updateTheWordsTooltipBody(wordKey, divElement);
 
   // Add to document
   document.body.appendChild(divElement);
@@ -98,9 +131,6 @@ function buildTooltipElement(wordKey: string): HTMLDivElement {
 //
 // Listeners
 //
-
-let theWordsActiveWordKey: string | undefined = undefined;
-let theWordsHideTooltipTimer: number | undefined = undefined;
 
 function hideTooltipForWordKey(wordKey: string) {
   const tooltipElement = theWordsTooltips.get(wordKey);
@@ -149,6 +179,9 @@ function showWordTooltip(event: Event) {
   hideActiveWordTooltip();
 
   // Set up new tooltip
+  // - Update content
+  updateTheWordsTooltipBody(wordKey, tooltipElement);
+
   // - Build core middleware for FloatingUI
   const middleware = [
     offset(theWordsTooltip_OffsetFromParent), // Provide some spacing between button and tooltip
@@ -315,7 +348,7 @@ allWordsLinks.forEach((linkElement) => {
 
   // Build tooltip element, if it hasn't been built previously for this key
   if (theWordsTooltips.get(wordKey) === undefined) {
-    theWordsTooltips.set(wordKey, buildTooltipElement(wordKey));
+    theWordsTooltips.set(wordKey, buildTheWordsTooltipElement(wordKey));
   }
 
   // Apply settings to link element
@@ -343,49 +376,80 @@ allWordsLinks.forEach((linkElement) => {
 // Search functionality
 //
 
+function onWordSearchTermUpdate(event: Event) {
+  const searchTerm = (event.target as HTMLInputElement).value;
+
+  if (searchTerm === theWordsCurrentSearchTerm) {
+    // No updates needed
+    return;
+  }
+
+  // Commit search term
+  theWordsCurrentSearchTerm = searchTerm;
+
+  // Process updates
+  function updateActiveTooltip() {
+    if (!theWordsActiveWordKey) {
+      return;
+    }
+
+    const tooltipElement = theWordsTooltips.get(theWordsActiveWordKey);
+
+    if (tooltipElement === undefined) {
+      return;
+    }
+
+    updateTheWordsTooltipBody(theWordsActiveWordKey, tooltipElement);
+  }
+
+  if (!searchTerm) {
+    // Search ended
+    // - Restore visibility on all links
+    for (const anchorElement of wordIndexKeyToAnchorMap.values()) {
+      anchorElement.style.opacity = "100%";
+    }
+
+    // - Update currently shown tooltip, if any
+    updateActiveTooltip();
+
+    return;
+  }
+
+  // Search word keys (these are already conformed to lowercase)...
+  const searchTermAsWordKey = wordKeyFromWord(searchTerm);
+
+  // ...and definitions (use a regular expression for case-insensitive search)
+  const searchTermRegEx = new RegExp(searchTerm, "i");
+
+  for (const [wordKey, anchorElement] of wordIndexKeyToAnchorMap) {
+    const anchorOpacity = (function () {
+      if (wordKey.includes(searchTermAsWordKey)) {
+        // Show term fully when we match the term
+        return 100;
+      }
+
+      const definitionText = theWordsKeyToDefinition.get(wordKey);
+
+      if (definitionText && searchTermRegEx.test(definitionText)) {
+        // Show term partially when we match just the definition
+        return 50;
+      }
+
+      // Show the term a little when it does not match
+      return 10;
+    })();
+
+    anchorElement.style.opacity = `${anchorOpacity}%`;
+  }
+
+  // Update currently shown tooltip, if any
+  updateActiveTooltip();
+}
+
 const theWordsSearchButton = document.querySelector<HTMLInputElement>(
   "input#the_words_search_input"
 );
 
 if (theWordsSearchButton) {
-  function searchWords(event: Event) {
-    const searchTerm = (event.target as HTMLInputElement).value;
-
-    console.log(`Search term is '${searchTerm}'`);
-
-    if (!searchTerm) {
-      // Restore visibility on all links
-      for (const anchorElement of wordIndexKeyToAnchorMap.values()) {
-        anchorElement.style.opacity = "100%";
-      }
-
-      return;
-    }
-
-    // Search word keys (these are already conformed to lowercase)...
-    const searchTermAsWordKey = wordKeyFromWord(searchTerm);
-
-    // ...and definitions (use a regular expression for case-insensitive search)
-    const searchTermRegEx = new RegExp(searchTerm, "i");
-
-    for (const [wordKey, anchorElement] of wordIndexKeyToAnchorMap) {
-      const anchorOpacity = (function () {
-        if (wordKey.includes(searchTermAsWordKey)) {
-          return 100;
-        }
-
-        const definitionText = theWordsKeyToDefinition.get(wordKey);
-
-        if (definitionText && searchTermRegEx.test(definitionText)) {
-          return 50;
-        }
-
-        return 10;
-      })();
-
-      anchorElement.style.opacity = `${anchorOpacity}%`;
-    }
-  }
-
-  theWordsSearchButton.addEventListener("input", searchWords);
+  theWordsSearchButton.addEventListener("input", onWordSearchTermUpdate);
 }
