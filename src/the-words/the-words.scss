@@ -45,6 +45,12 @@
   line-height: 1.2;
 }
 
+.tooltip_term {
+  /* The term we're showing the tooltip for, inlined in the tooltip */
+  color: red;
+  padding-right: 0.5em;
+}
+
 .tooltip_arrow {
   position: absolute;
   background: #222;

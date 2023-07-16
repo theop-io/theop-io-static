@@ -28,7 +28,8 @@ function wordKeyFromWord(word: string) {
     .replace(/ /g, "_");
 }
 
-const theWordsDb = new Map<string, string>();
+const theWordsKeyToDefinition = new Map<string, string>();
+const theWordsKeyToDisplayName = new Map<string, string>();
 
 theWordsList.forEach(([wordDisplayName, wordDefinition]) => {
   // Words may have multiple keys, e.g. "Flop/Floppies" -> break on slash...
@@ -37,12 +38,18 @@ theWordsList.forEach(([wordDisplayName, wordDefinition]) => {
   // ...and insert each as their own entry
   splitWordDisplayNames.forEach((wordDisplayName_Single) => {
     // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
-    theWordsDb.set(wordKeyFromWord(wordDisplayName_Single), wordDefinition);
+    const wordKey = wordKeyFromWord(wordDisplayName_Single);
+
+    theWordsKeyToDefinition.set(wordKey, wordDefinition);
+    theWordsKeyToDisplayName.set(wordKey, wordDisplayName);
   });
 
   if (splitWordDisplayNames.length > 1) {
     // ...and also insert the original combined word key so the Index lookup works
-    theWordsDb.set(wordKeyFromWord(wordDisplayName), wordDefinition);
+    const wordKey = wordKeyFromWord(wordDisplayName);
+
+    theWordsKeyToDefinition.set(wordKey, wordDefinition);
+    theWordsKeyToDisplayName.set(wordKey, wordDisplayName);
   }
 });
 
@@ -63,7 +70,19 @@ function buildTooltipElement(wordKey: string): HTMLDivElement {
   divElement.id = `tooltip_popup_${wordKey}`.replace(/\//g, "_"); // Word keys may be multi-keys, i.e. have slashes -> fix that for our ID
 
   // Create and append content
-  divElement.appendChild(document.createTextNode(theWordsDb.get(wordKey) ?? ""));
+  // - Term
+  const displayName = theWordsKeyToDisplayName.get(wordKey);
+
+  if (displayName) {
+    const termElement = document.createElement("span");
+    termElement.appendChild(document.createTextNode(`${displayName}:`));
+    termElement.classList.add("tooltip_term");
+
+    divElement.appendChild(termElement);
+  }
+
+  // - Definition
+  divElement.appendChild(document.createTextNode(theWordsKeyToDefinition.get(wordKey) ?? ""));
 
   // Create and append inner arrow <div>
   const arrowDivElement = document.createElement("div");
@@ -286,7 +305,7 @@ allWordsLinks.forEach((linkElement) => {
   }
 
   // Try to retrieve definition from database
-  const wordDefinition = theWordsDb.get(wordKey);
+  const wordDefinition = theWordsKeyToDefinition.get(wordKey);
 
   if (wordDefinition === undefined) {
     // Invalid link - ignore
@@ -355,7 +374,7 @@ if (theWordsSearchButton) {
           return 100;
         }
 
-        if (searchTermRegEx.test(theWordsDb.get(wordKey) ?? "")) {
+        if (searchTermRegEx.test(theWordsKeyToDefinition.get(wordKey) ?? "")) {
           return 50;
         }
 
