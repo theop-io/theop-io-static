@@ -2,7 +2,7 @@ export const theWordsList: [string, string][] = [
   [
     "Skate Wheels",
     "Two rows of skateboard wheels placed at 90 degrees to each other used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track.",
-],
+  ],
   
   [
     "Master",
