@@ -198,9 +198,13 @@ function hideWordTooltip() {
 // (do this before we build and bind the tooltips below so these also get tooltip'd)
 //
 
-const wordIndexParentDiv = document.querySelector("#the_words_index");
+const wordIndexParentDiv = document.querySelector<HTMLDivElement>("#the_words_index");
 
 if (wordIndexParentDiv) {
+  // Clear "Loading..." message
+  wordIndexParentDiv.innerHTML = "";
+
+  // Populate content
   theWordsList
     .map((x) => x[0])
     .forEach((theWord, idx) => {
