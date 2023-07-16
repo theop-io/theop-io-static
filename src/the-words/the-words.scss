@@ -71,10 +71,13 @@
 
 form#the_words_search_form {
   /* Placement */
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
 }
 
 input#the_words_search_input {
+  /* Position */
+  float: right;
+
   /* Outline */
   border: 1px solid #aaa;
   border-radius: 1rem;
