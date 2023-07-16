@@ -52,7 +52,12 @@ allNoUnderlineLinks.forEach((linkElement) => {
 //
 
 function styleNavigationElement(element: HTMLLinkElement | HTMLSpanElement) {
-  const innerText = element.innerText;
+  const linkTextElement =
+    element.querySelector("div") ?? // Descend into inner <div> if it exists
+    element.querySelector("span:not([class])") ?? // Mobile nested menu may be in a class-less span
+    element; // Otherwise use this element as-is
+
+  const innerText = linkTextElement.innerText;
   const thePrefix = "The";
 
   if (!innerText.startsWith(thePrefix)) {
@@ -61,7 +66,7 @@ function styleNavigationElement(element: HTMLLinkElement | HTMLSpanElement) {
   }
 
   // Reset element content to just "The" prefix
-  element.innerText = thePrefix;
+  linkTextElement.innerText = thePrefix;
 
   // Add span for remaining inner text wrapped in a class'd <span>
   const remainingInnerText = innerText.substring(thePrefix.length);
@@ -70,18 +75,32 @@ function styleNavigationElement(element: HTMLLinkElement | HTMLSpanElement) {
   innerSpan.appendChild(document.createTextNode(remainingInnerText));
   innerSpan.classList.add("header-nav-word-highlight");
 
-  element.appendChild(innerSpan);
+  linkTextElement.appendChild(innerSpan);
 }
 
 {
-  // Somewhat fragile matching of SquareSpace 7.1 navigation bar elements
-  const topLevelNavigationLinks =
-    document.querySelectorAll<HTMLLinkElement>("div.header-nav-item a");
+  // Somewhat fragile matching of SquareSpace 7.1 navigation bar elements...
+  // - Top-level navigation links
+  document
+    .querySelectorAll<HTMLLinkElement>("div.header-nav-item a")
+    .forEach(styleNavigationElement);
 
-  const nestedNavigationLinks = document.querySelectorAll<HTMLSpanElement>(
-    "div.header-nav-folder-item a span.header-nav-folder-item-content"
-  );
+  // - Nested navigation links
+  document
+    .querySelectorAll<HTMLSpanElement>(
+      "div.header-nav-folder-item a span.header-nav-folder-item-content"
+    )
+    .forEach(styleNavigationElement);
 
-  topLevelNavigationLinks.forEach(styleNavigationElement);
-  nestedNavigationLinks.forEach(styleNavigationElement);
+  // - Top-level mobile menu links
+  document
+    .querySelectorAll<HTMLLinkElement>("div.header-menu-nav-item a")
+    .forEach(styleNavigationElement);
+
+  // - Nested mobile menu links
+  document
+    .querySelectorAll<HTMLLinkElement>(
+      "div.header-menu-nav-item a div.header-menu-nav-item-content"
+    )
+    .forEach(styleNavigationElement);
 }
