@@ -1,5 +1,9 @@
 @import "../index.scss";
 
+//
+// The button (the link in the text or index that a tooltip will pop up for)
+//
+
 .tooltip_button {
   // !important these to override SquareSpace link styling
   color: red !important;
@@ -9,6 +13,10 @@
 .tooltip_button:hover {
   background: #ddd;
 }
+
+//
+// The tooltip (definition popup/bubble/cloud thing)
+//
 
 .tooltip_popup {
   /* Display */
@@ -46,17 +54,19 @@
 }
 
 .tooltip_term {
-  /* The term we're showing the tooltip for, inlined in the tooltip */
+  /* Interior to the tooltip, this is the term we're showing the tooltip for */
   color: red;
   padding-right: 0.5em;
 }
 
 .tooltip_definition_search_match {
+  /* Interior highlighting in the tooltip when a search is active, wrapped around text matching the search term */
   color: red;
   font-weight: 700;
 }
 
 .tooltip_arrow {
+  /* Interior element forming the arrow back to the button we're hovering over */
   position: absolute;
   background: #222;
   width: 8px;
@@ -64,11 +74,11 @@
   transform: rotate(45deg);
 }
 
-.the_words_index_word {
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-}
+//
+// The Words index page
+//
 
+// Word search
 form#the_words_search_form {
   /* Placement */
   padding-bottom: 1.5em;
@@ -97,4 +107,11 @@ input#the_words_search_input {
 
   /* Text */
   font-size: 80%;
+}
+
+// Word index
+.the_words_index_word {
+  /* Styling a given word (additional styling beyond .tooltip_button) */
+  padding-left: 0.2em;
+  padding-right: 0.2em;
 }
