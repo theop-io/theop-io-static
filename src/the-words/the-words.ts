@@ -202,6 +202,7 @@ function hideWordTooltip() {
 //
 
 const wordIndexParentDiv = document.querySelector<HTMLDivElement>("#the_words_index");
+const wordIndexKeyToAnchorMap = new Map<string, HTMLAnchorElement>();
 
 if (wordIndexParentDiv) {
   // Clear "Loading..." message
@@ -211,6 +212,8 @@ if (wordIndexParentDiv) {
   theWordsList
     .map((x) => x[0])
     .forEach((theWord, idx) => {
+      const wordKey = wordKeyFromWord(theWord);
+
       if (idx > 0) {
         // Add spacer in parent div
         wordIndexParentDiv.appendChild(document.createTextNode(" \u2022 "));
@@ -221,13 +224,16 @@ if (wordIndexParentDiv) {
 
       // Configure <a>
       anchorElement.classList.add("the_words_index_word");
-      anchorElement.href = theWordsLinkPrefix + "_" + wordKeyFromWord(theWord);
+      anchorElement.href = theWordsLinkPrefix + "_" + wordKey;
 
       // Create and append content
       anchorElement.appendChild(document.createTextNode(theWord));
 
       // Add to parent div
       wordIndexParentDiv.appendChild(anchorElement);
+
+      // Commit state
+      wordIndexKeyToAnchorMap.set(wordKey, anchorElement);
     });
 }
 
@@ -313,3 +319,52 @@ allWordsLinks.forEach((linkElement) => {
   linkElement.addEventListener("mouseleave", hideWordTooltip);
   linkElement.addEventListener("blur", hideWordTooltip);
 });
+
+//
+// Search functionality
+//
+
+const theWordsSearchButton = document.querySelector<HTMLInputElement>(
+  "input#the_words_search_input"
+);
+
+if (theWordsSearchButton) {
+  function searchWords(event: Event) {
+    const searchTerm = (event.target as HTMLInputElement).value;
+
+    console.log(`Search term is '${searchTerm}'`);
+
+    if (!searchTerm) {
+      // Restore visibility on all links
+      for (const anchorElement of wordIndexKeyToAnchorMap.values()) {
+        anchorElement.style.opacity = "100%";
+      }
+
+      return;
+    }
+
+    // Search word keys (these are already conformed to lowercase)...
+    const searchTermAsWordKey = wordKeyFromWord(searchTerm);
+
+    // ...and definitions (use a regular expression for case-insensitive search)
+    const searchTermRegEx = new RegExp(searchTerm, "i");
+
+    for (const [wordKey, anchorElement] of wordIndexKeyToAnchorMap) {
+      const anchorOpacity = (function () {
+        if (wordKey.includes(searchTermAsWordKey)) {
+          return 100;
+        }
+
+        if (searchTermRegEx.test(theWordsDb.get(wordKey) ?? "")) {
+          return 50;
+        }
+
+        return 10;
+      })();
+
+      anchorElement.style.opacity = `${anchorOpacity}%`;
+    }
+  }
+
+  theWordsSearchButton.addEventListener("input", searchWords);
+}
