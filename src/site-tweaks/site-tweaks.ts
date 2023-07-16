@@ -46,3 +46,42 @@ allNoUnderlineLinks.forEach((linkElement) => {
     linkElement.innerText = memberSignupButtonQuotes[quoteIndex];
   });
 }
+
+//
+// Site tweak: Apply coloring to navigation bar entries
+//
+
+function styleNavigationElement(element: HTMLLinkElement | HTMLSpanElement) {
+  const innerText = element.innerText;
+  const thePrefix = "The";
+
+  if (!innerText.startsWith(thePrefix)) {
+    // Leave element as-is
+    return;
+  }
+
+  // Reset element content to just "The" prefix
+  element.innerText = thePrefix;
+
+  // Add span for remaining inner text wrapped in a class'd <span>
+  const remainingInnerText = innerText.substring(thePrefix.length);
+
+  const innerSpan = document.createElement("span");
+  innerSpan.appendChild(document.createTextNode(remainingInnerText));
+  innerSpan.classList.add("header-nav-word-highlight");
+
+  element.appendChild(innerSpan);
+}
+
+{
+  // Somewhat fragile matching of SquareSpace 7.1 navigation bar elements
+  const topLevelNavigationLinks =
+    document.querySelectorAll<HTMLLinkElement>("div.header-nav-item a");
+
+  const nestedNavigationLinks = document.querySelectorAll<HTMLSpanElement>(
+    "div.header-nav-folder-item a span.header-nav-folder-item-content"
+  );
+
+  topLevelNavigationLinks.forEach(styleNavigationElement);
+  nestedNavigationLinks.forEach(styleNavigationElement);
+}

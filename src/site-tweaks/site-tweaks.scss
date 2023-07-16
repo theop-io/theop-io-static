@@ -52,3 +52,11 @@ body:not(.header--menu-open) .header-nav-item--active > a {
   background-image: none;
   background-size: 0;
 }
+
+//
+// Navigation: highlight words in navigation menu entries
+//
+
+.header-nav-word-highlight {
+  color: hsla(var(--darkAccent-hsl), 1); // References the SquareSpace design template
+}
