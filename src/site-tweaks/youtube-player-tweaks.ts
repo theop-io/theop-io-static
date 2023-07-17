@@ -66,6 +66,8 @@ function onYouTubeIframeAPIReady() {
 //
 
 // - Find all <iframe> instances pointing to YouTube
+console.log("Rewriting iframes...");
+
 getYoutubeIframes().forEach((iFrame) => {
   // Fix up <iframe> target: enable JavaScript API
   iFrame.src += "&enablejsapi=1";
