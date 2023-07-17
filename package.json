@@ -12,6 +12,7 @@
   "author": "Robin Giese",
   "private": true,
   "devDependencies": {
+    "@types/youtube-player": "^5.5.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "clean-webpack-plugin": "^4.0.0",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.4.4",
-    "@types/youtube": "^0.0.47"
+    "@types/youtube": "^0.0.47",
+    "youtube-player": "^5.6.0"
   }
 }

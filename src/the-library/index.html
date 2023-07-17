@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>theop.io experimental: The Library</title>
+
+    <!-- Some basic CSS styling so we don't lose our minds -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+    <!-- Replicate SquareSpace's styling -->
+    <style>
+      :root {
+        --darkAccent-hsl: 0, 96.83%, 49.41%;
+      }
+
+      a {
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3.08px; /* Wat */
+      }
+    </style>
+
+    <!-- Site tweaks CSS -->
+    <link rel="stylesheet" href="./the-library.scss" />
+  </head>
+
+  <body>
+    <!-- 50% width on desktops (not small), otherwise default to 80% width (i.e. mobile) -->
+    <div class="w-80 w-50-ns center sans-serif f3 lh-copy">
+        <h2>YouTube Library</h2>
+        <div id="youtubeVideo1">Loading...</div>
+      </div>
+    </div>
+
+    <script defer src="./the-library.ts"></script>
+  </body>
+</html>
