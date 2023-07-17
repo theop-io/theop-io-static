@@ -5,6 +5,11 @@ export const theWordsList: [string, string][] = [
   ],
 
   [
+    "Oner",
+    "When an entire scene is played in a single shot. A oner with coverage is a oner that they then decide to do coverage on after the fact.",
+  ],
+
+  [
     "Master",
     "Usually the first wide shot of a scene that sees the entire story and all the players. The average master will generally run the entire scene and coverage will be determines off it it as well as things like the line.",
   ],
