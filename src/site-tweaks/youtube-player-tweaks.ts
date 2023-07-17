@@ -37,6 +37,10 @@ function onYouTubePlayerStateChange(event: YT.OnStateChangeEvent) {
   }
 }
 
+function getYoutubeIframes() {
+  return document.querySelectorAll<HTMLIFrameElement>('iframe[src^="https://www.youtube.com"]');
+}
+
 function onYouTubeIframeAPIReady() {
   if (initializedYoutubeTweaks) {
     return;
@@ -45,14 +49,7 @@ function onYouTubeIframeAPIReady() {
   initializedYoutubeTweaks = true;
 
   // Find all <iframe> instances pointing to YouTube
-  const youtubeIframes = document.querySelectorAll<HTMLIFrameElement>(
-    'iframe[src^="https://www.youtube.com"]'
-  );
-
-  youtubeIframes.forEach((iFrame) => {
-    // Fix up <iframe> target: enable JavaScript API
-    iFrame.src += "&enablejsapi=1";
-
+  getYoutubeIframes().forEach((iFrame) => {
     // Construct YouTube player object so we can attach a state change callback
     const playerObject = new YT.Player(iFrame, {
       events: {
@@ -66,11 +63,19 @@ function onYouTubeIframeAPIReady() {
 
 //
 // Initialization
+//
+
+// - Find all <iframe> instances pointing to YouTube
+getYoutubeIframes().forEach((iFrame) => {
+  // Fix up <iframe> target: enable JavaScript API
+  iFrame.src += "&enablejsapi=1";
+
+  console.log(`Fixed player frame ${iFrame.src}`);
+});
+
 // - We _actually_ want to wait for the YouTube API code to call us, but the following is necessary
 //   to keep this code from getting reaped by webpack tree shaking.
 //   There's probably a more intelligent way of doing this but the following seems benign and works.
-//
-
 if (typeof YT !== "undefined") {
   onYouTubeIframeAPIReady();
 }
