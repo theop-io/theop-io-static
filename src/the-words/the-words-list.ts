@@ -101,6 +101,25 @@ export const theWordsList: [string, string][] = [
     "A heavy bag used to secure stands and such from falling over. Can be used for a million different things and often can make the difference in a shot.",
   ],
 
+  [
+    "Shoe Leather",
+    "Unnecessary movement to cover space that is usually deemed worthy of cutting out. A person gets out of a car and has a long walk to the building to meet the protagonist and there is no value in the walk itself to build any drama. ‘We could continue the shot to the front door but it seems like a lot of shoe leather so let him out of frame quickly and we will pick it up at the front steps’.",
+  ],
+
+
+  [
+    "Rolling Reset",
+    "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.
+  ],
+
+
+  [
+    "Back to One",
+    "Usually called out when a shot needs to be stopped and restarted from the beginning. Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot.
+",
+  ],
+
+
   ["Shot Bag", "A small bag filled with actual metal gun shot, usually ten pounds."],
 
   ["Ball Buster", "A large sand bag, usually 35 pounds."],
@@ -131,7 +150,7 @@ export const theWordsList: [string, string][] = [
 
   [
     "Bogie",
-    "used to describe someone you aren’t supposed to see in the frame, generally during a lockup. “We should cut because I’ve got two bogies across the street pointing at us and taking pictures.”",
+    "Used to describe someone you aren’t supposed to see in the frame, generally during a lockup. “We should cut because I’ve got two bogies across the street pointing at us and taking pictures.”",
   ],
 
   [
@@ -140,4 +159,4 @@ export const theWordsList: [string, string][] = [
   ],
 
   ["Wheels of Death", "Pizza"],
-];
+  ];
