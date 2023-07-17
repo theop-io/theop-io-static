@@ -109,15 +109,7 @@ export const theWordsList: [string, string][] = [
 
   [
     "Rolling Reset",
-    "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.
-  ],
-
-
-  [
-    "Back to One",
-    "Usually called out when a shot needs to be stopped and restarted from the beginning. Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot.
-",
-  ],
+    "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.],
 
 
   ["Shot Bag", "A small bag filled with actual metal gun shot, usually ten pounds."],
