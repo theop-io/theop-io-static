@@ -7,5 +7,5 @@ module.exports = {
   env: {
     browser: true,
   },
-  ignorePatterns: [".eslintrc.js", "prettier.config.js", "webpack.config.js"],
+  ignorePatterns: [".eslintrc.js", "prettier.config.js", "webpack.config.js", "dist/**"],
 };
