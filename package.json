@@ -29,6 +29,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.4.4"
+    "@floating-ui/dom": "^1.4.4",
+    "@types/youtube": "^0.0.47"
   }
 }

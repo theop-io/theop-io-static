@@ -6,6 +6,8 @@
     "module": "es6",
     "target": "es6",
     "moduleResolution": "node",
-    "allowJs": true
+    "allowJs": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["youtube"]
   }
 }
