@@ -145,8 +145,28 @@ export const theWordsList: [string, string][] = [
   ],
 
   [
+    "Martini",
+    "last shot of the day. 'We are on the martini so anything that’s not working can head to the trucks.'.",
+  ],
+
+  [
     "Upstage/Downstage",
     "Upstage is away from camera, downstage is towards camera. Easy way to remember it is theater. Down stage is towards the audience and upstage is away from the audience.",
+  ],
+
+  [
+    "Upstage/Downstage",
+    "Upstage is away from camera, downstage is towards camera. Easy way to remember it is theater. Down stage is towards the audience and upstage is away from the audience.",
+  ],
+
+  [
+    "Lockup",
+    "When an area is being controlled and no outsiders are allowed in. Generally used when working on location and quite often having to do with traffic control. 'We are locked up' means that PAs are stationed in the appropriate areas to stop people not involved in the scene from wandering on camera. 'Breaking a lockup' means someone has sneaked thorugh.",
+  ],
+
+  [
+    "Crafty",
+    "Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.",
   ],
 
   ["Wheels of Death", "Pizza"],
