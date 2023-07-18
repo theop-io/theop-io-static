@@ -155,8 +155,8 @@ export const theWordsList: [string, string][] = [
   ],
 
   [
-    "Upstage/Downstage",
-    "Upstage is away from camera, downstage is towards camera. Easy way to remember it is theater. Down stage is towards the audience and upstage is away from the audience.",
+    "Hot points",
+    "Verbal cue that something large that can hurt you is being brought onto set. Generally called out by electricians or grips who will often have to carry long pieces of equipment on their shoulders. When 'hot points' is called out, be extra aware.",
   ],
 
   [
@@ -169,5 +169,20 @@ export const theWordsList: [string, string][] = [
     "Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.",
   ],
 
-  ["Wheels of Death", "Pizza"],
+   [
+    "Back to one",
+    "Usually called out when a shot needs to be stopped and restarted from the beginning (or on a rolling reset). Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot.",
+  ],
+
+   [
+    "Tapeball",
+    "Literally a wadded up ball of tape usually used to angle out a glass picture frame or a glass cabinet that is throwing a bad reflection. 'Can someone tapeball the bottom left corner of that picture frame to get rid of the reflection of the light stand?'",
+  ],
+
+   [
+    "Day PLaying",
+    "Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays.",
+  ],
+
+  ["Wheels of Death", "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning."],
 ];
