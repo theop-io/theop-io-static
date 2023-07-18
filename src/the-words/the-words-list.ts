@@ -26,7 +26,7 @@ export const theWordsList: [string, string][] = [
 
   [
     "Put it on it's feet",
-    "Actually starting to put the scene together as it will finally be seen. This is usually done after the actors read the words on set for the first time. “OK, now that we’ve read it through once, let’s move around the room and put it on it’s feet”",
+    "Actually starting to put the scene together as it will finally be seen. This is usually done after the actors read the words on set for the first time. “OK, now that we've read it through once, let's move around the room and put it on it’s feet”",
   ],
 
   [
@@ -76,17 +76,17 @@ export const theWordsList: [string, string][] = [
 
   [
     "Boards/Planks",
-    "Flat long pieces of wood, usually 1 foot wide, that can quickly be thrown down to achieve a smooth dolly shot. Usually come in 12 or 16’.",
+    "Flat long pieces of wood, usually 1 foot wide, that can quickly be thrown down to achieve a smooth dolly shot. Usually come in 12 or 16'.",
   ],
 
   [
     "Dance Floor",
-    "Flat sheets of wood and plastic, usually 4’x8’ that are built on uneven floor so that the dolly can be moved around smoothly but not in a straight line as if on track.",
+    "Flat sheets of wood and plastic, usually 4'x8' that are built on uneven floor so that the dolly can be moved around smoothly but not in a straight line as if on track.",
   ],
 
   [
     "Dolly Party",
-    "When four or more grips get together to carry a dolly up or down an area where it can’t roll. “Let's get a dolly party over here to get this thing up those stairs.”",
+    "When four or more grips get together to carry a dolly up or down an area where it can't roll. “Let's get a dolly party over here to get this thing up those stairs.”",
   ],
 
   [
@@ -106,11 +106,10 @@ export const theWordsList: [string, string][] = [
     "Unnecessary movement to cover space that is usually deemed worthy of cutting out. A person gets out of a car and has a long walk to the building to meet the protagonist and there is no value in the walk itself to build any drama. ‘We could continue the shot to the front door but it seems like a lot of shoe leather so let him out of frame quickly and we will pick it up at the front steps’.",
   ],
 
-
   [
     "Rolling Reset",
-    "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.],
-
+    "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.",
+  ],
 
   ["Shot Bag", "A small bag filled with actual metal gun shot, usually ten pounds."],
 
@@ -125,24 +124,24 @@ export const theWordsList: [string, string][] = [
 
   [
     "Tailights",
-    "The absolute time a crew has to be at a location. This doesn’t mean stopping shooting at that time, it means tail lights are leaving the location. “We are tailights at this location at midnight so we will probably have to finish shooting by 11 to allow the crew to wrap in time.”",
+    "The absolute time a crew has to be at a location. This doesn't mean stopping shooting at that time, it means tail lights are leaving the location. “We are tailights at this location at midnight so we will probably have to finish shooting by 11 to allow the crew to wrap in time.”",
   ],
 
   ["Going Again", "Shooting an additional take. “We got that and we are going again.”"],
 
   [
     "If it Aint It Aint",
-    "Slang term used to let everyone know that the present shot is the last shot of the day or at that location and anything not working can be packed away for the night/move to next location. “We have one more take of this shot and it’s the last scene here so if it aint it aint.”",
+    "Slang term used to let everyone know that the present shot is the last shot of the day or at that location and anything not working can be packed away for the night/move to next location. “We have one more take of this shot and it's the last scene here so if it aint it aint.”",
   ],
 
   [
     "Walk Away",
-    "Quite literally, drop what you are doing and leave the vicinity. “We have to get this in the next 5 minutes so if you aren’t involved in this shot, walk away.”",
+    "Quite literally, drop what you are doing and leave the vicinity. “We have to get this in the next 5 minutes so if you aren't involved in this shot, walk away.”",
   ],
 
   [
     "Bogie",
-    "Used to describe someone you aren’t supposed to see in the frame, generally during a lockup. “We should cut because I’ve got two bogies across the street pointing at us and taking pictures.”",
+    "Used to describe someone you aren't supposed to see in the frame, generally during a lockup. “We should cut because I've got two bogies across the street pointing at us and taking pictures.”",
   ],
 
   [
@@ -151,4 +150,4 @@ export const theWordsList: [string, string][] = [
   ],
 
   ["Wheels of Death", "Pizza"],
-  ];
+];
