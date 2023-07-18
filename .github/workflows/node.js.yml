@@ -16,4 +16,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         cache: 'npm'
+    - run: npm install-clean
     - run: npm run build
