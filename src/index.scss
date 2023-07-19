@@ -11,13 +11,18 @@
   }
 }
 
-// Tools: clearfix
+// Tools: clearfix (c.f. https://nicolasgallagher.com/micro-clearfix-hack/)
 .clearfix::before,
 .clearfix::after {
-  content: "";
+  // The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
+  // Otherwise it causes space to appear at the top and bottom of elements that are clearfixed.
+  content: " ";
+
+  // The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements.
   display: table;
 }
 
 .clearfix::after {
+  // For IE 6/7 only: Include this rule to trigger hasLayout and contain floats.
   clear: both;
 }
