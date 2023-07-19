@@ -1,1 +1,28 @@
-// TBD
+@import "../index.scss";
+
+div.youtube-library-float {
+  // Float left
+  float: left;
+
+  // Width
+  width: 100%; // For small screens
+  @include not-small {
+    width: 33%; // For not-small screens
+  }
+
+  // Interior padding (in lieu of margin)
+  padding: 0.25rem;
+}
+
+div.youtube-library-float-active {
+  @include not-small {
+    width: 100%; // For not-small screens
+  }
+}
+
+iframe.youtube-library-player {
+  aspect-ratio: 16/9;
+  width: 100%;
+
+  border: 0;
+}
