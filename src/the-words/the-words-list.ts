@@ -169,6 +169,31 @@ export const theWordsList: [string, string][] = [
     "Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.",
   ],
 
+  [
+    "On the day",
+    "When you actually shoot whatever is being discussed. 'Right now there is a mirror on the wall but on the day there will be a poster hanging there'",
+  ],
+
+  [
+    "Hot Set",
+    "A set that should not be touched, usually for continuity purposes but sometimes because it has been set up with special effects that can’t be disturbed. Signs and/or police tape are generally used to denote a hot set. 'Everyone should know this is now a hot set and no one should be on it except props and special effects.'",
+  ],
+
+  [
+    "Standing by",
+    "Someone or something is ready adn waiting. 'Let’s have the flowers standing by for the next scene', 'Second team is standing by and ready to step in once the ladders are out.'",
+  ],
+
+  [
+    "Flying in",
+    "Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on it’s way.",
+  ],
+
+  [
+    "Coverage",
+    "After the wide shot of the entire scene has been shot (generally called the Master shot), coverage is up next. This is where the camera generally gets closer to the actors and moves in as close as they choose to in one direction, and then generally does the same shots as a reverse on the other actor (if we are talking about two actors with classic coverage of a scene).",
+  ],
+
    [
     "Back to one",
     "Usually called out when a shot needs to be stopped and restarted from the beginning (or on a rolling reset). Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot.",
