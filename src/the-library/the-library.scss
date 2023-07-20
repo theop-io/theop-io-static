@@ -12,6 +12,12 @@ div.youtube-library-float {
 
   // Interior padding (in lieu of margin)
   padding: 0.25rem;
+
+  // Set up for absolute positioning of play button SVG below
+  position: relative;
+
+  // Center inner thumbnail image
+  text-align: center;
 }
 
 div.youtube-library-float-active {
@@ -25,4 +31,23 @@ iframe.youtube-library-player {
   width: 100%;
 
   border: 0;
+}
+
+.youtube-library-preview {
+  aspect-ratio: 4/3;
+  width: 100%;
+  margin: auto;
+
+  border: 0;
+}
+
+.youtube-library-play-button {
+  position: absolute;
+
+  $button-width: 15%;
+
+  // Center button
+  width: $button-width;
+  top: calc((100% - $button-width) / 2);
+  left: calc((100% - $button-width) / 2);
 }
