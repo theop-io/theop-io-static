@@ -191,7 +191,7 @@ if (youtubeLibraryParentDiv) {
   // Populate videos
   videoDescriptors.forEach((videoDescriptor, index) => {
     // Generate description div
-    const descriptionElement = document.createElement("div");
+    const descriptionElement = document.createElement("span");
 
     descriptionElement.classList.add("youtube-library-description");
     descriptionElement.appendChild(document.createTextNode(videoDescriptor.description));
