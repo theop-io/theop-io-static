@@ -51,3 +51,13 @@ iframe.youtube-library-player {
   top: calc((100% - $button-width) / 2);
   left: calc((100% - $button-width) / 2);
 }
+
+.youtube-library-description {
+  position: absolute;
+  text-align: left;
+
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+
+  color: white;
+}

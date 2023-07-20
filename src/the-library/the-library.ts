@@ -125,21 +125,31 @@ function onYouTubePlayerStateChange(poorlyTypedEvent: CustomEvent & { data: numb
 // FancyBox-based implementation
 //
 
-// URL builder helpers
-function youtubeVideoUrlFromVideoId(videoId: string) {
-  return `https://www.youtube.com/watch?v=${videoId}`;
-}
+// Types
+class VideoDescriptor {
+  readonly id: string;
+  readonly description: string;
 
-function youtubeThumbnailUrlFromVideoId(videoId: string) {
-  return `https://i3.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  constructor(id: string, description: string) {
+    this.id = id;
+    this.description = description;
+  }
+
+  getVideoUrl() {
+    return `https://www.youtube.com/watch?v=${this.id}`;
+  }
+
+  getThumbnailUrl() {
+    return `https://i3.ytimg.com/vi/${this.id}/hqdefault.jpg`;
+  }
 }
 
 // Build carousel list
-function showCarouselForVideo(youtubeVideoIds: string[], videoIndex: number) {
-  const carouselVideoList = youtubeVideoIds.map((videoId) => {
+function showCarouselForVideo(videoDescriptors: VideoDescriptor[], videoIndex: number) {
+  const carouselVideoList = videoDescriptors.map((videoDescriptor) => {
     return {
-      src: youtubeVideoUrlFromVideoId(videoId),
-      thumb: youtubeThumbnailUrlFromVideoId(videoId),
+      src: videoDescriptor.getVideoUrl(),
+      thumb: videoDescriptor.getThumbnailUrl(),
     };
   });
 
@@ -148,38 +158,43 @@ function showCarouselForVideo(youtubeVideoIds: string[], videoIndex: number) {
   });
 }
 
+// Populate videos
 const youtubeLibraryParentDiv = document.querySelector<HTMLDivElement>("#youtube-library-fancybox");
 
 if (youtubeLibraryParentDiv) {
-  // Retrieve video links from `data` attribute
-  const youtubeVideoLinks =
-    youtubeLibraryParentDiv.getAttribute("data-video-ids")?.split(" ") ?? [];
+  // Retrieve video links from inner <a> elements
+  const videoLinkElements = Array.from(
+    youtubeLibraryParentDiv.querySelectorAll<HTMLAnchorElement>("a")
+  );
 
-  // Strip prefixes
-  const youtubeVideoIds = youtubeVideoLinks
-    .map((youtubeVideoLink) => {
+  const videoDescriptors = videoLinkElements
+    .map((videoLinkElement) => {
+      const url = videoLinkElement.href;
+
       // Strip `https://youtu.be/` prefix
       const youtubeLinkPrefix = "https://youtu.be/";
 
-      if (!youtubeVideoLink.startsWith(youtubeLinkPrefix)) {
+      if (!url.startsWith(youtubeLinkPrefix)) {
         return null;
       }
 
-      return youtubeVideoLink.substring(youtubeLinkPrefix.length);
+      return new VideoDescriptor(
+        url.substring(youtubeLinkPrefix.length),
+        videoLinkElement.innerText
+      );
     })
-    .filter((videoId): videoId is string => videoId != null);
+    .filter((v): v is VideoDescriptor => v != null);
 
   // Remove "Loading..." etc. content
   youtubeLibraryParentDiv.innerHTML = "";
 
   // Populate videos
-  youtubeVideoIds.forEach((videoId, index) => {
-    // Generate preview image
-    const imageElement = document.createElement("img");
+  videoDescriptors.forEach((videoDescriptor, index) => {
+    // Generate description div
+    const descriptionElement = document.createElement("div");
 
-    imageElement.id = `youtubeImage${index}`;
-    imageElement.classList.add("youtube-library-preview");
-    imageElement.src = youtubeThumbnailUrlFromVideoId(videoId);
+    descriptionElement.classList.add("youtube-library-description");
+    descriptionElement.appendChild(document.createTextNode(videoDescriptor.description));
 
     // Generate play button SVG
     const playButtonElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -216,18 +231,26 @@ if (youtubeLibraryParentDiv) {
       playButtonElement.appendChild(playButtonPath);
     }
 
+    // Generate preview image
+    const imageElement = document.createElement("img");
+
+    imageElement.id = `youtubeImage${index}`;
+    imageElement.classList.add("youtube-library-preview");
+    imageElement.src = videoDescriptor.getThumbnailUrl();
+
     // Generate outer div
     const outerDivElement = document.createElement("div");
 
     outerDivElement.classList.add("youtube-library-float");
 
     outerDivElement.addEventListener("click", () => {
-      showCarouselForVideo(youtubeVideoIds, index);
+      showCarouselForVideo(videoDescriptors, index);
     });
 
     // Insert img and svg into outer div
-    outerDivElement.appendChild(imageElement);
+    outerDivElement.appendChild(descriptionElement);
     outerDivElement.appendChild(playButtonElement);
+    outerDivElement.appendChild(imageElement);
 
     // Insert outer div into parent div
     youtubeLibraryParentDiv.appendChild(outerDivElement);
