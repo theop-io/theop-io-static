@@ -204,6 +204,26 @@ export const theWordsList: [string, string][] = [
     "Literally a wadded up ball of tape usually used to angle out a glass picture frame or a glass cabinet that is throwing a bad reflection. 'Can someone tapeball the bottom left corner of that picture frame to get rid of the reflection of the light stand?'",
   ],
 
+
+  ["Follow Focus", "A device the 1st AC uses to change the focus on a lens during the scene."],
+
+  [
+
+    ["Low Mode", "Usually refers to dolly or steadicam, when the camera is mounted lower/at the bottom so that it can get closer to the ground. On a dolly it often means dropping donw the front section os it doesn’t get as high but can get lower. On a steadicam, the rig is inverted and the camera hangs underneath."],
+
+  [
+
+    ["High Mode", "Usually refers to dolly or steadicam. When the camera is mounted in such a way that it can get higher but not as low. Also known as normal mode."],
+
+  [
+
+    ["Riser", "A metal piece that is used on a dolly to get the camera higher, which literally raises the camera. Can be used on sticks as well or anything that accepts a head and has a Mitchell mount. Usually comes in 3”, 6”, and 12” pieces"],
+
+  [
+
+    ["Bowling Trophy", " A large, usually 3 foot riser used for extremely high shots. Its name is derived from the fact that it looks like a trophy someone would hold over their head."],
+
+  [
    [
     "Day PLaying",
     "Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays.",
