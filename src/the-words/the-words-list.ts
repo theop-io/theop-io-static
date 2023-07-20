@@ -225,7 +225,7 @@ export const theWordsList: [string, string][] = [
 
   [
    [
-    "Day PLaying",
+    "Day Playing",
     "Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays.",
   ],
 
