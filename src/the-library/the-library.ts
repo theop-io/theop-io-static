@@ -181,10 +181,6 @@ if (youtubeLibraryParentDiv) {
     imageElement.classList.add("youtube-library-preview");
     imageElement.src = youtubeThumbnailUrlFromVideoId(videoId);
 
-    imageElement.addEventListener("click", () => {
-      showCarouselForVideo(youtubeVideoIds, index);
-    });
-
     // Generate play button SVG
     const playButtonElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
@@ -224,6 +220,10 @@ if (youtubeLibraryParentDiv) {
     const outerDivElement = document.createElement("div");
 
     outerDivElement.classList.add("youtube-library-float");
+
+    outerDivElement.addEventListener("click", () => {
+      showCarouselForVideo(youtubeVideoIds, index);
+    });
 
     // Insert img and svg into outer div
     outerDivElement.appendChild(imageElement);
