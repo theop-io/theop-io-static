@@ -12,4 +12,12 @@ export const memberSignupButtonQuotes = [
   "“I want to be alone, so I can click this button and become a member today.”",
   "“Mama always said that life is like a box of chocolates, you never know what you are gonna get. But if you become a member today, you will.”",
   "“Houston, we have a problem. But I'm pretty sure you can fix it by becoming a member today. ”",
+  "“Life moves pretyt fast. If you dont stop and look around once in a while, or at least become a member, you could miss it.”",
+  "“Carpe Diem. Sieze the day boys. Make your lives extraordinairy. Become a member before time runs out.”",
+  "“You haven't become a member yet? Inconceivable!!”",
+  "“Allright Mr. Demille. I'm a member now. I'm ready for my closeup.“",
+  "“I'm sorry Dave. I'm afraid I can't do that. But I can make you a member today if you'd like.”",
+  "“The first rule of fight club is you do not talk about fight club. Become a member today.”",
+  "“Are you not entertained? Will you not become a member today?”",
+  "I was told that, because I'm a member, I could listen to the radio at a reasonable volume from nine to eleven.",
 ];
