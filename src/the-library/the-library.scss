@@ -20,20 +20,12 @@ div.youtube-library-float {
   text-align: center;
 }
 
-@mixin youtube-library-preview($aspect_ratio) {
+.youtube-library-preview {
   width: 100%;
   margin: auto;
-  aspect-ratio: $aspect_ratio;
+  aspect-ratio: 16/9;
 
   border: 0;
-}
-
-.youtube-library-preview_4_3 {
-  @include youtube-library-preview("4/3");
-}
-
-.youtube-library-preview_16_9 {
-  @include youtube-library-preview("16/9");
 }
 
 .youtube-library-play-button {

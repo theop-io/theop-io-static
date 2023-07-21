@@ -46,7 +46,7 @@ class VideoDescriptor {
   getThumbnailUrl() {
     switch (this.type) {
       case "youtube":
-        return `https://i3.ytimg.com/vi/${this.id}/hqdefault.jpg`;
+        return `https://i.ytimg.com/vi_webp/${this.id}/maxresdefault.webp`;
 
       case "vimeo":
         return `https://vumbnail.com/${this.id}.jpg`;
@@ -149,9 +149,7 @@ if (youtubeLibraryParentDiv) {
     const imageElement = document.createElement("img");
 
     imageElement.id = `youtubeImage${index}`;
-    imageElement.classList.add(
-      `youtube-library-preview_${videoDescriptor.getThumbnailAspectRatio()}`
-    );
+    imageElement.classList.add("youtube-library-preview");
     imageElement.src = videoDescriptor.getThumbnailUrl();
 
     // Generate outer div
