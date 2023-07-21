@@ -3,7 +3,7 @@ export const memberSignupButtonQuotes = [
   "“Leave the gun. Take the cannoli. Become a member.”",
   "“You're gonna need a bigger boat. Or at the very least, you're gonna need to become a member.”",
   "“What we've got here is a failure to communicate. Which is why you're gonna need to become a member today.”",
-  "“Cinderella story. Outta nowhere. A former greenskeeper, now a member. It's a mirac... It's in the hole! It's in the hole! It's in the hole!”",
+  "“Cinderella story. Outta nowhere. A former greenskeeper, now a member. It's a mirac... It's in the hole! It's in the hole!”",
   "“You had me at 'I'm already a member'”",
   "“Frankly my dear, if you haven't already become a member, I don't give a damn”",
   "“Go ahead, make my day. Become a member.”",
