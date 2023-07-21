@@ -22,29 +22,27 @@ Also check out [this test page](https://theop-io-static.netlify.app/the-words/) 
 
 ### Maintaining the word list
 
-[the-words-list.ts](the-words-list.ts) contains the list of words for our site-wide glossary.
+[the-words-list.txt](the-words-list.txt) contains the list of words for our site-wide glossary.
 
-Each term needs to follow the format of `["Word", "Definition"],`, e.g.:
+Each term needs to follow the format of `Word = Definition`, e.g.:
 
 ```
-  [
-    "Solid",
-    "A piece of solid duvatene that light cannot pass through in a frame used to block out light from a scene or take care of lens flare.",
-  ],
+Solid = A piece of solid duvatene that light cannot pass through in a frame used to block out light from a scene or take care of lens flare.
 ```
 
-The "key" for a word (e.g. `"Solid"` above) may also contain one or more slashes (`/`), in which case the combined term as well as the words between slashes can be referenced.
+The "key" for a word (e.g. `Solid` above) may also contain one or more slashes (`/`), in which case the combined term as well as the words between slashes can be referenced.
 
 For example:
 
 ```
-  [
-    "Flop/Floppy",
-    "A 4x4 solid that has...",
-  ],
+Flop/Floppy = A 4x4 solid that has...
 ```
 
 is available for lookup as `flop`, `floppy`, and `flop/floppy`.
+
+Lines may also start with a `;`, serving as comments. Feel free to use these to (e.g.) delineate different sections of the file.
+
+Lines may also be empty to create some breathing room.
 
 ### Including the word index on the main index page
 

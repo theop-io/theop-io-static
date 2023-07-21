@@ -1,5 +1,7 @@
 import { computePosition, shift, offset, arrow } from "@floating-ui/dom";
-import { theWordsList } from "./the-words-list";
+
+import { wordKeyFromWord } from "./the-words-types";
+import { theWordsDb } from "./generated/the-words-db";
 
 //
 // How to reference The Words (glossary) entries:
@@ -20,39 +22,6 @@ const theWordsTooltip_OffsetFromParent = 5;
 
 const theWordsTooltip_DelayBeforeClosing_msec = 1000;
 
-// TheWords database
-function wordKeyFromWord(word: string) {
-  return word
-    .toLowerCase()
-    .replace(/[`'“’]/g, "")
-    .replace(/ /g, "_");
-}
-
-const theWordsKeyToDefinition = new Map<string, string>();
-const theWordsKeyToDisplayName = new Map<string, string>();
-
-theWordsList.forEach(([wordDisplayName, wordDefinition]) => {
-  // Words may have multiple keys, e.g. "Flop/Floppies" -> break on slash...
-  const splitWordDisplayNames = wordDisplayName.split("/");
-
-  // ...and insert each as their own entry
-  splitWordDisplayNames.forEach((wordDisplayName_Single) => {
-    // Transpose word keys from natural/display case to programmatic case (e.g. 'Foo Bar' -> 'foo_bar')
-    const wordKey = wordKeyFromWord(wordDisplayName_Single);
-
-    theWordsKeyToDefinition.set(wordKey, wordDefinition);
-    theWordsKeyToDisplayName.set(wordKey, wordDisplayName);
-  });
-
-  if (splitWordDisplayNames.length > 1) {
-    // ...and also insert the original combined word key so the Index lookup works
-    const wordKey = wordKeyFromWord(wordDisplayName);
-
-    theWordsKeyToDefinition.set(wordKey, wordDefinition);
-    theWordsKeyToDisplayName.set(wordKey, wordDisplayName);
-  }
-});
-
 // State
 // - Map of tooltips (starts empty, built out as we identify links requiring tooltips on the page)
 //   NOTE: We inject tooltip <div>'s for each identified link so screen readers can follow them via `aria-labelledby="the-div's-id"`,
@@ -71,22 +40,25 @@ let theWordsHideTooltipTimer: number | undefined = undefined;
 //
 
 function updateTheWordsTooltipBody(wordKey: string, divElement: HTMLDivElement) {
+  const displayName = theWordsDb.KeyToDisplayName.get(wordKey);
+
+  if (!displayName) {
+    return;
+  }
+
   // Clear out any old content
   divElement.innerHTML = "";
 
   // Term
-  const displayName = theWordsKeyToDisplayName.get(wordKey);
 
-  if (displayName) {
-    const termElement = document.createElement("span");
-    termElement.appendChild(document.createTextNode(`${displayName}:`));
-    termElement.classList.add("tooltip_term");
+  const termElement = document.createElement("span");
+  termElement.appendChild(document.createTextNode(`${displayName}:`));
+  termElement.classList.add("tooltip_term");
 
-    divElement.appendChild(termElement);
-  }
+  divElement.appendChild(termElement);
 
   // Definition
-  const definitionText = theWordsKeyToDefinition.get(wordKey) ?? "";
+  const definitionText = theWordsDb.DisplayNameToDefinition.get(displayName) ?? "";
 
   if (!theWordsCurrentSearchTerm) {
     // Insert simple text
@@ -261,32 +233,30 @@ if (wordIndexParentDiv) {
   wordIndexParentDiv.innerHTML = "";
 
   // Populate content
-  theWordsList
-    .map((x) => x[0])
-    .forEach((theWord, idx) => {
-      const wordKey = wordKeyFromWord(theWord);
+  theWordsDb.DisplayNamesInDisplayOrder.forEach((displayName, index) => {
+    const wordKey = wordKeyFromWord(displayName);
 
-      if (idx > 0) {
-        // Add spacer in parent div
-        wordIndexParentDiv.appendChild(document.createTextNode(" \u2022 "));
-      }
+    if (index > 0) {
+      // Add spacer in parent div
+      wordIndexParentDiv.appendChild(document.createTextNode(" \u2022 "));
+    }
 
-      // Create <a>
-      const anchorElement = document.createElement("a");
+    // Create <a>
+    const anchorElement = document.createElement("a");
 
-      // Configure <a>
-      anchorElement.classList.add("the_words_index_word");
-      anchorElement.href = theWordsLinkPrefix + "_" + wordKey;
+    // Configure <a>
+    anchorElement.classList.add("the_words_index_word");
+    anchorElement.href = theWordsLinkPrefix + "_" + wordKey;
 
-      // Create and append content
-      anchorElement.appendChild(document.createTextNode(theWord));
+    // Create and append content
+    anchorElement.appendChild(document.createTextNode(displayName));
 
-      // Add to parent div
-      wordIndexParentDiv.appendChild(anchorElement);
+    // Add to parent div
+    wordIndexParentDiv.appendChild(anchorElement);
 
-      // Commit state
-      wordIndexKeyToAnchorMap.set(wordKey, anchorElement);
-    });
+    // Commit state
+    wordIndexKeyToAnchorMap.set(wordKey, anchorElement);
+  });
 }
 
 //
@@ -330,30 +300,45 @@ allWordsLinks.forEach((linkElement) => {
     return undefined;
   }
 
-  const wordKey = inferWordKeyFromLink(linkElement as HTMLAnchorElement);
+  // Build local (i.e. from site-of-use) word key (see comment on "canonical" word key below)
+  const localWordKey = inferWordKeyFromLink(linkElement as HTMLAnchorElement);
 
-  if (wordKey === undefined) {
+  if (!localWordKey) {
     // Invalid link - ignore
     return;
   }
 
   // Try to retrieve definition from database
-  const wordDefinition = theWordsKeyToDefinition.get(wordKey);
+  const displayName = theWordsDb.KeyToDisplayName.get(localWordKey);
 
-  if (wordDefinition === undefined) {
+  if (!displayName) {
     // Invalid link - ignore
-    console.log(`TheWords: term "${wordKey}" not found.`);
+    console.log(`TheWords: term "${localWordKey}" not found.`);
     return;
   }
 
+  const wordDefinition = theWordsDb.DisplayNameToDefinition.get(displayName);
+
+  if (!wordDefinition) {
+    // Invalid link - ignore
+    console.log(`TheWords: term "${localWordKey}" not found.`);
+    return;
+  }
+
+  // Infer "canonical" word key from base displayName
+  // - For example, if the underlying display name is "Upstage/Downstage" (which gets split into "Upstage/Downstage", "Upstage", and "Downstage"),
+  //   use the canonical displayName "Upstage/Downstage" to build the canonical word key "upstage_downstage".
+  //   This way we don't build tooltips for "upstage_downstage" _and_ "upstage" etc.
+  const canonicalWordKey = wordKeyFromWord(displayName);
+
   // Build tooltip element, if it hasn't been built previously for this key
-  if (theWordsTooltips.get(wordKey) === undefined) {
-    theWordsTooltips.set(wordKey, buildTheWordsTooltipElement(wordKey));
+  if (theWordsTooltips.get(canonicalWordKey) === undefined) {
+    theWordsTooltips.set(canonicalWordKey, buildTheWordsTooltipElement(canonicalWordKey));
   }
 
   // Apply settings to link element
   // - Data (so we can find the theWords key later)
-  linkElement.setAttribute(theWordsKeyAttribute, wordKey);
+  linkElement.setAttribute(theWordsKeyAttribute, canonicalWordKey);
 
   // - Remove link destination (no longer need this to function as an actual link)
   linkElement.removeAttribute("href");
@@ -362,7 +347,7 @@ allWordsLinks.forEach((linkElement) => {
   linkElement.classList.add("tooltip_button");
 
   // - Accessibility
-  linkElement.setAttribute("aria-describedby", theWordsTooltips.get(wordKey)?.id ?? "");
+  linkElement.setAttribute("aria-describedby", theWordsTooltips.get(canonicalWordKey)?.id ?? "");
 
   // Bind listeners
   linkElement.addEventListener("mouseenter", showWordTooltip);
@@ -428,7 +413,8 @@ function onWordSearchTermUpdate(event: Event) {
         return 100;
       }
 
-      const definitionText = theWordsKeyToDefinition.get(wordKey);
+      const displayName = anchorElement.innerText;
+      const definitionText = theWordsDb.DisplayNameToDefinition.get(displayName);
 
       if (definitionText && searchTermRegEx.test(definitionText)) {
         // Show term partially when we match just the definition

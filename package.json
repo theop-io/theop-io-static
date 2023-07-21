@@ -4,14 +4,16 @@
   "description": "Static assets for https://theop.io",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "webpack --mode production",
+    "codegen": "ts-node ./tools/the-words-build-tool.ts ./src/the-words/the-words-list.txt ./src/the-words/generated/the-words-db.ts",
+    "build": "npm run codegen && webpack --mode production",
+    "serve": "npm run codegen && webpack serve",
     "lint": "eslint .",
-    "serve": "webpack serve",
     "format:fix": "prettier --write ./*"
   },
   "author": "Robin Giese",
   "private": true,
   "devDependencies": {
+    "@types/node": "^20.4.2",
     "@types/youtube-player": "^5.5.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -24,6 +26,7 @@
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
     "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
