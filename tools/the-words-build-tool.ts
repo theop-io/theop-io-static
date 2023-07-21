@@ -40,7 +40,7 @@ const wordKeyToLineNumber = new Map<string, number>();
 // Initial cleaning
 const wordsList = wordsData.split(/\r?\n/).map((line) => line.trim());
 
-// Parse `term = definition`
+// Parse `term - definition`
 wordsList.forEach((line, index) => {
   function syntaxError(message: string) {
     console.error(`${message} on line ${index + 1}:`);
@@ -55,7 +55,7 @@ wordsList.forEach((line, index) => {
   }
 
   // Split line into term (word) and definition
-  const separatorIndex = line.indexOf("=");
+  const separatorIndex = line.indexOf("-");
 
   if (separatorIndex < 0) {
     syntaxError("Missing '=' separator");
@@ -65,11 +65,11 @@ wordsList.forEach((line, index) => {
   const definition = line.slice(separatorIndex + 1).trim();
 
   if (!displayName) {
-    syntaxError("Missing Term to the left of the '=' separator");
+    syntaxError("Missing Term to the left of the '-' separator");
   }
 
   if (!definition) {
-    syntaxError("Missing Definition to the right of the '=' separator");
+    syntaxError("Missing Definition to the right of the '-' separator");
   }
 
   if (displayName.includes('"')) {
