@@ -3,15 +3,7 @@ const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
   target: ["web", "es5"],
-  devServer: {
-    static: path.resolve(__dirname, "./dist"),
-    compress: true,
-    port: 5055,
-    open: false, // Set to `true` to automatically open new browser tab
-  },
-  devtool: "inline-source-map",
   module: {
     rules: [
       {
