@@ -3,20 +3,47 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 // Types
 class VideoDescriptor {
+  readonly type: "youtube" | "invalid";
   readonly id: string;
   readonly description: string;
 
-  constructor(id: string, description: string) {
-    this.id = id;
+  constructor(url: string, description: string) {
+    const youtubeLinkPrefix = "https://youtu.be/";
+
+    // Parse potential YouTube URL
+    if (url.startsWith(youtubeLinkPrefix)) {
+      this.type = "youtube";
+      this.id = url.substring(youtubeLinkPrefix.length);
+    } else {
+      this.type = "invalid";
+      this.id = "";
+    }
+
     this.description = description;
   }
 
+  isValid() {
+    return this.type !== "invalid";
+  }
+
   getVideoUrl() {
-    return `https://www.youtube.com/watch?v=${this.id}`;
+    switch (this.type) {
+      case "youtube":
+        return `https://www.youtube.com/watch?v=${this.id}`;
+
+      case "invalid":
+        return "";
+    }
   }
 
   getThumbnailUrl() {
-    return `https://i3.ytimg.com/vi/${this.id}/hqdefault.jpg`;
+    switch (this.type) {
+      case "youtube":
+        return `https://i3.ytimg.com/vi/${this.id}/hqdefault.jpg`;
+
+      case "invalid":
+        return "";
+    }
   }
 }
 
@@ -44,22 +71,10 @@ if (youtubeLibraryParentDiv) {
   );
 
   const videoDescriptors = videoLinkElements
-    .map((videoLinkElement) => {
-      const url = videoLinkElement.href;
-
-      // Strip `https://youtu.be/` prefix
-      const youtubeLinkPrefix = "https://youtu.be/";
-
-      if (!url.startsWith(youtubeLinkPrefix)) {
-        return null;
-      }
-
-      return new VideoDescriptor(
-        url.substring(youtubeLinkPrefix.length),
-        videoLinkElement.innerText
-      );
-    })
-    .filter((v): v is VideoDescriptor => v != null);
+    .map(
+      (videoLinkElement) => new VideoDescriptor(videoLinkElement.href, videoLinkElement.innerText)
+    )
+    .filter((v) => v.isValid());
 
   // Remove "Loading..." etc. content
   youtubeLibraryParentDiv.innerHTML = "";
