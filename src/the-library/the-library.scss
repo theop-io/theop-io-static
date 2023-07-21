@@ -29,21 +29,23 @@ div.youtube-library-float {
 }
 
 .youtube-library-play-button {
+  // Position on top of other content
   position: absolute;
 
-  $button-width: 15%;
+  // Constrain size
+  width: 15%;
 
   // Center button
-  width: $button-width;
-  top: calc((100% - $button-width) / 2);
-  left: calc((100% - $button-width) / 2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .youtube-library-description {
   position: absolute;
   text-align: left;
 
-  padding-top: 0.5em;
+  padding-top: 0.2em;
   padding-left: 0.5em;
 
   color: white;
