@@ -3,17 +3,21 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 // Types
 class VideoDescriptor {
-  readonly type: "youtube" | "invalid";
+  readonly type: "youtube" | "vimeo" | "invalid";
   readonly id: string;
   readonly description: string;
 
   constructor(url: string, description: string) {
     const youtubeLinkPrefix = "https://youtu.be/";
+    const vimeoLinkPrefix = "https://vimeo.com/";
 
     // Parse potential YouTube URL
     if (url.startsWith(youtubeLinkPrefix)) {
       this.type = "youtube";
       this.id = url.substring(youtubeLinkPrefix.length);
+    } else if (url.startsWith(vimeoLinkPrefix)) {
+      this.type = "vimeo";
+      this.id = url.substring(vimeoLinkPrefix.length);
     } else {
       this.type = "invalid";
       this.id = "";
@@ -31,6 +35,9 @@ class VideoDescriptor {
       case "youtube":
         return `https://www.youtube.com/watch?v=${this.id}`;
 
+      case "vimeo":
+        return `https://vimeo.com/${this.id}`;
+
       case "invalid":
         return "";
     }
@@ -40,6 +47,22 @@ class VideoDescriptor {
     switch (this.type) {
       case "youtube":
         return `https://i3.ytimg.com/vi/${this.id}/hqdefault.jpg`;
+
+      case "vimeo":
+        return `https://vumbnail.com/${this.id}.jpg`;
+
+      case "invalid":
+        return "";
+    }
+  }
+
+  getThumbnailAspectRatio() {
+    switch (this.type) {
+      case "youtube":
+        return "4_3";
+
+      case "vimeo":
+        return "16_9";
 
       case "invalid":
         return "";
@@ -126,7 +149,9 @@ if (youtubeLibraryParentDiv) {
     const imageElement = document.createElement("img");
 
     imageElement.id = `youtubeImage${index}`;
-    imageElement.classList.add("youtube-library-preview");
+    imageElement.classList.add(
+      `youtube-library-preview_${videoDescriptor.getThumbnailAspectRatio()}`
+    );
     imageElement.src = videoDescriptor.getThumbnailUrl();
 
     // Generate outer div
