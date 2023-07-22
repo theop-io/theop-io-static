@@ -41,12 +41,12 @@ const wordKeyToLineNumber = new Map<string, number>();
 const wordsList = wordsData.split(/\r?\n/).map((line) => line.trim());
 
 // Parse `term - definition`
+const syntaxErrors: string[] = [];
+
 wordsList.forEach((line, index) => {
   function syntaxError(message: string) {
-    console.error(`${message} on line ${index + 1}:`);
-    console.error("  " + line);
-
-    process.exit(5);
+    syntaxErrors.push(`${message} on line ${index + 1}:`);
+    syntaxErrors.push(`  ${line}`);
   }
 
   // Filter out empty and comment-only lines here so we still get accurate line numbers
@@ -59,29 +59,31 @@ wordsList.forEach((line, index) => {
   const separatorIndex = line.indexOf(termToDefinitionSeparator);
 
   if (separatorIndex < 0) {
-    syntaxError(`Missing '${termToDefinitionSeparator}' separator`);
+    return syntaxError(`Missing '${termToDefinitionSeparator}' separator`);
   }
 
   const displayName = line.slice(0, separatorIndex).trim();
   const definition = line.slice(separatorIndex + termToDefinitionSeparator.length).trim();
 
   if (!displayName) {
-    syntaxError(`Missing Term to the left of the '${termToDefinitionSeparator}' separator`);
+    return syntaxError(`Missing Term to the left of the '${termToDefinitionSeparator}' separator`);
   }
 
   if (!definition) {
-    syntaxError(`Missing Definition to the right of the '${termToDefinitionSeparator}' separator`);
+    return syntaxError(
+      `Missing Definition to the right of the '${termToDefinitionSeparator}' separator`
+    );
   }
 
   if (displayName.includes('"')) {
-    syntaxError(`Term "${displayName}" should not include a quote (")`);
+    return syntaxError(`Term "${displayName}" should not include a quote (")`);
   }
 
   // Check for duplicates
   const primaryWordKey = wordKeyFromWord(displayName);
 
   if (wordKeyToLineNumber.has(primaryWordKey)) {
-    syntaxError(
+    return syntaxError(
       `Word "${displayName}" previously defined on line ${wordKeyToLineNumber.get(
         primaryWordKey
       )}, redefined`
@@ -101,7 +103,7 @@ wordsList.forEach((line, index) => {
   splitDisplayName.forEach((secondaryDisplayName) => {
     // Syntax validation
     if (!secondaryDisplayName) {
-      syntaxError(`Word "${displayName}" contains empty sections between slashes`);
+      return syntaxError(`Word "${displayName}" contains empty sections between slashes`);
     }
 
     // Commit secondary word key, mapping to primary display name
@@ -110,6 +112,13 @@ wordsList.forEach((line, index) => {
     wordsDb.KeyToDisplayName.set(secondaryWordKey, displayName);
   });
 });
+
+if (syntaxErrors.length) {
+  syntaxErrors.forEach((syntaxError) => console.error(syntaxError));
+
+  // Exit
+  process.exit(5);
+}
 
 //
 // Output data
