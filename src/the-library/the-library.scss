@@ -1,5 +1,9 @@
 @import "../index.scss";
 
+div.video-library {
+  @include clearfix;
+}
+
 div.video-library-float {
   // Float left
   float: left;

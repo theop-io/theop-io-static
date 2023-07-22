@@ -70,7 +70,7 @@ class VideoDescriptor {
   }
 }
 
-// Build carousel list
+// Show carousel on click
 function showCarouselForVideo(videoDescriptors: VideoDescriptor[], videoIndex: number) {
   const carouselVideoList = videoDescriptors.map((videoDescriptor) => {
     return {
@@ -85,9 +85,9 @@ function showCarouselForVideo(videoDescriptors: VideoDescriptor[], videoIndex: n
 }
 
 // Populate videos
-const videoLibraryParentDiv = document.querySelector<HTMLDivElement>("#video-library-fancybox");
+const videoLibraryParentDivs = document.querySelectorAll<HTMLDivElement>(".video-library");
 
-if (videoLibraryParentDiv) {
+videoLibraryParentDivs.forEach((videoLibraryParentDiv) => {
   // Retrieve video links from inner <a> elements
   const videoLinkElements = Array.from(
     videoLibraryParentDiv.querySelectorAll<HTMLAnchorElement>("a")
@@ -168,4 +168,4 @@ if (videoLibraryParentDiv) {
     // Insert outer div into parent div
     videoLibraryParentDiv.appendChild(outerDivElement);
   });
-}
+});
