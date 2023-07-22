@@ -7,40 +7,64 @@ class VideoDescriptor {
   readonly id: string;
   readonly description: string;
 
-  constructor(url: URL, description: string) {
-    const youtubeLinkPrefix = "https://youtu.be/";
-    const vimeoLinkPrefix = "https://vimeo.com/";
+  private static typeAndIdFromURL(url: URL): {
+    type: VideoDescriptor["type"];
+    id: VideoDescriptor["id"];
+  } {
+    function idFromFrontOfPath() {
+      // RegEx to capture the first alpha-numeric range after a leading forward slash
+      const alphaNumericalIdFromPathRegEx = /^\/(\w+)/;
 
-    this.description = description;
+      const idMatches = alphaNumericalIdFromPathRegEx.exec(url.pathname);
 
-    // RegEx to capture the first alpha-numeric range after a leading forward slash
-    const alphaNumericalIdFromPathRegEx = /^\/(\w+)/;
+      if (idMatches && idMatches.length > 1) {
+        // Return the first capture group, i.e. the actual video ID
+        // - index 0 == the entire matching text
+        // - index 1 == the capture group
+        return idMatches[1];
+      }
 
-    console.log(url);
+      return null;
+    }
 
+    // e.g. https://youtu.be/jubc9USjbdg
     if (url.hostname === "youtu.be") {
-      const idMatches = alphaNumericalIdFromPathRegEx.exec(url.pathname);
+      const id = idFromFrontOfPath();
 
-      if (idMatches && idMatches.length > 1) {
-        this.type = "youtube";
-        this.id = idMatches[1]; // ...the first capture group, i.e. the actual video ID
-        return;
+      if (id) {
+        return { type: "youtube", id };
       }
     }
 
+    // e.g. https://www.youtube.com/watch?v=yeHrGgUA1q8&t=1s&ab_channel=GrumpycorpStudios
+    if (url.hostname.includes("youtube.com")) {
+      if (url.pathname.startsWith("/watch")) {
+        const id = url.searchParams.get("v");
+
+        if (id) {
+          return { type: "youtube", id };
+        }
+      }
+    }
+
+    // e.g. https://vimeo.com/266134889
     if (url.hostname === "vimeo.com") {
-      const idMatches = alphaNumericalIdFromPathRegEx.exec(url.pathname);
+      const id = idFromFrontOfPath();
 
-      if (idMatches && idMatches.length > 1) {
-        this.type = "vimeo";
-        this.id = idMatches[1]; // ...the first capture group, i.e. the actual video ID
-        return;
+      if (id) {
+        return { type: "vimeo", id };
       }
     }
 
-    // Fallback to invalid
-    this.type = "invalid";
-    this.id = "";
+    return { type: "invalid", id: "" };
+  }
+
+  constructor(url: URL, description: string) {
+    const typeAndId = VideoDescriptor.typeAndIdFromURL(url);
+
+    this.type = typeAndId.type;
+    this.id = typeAndId.id;
+    this.description = description;
   }
 
   isValid() {
