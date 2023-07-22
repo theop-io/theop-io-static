@@ -19,5 +19,5 @@ export const memberSignupButtonQuotes = [
   "“I'm sorry Dave. I'm afraid I can't do that. But I can make you a member today if you'd like.”",
   "“The first rule of fight club is you do not talk about fight club. Become a member today.”",
   "“Are you not entertained? Will you not become a member today?”",
-  "I was told that, because I'm a member, I could listen to the radio at a reasonable volume from nine to eleven.",
+  "I was told that because I'm a member I could listen to the radio at a reasonable volume from nine to eleven.",
 ];
