@@ -47,6 +47,8 @@ Bogie - Used to describe someone you aren't supposed to see in the frame, genera
 Martini - Last shot of the day. 'We are on the martini so anything that’s not working can head to the trucks.'.
 Upstage/Downstage - Upstage is away from camera, downstage is towards camera. Easy way to remember it is theater. Down stage is towards the audience and upstage is away from the audience.
 Hot points - Verbal cue that something large that can hurt you is being brought onto set. Generally called out by electricians or grips who will often have to carry long pieces of equipment on their shoulders. When 'hot points' is called out, be extra aware.
+Coming through - Often used in conjunction with hot points, an alert to let people know that they will need to move as someone is “coming through” with a piece of equipment and requires room to navigate.
+Watch Your Back - keep your eyes open, be aware of your surroundings. “We’ve got equipment coming through this hallway so watch your back.”
 Lockup - When an area is being controlled and no outsiders are allowed in. Generally used when working on location and quite often having to do with traffic control. 'We are locked up' means that PAs are stationed in the appropriate areas to stop people not involved in the scene from wandering on camera. 'Breaking a lockup' means someone has sneaked thorugh.
 
 Crafty - Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.
@@ -66,6 +68,7 @@ Day Playing - Coming in for just a day or two on a show rather than working for 
 Wheels of Death - Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold.
 Over/Over The Shoulder - Short for over the shoulder (OTS). A shot from behind one actor, across their shoulder, to another actor who is speaking to them.
 The Line - An imaginary line that is drawn between two actors in a scene. Once the blocking has been determined, the camera should generally only shoot from that side of the line and not cross it. 
+Jumping the Line/Crossing the Line - When you purposely disreagard the line for the sake of the shot or to intentionally create tension.
 Offset - A device that can be put on a dolly to allow the camera to sit somewhere other than the center of the boom arm. Offsets are used to move over things, under things, or just to gain a few inches left or right of center and be able the line things up correctly.
 Key Grip - Head of the grip department. The Key Grip is generally on set all the time (with the exception being when they may scout a location ahead of time and will appoint a grip to be key for the day) is the person in charge of the grip department and generally in charge of all rigging, building, etc.
 Best Boy - There are two best boys, grips and electricians, and they generally do not spend a lot of time on set. They are tasked with making sure their departments have everything they need for the days coming up, any special projects, and keeping all repairs in order so that everyone has everything they need to get things done on the day.
@@ -74,6 +77,9 @@ Honeywagon - Mobile bathrooms on location
 2 banger/4 Banger/6 Banger - Location bathrooms that come in 2, 4, or 6 stall sizes
 Ring it out - Leaving set to pee. “Cover me while I ring it out.”
 Hit the head - Going to the bathroom. “Cover me while I hit the head.”
+10-1 - Used to let someone know that you are going to the bathroom to pee. “Cover me I’m 10-1”
+10-2  - Used to let someone know that you are going to the bathroom to, ahem, evacuate your bowels. “Cover me, I’m 10-2”
+Wringing it out - used to let someone know you are leaving to go pee. “Cover me I’m hitting the head to ring it out”.
 Cover me - Making sure someone's absence isnt felt when they have to step off set. When an operator has to leave for a minute they may ask the 1st AC to “cover me” or “keep an eye” in case someone needs the camera moved or a new element changes in the shot.
 First team - The actors in the scene. “Let’s work out the details of the move with first team since they will likely do it differently.”
 Second Team - Also known as “stand ins” second teamers will take the actors marks and re-enact their movements for camera and lighting before first team comes back in.
@@ -131,5 +137,43 @@ Walk Away - A meal braek. usually at least one hour, where the crew is left to f
 Base Camp/Circus - Where the trailers, cast, hair and makeup, wardrobe, and the rest of the trucks are stationed. 
 Fire in The Hole - Called out by the AD and/or special fx before pyrotechnics are ignited. Fire in the hole means the next thing that is going to happen is an explosion of some kind.
 Banana - Used to describe the path an actor takes from point a to point b instead of going in a straight line. “If you are able to banana as you cross the camera, it will be a more flattering angle as you come close.”
+Groucho - A request to an actor to stoop slightly as they stand up rather than standing straight up. While this may seem odd, it's asked for more often than not and actors can seamlessly pull it off. “Can you groucho a little out of the chair as I’m just about seeing off the set.” To hear a story about a crazy Tom Hanks Groucho listen to the Dave Emmerichs podcast.
+Nickels Worth - A small amount. “When he comes through the door, pan with him a nickels worth before letting him leave the frame.”
+Branchalorous - A tree branch or similarly devised item placed in front of a lamp to create a broken up dappled look with the light. A branchalourous can also be used to describe a real piece of nature that is used to cover up something that you don't want to see in the frame. "Just cover it with a brachalorous and we will never see it."
+Hollywood it - To hold a piece of equipment instead of setting it on a stand. Usually done due to the need for something to only be in one part of the shot but that would then be seen when the caera moves. “Do me a favor and hollywood a flag in here for the beginning of the shot”
+86 That - Forget what was asked for as its no longer needed or plans have changed. Also used to cancel something that has just been done. “86 that call for the b camera, we are moving on.”
+On a bell - On stage and sometimes on a location a bell is rung once to let people know a take is about to happen and twice to let everyone know that it is finished. Once you are “on a bell” everyone not involved in the shot should be quiet and still.
+C-47 - Clothespin used for securing all sorts of things to all sorts of other things.
+Grip Clip - Small metal spring clamp used to hold things together on set. They have a ton of uses and come in number 1, 2, and 3 sizes with 3 being the largest. “Someone grab me two number 1's. The opertor forgot his belt again and his pants are falling down.
+Duvatene - Heavy black cloth carried in rolls by the grip department. Easy to rip into whatever size you need it is often used to shroud something that is causing a reflection or a kick.
+Kick - Reflection of a soource of light back into the camera. “Hey can we have set dressing come in to rotate that mirror? I’m getting a kick in the lens from a light offstage.”
+New Deal - Called out when the shot that is in progress is finished (or scene) and you are moving on to the next one.
+Moving on - Called out, usually by the 1st AD, to let the crew know that that shot is finished and the crew is moving on to set up the next shot.
+One more for Lloyds - Lloyds of London is a famous insurance company and one more for Lloyds means we have a take we like, let's do one more just in case. Its rarely used but still one of the cooler things said. I say we bring it back.
+On the day - When things are actually done in the future. “We will rehearse this right now with a stunt double but on the day the actor will jump off the ledge.”
+Get off your phone - If you hear this on set, do it. And stay that way. You're at work after all and you should be paying attention. While you're at it, get a haircut and stay off my lawn. Damn kids and their fancy gadgets thinking they knwo everything because of the "interwebs". Why in my day....
+Scripty - Short for script supervisor, the person who follows the dialogue, notes changes in the dialogue and keeps an eye on continuity. Ops will wnat to let scripty know when there is an issue with a take so there is a record. They can save you if you don't know which side of the line you'll be on too.
+Sparkies - Slang for electricians, also known collectively as “electric”
+Geny - Short for a power generator used to keep everything running
+French Hours - a manner of working where the length of the day is predetermined by a vote of the crew (generally 10 hours) and there is no break for lunch. Meals are generally available to be eaten on set in between shots. If the crew goes over ten hours, penalties are paid.
+Copy - Said after someone gives a request or an instruction to do something to let them know that you heard and understood what they have said. Also “copy that” and “copy you”
+Lock up - Generally used on location to describe an area that production controls where all pedestrians and cars are under the crews control.
+Per Diem - The money given to you on location to cover food for the day. Union per diem is generally in the $60/day realm. Back in the day, per diem was given on pay day as cash in little envelopes, but now it’s included in your paycheck. Ahh it was a good life.
+MOS - Mit Out Sound. German expression used as an acronym for shooting a scene that does not require sound to be recorded. When this is done a head slate will usually be shot before the take with the sticks closed and the letters MOS on it to let editing know there is no sound track to sync up.
+Fraturday - The unfortunate timing of a Friday shoot where you start late in the day and work into Saturday morning.
+French Overs - Over the shoulder shots where you are coming from behind the actors instead of in front. A good example is in a car where the actors are sitting in the front seat. Standard overs would mean the camera angles are in between the actor and the dashboard, form the side window perhaps, while french overs would be from the back seat. If an over is called for it’s assumed it’s a standard over not a french over.
+Tail Sticks/Tail Slate - If for some reason the head slate was missed, immediately after the director calls cut the operator will call out loud "tail sticks" to let sound and camera know not to cut. The sticks are held in and smacked upside down so the editors know it's a tail slate.
+Head sticks/Head Slate - When the slate is hit at the head of the take between roll cmaera and action. This is generally how it will be done.
+Wild wall - Also wild. A wall, or really anything, that can be moved either in the middle of a shot or at any other time, meaning it is not anchored down. “That wall is wild so we can pull it as the camera back up once it's out of view.”
+Single Net - A piece of netting in a frame put in front of a light, also called a single, that will take 1 stop of light away from a lighting unit.
+Double Net - A piece of netting in a frame put in front of a light, also called a double, that will reduce the amount of light by two stops.
+Camera Left - To the left side of camera from the actors point of view. So camera left will actually be the right side of the operator. "Please make sure you exit camera left when you head off camera."
+Camera right - To the right sode of camera fomr the operators point of view. So camera right will actually be to the left side of the operator. " Please make sure to exit camera right when you head off camera."
+Prep - The time before the shoot starts where things are planned, organized, gear is checked out and built and everything is done that needs to be to be ready to hit the ground running on day 1. Most operators do not get prep but if you can go to the camera prep and build the camera to your liking you should always do so.
+Wrap - The end of the day, or the end of the show. Denotes the time that you stop filming. We should wrap about 10 Pm tonight but the show doesn't wrap until October."
+Taillights - Refers to the trucks tailights leaving the set but is used to discuss the time when everyone has to be out of the location or finsihed for the day. "This neighborhood has strict rules so it's taillights at 10."
+Bus to/ Van to - Means you will drive to a specific location to park and then get into vehicles provided by produciton to get to the location. "We are meeting at the studio and then it's a 30 minute van to set." 
+
+
 
 
