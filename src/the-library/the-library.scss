@@ -1,6 +1,6 @@
 @import "../index.scss";
 
-div.youtube-library-float {
+div.video-library-float {
   // Float left
   float: left;
 
@@ -20,7 +20,7 @@ div.youtube-library-float {
   text-align: center;
 }
 
-.youtube-library-preview {
+.video-library-preview {
   width: 100%;
   margin: auto;
   aspect-ratio: 16/9;
@@ -28,7 +28,7 @@ div.youtube-library-float {
   border: 0;
 }
 
-.youtube-library-play-button {
+.video-library-play-button {
   // Position on top of other content
   position: absolute;
 
@@ -41,7 +41,7 @@ div.youtube-library-float {
   transform: translate(-50%, -50%);
 }
 
-.youtube-library-description {
+.video-library-description {
   position: absolute;
   text-align: left;
 

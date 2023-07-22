@@ -85,12 +85,12 @@ function showCarouselForVideo(videoDescriptors: VideoDescriptor[], videoIndex: n
 }
 
 // Populate videos
-const youtubeLibraryParentDiv = document.querySelector<HTMLDivElement>("#youtube-library-fancybox");
+const videoLibraryParentDiv = document.querySelector<HTMLDivElement>("#video-library-fancybox");
 
-if (youtubeLibraryParentDiv) {
+if (videoLibraryParentDiv) {
   // Retrieve video links from inner <a> elements
   const videoLinkElements = Array.from(
-    youtubeLibraryParentDiv.querySelectorAll<HTMLAnchorElement>("a")
+    videoLibraryParentDiv.querySelectorAll<HTMLAnchorElement>("a")
   );
 
   const videoDescriptors = videoLinkElements
@@ -100,20 +100,20 @@ if (youtubeLibraryParentDiv) {
     .filter((v) => v.isValid());
 
   // Remove "Loading..." etc. content
-  youtubeLibraryParentDiv.innerHTML = "";
+  videoLibraryParentDiv.innerHTML = "";
 
   // Populate videos
   videoDescriptors.forEach((videoDescriptor, index) => {
     // Generate description div
     const descriptionElement = document.createElement("span");
 
-    descriptionElement.classList.add("youtube-library-description");
+    descriptionElement.classList.add("video-library-description");
     descriptionElement.appendChild(document.createTextNode(videoDescriptor.description));
 
     // Generate play button SVG
     const playButtonElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-    playButtonElement.classList.add("youtube-library-play-button");
+    playButtonElement.classList.add("video-library-play-button");
     playButtonElement.setAttribute("viewBox", "0 0 1200 1200");
 
     {
@@ -148,14 +148,13 @@ if (youtubeLibraryParentDiv) {
     // Generate preview image
     const imageElement = document.createElement("img");
 
-    imageElement.id = `youtubeImage${index}`;
-    imageElement.classList.add("youtube-library-preview");
+    imageElement.classList.add("video-library-preview");
     imageElement.src = videoDescriptor.getThumbnailUrl();
 
     // Generate outer div
     const outerDivElement = document.createElement("div");
 
-    outerDivElement.classList.add("youtube-library-float");
+    outerDivElement.classList.add("video-library-float");
 
     outerDivElement.addEventListener("click", () => {
       showCarouselForVideo(videoDescriptors, index);
@@ -167,6 +166,6 @@ if (youtubeLibraryParentDiv) {
     outerDivElement.appendChild(imageElement);
 
     // Insert outer div into parent div
-    youtubeLibraryParentDiv.appendChild(outerDivElement);
+    videoLibraryParentDiv.appendChild(outerDivElement);
   });
 }
