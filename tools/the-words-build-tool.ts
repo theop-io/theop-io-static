@@ -84,9 +84,9 @@ wordsList.forEach((line, index) => {
 
   if (wordKeyToLineNumber.has(primaryWordKey)) {
     return syntaxError(
-      `Word "${displayName}" previously defined on line ${wordKeyToLineNumber.get(
-        primaryWordKey
-      )}, redefined`
+      `Word "${displayName}" previously defined on line ${
+        wordKeyToLineNumber.get(primaryWordKey) + 1
+      }, redefined`
     );
   }
 
