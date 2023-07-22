@@ -86,7 +86,9 @@ class VideoDescriptor {
   getThumbnailUrl() {
     switch (this.type) {
       case "youtube":
-        return `https://i.ytimg.com/vi_webp/${this.id}/maxresdefault.webp`;
+        return this.id.includes("_") // Super-hacky, probably won't survive long
+          ? `https://i.ytimg.com/vi_webp/${this.id}/hqdefault.webp`
+          : `https://i.ytimg.com/vi_webp/${this.id}/maxresdefault.webp`;
 
       case "vimeo":
         return `https://vumbnail.com/${this.id}.jpg`;
