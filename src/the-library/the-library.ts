@@ -7,23 +7,40 @@ class VideoDescriptor {
   readonly id: string;
   readonly description: string;
 
-  constructor(url: string, description: string) {
+  constructor(url: URL, description: string) {
     const youtubeLinkPrefix = "https://youtu.be/";
     const vimeoLinkPrefix = "https://vimeo.com/";
 
-    // Parse potential YouTube URL
-    if (url.startsWith(youtubeLinkPrefix)) {
-      this.type = "youtube";
-      this.id = url.substring(youtubeLinkPrefix.length);
-    } else if (url.startsWith(vimeoLinkPrefix)) {
-      this.type = "vimeo";
-      this.id = url.substring(vimeoLinkPrefix.length);
-    } else {
-      this.type = "invalid";
-      this.id = "";
+    this.description = description;
+
+    // RegEx to capture the first alpha-numeric range after a leading forward slash
+    const alphaNumericalIdFromPathRegEx = /^\/(\w+)/;
+
+    console.log(url);
+
+    if (url.hostname === "youtu.be") {
+      const idMatches = alphaNumericalIdFromPathRegEx.exec(url.pathname);
+
+      if (idMatches && idMatches.length > 1) {
+        this.type = "youtube";
+        this.id = idMatches[1]; // ...the first capture group, i.e. the actual video ID
+        return;
+      }
     }
 
-    this.description = description;
+    if (url.hostname === "vimeo.com") {
+      const idMatches = alphaNumericalIdFromPathRegEx.exec(url.pathname);
+
+      if (idMatches && idMatches.length > 1) {
+        this.type = "vimeo";
+        this.id = idMatches[1]; // ...the first capture group, i.e. the actual video ID
+        return;
+      }
+    }
+
+    // Fallback to invalid
+    this.type = "invalid";
+    this.id = "";
   }
 
   isValid() {
@@ -95,7 +112,8 @@ videoLibraryParentDivs.forEach((videoLibraryParentDiv) => {
 
   const videoDescriptors = videoLinkElements
     .map(
-      (videoLinkElement) => new VideoDescriptor(videoLinkElement.href, videoLinkElement.innerText)
+      (videoLinkElement) =>
+        new VideoDescriptor(new URL(videoLinkElement.href), videoLinkElement.innerText)
     )
     .filter((v) => v.isValid());
 
