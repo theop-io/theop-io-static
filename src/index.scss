@@ -32,3 +32,8 @@
 .clearfix {
   @include clearfix;
 }
+
+// Include projects
+@import "./site-tweaks/site-tweaks.scss";
+@import "./the-library/the-library.scss";
+@import "./the-words/the-words.scss";
