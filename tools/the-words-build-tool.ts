@@ -55,21 +55,22 @@ wordsList.forEach((line, index) => {
   }
 
   // Split line into term (word) and definition
-  const separatorIndex = line.indexOf("-");
+  const termToDefinitionSeparator = " - ";
+  const separatorIndex = line.indexOf(termToDefinitionSeparator);
 
   if (separatorIndex < 0) {
-    syntaxError("Missing '=' separator");
+    syntaxError(`Missing '${termToDefinitionSeparator}' separator`);
   }
 
   const displayName = line.slice(0, separatorIndex).trim();
-  const definition = line.slice(separatorIndex + 1).trim();
+  const definition = line.slice(separatorIndex + termToDefinitionSeparator.length).trim();
 
   if (!displayName) {
-    syntaxError("Missing Term to the left of the '-' separator");
+    syntaxError(`Missing Term to the left of the '${termToDefinitionSeparator}' separator`);
   }
 
   if (!definition) {
-    syntaxError("Missing Definition to the right of the '-' separator");
+    syntaxError(`Missing Definition to the right of the '${termToDefinitionSeparator}' separator`);
   }
 
   if (displayName.includes('"')) {
