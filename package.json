@@ -5,11 +5,11 @@
   "scripts": {
     "clean": "rimraf dist",
     "codegen": "ts-node ./tools/the-words-build-tool.ts ./src/the-words/the-words-list.txt ./src/the-words/generated/the-words-db.ts",
-    "build": "npm run codegen && webpack --config webpack.prod.js",
-    "serve": "npm run codegen && webpack serve --config webpack.dev.js",
+    "build": "npm run codegen && webpack --config webpack.prod.ts",
+    "serve": "npm run codegen && webpack serve --config webpack.dev.ts",
     "lint": "eslint .",
     "format:fix": "prettier --write ./*",
-    "build-dev": "npm run codegen && webpack --config webpack.dev.js"
+    "build-dev": "npm run codegen && webpack --config webpack.dev.ts"
   },
   "author": "Robin Giese",
   "private": true,

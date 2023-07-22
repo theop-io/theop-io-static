@@ -1,8 +1,10 @@
-const path = require("path");
-const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+import * as path from "path";
 
-module.exports = {
+import { Configuration } from "webpack";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import * as HtmlBundlerPlugin from "html-bundler-webpack-plugin";
+
+const coreConfiguration: Configuration = {
   target: ["web", "es5"],
   module: {
     rules: [
@@ -21,6 +23,7 @@ module.exports = {
     extensions: [".ts", ".js"],
   },
   plugins: [
+    new CleanWebpackPlugin(), // auto-clean output directory
     new HtmlBundlerPlugin({
       entry: "./src/",
       js: {
@@ -32,10 +35,11 @@ module.exports = {
         filename: "assets/css/[name].css",
       },
     }),
-    new CleanWebpackPlugin(), // auto-clean output directory
   ],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
 };
+
+export default coreConfiguration;
