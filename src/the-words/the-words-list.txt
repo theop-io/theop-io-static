@@ -52,7 +52,7 @@ Watch Your Back - keep your eyes open, be aware of your surroundings. “We’ve
 Lockup - When an area is being controlled and no outsiders are allowed in. Generally used when working on location and quite often having to do with traffic control. 'We are locked up' means that PAs are stationed in the appropriate areas to stop people not involved in the scene from wandering on camera. 'Breaking a lockup' means someone has sneaked thorugh.
 
 Crafty - Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.
-On the day - When you actually shoot whatever is being discussed. 'Right now there is a mirror on the wall but on the day there will be a poster hanging there'
+; see line 153 ;; On the day - When you actually shoot whatever is being discussed. 'Right now there is a mirror on the wall but on the day there will be a poster hanging there'
 Hot Set - A set that should not be touched, usually for continuity purposes but sometimes because it has been set up with special effects that can’t be disturbed. Signs and/or police tape are generally used to denote a hot set. 'Everyone should know this is now a hot set and no one should be on it except props and special effects.'
 Standing by - Someone or something is ready adn waiting. 'Let’s have the flowers standing by for the next scene', 'Second team is standing by and ready to step in once the ladders are out.'
 Flying in - Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on it’s way.
