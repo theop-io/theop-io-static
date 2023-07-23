@@ -47,13 +47,26 @@ div.video-library-float {
 }
 
 .video-library-description {
+  // Position at the top
   position: absolute;
+
+  $paddingLeft: 0.5em;
+
+  padding-top: 0.3em;
+  padding-left: $paddingLeft;
+
+  // Background
+  padding-bottom: 0.3em;
+  padding-right: 0;
+
+  width: calc(100% - 2 * $paddingLeft);
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  // Text tweaks
   text-align: left;
   font-size: 1.25rem;
   line-height: 1.15;
-
-  padding-top: 0.3em;
-  padding-left: 0.5em;
 
   color: white;
 }
