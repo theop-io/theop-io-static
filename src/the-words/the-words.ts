@@ -17,6 +17,7 @@ import { theWordsDb } from "./generated/the-words-db";
 // TheWords configuration
 const theWordsLinkPrefix = "#thewords"; // Used to identify theWords links when configuring the page
 const theWordsKeyAttribute = "data-word-key"; // Used to find theWords key after page has been configured
+const theWordsSearchResultAttribute = "data-search-result"; // Used to annotate word anchors during a search
 
 const theWordsTooltip_OffsetFromParent = 5;
 
@@ -30,6 +31,17 @@ const theWordsTooltips = new Map<string, HTMLDivElement>();
 
 // - Latest search term
 let theWordsCurrentSearchTerm = "";
+
+type SearchResult = "match-by-term" | "match-by-definition" | "unmatched" | "none";
+
+function setSearchResultForElement(element: HTMLElement, searchResult: SearchResult) {
+  element.setAttribute(theWordsSearchResultAttribute, searchResult);
+}
+
+function getSearchResultForElement(element: HTMLElement): SearchResult {
+  const attributeValue = element.getAttribute(theWordsSearchResultAttribute);
+  return attributeValue ? (attributeValue as SearchResult) : "none";
+}
 
 // - Active tooltip
 let theWordsActiveWordKey: string | undefined = undefined;
@@ -132,12 +144,21 @@ function cancelHideTooltipTimer() {
 function showWordTooltip(event: Event) {
   const linkElement = event.target as HTMLLinkElement;
 
+  // Check whether this link is eligible for tooltips
+  const searchResult = getSearchResultForElement(linkElement);
+
+  if (searchResult === "unmatched") {
+    return;
+  }
+
+  // Get word key
   const wordKey = linkElement.getAttribute(theWordsKeyAttribute);
 
   if (wordKey === null) {
     return;
   }
 
+  // Get tooltip element
   const tooltipElement = theWordsTooltips.get(wordKey);
 
   if (tooltipElement === undefined) {
@@ -389,8 +410,9 @@ function onWordSearchTermUpdate(event: Event) {
 
   if (!searchTerm) {
     // Search ended
-    // - Restore visibility on all links
+    // - Restore state and visibility on all links
     for (const anchorElement of wordIndexKeyToAnchorMap.values()) {
+      setSearchResultForElement(anchorElement, "none");
       anchorElement.style.opacity = "100%";
     }
 
@@ -407,22 +429,34 @@ function onWordSearchTermUpdate(event: Event) {
   const searchTermRegEx = new RegExp(searchTerm, "i");
 
   for (const [wordKey, anchorElement] of wordIndexKeyToAnchorMap) {
-    const anchorOpacity = (function () {
+    // Slightly odd inline anonymous function invocations below so we can do hot returns...
+    const searchResult = (function (): SearchResult {
       if (wordKey.includes(searchTermAsWordKey)) {
-        // Show term fully when we match the term
-        return 100;
+        return "match-by-term";
       }
 
       const displayName = anchorElement.innerText;
       const definitionText = theWordsDb.DisplayNameToDefinition.get(displayName);
 
       if (definitionText && searchTermRegEx.test(definitionText)) {
-        // Show term partially when we match just the definition
-        return 50;
+        return "match-by-definition";
       }
 
-      // Show the term a little when it does not match
-      return 10;
+      return "unmatched";
+    })();
+
+    setSearchResultForElement(anchorElement, searchResult);
+
+    const anchorOpacity = (function (): number {
+      switch (searchResult) {
+        case "match-by-term":
+          return 100;
+        case "match-by-definition":
+          return 50;
+        case "unmatched":
+        default:
+          return 10;
+      }
     })();
 
     anchorElement.style.opacity = `${anchorOpacity}%`;
