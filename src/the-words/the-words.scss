@@ -76,10 +76,14 @@
 // The Words index page
 //
 
+div#the_words_index {
+  font-size: 1.25rem;
+}
+
 // Word search
 form#the_words_search_form {
   /* Placement */
-  padding-bottom: 1.5em;
+  padding-bottom: 3em;
 }
 
 input#the_words_search_input {
@@ -102,9 +106,6 @@ input#the_words_search_input {
   background-repeat: no-repeat;
   background-position: 0.2em;
   background-size: 0.7em;
-
-  /* Text */
-  font-size: 80%;
 }
 
 // Word index
