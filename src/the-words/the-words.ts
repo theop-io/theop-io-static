@@ -21,7 +21,7 @@ const theWordsSearchResultAttribute = "data-search-result"; // Used to annotate 
 
 const theWordsTooltip_OffsetFromParent = 5;
 
-const theWordsTooltip_DelayBeforeClosing_msec = 1000;
+const theWordsTooltip_DelayBeforeClosing_msec = 500;
 
 // State
 // - Map of tooltips (starts empty, built out as we identify links requiring tooltips on the page)
