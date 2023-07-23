@@ -54,6 +54,21 @@ body:not(.header--menu-open) .header-nav-item--active > a {
 }
 
 //
+// Navigation: dropdown menu tweaks
+//
+
+div.header-nav-folder-content {
+  // Smaller text
+  font-size: 80%;
+
+  // Slightly translucent background
+  background-color: rgba(255, 255, 255, 0.8) !important;
+
+  // Size it to content, otherwise it's sized a bit generously
+  min-width: max-content !important;
+}
+
+//
 // Navigation: highlight words in navigation menu entries
 //
 
