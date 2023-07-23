@@ -13,7 +13,7 @@ export const memberSignupButtonQuotes = [
   "“Mama always said that life is like a box of chocolates, you never know what you are gonna get. But if you become a member, you will.”",
   "“Houston, we have a problem. But I'm pretty sure you can fix it by becoming a member today. ”",
   "“Life moves pretty fast. If you dont stop and look around once in a while, or at least become a member, you could miss it.”",
-  "“Carpe Diem. Sieze the day boys. Make your lives extraordinairy. Become a member before time runs out.”",
+  "“Carpe Diem. Seize the day boys. Make your lives extraordinairy. Become a member before time runs out.”",
   "“You haven't become a member yet? Inconceivable!!”",
   "“Allright Mr. Demille. I'm a member now. I'm ready for my closeup.“",
   "“I'm sorry Dave. I'm afraid I can't do that. But I can make you a member today if you'd like.”",
