@@ -126,6 +126,35 @@ function showCarouselForVideo(videoDescriptors: VideoDescriptor[], videoIndex: n
   });
 }
 
+// Find better thumbnail image via YouTube `oembed`
+// - Phrase this as an async function that we can fire-and-forget below
+async function fixYoutubeThumbnail(
+  videoDescriptor: VideoDescriptor,
+  imageElement: HTMLImageElement
+) {
+  // Request Youtube `oembed` data
+  const oembedResponse = await fetch(
+    `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(
+      videoDescriptor.getVideoUrl()
+    )}`
+  );
+
+  if (!oembedResponse.ok) {
+    return;
+  }
+
+  const oembedJson = await oembedResponse.json();
+
+  // Retrieve thumbnail
+  const thumbnailUrl =
+    "thumbnail_url" in oembedJson ? (oembedJson["thumbnail_url"] as string) : null;
+
+  // Apply
+  if (thumbnailUrl) {
+    imageElement.src = thumbnailUrl;
+  }
+}
+
 // Populate videos
 const videoLibraryParentDivs = document.querySelectorAll<HTMLDivElement>(".video-library");
 
@@ -198,43 +227,20 @@ videoLibraryParentDivs.forEach((videoLibraryParentDiv) => {
       // Check if the YouTube thumbnail actually loaded or we got a bogus image back
       // - Note that the YouTube image server will return a 404 for images that can't be served from the initial request
       //   but still includes a 'broken link'-type image in the response.
-      //   This means that the <img> element still fires `onload` instead of `onerror`,
-      //   but somehow, _magically_, at least the `.naturalWidth` is zero in this case.
-      //   Blessed be.
+      //   This means that the <img> element still fires `onload` instead of `onerror`.
+      imageElement.addEventListener(
+        "load",
+        (ev: Event) => {
+          const imageElement = ev.target as HTMLImageElement;
+          const youtubeBogusThumbnailImageWidth = 120;
 
-      if (!imageElement.naturalWidth) {
-        // Find better thumbnail image via YouTube `oembed`
-        // - Phrase this as an async function that we can fire-and-forget below
-        async function fixYoutubeThumbnail(
-          videoDescriptor: VideoDescriptor,
-          imageElement: HTMLImageElement
-        ) {
-          // Request Youtube `oembed` data
-          const oembedResponse = await fetch(
-            `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(
-              videoDescriptor.getVideoUrl()
-            )}`
-          );
-
-          if (!oembedResponse.ok) {
-            return;
+          if (imageElement.naturalWidth <= youtubeBogusThumbnailImageWidth) {
+            // Fire-and-forget (let this complete on its own time)
+            fixYoutubeThumbnail(videoDescriptor, imageElement);
           }
-
-          const oembedJson = await oembedResponse.json();
-
-          // Retrieve thumbnail
-          const thumbnailUrl =
-            "thumbnail_url" in oembedJson ? (oembedJson["thumbnail_url"] as string) : null;
-
-          // Apply
-          if (thumbnailUrl) {
-            imageElement.src = thumbnailUrl;
-          }
-        }
-
-        // Fire-and-forget (let this complete on its own time)
-        fixYoutubeThumbnail(videoDescriptor, imageElement);
-      }
+        },
+        { once: true } // Don't retry
+      );
     }
 
     // Generate outer div
