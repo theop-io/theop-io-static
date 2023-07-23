@@ -86,7 +86,9 @@ class VideoDescriptor {
   getThumbnailUrl() {
     switch (this.type) {
       case "youtube":
-        return `https://i.ytimg.com/vi/${this.id}/mqdefault.jpg`;
+        // This gets us the highest-quality image but it may not work out.
+        // See `fixYoutubeThumbnail` below for more.
+        return `https://i.ytimg.com/vi_webp/${this.id}/maxresdefault.webp`;
 
       case "vimeo":
         return `https://vumbnail.com/${this.id}.jpg`;
@@ -191,6 +193,49 @@ videoLibraryParentDivs.forEach((videoLibraryParentDiv) => {
 
     imageElement.classList.add("video-library-preview");
     imageElement.src = videoDescriptor.getThumbnailUrl();
+
+    if (videoDescriptor.type === "youtube") {
+      // Check if the YouTube thumbnail actually loaded or we got a bogus image back
+      // - Note that the YouTube image server will return a 404 for images that can't be served from the initial request
+      //   but still includes a 'broken link'-type image in the response.
+      //   This means that the <img> element still fires `onload` instead of `onerror`,
+      //   but somehow, _magically_, at least the `.naturalWidth` is zero in this case.
+      //   Blessed be.
+
+      if (!imageElement.naturalWidth) {
+        // Find better thumbnail image via YouTube `oembed`
+        // - Phrase this as an async function that we can fire-and-forget below
+        async function fixYoutubeThumbnail(
+          videoDescriptor: VideoDescriptor,
+          imageElement: HTMLImageElement
+        ) {
+          // Request Youtube `oembed` data
+          const oembedResponse = await fetch(
+            `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(
+              videoDescriptor.getVideoUrl()
+            )}`
+          );
+
+          if (!oembedResponse.ok) {
+            return;
+          }
+
+          const oembedJson = await oembedResponse.json();
+
+          // Retrieve thumbnail
+          const thumbnailUrl =
+            "thumbnail_url" in oembedJson ? (oembedJson["thumbnail_url"] as string) : null;
+
+          // Apply
+          if (thumbnailUrl) {
+            imageElement.src = thumbnailUrl;
+          }
+        }
+
+        // Fire-and-forget (let this complete on its own time)
+        fixYoutubeThumbnail(videoDescriptor, imageElement);
+      }
+    }
 
     // Generate outer div
     const outerDivElement = document.createElement("div");
