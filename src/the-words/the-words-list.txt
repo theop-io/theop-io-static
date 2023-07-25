@@ -11,6 +11,7 @@
 ; - Lines may also be empty to create some breathing room.
 ; 
 
+Mayonnaise Commercial - What you tell lookie loos walking by you are shooting so they become disinterested and walk on by.
 Skate Wheels - Two rows of skateboard wheels placed at 90 degrees to each other used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track.
 Oner - When an entire scene is played in a single shot. A oner with coverage is a oner that they then decide to do coverage on after the fact.
 Master - Usually the first wide shot of a scene that sees the entire story and all the players. The average master will generally run the entire scene and coverage will be determines off it it as well as things like the line.
@@ -64,7 +65,7 @@ High Mode - Usually refers to dolly or steadicam. When the camera is mounted in 
 Riser - A metal piece that is used on a dolly to get the camera higher, which literally raises the camera. Can be used on sticks as well or anything that accepts a head and has a Mitchell mount. Usually comes in 3”, 6”, and 12” pieces
 Bowling Trophy - A large, usually 3 foot riser used for extremely high shots. Its name is derived from the fact that it looks like a trophy someone would hold over their head.
 Day Playing - Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays.
-Wheels of Death - Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold.
+
 Over/Over The Shoulder - Short for over the shoulder (OTS). A shot from behind one actor, across their shoulder, to another actor who is speaking to them.
 The Line - An imaginary line that is drawn between two actors in a scene. Once the blocking has been determined, the camera should generally only shoot from that side of the line and not cross it. 
 Jumping the Line/Crossing the Line - When you purposely disreagard the line for the sake of the shot or to intentionally create tension.
@@ -95,7 +96,7 @@ Call sheet - Emailed or hand delivered at the end of the day, the call sheet lis
 Call time - The time that you are expected to arrive on set. Be aware that there is crew call (the time listed on the front top of the call sheet in large numbers) and your call time (which may differ and is listed on the back of the call sheet by department and name).
 Pre-Call - Time before the crew call given to certain crew members so they can prepare gear/load in, etc before the day starts. Pre-Call is on the time card and affects your lunch and out times as well as turn around.
 Greens - Crew member who is in charge of anything related to trees, shrubbery, nature in general, usually used to dress or hide things in an outside location. A lot of times you will simply call them by both their name and title. “Can someone ask Bob Greens to come over and help me cover up this area of the wall with a shrub?”
-Mayonnaise Commercial - What you tell lookie loos walking by you are shooting so they become disinterested and walk on by.
+
 Lookie Loos - Individuals standing and watching what you are shooting.
 Props/Property - Props are any items that are actually used in the scene by an actor. Property is the name of the department who is in charge of all props. “Let property come in and grab these props before we start moving things so they don't get lost”.
 On Set - The area that is being used for filming. Anything on set is anything that may be in font of the camera.
@@ -183,5 +184,5 @@ Telescoping Crane - A crane that has an accordian like mecahnism where it can ex
 3 Axis Remote Head - A remotely controlled head, usually wireless these days, that can work on a crane or anywhere an operator cant get to, that can be panned, titlted, adn rolled around the nodal point of the camera via wheels in another location. 
 Stabilized head - A remote head that has electronic stabilization in it that will remove bumps and jolts that movement of the crane or vehicle may add to the image. It is extremely important to never assume that a head that is requested is stabilized and to make it clear that that is what you require for the shot. It is fairly hard to achieve any kind of crane move well without a stabilized head. Stabilized heads come in both 2 axis and 3 axis configurations.
 Gimbal - Originally reffered to the pan/tilt/roll heart of a steadicam, nowadays the term refers to the 3 axis remote "heads" such as the Ronin, Movi, or Stabileye that have brushless motors. They are lightweight and offer a great amount of versatility but are no where near the quality of a good stabilized head.
-
+Wheels of Death - Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it.
 
