@@ -41,6 +41,7 @@ Rolling Reset - The scene (props, cameras, lighting cues, etc) will be reset whi
 Shot Bag - "A small bag filled with actual metal gun shot, usually ten pounds."
 Ball Buster - "A large sand bag, usually 35 pounds."
 Skoche - "A small amount. “Move that lamp over just a skoche for me.”"
+Organic - BS term used by operators to convince directors that what they are pitching is a great idea. "I know you had envisioned a 3 page steadicam shot that ends on a drone, but do you think that a camera on a sandbag in the corner might be more organic to the story?"
 Clicks - Denotes time period on a timecard. Most shows break the hour into 6 minute intervals so each hour has 10 intervals or ten clicks. “I put two clicks on your time card because parking is so far away from set.”
 Tailights - The absolute time a crew has to be at a location. This doesn't mean stopping shooting at that time, it means tail lights are leaving the location. “We are tailights at this location at midnight so we will probably have to finish shooting by 11 to allow the crew to wrap in time.”
 Going Again - "Shooting an additional take. “We got that and we are going again.”"
