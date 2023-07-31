@@ -81,6 +81,10 @@ div.header-nav-folder-content {
 //
 
 .sqs-block-horizontalrule hr {
+  // The design we want
   height: 0.3rem;
   border: 0.15rem solid red;
+
+  // Punching out Squarespace design we don't want
+  background-color: none;
 }
