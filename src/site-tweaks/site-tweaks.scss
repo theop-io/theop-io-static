@@ -75,3 +75,12 @@ div.header-nav-folder-content {
 .header-nav-word-highlight {
   color: hsla(var(--darkAccent-hsl), 1); // References the SquareSpace design template
 }
+
+//
+// Horizontal rule (divider)
+//
+
+hr {
+  height: 0.3rem;
+  border: 0.15rem solid red;
+}
