@@ -1,26 +1,41 @@
 import { memberSignupButtonQuotes } from "./member-signup-button-quotes";
+import isUserLoggedIn from "./is-user-logged-in";
 
 //
-// Site tweak: Apply "Become a member" button quotes to links
+// Site tweak: Process member signup buttons
 //
 
-{
-  // Find all links ending with (`$`) a `#member_signup` fragment identifier
-  const fragmentIdentifier = "#member_signup";
-
-  const startingQuoteIndex = Math.floor(Math.random() * memberSignupButtonQuotes.length);
-
+function mutateMemberSignupButton(fragmentIdentifier: string, applyQuotes: boolean) {
+  // Find all links ending with (`$`) the given fragment identifier
   const buttonLinks = document.querySelectorAll<HTMLLinkElement>(
     `a[href$="${fragmentIdentifier}"]`
   );
 
-  buttonLinks.forEach((linkElement, index) => {
-    // Remove fragment from link
-    linkElement.href = linkElement.href.replace(fragmentIdentifier, "");
+  if (!isUserLoggedIn) {
+    if (!applyQuotes) {
+      // Nothing left to do
+      return;
+    }
 
-    // Replace content
-    const quoteIndex = (startingQuoteIndex + index) % memberSignupButtonQuotes.length;
+    // Apply "Become a member" button quotes to links
+    const startingQuoteIndex = Math.floor(Math.random() * memberSignupButtonQuotes.length);
 
-    linkElement.innerText = memberSignupButtonQuotes[quoteIndex];
-  });
+    buttonLinks.forEach((linkElement, index) => {
+      // Remove fragment from link
+      linkElement.href = linkElement.href.replace(fragmentIdentifier, "");
+
+      // Replace content
+      const quoteIndex = (startingQuoteIndex + index) % memberSignupButtonQuotes.length;
+
+      linkElement.innerText = memberSignupButtonQuotes[quoteIndex];
+    });
+  } else {
+    // Remove "Become a member" button
+    buttonLinks.forEach((linkElement) => {
+      linkElement.remove();
+    });
+  }
 }
+
+mutateMemberSignupButton("#member_signup", true);
+mutateMemberSignupButton("#member_signup_verbatim", false);
