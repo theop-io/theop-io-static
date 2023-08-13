@@ -1,7 +1,7 @@
 export const memberSignupButtonQuotes = [
   "“Ray, if someone asks you if you're a god, you say YES!”",
   "“Leave the gun. Take the cannoli.”",
-  "“You're gonna need a bigger boat.",
+  "“You're gonna need a bigger boat.”",
   "“What we've got here is a failure to communicate. Which is the way he wants it.”",
   "“Cinderella story. Outta nowhere. A former greenskeeper. It's a mirac... It's in the hole! It's in the hole!”",
   "“You had me at hello”",
