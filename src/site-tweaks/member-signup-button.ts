@@ -1,5 +1,7 @@
 import { memberSignupButtonQuotes } from "./member-signup-button-quotes";
-import isUserLoggedIn from "./is-user-logged-in";
+
+// import isUserLoggedIn from "./is-user-logged-in";
+const isUserLoggedIn = false; // Always show the buttons
 
 //
 // Site tweak: Process member signup buttons
