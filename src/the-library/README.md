@@ -20,11 +20,17 @@ You can most easily obtain the link to a video by right-clicking on it in YouTub
 
 ![Get video URL on YouTube](../../docs/the-library-get-video-shortcut.png)
 
-The code then interprets that list and generates the table of thumbnails, each linking to a popup/carousel spun to that video, with the surrounding videos also on offer.
-
 **Note** that the code that interprets this list is somewhat persnickety about the format of the video links (it needs to auto-detect video IDs and such);
 the _Copy video URL_ means of obtaining the link should be the safest option;
 just copying the link that displays in the browser when you're watching the video may not work.
+
+The code translates the list into a table of thumbnails:
+
+![Video thumbnails rendered](../../docs/the-library-rendered.png)
+
+Each thumbnail links to a popup/carousel spun to that video, with the surrounding videos also on offer:
+
+![Video carousel popup](../../docs/the-library-carousel.png)
 
 ### Using this feature on other pages
 
