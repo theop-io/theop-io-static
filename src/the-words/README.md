@@ -4,21 +4,37 @@
 
 ### Referencing words
 
-To make a word eligible for tooltip highlighting, just wrap it in a link to `#thewords`.
-(Links starting with `#` are links to other anchors on the same page; we're abusing that feature to attach information to regular SquareSpace text that we can then look up.)
+To make a word eligible for tooltip highlighting, just wrap it in a link to `#thewords`:
 
-We have two modes for looking up the definition of a word: automatic and explicit.
+![Applying an automatic lookup link in the Squarespace editor](../../docs/the-words-automatic-link.png)
 
-- _Automatic_ lookups: if the text you're wrapping is the same word as the word you're looking up, just link it to `#thewords` and we'll look up the definition from the text directly.
-  - It's not dependent on case, so linking the text "wedge" or "Wedge" to `#thewords` will look up `wedge`.
-  - We also automatically ignore quotes and punctuation so you can link "wedge." and still look up `wedge`.
-- _Explicit_ lookups: Many a time, though, you may want to reference a different spelling or pluralization. In that case, just link to `#thewords_word_you_are_looking_up`.
-  - For example, wrapping "floppies" with a link to `#thewords_floppy` looks up `floppy`.
-  - Note that for explicit lookups, you need to provide a "programmatic" version of the word: it must be entirely lower-case and spaces must have been replaced with underscores (e.g. `#thewords_camera_wedge` instead of `#thewords_Camera wedges`).
+Once applied (Apply, then Save and Exit the page), the wrapped word will appear in red and show its text on hover:
 
-Since some of our words have multiple keys (e.g. "flop/floppy"), they get automatically broken into "flop" and "floppy" (but are also available as "flop/floppy").
+![Hover popup for an automatic lookup link](../../docs/the-words-automatic-link-live.png)
 
-Also check out [this test page](https://theop-io-static.netlify.app/the-words/) and [the code behind it](index.html).
+(_Engineering note_: Links starting with `#` are links to other anchors on the same page; we're abusing that feature to attach information to regular SquareSpace text that we can then look up.)
+
+The above is an example of an _automatic_ lookup, which works if the text you're wrapping is the same word as the word you're looking up: just link it to `#thewords` and we'll look up the definition from the text directly.
+
+It's not dependent on case, so linking the text "wedge" or "Wedge" to `#thewords` will look up `wedge`.
+We also automatically ignore quotes and punctuation so you can link "wedge." and still look up `wedge`.
+
+Many a time, though, you may want to **reference a different spelling or pluralization**, requiring an _explicit_ lookup.
+In that case, wrap the word or phrase with a link to `#thewords_word_you_are_looking_up`.
+
+For example, wrap "up- or down-stage" with a link to `#thewords_upstage`:
+
+![Applying an explicit lookup link in the Squarespace editor](../../docs/the-words-explicit-link.png)
+
+Once applied (Apply, then Save and Exit the page), the wrapped phrase will appear in red and show its text on hover:
+
+![Hover popup for an explicit lookup link](../../docs/the-words-explicit-link-live.png)
+
+**Note** that for explicit lookups, you need to provide a "programmatic" version of the word: it must be entirely lower-case and spaces must have been replaced with underscores (e.g. `#thewords_camera_wedge` instead of `#thewords_Camera wedges`).
+
+Additional features:
+
+- Since some of our words have multiple keys (e.g. "flop/floppy"), they get automatically broken into "flop" and "floppy" (but are also available as "flop/floppy").
 
 ### Maintaining the word list
 
@@ -62,6 +78,8 @@ Provide the following HTML code block:
 ```
 
 ## Engineering notes
+
+Check out [this test page](https://theop-io-static.netlify.app/the-words/) and [the code behind it](index.html).
 
 ### iPhone compatibility
 

@@ -9,7 +9,9 @@
 ; Note:
 ; - Lines may also start with a ';', serving as comments. Feel free to use these to (e.g.) delineate different sections of the file.
 ; - Lines may also be empty to create some breathing room.
-; 
+;
+; For documentation on how to use The Words in posts on the site, see https://github.com/theop-io/theop-io-static/blob/main/src/the-words/README.md
+;
 
 Mayonnaise Commercial - What you tell lookie loos you are shooting so they become disinterested and walk on by. "Hey is this the new Taylor Swift Music Video we heard about? Nope, just a mayonnaise commerical. Sorry"
 Skate Wheels - Two rows of skateboard wheels used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track.
