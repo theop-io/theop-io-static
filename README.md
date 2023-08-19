@@ -17,6 +17,14 @@ In the Squarespace editor, change the formatting of any link to _Strikethrough_ 
 
 _Engineering note_: This is effected through [site-tweaks CSS](src/site-tweaks/site-tweaks.scss) hacking `line-through`.
 
+## Expanding and re-using The Library
+
+See [here](src/the-library/README.md) for details.
+
+## Defining and referencing The Words
+
+See [here](src/the-words/README.md) for details.
+
 # Engineering notes
 
 ## Setup
