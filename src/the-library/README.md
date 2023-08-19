@@ -55,3 +55,12 @@ The thumbnails are a bit special to obtain:
 - For YouTube, we guesstimate a default path to a high-quality version of the thumbnail. We then attach a listener to the generated `<img>`, monitor for any failures,
   and fix up failures by calling YouTube's `oembed` API to get a link to a workable thumbnail. Starting with the guesstimate is basically just a performance optimization.
 - For Vimeo, we rely on the immensely convenient [vumbnail.com](https://vumbnail.com) to solve the problem for us.
+
+When the thumbnail is clicked, we delegate to a [Fancybox](https://fancyapps.com/fancybox/) carousel display which builds out full video players on its own.
+
+### Other approaches considered
+
+See [this attempt](../experimental/youtube-players/) built around the YouTube Player API.
+The API is somewhat onerous to use (but at least there's a nice wrapper for it).
+
+This ended up being a sub-optimal solution because loading ten or more `<iframe>`-based players is dog slow.
