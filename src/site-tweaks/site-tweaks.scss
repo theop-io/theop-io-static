@@ -1,4 +1,30 @@
 //
+// Links with underlines (the default)
+//
+
+@supports (text-decoration-thickness: 1px) and (text-underline-offset: 0.2em) {
+  a span.sqsrte-text-color--darkAccent {
+    //
+    // Bizarre fix for Safari:
+    //
+    // When we have a link that uses a colored span to colorize some of the text,
+    // Squarespace CSS targets the color span classes with a seemingly needless `inherit`:
+    //
+    //  [class^="sqsrte-text-color--"] {
+    //     text-decoration: inherit
+    //  }
+    //
+    // Chrome decides to inherit the `text-decoration-thickness` as it ought to
+    // but Safari resets to something thicker than what was specified in the parent (1px)
+    // and it looks odd.
+    //
+    // We'll wrap this in the same @supports as what Squarespace's site.css uses to condition this setting.
+    //
+    text-decoration-thickness: 1px;
+  }
+}
+
+//
 // Links without underlines
 //
 
