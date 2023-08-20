@@ -34,6 +34,7 @@ export const memberSignupButtonQuotes = [
   "“A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.”",
   "“You can't handle the truth!”",
   "“I want to be alone.”",
+  "“Was it over when the Germans bombed Pearl Harbor?”",
   "“Mama always said that life is like a box of chocolates, you never know what you are gonna get.”",
   "“Houston, we have a problem.”",
   "“Life moves pretty fast. If you dont stop and look around once in a while, you could miss it.”",
