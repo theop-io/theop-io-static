@@ -31,6 +31,7 @@ export const memberSignupButtonQuotes = [
   "“Frankly my dear, I don't give a damn.”",
   "“And here we have some boondoggle keychains, a must have for this seasons fashion.”",
   "“Go ahead, make my day.”",
+  "“Would you buy furniture from a store called Unpainted Huffhines?”",
   "“A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.”",
   "“You can't handle the truth!”",
   "“I want to be alone.”",
@@ -46,4 +47,5 @@ export const memberSignupButtonQuotes = [
   "“Are you not entertained?”",
   "“I was told that I could listen to the radio at a reasonable volume from nine to eleven.“",
   "Vote For Pedro",
+  "“Better hurry up, I'm in dutch with the wife.”",
 ];
