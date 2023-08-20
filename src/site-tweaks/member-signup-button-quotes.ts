@@ -1,9 +1,8 @@
 export const memberSignupButtonQuotes = [
   "“Ray, if someone asks you if you're a god, you say YES!”",
   "“Leave the gun. Take the cannolli.”",
-  "“Of course I'm serious. And don't call me Shirley.”",
   "“You'll shoot your eye out kid.”",
-  "“Louis, I think this is the beginning of a beautiful freindhsip.”",
+  "“Louis, I think this is the beginning of a beautiful friendship.”",
   "“I'll have what she's having.”",
   "“I'm mad as hell and I'm not going to take it anymore.”",
   "“Nobody puts Baby in a corner.”",
