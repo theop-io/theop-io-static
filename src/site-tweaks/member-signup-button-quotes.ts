@@ -15,6 +15,7 @@ export const memberSignupButtonQuotes = [
   "“There's no crying in baseball!”",
   "“Demented and sad, but social.”",
   "“Great success!”",
+  "“Gimme back that baby you warthog from hell!”",
   "“Guess you broke into the wrong goddamned rec room didn't ya!”",
   "“I am a loner Dottie, a rebel.”",
   "“That'll do Pig. That'll do.”",
