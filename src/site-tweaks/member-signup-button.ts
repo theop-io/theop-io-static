@@ -40,6 +40,6 @@ if (isUserLoggedIn) {
 
   memberButtonLinks.forEach((linkElement) => {
     linkElement.href = "/?msopen=%2Fmember%2Fsign_in";
-    linkElement.innerText = "Manage account";
+    linkElement.innerText = "Your Account";
   });
 }
