@@ -30,6 +30,7 @@ export const memberSignupButtonQuotes = [
   "“What we've got here is a failure to communicate. Which is the way he wants it.”",
   "“Cinderella story. Outta nowhere. A former greenskeeper. It's a mirac... It's in the hole! It's in the hole!”",
   "“Frankly my dear, I don't give a damn.”",
+  "“And here we have some boondoggle keychains, a must have for this seasons fashion.”",
   "“Go ahead, make my day.”",
   "“A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.”",
   "“You can't handle the truth!”",
@@ -44,4 +45,5 @@ export const memberSignupButtonQuotes = [
   "“The first rule of fight club is you do not talk about fight club.”",
   "“Are you not entertained?”",
   "“I was told that I could listen to the radio at a reasonable volume from nine to eleven.“",
+  "Vote For Pedro",
 ];
