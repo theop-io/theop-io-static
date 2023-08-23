@@ -19,6 +19,7 @@ export const memberSignupButtonQuotes = [
   "“Guess you broke into the wrong goddamned rec room didn't ya!”",
   "“I am a loner Dottie, a rebel.”",
   "“That'll do Pig. That'll do.”",
+  "“Don't Mess With The Bull, Young Man. You'll Get The Horns.”",
   "“Screws fall out all the time. The world's an imperfect place.”",
   "“Strange things are afoot at the Circle K.”",
   "“Of course I'm serious, and don't call me Shirley.”",
