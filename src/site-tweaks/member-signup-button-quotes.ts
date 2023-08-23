@@ -46,6 +46,7 @@ export const memberSignupButtonQuotes = [
   "“I'm sorry Dave. I'm afraid I can't do that.”",
   "“The first rule of fight club is you do not talk about fight club.”",
   "“Are you not entertained?”",
+  "“Gambling? In Casablanca?”",
   "“I was told that I could listen to the radio at a reasonable volume from nine to eleven.“",
   "Vote For Pedro",
   "“Better hurry up, I'm in dutch with the wife.”",
