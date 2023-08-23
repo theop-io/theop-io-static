@@ -17,6 +17,7 @@ export const memberSignupButtonQuotes = [
   "“There's no crying in baseball!”",
   "“Demented and sad, but social.”",
   "“Great success!”",
+  "“What If You Could Go Back In Time And Take All Those Hours Of Pain And Darkness And Replace Them With Something Better?”",
   "“Gimme back that baby you warthog from hell!”",
   "“Guess you broke into the wrong goddamned rec room didn't ya!”",
   "“I am a loner Dottie, a rebel.”",
