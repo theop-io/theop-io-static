@@ -1,6 +1,6 @@
 export const memberSignupButtonQuotes = [
   "“Ray, if someone asks you if you're a god, you say YES!”",
-  "“Leave the gun. Take the cannolli.”",
+  "“Leave the gun. Take the cannoli.”",
   "“You'll shoot your eye out kid.”",
   "“Louis, I think this is the beginning of a beautiful friendship.”",
   "“I'll have what she's having.”",
