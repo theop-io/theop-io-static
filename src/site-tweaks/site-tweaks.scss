@@ -114,3 +114,12 @@ div.header-nav-folder-content {
   // Punching out Squarespace design we don't want
   background-color: transparent;
 }
+
+//
+// Email list signup: button color
+//
+
+.emailoctopus-form input[type="submit"] {
+  background-color: red !important;
+  border-color: red !important;
+}
