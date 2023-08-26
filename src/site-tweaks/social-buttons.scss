@@ -1,7 +1,7 @@
 // Courtesy of https://github.com/kytta/shareon, with modifications to sizing.
 
 :root {
-  --social-button-size: 1.25rem;
+  --social-button-size: 1.5rem;
   --social-icon-size: calc(0.7 * var(--social-button-size));
 
   --padding-ver: calc(0.3 * var(--social-icon-size));
@@ -84,14 +84,14 @@
 }
 
 .shareon > .facebook {
-  background-color: #1877f2;
+  background-color: #000; // #1877f2;
 }
 .shareon > .facebook:before {
   background-image: url("social-icons/facebook.svg");
 }
 
 .shareon > .twitter {
-  background-color: #1d9bf0;
+  background-color: #000; // #1d9bf0;
 }
 .shareon > .twitter:before {
   background-image: url("social-icons/x.svg");
@@ -102,7 +102,7 @@
 }
 
 .shareon > .whatsapp {
-  background-color: #25d366;
+  background-color: #000; // #25d366;
 }
 .shareon > .whatsapp:before {
   background-image: url("social-icons/whatsapp.svg");
