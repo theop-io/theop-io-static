@@ -14,12 +14,21 @@ function adjustMemberspaceStatusIndicatorDiv(statusIndicatorDiv: HTMLDivElement)
   const addedText = (() => {
     const currentUrlPathname = window.location.pathname;
 
+    const trialNotice =
+      " and note that our subscription includes a seven-day free trial for <i>all<i/> of our content.";
+
     if (currentUrlPathname.includes("musings")) {
-      return 'See <a href="/sample-blog-posts">here</a> for example blog posts.';
+      return (
+        'Check out some <a href="/sample-blog-posts">example blog posts</a> if you\'d like' +
+        trialNotice
+      );
     }
 
     if (currentUrlPathname.includes("the-breakdown")) {
-      return 'See <a href="/sample-breakdown-page">here</a> for an example Breakdown video.';
+      return (
+        'Check out an <a href="/sample-breakdown-page">example Breakdown video</a> if you\'d like' +
+        trialNotice
+      );
     }
 
     return null;
