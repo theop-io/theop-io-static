@@ -1,10 +1,10 @@
 function buildShareToSocialLinksElement(): HTMLElement {
   const socialSharingContainer = document.createElement("span");
-  socialSharingContainer.classList.add("shareon"); // for CSS
+  socialSharingContainer.classList.add("shareon"); // for CSS to bind to
 
   const addSharingLink = (service: string, href: string) => {
     const sharingLink = document.createElement("a");
-    sharingLink.classList.add(service); // for CSS
+    sharingLink.classList.add(service); // for CSS to bind to
 
     sharingLink.href = href;
     sharingLink.rel = "noopener noreferrer";
