@@ -15,7 +15,8 @@ div.video-library-float {
   // Width
   width: 100%; // For small screens
   @include not-small {
-    width: calc(33% - $padding); // For not-small screens
+    // For not-small screens (note that padding applies to both sides)
+    width: calc(33.3% - 2 * $padding);
   }
 
   // Set up for absolute positioning of play button SVG below
