@@ -15,7 +15,7 @@ function adjustMemberspaceStatusIndicatorDiv(statusIndicatorDiv: HTMLDivElement)
     const currentUrlPathname = window.location.pathname;
 
     const trialNotice =
-      " and note that our subscription includes a seven-day free trial for <i>all<i/> of our content.";
+      " and note that our subscription includes a seven-day free trial for <i>all</i> of our content.";
 
     if (currentUrlPathname.includes("musings")) {
       return (
