@@ -30,6 +30,7 @@ function buildShareToSocialLinksElement(): HTMLElement {
   );
 
   if (desktopHeaderActionsDiv) {
+    // Add social links in front of the "Newsletter" button
     desktopHeaderActionsDiv.insertBefore(
       buildShareToSocialLinksElement(),
       desktopHeaderActionsDiv.firstChild
@@ -37,11 +38,15 @@ function buildShareToSocialLinksElement(): HTMLElement {
   }
 
   // For mobile
-  const mobileMenuCTADiv = document.querySelector<HTMLDivElement>(
-    ".header-menu-nav-folder.header-menu-cta"
-  );
+  const mobileMenuCTADiv = document.querySelector<HTMLDivElement>(".header-menu-cta");
 
   if (mobileMenuCTADiv) {
-    mobileMenuCTADiv.insertBefore(buildShareToSocialLinksElement(), mobileMenuCTADiv.firstChild);
+    // Add a second CTA <div> in front of the existing one so the social links get their own row
+    const mobileMenuSocialCTADiv = document.createElement("div");
+    mobileMenuSocialCTADiv.classList.add("header-menu-cta");
+
+    mobileMenuSocialCTADiv.appendChild(buildShareToSocialLinksElement());
+
+    mobileMenuCTADiv.parentNode?.insertBefore(mobileMenuSocialCTADiv, mobileMenuCTADiv);
   }
 }
