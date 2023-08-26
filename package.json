@@ -38,6 +38,7 @@
     "@fancyapps/ui": "^5.0.20",
     "@floating-ui/dom": "^1.4.4",
     "@types/youtube": "^0.0.47",
+    "shareon": "^2.3.0",
     "youtube-player": "^5.6.0"
   }
 }
