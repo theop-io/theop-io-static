@@ -24,11 +24,24 @@ function buildShareToSocialLinksElement(): HTMLElement {
 }
 
 {
-  const headerActionsDiv = document.querySelector<HTMLDivElement>(
+  // For desktop
+  const desktopHeaderActionsDiv = document.querySelector<HTMLDivElement>(
     ".header-actions-action.header-actions-action--cta"
   );
 
-  if (headerActionsDiv) {
-    headerActionsDiv.insertBefore(buildShareToSocialLinksElement(), headerActionsDiv.firstChild);
+  if (desktopHeaderActionsDiv) {
+    desktopHeaderActionsDiv.insertBefore(
+      buildShareToSocialLinksElement(),
+      desktopHeaderActionsDiv.firstChild
+    );
+  }
+
+  // For mobile
+  const mobileMenuCTADiv = document.querySelector<HTMLDivElement>(
+    ".header-menu-nav-folder.header-menu-cta"
+  );
+
+  if (mobileMenuCTADiv) {
+    mobileMenuCTADiv.insertBefore(buildShareToSocialLinksElement(), mobileMenuCTADiv.firstChild);
   }
 }
