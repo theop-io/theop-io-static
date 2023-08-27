@@ -30,16 +30,18 @@ quoteButtonLinks.forEach((linkElement, index) => {
 // Site tweak: Change primary (bottom-left/footer) member signup button to point to account management when member is signed in
 //
 
-if (isUserLoggedIn) {
-  // Find all links ending with (`$`) the given fragment identifier
-  const menberButtonFragmentIdentifier = "#primary_member_signup";
+// Find all links ending with (`$`) the given fragment identifier
+const memberButtonFragmentIdentifier = "#primary_member_signup";
 
-  const memberButtonLinks = document.querySelectorAll<HTMLLinkElement>(
-    `a[href$="${menberButtonFragmentIdentifier}"]`
-  );
+const memberButtonLinks = document.querySelectorAll<HTMLLinkElement>(
+  `a[href$="${memberButtonFragmentIdentifier}"]`
+);
 
-  memberButtonLinks.forEach((linkElement) => {
+memberButtonLinks.forEach((linkElement) => {
+  if (isUserLoggedIn) {
     linkElement.href = "/?msopen=%2Fmember%2Fsign_in";
     linkElement.innerText = "Your Account";
-  });
-}
+  } else {
+    linkElement.href = linkElement.href.replace(memberButtonFragmentIdentifier, "");
+  }
+});
