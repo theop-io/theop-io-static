@@ -153,6 +153,10 @@ div.header-nav-folder-content {
 // Hacking the MemberSpace signup dialog
 //
 
-a.ms-signup-added-text {
-  color: red;
+.ms-signup-added-text {
+  padding-top: 1rem;
+
+  a {
+    color: red;
+  }
 }
