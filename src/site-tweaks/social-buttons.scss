@@ -1,10 +1,10 @@
 // Courtesy of https://github.com/kytta/shareon, with modifications to sizing.
 
 :root {
-  --social-button-size: 1.5rem;
+  --social-button-size: 1.6rem;
   --social-icon-size: calc(0.7 * var(--social-button-size));
 
-  --padding-ver: calc(0.3 * var(--social-icon-size));
+  --padding-ver: calc(0.6 * var(--social-icon-size));
   --padding-hor: calc(var(--social-icon-size) / 2);
   --padding-icon: calc((var(--social-button-size) - var(--social-icon-size)) / 2);
 
