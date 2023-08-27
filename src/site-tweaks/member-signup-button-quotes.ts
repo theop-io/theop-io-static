@@ -46,7 +46,7 @@ export const memberSignupButtonQuotes = [
   "“Life moves pretty fast. If you dont stop and look around once in a while, you could miss it.”",
   "“Carpe Diem. Seize the day boys. Make your lives extraordinairy.”",
   "“Inconceivable!!”",
-  "“Alright Mr. Demille. I'm ready for my closeup.“",
+  "“Alright Mr. Demille, I'm ready for my closeup.“",
   "“I'm sorry Dave. I'm afraid I can't do that.”",
   "“The first rule of fight club is you do not talk about fight club.”",
   "“Are you not entertained?”",
