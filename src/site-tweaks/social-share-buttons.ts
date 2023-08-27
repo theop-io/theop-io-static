@@ -17,7 +17,6 @@ function buildShareToSocialLinksElement(): HTMLElement {
   const title = document.title;
 
   addSharingLink("facebook", `https://www.facebook.com/sharer/sharer.php?u=${url}`);
-  addSharingLink("twitter", `https://twitter.com/intent/tweet?url=${url}&text=${title}`);
   addSharingLink("whatsapp", `https://wa.me/?text=${title}%0D%0A${url}`);
 
   return socialSharingContainer;
