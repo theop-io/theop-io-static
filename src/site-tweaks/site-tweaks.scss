@@ -148,3 +148,11 @@ div.header-nav-folder-content {
     animation-name: MemberSpaceWidgetInternal__backdrop_backdrop-opaque-blur_less_blur !important;
   }
 }
+
+//
+// Hacking the MemberSpace signup dialog
+//
+
+a.ms-signup-added-text {
+  color: red;
+}

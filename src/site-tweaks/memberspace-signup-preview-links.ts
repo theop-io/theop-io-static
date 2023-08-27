@@ -10,33 +10,14 @@ function adjustMemberspaceStatusIndicatorDiv(statusIndicatorDiv: HTMLDivElement)
     return;
   }
 
-  // Determine text to add based on location
-  const addedText = (() => {
-    const currentUrlPathname = window.location.pathname;
-
-    const trialNotice =
-      " and note that our subscription includes a seven-day free trial for <i>all</i> of our content.";
-
-    if (currentUrlPathname.includes("musings")) {
-      return (
-        'Check out some <a href="/sample-blog-posts">example blog posts</a> if you\'d like' +
-        trialNotice
-      );
-    }
-
-    if (currentUrlPathname.includes("the-breakdown")) {
-      return (
-        'Check out an <a href="/sample-breakdown-page">example Breakdown video</a> if you\'d like' +
-        trialNotice
-      );
-    }
-
-    return null;
-  })();
-
-  if (addedText) {
-    typographyElement.insertAdjacentHTML("beforeend", `<br><br>${addedText}`);
-  }
+  typographyElement.insertAdjacentHTML(
+    "beforeend",
+    `<div class="ms-signup-added-text">
+  Check out <a href="/sign-up">what you get as a member</a>, 
+  including example <a href="/sample-blog-posts">blog posts</a> and <a href="/sample-breakdown-page">breakdowns</a>.
+  </div>
+  `
+  );
 }
 
 function setupMemberSpaceStatusPopupObserver(memberSpaceWidgetRoot: Element) {
