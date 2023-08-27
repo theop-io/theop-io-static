@@ -41,12 +41,12 @@ function buildShareToSocialLinksElement(): HTMLElement {
   const mobileMenuCTADiv = document.querySelector<HTMLDivElement>(".header-menu-cta");
 
   if (mobileMenuCTADiv) {
-    // Add a second CTA <div> in front of the existing one so the social links get their own row
-    const mobileMenuSocialCTADiv = document.createElement("div");
-    mobileMenuSocialCTADiv.classList.add("header-menu-cta");
+    // Add a second <div> in front of the existing one so the social links get their own row
+    const mobileMenuSocialDiv = document.createElement("div");
+    mobileMenuSocialDiv.classList.add("header-menu-social-shares");
 
-    mobileMenuSocialCTADiv.appendChild(buildShareToSocialLinksElement());
+    mobileMenuSocialDiv.appendChild(buildShareToSocialLinksElement());
 
-    mobileMenuCTADiv.parentNode?.insertBefore(mobileMenuSocialCTADiv, mobileMenuCTADiv);
+    mobileMenuCTADiv.parentNode?.insertBefore(mobileMenuSocialDiv, mobileMenuCTADiv);
   }
 }
