@@ -17,13 +17,11 @@ galleryLightboxFigures.forEach((figureElement) => {
     return;
   }
 
-  if (imageElement.src.endsWith(imageElement.alt)) {
+  if (imageElement.src.endsWith(encodeURIComponent(imageElement.alt))) {
     // If no description (`alt` text) is specified, SquareSpace uselessly injects the name of the file.
     // In that case, don't create a caption for this.
     return;
   }
-
-  console.log(`Src: "${imageElement.src}", alt: "${imageElement.alt}"`);
 
   const figureCaptionElement = document.createElement("figcaption");
   figureCaptionElement.appendChild(document.createTextNode(imageElement.alt));
