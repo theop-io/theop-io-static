@@ -1,6 +1,15 @@
 @import "social-buttons";
 
 //
+// Image gallery captions
+//
+
+.gallery-lightbox-item figcaption {
+  font-family: var(--body-font-font-family);
+  font-size: calc(1.5 * var(--base-font-size));
+}
+
+//
 // Links with underlines (the default)
 //
 
