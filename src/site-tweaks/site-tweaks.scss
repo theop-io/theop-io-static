@@ -7,9 +7,10 @@
 .gallery-lightbox-item figcaption {
   font-family: var(--body-font-font-family);
   font-size: calc(1.5 * var(--base-font-size));
+}
 
-  // Override transition effect inherited from parent
-  transition-duration: 0s;
+.gallery-lightbox-item[data-in="false"] figcaption {
+  display: none !important;
 }
 
 //
