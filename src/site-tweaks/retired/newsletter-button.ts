@@ -1,3 +1,7 @@
+//
+// Inject an additional CTA (call-to-action) button in Squarespace's desktop CTA area of the nav bar
+//
+
 const headerActionsDiv = document.querySelector<HTMLDivElement>(
   ".header-actions-action.header-actions-action--cta"
 );

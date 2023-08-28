@@ -23,7 +23,7 @@ append `#no_ul` to the link target, e.g. `https://http.cat#no_ul`.
 
 This tweak evaluates all links on every page, searches for (and removes) the `#no_ul` suffix, and attaches the `.no_underline` class to the given link.
 
-**Note that this tweak is currently commented-out because it presumably has worse performance than the simple CSS-based tweak.**
+**Note that this tweak has been moved to the [retired](retired/index.html) section because it presumably has worse performance than the simple CSS-based tweak.**
 
 ## "Become a member!" button quotes
 
