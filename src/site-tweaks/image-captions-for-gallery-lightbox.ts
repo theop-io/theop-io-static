@@ -23,6 +23,8 @@ galleryLightboxFigures.forEach((figureElement) => {
     return;
   }
 
+  console.log(`Src: "${imageElement.src}", alt: "${imageElement.alt}"`);
+
   const figureCaptionElement = document.createElement("figcaption");
   figureCaptionElement.appendChild(document.createTextNode(imageElement.alt));
 
