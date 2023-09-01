@@ -69,7 +69,11 @@ High Mode - Usually refers to dolly or steadicam. When the camera is mounted in 
 Riser - A metal piece that is used on a dolly to get the camera higher, which literally raises the camera. Can be used on sticks as well or anything that accepts a head and has a Mitchell mount. Usually comes in 3”, 6”, and 12” pieces
 Bowling Trophy - A large, usually 3 foot riser used for extremely high shots. Its name is derived from the fact that it looks like a trophy someone would hold over their head.
 Day Playing - Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays.
-
+1 Inch - 25mm lens
+2 inch - 50mm lens
+3 inch - 75mm lens
+4 inch - 100mm lens
+5 inch - nothing really, but it's almost 6 inches. That's something right?
 Over/Over The Shoulder - Short for over the shoulder (OTS). A shot from behind one actor, across their shoulder, to another actor who is speaking to them.
 The Line - An imaginary line that is drawn between two actors in a scene. Once the blocking has been determined, the camera should generally only shoot from that side of the line and not cross it. 
 Jumping the Line/Crossing the Line - When you purposely disreagard the line for the sake of the shot or to intentionally create tension.
