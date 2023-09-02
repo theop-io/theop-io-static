@@ -55,12 +55,17 @@ Hot points - Verbal cue that something large that can hurt you is being brought 
 Coming through - Often used in conjunction with hot points, an alert to let people know that they will need to move as someone is “coming through” with a piece of equipment and requires room to navigate.
 Watch Your Back - keep your eyes open, be aware of your surroundings. “We’ve got equipment coming through this hallway so watch your back.”
 Lockup - When an area is being controlled and no outsiders are allowed in. Generally used when working on location and quite often having to do with traffic control. 'We are locked up' means that PAs are stationed in the appropriate areas to stop people not involved in the scene from wandering on camera. 'Breaking a lockup' means someone has sneaked thorugh.
-
+Dutch/Dutch Angle - When the camera is not straight to the horizon but angled left to right or visa versa. Dutch angles are often used in highly stylized visuals such as music videos. Also known as a Tango head.
+Dutch Head - A fluid head that the camera sits on that will alloow you to ducth the angle to one side or the other.
+Two Headed Monster - When both cameras are placed on the same dolly side by side. Usually done to get a wide and tight with the same move.
 Crafty - Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day.
 Hot Set - A set that should not be touched, usually for continuity purposes but sometimes because it has been set up with special effects that can’t be disturbed. Signs and/or police tape are generally used to denote a hot set. 'Everyone should know this is now a hot set and no one should be on it except props and special effects.'
 Standing by - Someone or something is ready adn waiting. 'Let’s have the flowers standing by for the next scene', 'Second team is standing by and ready to step in once the ladders are out.'
 Flying in - Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on it’s way.
 Coverage - After the wide shot of the entire scene has been shot (generally called the Master shot), coverage is up next. This is where the camera generally gets closer to the actors and moves in as close as they choose to in one direction, and then generally does the same shots as a reverse on the other actor (if we are talking about two actors with classic coverage of a scene).
+Rickshaw - A small moving platform, usually with large biccycle type tires, that cane be pushed or pulled with a camera operator sitting on the seat. Often used for long straight steadicam shots where the steadicam is hard mounted they can also be used for long handheld shots where the operator is being moved a great distance but the grips can change up from shot to shot.
+Lambda Head - A head that can hang off the dolly or a job that gets the camera lower than a normal head but is still easily operated by the operator. Still a physically operated head, not a remote head.
+Jib - A small, portable crane used in tight spaces that can work on a dolly or a fixed position.
 Back to one - Usually called out when a shot needs to be stopped and restarted from the beginning (or on a rolling reset). Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot.
 Tapeball - Literally a wadded up ball of tape usually used to angle out a glass picture frame or a glass cabinet that is throwing a bad reflection. 'Can someone tapeball the bottom left corner of that picture frame to get rid of the reflection of the light stand?'
 Follow Focus - A device the 1st AC uses to change the focus on a lens during the scene.
