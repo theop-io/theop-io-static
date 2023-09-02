@@ -176,8 +176,8 @@ Head sticks/Head Slate - When the slate is hit at the head of the take between r
 Wild wall - Also wild. A wall, or really anything, that can be moved either in the middle of a shot or at any other time, meaning it is not anchored down. “That wall is wild so we can pull it as the camera back up once it's out of view.”
 Single Net - A piece of netting in a frame put in front of a light, also called a single, that will take 1 stop of light away from a lighting unit.
 Double Net - A piece of netting in a frame put in front of a light, also called a double, that will reduce the amount of light by two stops.
-Camera Left - To the left side of camera from the actors point of view. Camera left will actually be the right side of the operator. "Please make sure you exit camera left when you head off camera."
-Camera right - To the right side of camera from the operators point of view. Camera right will actually be to the left side of the operator. "Please make sure to exit camera right when you head off camera."
+Camera Left - To the right side of camera from the actors point of view. Camera left is the operators left. "Please make sure you exit camera left when you head off camera."
+Camera right - To the left side of camera from the actors point of view. Camera right is the operators right. "Please make sure to exit camera right when you head off camera."
 Prep - The time before the shoot starts where things are planned, organized, gear is checked out and built and everything is done that needs to be to be ready to hit the ground running on day 1. Most operators do not get prep but if you can go to the camera prep and build the camera to your liking you should always do so.
 Wrap - The end of the day, or the end of the show. Denotes the time that you stop filming. We should wrap about 10 Pm tonight but the show doesn't wrap until October."
 Taillights - Refers to the trucks tailights leaving the set but is used to discuss the time when everyone has to be out of the location or finsihed for the day. "This neighborhood has strict rules so it's taillights at 10."
