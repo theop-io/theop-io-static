@@ -1,7 +1,5 @@
 import { memberSignupButtonQuotes } from "./member-signup-button-quotes";
 
-import isUserLoggedIn from "./is-user-logged-in";
-
 //
 // Site tweak: Apply quotes to member signup buttons inlined in pages
 //
@@ -24,24 +22,4 @@ quoteButtonLinks.forEach((linkElement, index) => {
   const quoteIndex = (startingQuoteIndex + index) % memberSignupButtonQuotes.length;
 
   linkElement.innerText = memberSignupButtonQuotes[quoteIndex];
-});
-
-//
-// Site tweak: Change primary (bottom-left/footer) member signup button to point to account management when member is signed in
-//
-
-// Find all links ending with (`$`) the given fragment identifier
-const memberButtonFragmentIdentifier = "#primary_member_signup";
-
-const memberButtonLinks = document.querySelectorAll<HTMLLinkElement>(
-  `a[href$="${memberButtonFragmentIdentifier}"]`
-);
-
-memberButtonLinks.forEach((linkElement) => {
-  if (isUserLoggedIn) {
-    linkElement.href = "/?msopen=%2Fmember%2Fsign_in";
-    linkElement.innerText = "Your Account";
-  } else {
-    linkElement.href = linkElement.href.replace(memberButtonFragmentIdentifier, "");
-  }
 });
