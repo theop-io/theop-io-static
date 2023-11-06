@@ -10,8 +10,7 @@
   if (headerActionsDiv) {
     const donationLink = document.createElement("a");
 
-    donationLink.href =
-      "https://www.paypal.com/donate?token=YaKprf1DJPIL50Sm2CJpo4glaQzjGeCX4T-AoqOxBVHTOkaH-tR_NGJsO1xr5bZK7i_-29Cb88d6i_uR";
+    donationLink.href = "/support";
 
     donationLink.classList.add(
       "btn",
