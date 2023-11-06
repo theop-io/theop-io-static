@@ -10,7 +10,7 @@
   if (headerActionsDiv) {
     const donationLink = document.createElement("a");
 
-    donationLink.href = "/support";
+    donationLink.href = "/donate";
 
     donationLink.classList.add(
       "btn",
