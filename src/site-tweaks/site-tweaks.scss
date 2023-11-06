@@ -136,3 +136,23 @@ div.header-nav-folder-content {
   background-color: red !important;
   border-color: red !important;
 }
+
+//
+// Donate button
+//
+
+// Need to make this quite specific so they bind correctly (note the `.theop-button-donate` as the actual specific class)
+.primary-button-style-solid .sqs-button-element--primary.theop-button-donate {
+  // Spacing
+  margin-right: 1em;
+  // Shape
+  border-radius: 1em;
+  // Color
+  color: black;
+  background-color: #ffc439;
+}
+
+#siteWrapper .header-actions-action--cta .sqs-button-element--primary.theop-button-donate {
+  // Text
+  font-weight: bold;
+}
