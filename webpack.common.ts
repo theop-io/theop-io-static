@@ -17,6 +17,10 @@ const coreConfiguration: Configuration = {
         test: /\.(css|sass|scss)$/,
         use: ["css-loader", "sass-loader"],
       },
+      {
+        test: /\.(yaml|yml)$/,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
