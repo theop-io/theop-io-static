@@ -19,12 +19,13 @@ collections:
     identifier_field: "productionName"
     fields:
       - name: "productionName"
-        label: "Production Name (Year)" # Needs to be unique; hopefully including the year makes it so.
+        label: "Production Name and Year" # Needs to be unique; hopefully including the year makes it so.
+        hint: "e.g. 'The Abyss (1989)'"
         widget: "string"
         pattern:
           [
             '.+\(\d{4}\)',
-            "Needs to include four-digit year in parentheses, e.g. 'Tropic Thunder (2008)'",
+            "Needs to include four-digit year in parentheses, e.g. 'The Abyss (1989)'",
           ]
 
       # Operator info
@@ -36,8 +37,8 @@ collections:
           - name: "operatorName"
             label: "Operator Name"
             widget: "string"
-          - name: "altOperatorName"
-            label: "Alternative Operator Name"
+          - name: "secondaryOperatorName"
+            label: "Secondary Operator Name"
             widget: "string"
             required: false
 
@@ -51,6 +52,8 @@ collections:
           - name: "timestamp"
             label: "Timestamp"
             widget: "string"
+            hint: "e.g. '12:45' for 12 minutes 45 seconds in, or '1:45:00' for one hour and 45 minutes in"
+            pattern: ['^\d+:(?:\d{2}:)?\d{2}$', "Provide timestamp as min:sec or hour:min:sec"]
 
           # Content
           - name: "shortDescription"
