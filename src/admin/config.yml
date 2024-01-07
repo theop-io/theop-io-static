@@ -10,64 +10,62 @@ public_folder: "/uploads"
 
 collections:
   - name: "the-shots" # Used in routes
-    label: "The Shots" # Used in the admin UI
-    label_singular: "Shot" # ...same
+    label: "The Shot Productions" # Used in the admin UI
+    label_singular: "Production" # ...same
     folder: "src/the-shots/data" # Relative to repository root
     format: "json" # Store in JSON
     create: true # Allow new documents to be created
-    slug: "{{shotId}}"
-    path: "{{year}}/{{slug}}"
-    identifier_field: "shotId"
+    slug: "{{productionName}}"
+    identifier_field: "productionName"
     fields:
-      - label: "Shot Identifier" # Needs to be unique
-        name: "shotId"
+      - name: "productionName"
+        label: "Production Name (Year)" # Needs to be unique; hopefully including the year makes it so.
         widget: "string"
-        hint: "Needs to be unique across all shots in the database"
-
-      # Production info
-      - label: "Production Name"
-        name: "production"
-        widget: "string"
-      - label: "Production Year"
-        name: "year"
-        widget: "number"
-        default: 2024
-        value_type: int
-        min: 1920
-        max: 2030
-      - label: "Episode"
-        name: "episode"
-        widget: "string"
-        required: false
+        pattern:
+          [
+            '.+\(\d{4}\)',
+            "Needs to include four-digit year in parentheses, e.g. 'Tropic Thunder (2008)'",
+          ]
 
       # Operator info
-      - label: "Operator"
-        name: "operator"
+      - name: "operator"
+        label: "Operator"
         widget: "object"
         summary: "{{fields.operatorName}}"
         fields:
-          - label: "Operator Name"
-            name: "operatorName"
+          - name: "operatorName"
+            label: "Operator Name"
             widget: "string"
-          - label: "Alternative Operator Name"
-            name: "altOperatorName"
+          - name: "altOperatorName"
+            label: "Alternative Operator Name"
             widget: "string"
             required: false
 
-      # Content
-      - label: "Short Description"
-        name: "shortDescription"
-        widget: "string"
-      - label: "Description"
-        name: "description"
-        widget: "text"
+      # List of shots
+      - name: "shots"
+        label: "Shots"
+        label_singular: "Shot"
+        widget: "list"
+        summary: "{{fields.timestamp}}: {{fields.shortDescription}}"
+        fields:
+          - name: "timestamp"
+            label: "Timestamp"
+            widget: "string"
 
-      # Optional additional content
-      - label: "Operator Comments"
-        name: "operatorComments"
-        widget: "text"
-        required: false
-      - label: "Equipment"
-        name: "equipment"
-        widget: "text"
-        required: false
+          # Content
+          - name: "shortDescription"
+            label: "Short Description"
+            widget: "string"
+          - name: "description"
+            label: "Description"
+            widget: "text"
+
+          # Optional additional content
+          - name: "operatorComments"
+            label: "Operator Comments"
+            widget: "text"
+            required: false
+          - name: "equipment"
+            label: "Equipment"
+            widget: "text"
+            required: false
