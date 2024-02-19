@@ -54,7 +54,7 @@ collections:
             value: "published"
           - label: "Draft"
             value: "draft"
-        default: "draft"
+        default: "published"
         multiple: false
 
       # Operator info
