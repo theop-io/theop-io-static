@@ -89,6 +89,8 @@ collections:
           - name: "link"
             label: "Link to video"
             widget: "string"
+            pattern:
+              ['^https:\/\/vimeo.com\/\d+', "Please provide a URL like 'https://vimeo.com/...'"]
             required: false
 
           # Content
