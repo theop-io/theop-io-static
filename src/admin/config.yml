@@ -71,13 +71,25 @@ collections:
         label: "Shots"
         label_singular: "Shot"
         widget: "list"
-        summary: "{{fields.timestamp}}: {{fields.shortDescription}}"
+        summary: "{{fields.shortDescription}}"
         fields:
+          # Optional metadata
           - name: "timestamp"
             label: "Timestamp"
             widget: "string"
             hint: "e.g. '12:45' for 12 minutes 45 seconds in, or '1:45:00' for one hour and 45 minutes in"
             pattern: ['^\d+:(?:\d{2}:)?\d{2}$', "Provide timestamp as min:sec or hour:min:sec"]
+            required: false
+
+          - name: "episode"
+            label: "Episode"
+            widget: "string"
+            required: false
+
+          - name: "link"
+            label: "Link to video"
+            widget: "string"
+            required: false
 
           # Content
           - name: "shortDescription"
