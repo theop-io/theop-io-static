@@ -13,17 +13,17 @@ collections:
     # How it's presented in the admin UI
     label: "The Shots"
     label_singular: "Production"
-    summary: "{{productionName}} ({{isPublished}})"
+    summary: "{{productionName}} ({{operator}}) [{{status}}]"
     editor:
       preview: false # Our previews are useless/non-existent so just suppress them
 
-    sortable_fields: ["productionName", "operator", "isPublished"]
+    sortable_fields: ["productionName", "operator", "status"]
 
     view_groups:
       - label: Operator
         field: operator
-      - label: Drafts
-        field: isPublished
+      - label: Status
+        field: status
 
     # How it's stored
     folder: "src/the-shots/data" # Relative to repository root
@@ -37,7 +37,7 @@ collections:
     # Fields
     fields:
       - name: "productionName"
-        label: "Production Name and Year" # Needs to be unique; hopefully including the year makes it so.
+        label: "Production Name/Year" # Needs to be unique; hopefully including the year makes it so.
         hint: "e.g. 'The Abyss (1989)'"
         widget: "string"
         pattern:
@@ -46,11 +46,16 @@ collections:
             "Needs to include four-digit year in parentheses, e.g. 'The Abyss (1989)'",
           ]
 
-      - name: "isPublished"
-        label: "Published"
-        widget: "boolean"
-        default: "false"
-        hint: "Leave unchecked if you're still working on preparing information for this production"
+      - name: "status"
+        label: "Status"
+        widget: "select"
+        options:
+          - label: "Published"
+            value: "published"
+          - label: "Draft"
+            value: "draft"
+        default: "draft"
+        multiple: false
 
       # Operator info
       - name: "operator"
