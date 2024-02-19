@@ -13,16 +13,16 @@ collections:
     # How it's presented in the admin UI
     label: "The Shots"
     label_singular: "Production"
-    summary: "{{productionName}} ({{operator}}) [{{status}}]"
+    summary: "{{productionName}} ({{operatorName}}) [{{status}}]"
     editor:
       preview: false # Our previews are useless/non-existent so just suppress them
 
-    sortable_fields: ["productionName", "operator", "status"]
+    sortable_fields: ["productionName", "operatorName", "status"]
 
     view_groups:
       - label: Operator
-        field: operator
-      - label: Status
+        field: operatorName
+      - label: Published vs. Draft
         field: status
 
     # How it's stored
@@ -58,18 +58,13 @@ collections:
         multiple: false
 
       # Operator info
-      - name: "operator"
-        label: "Operator"
-        widget: "object"
-        summary: "{{fields.operatorName}}"
-        fields:
-          - name: "operatorName"
-            label: "Operator Name"
-            widget: "string"
-          - name: "secondaryOperatorName"
-            label: "Secondary Operator Name"
-            widget: "string"
-            required: false
+      - name: "operatorName"
+        label: "Operator Name"
+        widget: "string"
+      - name: "secondaryOperatorName"
+        label: "Secondary Operator Name"
+        widget: "string"
+        required: false
 
       # List of shots
       - name: "shots"

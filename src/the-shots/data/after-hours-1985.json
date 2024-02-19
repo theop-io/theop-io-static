@@ -1,9 +1,7 @@
 {
   "productionName": "After Hours (1985)",
   "status": "published",
-  "operator": {
-    "operatorName": "Larry McConkey"
-  },
+  "operatorName": "Larry McConkey",
   "shots": [
     {
       "timestamp": "12:00",

@@ -1,9 +1,7 @@
 {
   "productionName": "The Abyss (1989)",
   "status": "draft",
-  "operator": {
-    "operatorName": "James Muro"
-  },
+  "operatorName": "James Muro",
   "shots": [
     {
       "timestamp": "10:00",
