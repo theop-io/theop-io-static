@@ -10,15 +10,31 @@ public_folder: "/uploads"
 
 collections:
   - name: "the-shots" # Used in routes
-    label: "The Shots" # Used in the admin UI
-    label_singular: "Production" # ...same
+    # How it's presented in the admin UI
+    label: "The Shots"
+    label_singular: "Production"
+    summary: "{{productionName}} ({{isPublished}})"
+    editor:
+      preview: false # Our previews are useless/non-existent so just suppress them
+
+    sortable_fields: ["productionName", "operator", "isPublished"]
+
+    view_groups:
+      - label: Operator
+        field: operator
+      - label: Drafts
+        field: isPublished
+
+    # How it's stored
     folder: "src/the-shots/data" # Relative to repository root
     format: "json" # Store in JSON
     create: true # Allow new documents to be created
-    editor:
-      preview: false # Our previews are useless/non-existent so just suppress them
     slug: "{{productionName}}"
+
+    # How it's indexed
     identifier_field: "productionName"
+
+    # Fields
     fields:
       - name: "productionName"
         label: "Production Name and Year" # Needs to be unique; hopefully including the year makes it so.
@@ -29,6 +45,12 @@ collections:
             '.+\(\d{4}\)',
             "Needs to include four-digit year in parentheses, e.g. 'The Abyss (1989)'",
           ]
+
+      - name: "isPublished"
+        label: "Published"
+        widget: "boolean"
+        default: "false"
+        hint: "Leave unchecked if you're still working on preparing information for this production"
 
       # Operator info
       - name: "operator"
