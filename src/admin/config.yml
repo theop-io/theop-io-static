@@ -35,6 +35,7 @@ collections:
     identifier_field: "productionName"
 
     # Fields
+    # - NOTE: Keep these in sync with /tools/the-shots-build-tools.ts
     fields:
       - name: "productionName"
         label: "Production Name/Year" # Needs to be unique; hopefully including the year makes it so.
