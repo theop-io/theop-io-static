@@ -2,29 +2,31 @@ import { TheShotsProductions, TheShotsSortedOperatorNames } from "./generated/th
 import { Production, Shot } from "./the-shots-types";
 
 //
-// Constants
-//
-
-const queryParameterNames = {
-  show: "show",
-  productionName: "productionName",
-  productionYear: "productionYear",
-  shotShortDescription: "shotShortDescription",
-};
-
-//
 // Data tools
 //
 
-function addProductionToURL(urlParams: URLSearchParams, production: Production) {
-  urlParams.append(queryParameterNames.productionName, production.productionName);
+function getURLFor(show: string, additionalParameters: { [key: string]: string }): URL {
+  const url = new URL(window.location.href.split("?")[0]); // Strip existing searchParams
 
-  urlParams.append(queryParameterNames.productionYear, production.productionYear.toString());
+  url.searchParams.append("show", show);
+
+  Object.keys(additionalParameters).forEach((key) =>
+    url.searchParams.append(key, additionalParameters[key])
+  );
+
+  return url;
+}
+
+function urlForProduction(production: Production) {
+  return {
+    productionName: production.productionName,
+    productionYear: production.productionYear.toString(),
+  };
 }
 
 function productionFromURL(urlParams: URLSearchParams): Production | undefined {
-  const productionName = urlParams.get(queryParameterNames.productionName);
-  const productionYear = parseInt(urlParams.get(queryParameterNames.productionYear) ?? "0");
+  const productionName = urlParams.get("productionName");
+  const productionYear = parseInt(urlParams.get("productionYear") ?? "0");
 
   const productions = TheShotsProductions.filter(
     (production) =>
@@ -38,12 +40,12 @@ function productionFromURL(urlParams: URLSearchParams): Production | undefined {
   return productions[0];
 }
 
-function addShotToURL(urlParams: URLSearchParams, shot: Shot) {
-  urlParams.append(queryParameterNames.shotShortDescription, shot.shortDescription);
+function urlForShot(shot: Shot) {
+  return { shotShortDescription: shot.shortDescription };
 }
 
 function shotFromURL(urlParams: URLSearchParams, production: Production): Shot | undefined {
-  const shotShortDescription = urlParams.get(queryParameterNames.shotShortDescription);
+  const shotShortDescription = urlParams.get("shotShortDescription");
 
   const shots = production.shots.filter((shot) => shot.shortDescription === shotShortDescription);
 
@@ -60,7 +62,7 @@ function shotFromURL(urlParams: URLSearchParams, production: Production): Shot |
 
 function appendElementWithText(
   parentElement: HTMLElement,
-  elementType: "h2" | "h3" | "h4" | "div",
+  elementType: "h2" | "h3" | "h4" | "div" | "option",
   text: string
 ): HTMLElement {
   const element = document.createElement(elementType);
@@ -130,17 +132,13 @@ function displayShotIndex(parentElement: HTMLDivElement) {
       const productionDisplayName = `${production.productionName} (${production.productionYear})`;
 
       production.shots.forEach((shot, shotIndex) => {
-        const shotDetailsUrl = new URL(window.location.href);
-        {
-          shotDetailsUrl.searchParams.append(queryParameterNames.show, "shot");
-          addProductionToURL(shotDetailsUrl.searchParams, production);
-          addShotToURL(shotDetailsUrl.searchParams, shot);
-        }
-
         appendTableRow(shotIndexTable, [
           createTableCell(shotIndex === 0 ? productionDisplayName : ""),
           createTableCell(shotIndex === 0 ? production.operatorName : ""),
-          createTableLinkCell(shot.shortDescription, shotDetailsUrl),
+          createTableLinkCell(
+            shot.shortDescription,
+            getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
+          ),
         ]);
       });
     });
@@ -234,6 +232,62 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
   }
 }
 
+//
+// Display: Operator
+//
+function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+  const operatorName = urlParams.get("operatorName");
+
+  if (!operatorName) {
+    return displayNotFound(parentElement);
+  }
+
+  // Find productions this operator has worked on
+  const productions = TheShotsProductions.filter(
+    (production) =>
+      production.operatorName === operatorName || production.secondaryOperatorName === operatorName
+  );
+
+  if (!productions || productions.length === 0) {
+    return displayNotFound(parentElement);
+  }
+
+  // Display operator name
+  appendElementWithText(parentElement, "h2", operatorName);
+
+  // Display matching productions
+  const shotIndexTable = createTable();
+  {
+    // Build table header row
+    appendTableRow(shotIndexTable, [
+      createTableCell("Production", "th"),
+      createTableCell("Description", "th"),
+    ]);
+
+    // Build per-production rows
+    productions.forEach((production) => {
+      const productionDisplayName = `${production.productionName} (${production.productionYear})`;
+
+      production.shots.forEach((shot, shotIndex) => {
+        appendTableRow(shotIndexTable, [
+          createTableCell(shotIndex === 0 ? productionDisplayName : ""),
+          createTableLinkCell(
+            shot.shortDescription,
+            getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
+          ),
+        ]);
+      });
+    });
+  }
+
+  // Commit shot index
+  parentElement.appendChild(shotIndexTable);
+}
+
+//
+// Top-level
+//
+
 // Find and populate index wrapper element
 const shotsParentDiv = document.querySelector<HTMLDivElement>("#the_shots_wrapper");
 
@@ -241,13 +295,52 @@ if (shotsParentDiv) {
   // Clear "Loading..." message
   shotsParentDiv.innerHTML = "";
 
+  // Build header/selector row
+  {
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("the_shots_selectors");
+    {
+      // Build Operator selector
+      const selectElement = document.createElement("select");
+
+      const nilOptionElement = appendElementWithText(
+        selectElement,
+        "option",
+        "- Operators -"
+      ) as HTMLOptionElement;
+      nilOptionElement.value = "";
+
+      TheShotsSortedOperatorNames.forEach((operatorName) =>
+        appendElementWithText(selectElement, "option", operatorName)
+      );
+
+      selectElement.onchange = () => {
+        // Filter out nil option
+        const selectedOperator = selectElement.value;
+
+        if (!selectedOperator) {
+          return;
+        }
+
+        // Navigate to URL
+        window.location.href = getURLFor("operator", { operatorName: selectedOperator }).href;
+      };
+
+      headerDiv.appendChild(selectElement);
+    }
+
+    shotsParentDiv.appendChild(headerDiv);
+  }
+
   // Figure out what this page is supposed to show
   const urlParams = new URLSearchParams(window.location.search);
-  const showMode = urlParams.get(queryParameterNames.show);
+  const showMode = urlParams.get("show");
 
   if (!showMode) {
     displayShotIndex(shotsParentDiv);
   } else if (showMode === "shot") {
     displayShotDetails(shotsParentDiv, urlParams);
+  } else if (showMode === "operator") {
+    displayOperator(shotsParentDiv, urlParams);
   }
 }
