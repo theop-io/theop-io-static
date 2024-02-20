@@ -1,10 +1,8 @@
-import { TheShot } from "./the-shots-types";
-
 //
 // The Shots data courtesy of Afton Grant, SOC, http://steadishots.org
 //
 
-const theShotsData: TheShot[] = [
+const theShotsData = [
   {
     production: "2 Days in the Valley",
     operatorLastName: "Nolen",
