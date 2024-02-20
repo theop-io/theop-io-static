@@ -1,63 +1,30 @@
-//
-// Top-level divs:
-// - wrapper
-//   - index
-//   - details
-//
-
 #the_shots_wrapper {
-  @include clearfix;
-}
+  th {
+    text-align: left;
+  }
 
-#the_shots_index {
-  float: left;
-  width: 45%;
+  a {
+    color: red;
+  }
 
-  padding-right: 2em;
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
 
-  // Interior scroll container
-  height: 100vh;
-  overflow: auto;
-}
+    font-size: 1.75rem;
+  }
 
-#the_shots_details {
-  float: left;
-  width: 45%;
-}
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 
-//
-// Index tweaks
-//
+    font-size: 1.5rem;
+  }
 
-#the_shots_index th {
-  text-align: left;
-}
+  h4 {
+    margin-top: 1em;
+    margin-bottom: 0;
 
-#the_shots_index .shotLink {
-  color: red;
-}
-
-//
-// Details tweaks
-//
-
-#the_shots_details h2 {
-  margin-top: 0;
-  margin-bottom: 0;
-
-  font-size: 1.75rem;
-}
-
-#the_shots_details h3 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-
-  font-size: 1.5rem;
-}
-
-#the_shots_details h4 {
-  margin-top: 1em;
-  margin-bottom: 0;
-
-  font-size: 1.25rem;
+    font-size: 1.25rem;
+  }
 }
