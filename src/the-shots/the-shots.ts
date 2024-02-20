@@ -285,6 +285,50 @@ function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchPara
 }
 
 //
+// Display: Production
+//
+
+function displayProduction(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+  // Find production
+  const production = productionFromURL(urlParams);
+
+  if (!production) {
+    return displayNotFound(parentElement);
+  }
+
+  // Display production name
+  appendElementWithText(
+    parentElement,
+    "h2",
+    `${production.productionName} (${production.productionYear})`
+  );
+
+  // Display shots
+  const shotIndexTable = createTable();
+  {
+    // Build table header row
+    appendTableRow(shotIndexTable, [
+      createTableCell("Operator", "th"),
+      createTableCell("Description", "th"),
+    ]);
+
+    // Build per-production rows
+    production.shots.forEach((shot, shotIndex) => {
+      appendTableRow(shotIndexTable, [
+        createTableCell(shotIndex === 0 ? production.operatorName : ""),
+        createTableLinkCell(
+          shot.shortDescription,
+          getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
+        ),
+      ]);
+    });
+  }
+
+  // Commit shot index
+  parentElement.appendChild(shotIndexTable);
+}
+
+//
 // Top-level
 //
 
@@ -328,6 +372,42 @@ if (shotsParentDiv) {
 
       headerDiv.appendChild(selectElement);
     }
+    {
+      // Build Production selector
+      const selectElement = document.createElement("select");
+
+      const nilOptionElement = appendElementWithText(
+        selectElement,
+        "option",
+        "- Productions -"
+      ) as HTMLOptionElement;
+      nilOptionElement.value = "-1";
+
+      TheShotsProductions.forEach((production, index) => {
+        const productionOptionElement = appendElementWithText(
+          selectElement,
+          "option",
+          `${production.productionName} (${production.productionYear})`
+        ) as HTMLOptionElement;
+        productionOptionElement.value = index.toString();
+      });
+
+      selectElement.onchange = () => {
+        // Filter out nil option
+        const selectedProductionIndex = parseInt(selectElement.value);
+
+        if (selectedProductionIndex < 0) {
+          return;
+        }
+
+        const selectedProduction = TheShotsProductions[selectedProductionIndex];
+
+        // Navigate to URL
+        window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
+      };
+
+      headerDiv.appendChild(selectElement);
+    }
 
     shotsParentDiv.appendChild(headerDiv);
   }
@@ -342,5 +422,7 @@ if (shotsParentDiv) {
     displayShotDetails(shotsParentDiv, urlParams);
   } else if (showMode === "operator") {
     displayOperator(shotsParentDiv, urlParams);
+  } else if (showMode === "production") {
+    displayProduction(shotsParentDiv, urlParams);
   }
 }
