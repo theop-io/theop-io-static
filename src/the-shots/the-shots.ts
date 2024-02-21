@@ -314,7 +314,7 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
 // Top-level
 //
 
-function buildSelectorRow(parentElement: HTMLElement) {
+function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
   const headerDiv = document.createElement("div");
   headerDiv.classList.add("the_shots_selectors");
   {
@@ -388,7 +388,7 @@ function buildSelectorRow(parentElement: HTMLElement) {
     headerDiv.appendChild(selectElement);
   }
 
-  {
+  if (pageMode !== "index") {
     //
     // Build "All shots" index link
     //
@@ -414,7 +414,7 @@ if (shotsParentDiv) {
   const pageMode = pageModeFromURL(urlParams);
 
   // Build header/selector row
-  buildSelectorRow(shotsParentDiv);
+  buildSelectorRow(shotsParentDiv, pageMode);
 
   // Show content
   const contentFunctionByPageMode = {
