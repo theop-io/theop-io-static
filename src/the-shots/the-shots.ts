@@ -295,6 +295,83 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
 // Top-level
 //
 
+function buildSelectorRow(parentElement: HTMLElement) {
+  const headerDiv = document.createElement("div");
+  headerDiv.classList.add("the_shots_selectors");
+  {
+    //
+    // Build Operator selector
+    //
+    const selectElement = document.createElement("select");
+
+    const nilOptionElement = appendElementWithText(
+      selectElement,
+      "option",
+      "- Operators -"
+    ) as HTMLOptionElement;
+    nilOptionElement.value = "";
+
+    TheShotsSortedOperatorNames.forEach((operatorName) =>
+      appendElementWithText(selectElement, "option", operatorName)
+    );
+
+    selectElement.onchange = () => {
+      // Filter out nil option
+      const selectedOperator = selectElement.value;
+
+      if (!selectedOperator) {
+        return;
+      }
+
+      // Navigate to URL
+      window.location.href = getURLFor("operator", { operatorName: selectedOperator }).href;
+    };
+
+    headerDiv.appendChild(selectElement);
+  }
+
+  {
+    //
+    // Build Production selector
+    //
+    const selectElement = document.createElement("select");
+
+    const nilOptionElement = appendElementWithText(
+      selectElement,
+      "option",
+      "- Productions -"
+    ) as HTMLOptionElement;
+    nilOptionElement.value = "-1";
+
+    TheShotsProductions.forEach((production, index) => {
+      const productionOptionElement = appendElementWithText(
+        selectElement,
+        "option",
+        `${production.productionName} (${production.productionYear})`
+      ) as HTMLOptionElement;
+      productionOptionElement.value = index.toString();
+    });
+
+    selectElement.onchange = () => {
+      // Filter out nil option
+      const selectedProductionIndex = parseInt(selectElement.value);
+
+      if (selectedProductionIndex < 0) {
+        return;
+      }
+
+      const selectedProduction = TheShotsProductions[selectedProductionIndex];
+
+      // Navigate to URL
+      window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
+    };
+
+    headerDiv.appendChild(selectElement);
+  }
+
+  parentElement.appendChild(headerDiv);
+}
+
 // Find and populate index wrapper element
 const shotsParentDiv = document.querySelector<HTMLDivElement>("#the_shots_wrapper");
 
@@ -303,77 +380,7 @@ if (shotsParentDiv) {
   shotsParentDiv.innerHTML = "";
 
   // Build header/selector row
-  {
-    const headerDiv = document.createElement("div");
-    headerDiv.classList.add("the_shots_selectors");
-    {
-      // Build Operator selector
-      const selectElement = document.createElement("select");
-
-      const nilOptionElement = appendElementWithText(
-        selectElement,
-        "option",
-        "- Operators -"
-      ) as HTMLOptionElement;
-      nilOptionElement.value = "";
-
-      TheShotsSortedOperatorNames.forEach((operatorName) =>
-        appendElementWithText(selectElement, "option", operatorName)
-      );
-
-      selectElement.onchange = () => {
-        // Filter out nil option
-        const selectedOperator = selectElement.value;
-
-        if (!selectedOperator) {
-          return;
-        }
-
-        // Navigate to URL
-        window.location.href = getURLFor("operator", { operatorName: selectedOperator }).href;
-      };
-
-      headerDiv.appendChild(selectElement);
-    }
-    {
-      // Build Production selector
-      const selectElement = document.createElement("select");
-
-      const nilOptionElement = appendElementWithText(
-        selectElement,
-        "option",
-        "- Productions -"
-      ) as HTMLOptionElement;
-      nilOptionElement.value = "-1";
-
-      TheShotsProductions.forEach((production, index) => {
-        const productionOptionElement = appendElementWithText(
-          selectElement,
-          "option",
-          `${production.productionName} (${production.productionYear})`
-        ) as HTMLOptionElement;
-        productionOptionElement.value = index.toString();
-      });
-
-      selectElement.onchange = () => {
-        // Filter out nil option
-        const selectedProductionIndex = parseInt(selectElement.value);
-
-        if (selectedProductionIndex < 0) {
-          return;
-        }
-
-        const selectedProduction = TheShotsProductions[selectedProductionIndex];
-
-        // Navigate to URL
-        window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
-      };
-
-      headerDiv.appendChild(selectElement);
-    }
-
-    shotsParentDiv.appendChild(headerDiv);
-  }
+  buildSelectorRow(shotsParentDiv);
 
   // Figure out what this page is supposed to show
   const urlParams = new URLSearchParams(window.location.search);
