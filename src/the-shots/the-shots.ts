@@ -5,14 +5,16 @@ import { Production, Shot } from "./the-shots-types";
 // Data tools
 //
 
-function getURLFor(show: string, additionalParameters: { [key: string]: string }): URL {
+function getURLFor(show: string, additionalParameters?: { [key: string]: string }): URL {
   const url = new URL(window.location.href.split("?")[0]); // Strip existing searchParams
 
   url.searchParams.append("show", show);
 
-  Object.keys(additionalParameters).forEach((key) =>
-    url.searchParams.append(key, additionalParameters[key])
-  );
+  if (additionalParameters) {
+    Object.keys(additionalParameters).forEach((key) =>
+      url.searchParams.append(key, additionalParameters[key])
+    );
+  }
 
   return url;
 }
@@ -369,6 +371,17 @@ function buildSelectorRow(parentElement: HTMLElement) {
     headerDiv.appendChild(selectElement);
   }
 
+  {
+    //
+    // Build "All shots" index link
+    //
+    const anchorElement = document.createElement("a");
+    anchorElement.appendChild(document.createTextNode("All shots"));
+    anchorElement.href = getURLFor("index").href;
+
+    headerDiv.appendChild(anchorElement);
+  }
+
   parentElement.appendChild(headerDiv);
 }
 
@@ -386,7 +399,8 @@ if (shotsParentDiv) {
   const urlParams = new URLSearchParams(window.location.search);
   const showMode = urlParams.get("show");
 
-  if (!showMode) {
+  // Show content
+  if (!showMode || showMode === "index") {
     displayShotIndex(shotsParentDiv);
   } else if (showMode === "shot") {
     displayShotDetails(shotsParentDiv, urlParams);
