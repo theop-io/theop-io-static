@@ -75,11 +75,11 @@ function shotFromURL(urlParams: URLSearchParams, production: Production): Shot |
 // Display tools
 //
 
-function appendElementWithText(
+function appendElementWithText<ElementType extends keyof HTMLElementTagNameMap>(
   parentElement: HTMLElement,
-  elementType: "h2" | "h3" | "h4" | "div" | "option",
+  elementType: ElementType,
   text: string
-): HTMLElement {
+): HTMLElementTagNameMap[ElementType] {
   const element = document.createElement(elementType);
 
   const textLines = text.split(/\r?\n/);
@@ -314,13 +314,18 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
 // Top-level
 //
 
-function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
+function buildSelectorRow(
+  parentElement: HTMLElement,
+  urlParams: URLSearchParams,
+  pageMode: PageMode
+) {
   const headerDiv = document.createElement("div");
   headerDiv.classList.add("the_shots_selectors");
+
+  //
+  // Build Operator selector
+  //
   {
-    //
-    // Build Operator selector
-    //
     const selectElement = document.createElement("select");
 
     const nilOptionElement = appendElementWithText(
@@ -330,9 +335,15 @@ function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
     ) as HTMLOptionElement;
     nilOptionElement.value = "";
 
-    TheShotsSortedOperatorNames.forEach((operatorName) =>
-      appendElementWithText(selectElement, "option", operatorName)
-    );
+    const selectedOperatorName = pageMode === "operator" ? urlParams.get("operatorName") : null;
+
+    TheShotsSortedOperatorNames.forEach((operatorName) => {
+      const optionElement = appendElementWithText(selectElement, "option", operatorName);
+
+      if (operatorName === selectedOperatorName) {
+        optionElement.selected = true;
+      }
+    });
 
     selectElement.onchange = () => {
       // Filter out nil option
@@ -349,10 +360,10 @@ function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
     headerDiv.appendChild(selectElement);
   }
 
+  //
+  // Build Production selector
+  //
   {
-    //
-    // Build Production selector
-    //
     const selectElement = document.createElement("select");
 
     const nilOptionElement = appendElementWithText(
@@ -362,13 +373,19 @@ function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
     ) as HTMLOptionElement;
     nilOptionElement.value = "-1";
 
+    const selectedProduction = pageMode === "production" ? productionFromURL(urlParams) : undefined;
+
     TheShotsProductions.forEach((production, index) => {
       const productionOptionElement = appendElementWithText(
         selectElement,
         "option",
         `${production.productionName} (${production.productionYear})`
-      ) as HTMLOptionElement;
+      );
       productionOptionElement.value = index.toString();
+
+      if (production === selectedProduction) {
+        productionOptionElement.selected = true;
+      }
     });
 
     selectElement.onchange = () => {
@@ -388,10 +405,10 @@ function buildSelectorRow(parentElement: HTMLElement, pageMode: PageMode) {
     headerDiv.appendChild(selectElement);
   }
 
+  //
+  // Build "All shots" index link
+  //
   if (pageMode !== "index") {
-    //
-    // Build "All shots" index link
-    //
     const anchorElement = document.createElement("a");
     anchorElement.appendChild(document.createTextNode("All shots"));
     anchorElement.href = getURLFor("index").href;
@@ -414,7 +431,7 @@ if (shotsParentDiv) {
   const pageMode = pageModeFromURL(urlParams);
 
   // Build header/selector row
-  buildSelectorRow(shotsParentDiv, pageMode);
+  buildSelectorRow(shotsParentDiv, urlParams, pageMode);
 
   // Show content
   const contentFunctionByPageMode = {
