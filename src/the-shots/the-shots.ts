@@ -5,10 +5,17 @@ import { Production, Shot } from "./the-shots-types";
 // Data tools
 //
 
-function getURLFor(show: string, additionalParameters?: { [key: string]: string }): URL {
+const PageModes = <const>["index", "shot", "operator", "production"];
+type PageMode = (typeof PageModes)[number];
+
+function isValidPageMode(pageMode: string): pageMode is PageMode {
+  return !!PageModes.find((p) => p === pageMode);
+}
+
+function getURLFor(pageMode: PageMode, additionalParameters?: { [key: string]: string }): URL {
   const url = new URL(window.location.href.split("?")[0]); // Strip existing searchParams
 
-  url.searchParams.append("show", show);
+  url.searchParams.append("pageMode", pageMode);
 
   if (additionalParameters) {
     Object.keys(additionalParameters).forEach((key) =>
@@ -17,6 +24,12 @@ function getURLFor(show: string, additionalParameters?: { [key: string]: string 
   }
 
   return url;
+}
+
+function pageModeFromURL(urlParams: URLSearchParams): PageMode {
+  const pageMode_String = urlParams.get("pageMode");
+
+  return pageMode_String && isValidPageMode(pageMode_String) ? pageMode_String : "index";
 }
 
 function urlForProduction(production: Production) {
@@ -169,6 +182,10 @@ function displayShotIndex(
 
   // Commit shot index
   parentElement.appendChild(shotIndexTable);
+}
+
+function displayIndex(parentElement: HTMLDivElement, _urlParams: URLSearchParams) {
+  displayShotIndex(parentElement);
 }
 
 function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
@@ -392,21 +409,20 @@ if (shotsParentDiv) {
   // Clear "Loading..." message
   shotsParentDiv.innerHTML = "";
 
+  // Setup
+  const urlParams = new URLSearchParams(window.location.search);
+  const pageMode = pageModeFromURL(urlParams);
+
   // Build header/selector row
   buildSelectorRow(shotsParentDiv);
 
-  // Figure out what this page is supposed to show
-  const urlParams = new URLSearchParams(window.location.search);
-  const showMode = urlParams.get("show");
-
   // Show content
-  if (!showMode || showMode === "index") {
-    displayShotIndex(shotsParentDiv);
-  } else if (showMode === "shot") {
-    displayShotDetails(shotsParentDiv, urlParams);
-  } else if (showMode === "operator") {
-    displayOperator(shotsParentDiv, urlParams);
-  } else if (showMode === "production") {
-    displayProduction(shotsParentDiv, urlParams);
-  }
+  const contentFunctionByPageMode = {
+    index: displayIndex,
+    shot: displayShotDetails,
+    operator: displayOperator,
+    production: displayProduction,
+  };
+
+  contentFunctionByPageMode[pageMode](shotsParentDiv, urlParams);
 }
