@@ -5,7 +5,7 @@ import { Production, Shot } from "./the-shots-types";
 // Data tools
 //
 
-const PageModes = <const>["index", "shot", "operator", "production"];
+const PageModes = <const>["index", "operator", "production", "shot"];
 type PageMode = (typeof PageModes)[number];
 
 function isValidPageMode(pageMode: string): pageMode is PageMode {
@@ -436,9 +436,9 @@ if (shotsParentDiv) {
   // Show content
   const contentFunctionByPageMode = {
     index: displayIndex,
-    shot: displayShotDetails,
     operator: displayOperator,
     production: displayProduction,
+    shot: displayShotDetails,
   };
 
   contentFunctionByPageMode[pageMode](shotsParentDiv, urlParams);
