@@ -7,7 +7,6 @@ import * as yup from "yup";
 import {
   Production,
   ProductionStatusValues,
-  OperatorNameRegex,
   Shot,
   Timestamp,
 } from "../src/the-shots/the-shots-types";
@@ -31,11 +30,12 @@ const shotsDatabaseDestinationFile = process.argv.length >= 3 ? process.argv[3] 
 //
 
 const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
+const operatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
 
 const productionShotSchema = yup.object({
   // Operator info
-  operatorName: yup.string().required().matches(OperatorNameRegex),
-  secondaryOperatorName: yup.string().matches(OperatorNameRegex, { excludeEmptyString: true }),
+  operatorName: yup.string().required().matches(operatorNameRegex),
+  secondaryOperatorName: yup.string().matches(operatorNameRegex, { excludeEmptyString: true }),
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   episode: yup.string(),
@@ -154,7 +154,7 @@ outputStream.write(`];\n`);
 
 // - Unique and sorted operators (to save a small bit of effort at runtime)
 function operatorNameSortKeyForOperator(operatorName: string): string {
-  const operatorNameSegments = operatorName.match(OperatorNameRegex); // Validated by yup above
+  const operatorNameSegments = operatorName.match(operatorNameRegex); // Validated by yup above
 
   const firstName = operatorNameSegments[1]; // [1] = first capture group
   const lastName = operatorNameSegments[2]; // [2] = second capture group

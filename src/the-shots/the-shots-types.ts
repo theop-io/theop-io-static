@@ -29,5 +29,3 @@ export type Production = {
 
   shots: Shot[];
 };
-
-export const OperatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
