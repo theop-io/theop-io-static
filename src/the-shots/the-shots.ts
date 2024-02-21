@@ -32,6 +32,15 @@ function pageModeFromURL(urlParams: URLSearchParams): PageMode {
   return pageMode_String && isValidPageMode(pageMode_String) ? pageMode_String : "index";
 }
 
+function urlForOperator(operatorName: string) {
+  return { operatorName };
+}
+
+function operatorFromURL(urlParams: URLSearchParams): string | undefined {
+  const operatorName = urlParams.get("operatorName");
+  return operatorName ?? undefined;
+}
+
 function urlForProduction(production: Production) {
   return {
     productionName: production.productionName,
@@ -189,7 +198,7 @@ function displayIndex(parentElement: HTMLDivElement, _urlParams: URLSearchParams
 }
 
 function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
-  const operatorName = urlParams.get("operatorName");
+  const operatorName = operatorFromURL(urlParams);
 
   if (!operatorName) {
     return displayNotFound(parentElement);
@@ -335,7 +344,7 @@ function buildSelectorRow(
     ) as HTMLOptionElement;
     nilOptionElement.value = "";
 
-    const selectedOperatorName = pageMode === "operator" ? urlParams.get("operatorName") : null;
+    const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
 
     TheShotsSortedOperatorNames.forEach((operatorName) => {
       const optionElement = appendElementWithText(selectElement, "option", operatorName);
@@ -354,7 +363,7 @@ function buildSelectorRow(
       }
 
       // Navigate to URL
-      window.location.href = getURLFor("operator", { operatorName: selectedOperator }).href;
+      window.location.href = getURLFor("operator", urlForOperator(selectedOperator)).href;
     };
 
     headerDiv.appendChild(selectElement);
