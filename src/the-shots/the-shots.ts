@@ -84,57 +84,71 @@ function shotFromURL(urlParams: URLSearchParams, production: Production): Shot |
 // Display tools
 //
 
-function appendElementWithText<ElementType extends keyof HTMLElementTagNameMap>(
-  parentElement: HTMLElement,
+function appendChildren(parentElement: HTMLElement, children: (HTMLElement | Text)[]) {
+  children.forEach((child) => parentElement.appendChild(child));
+}
+
+function createElementWithChildren<ElementType extends keyof HTMLElementTagNameMap>(
   elementType: ElementType,
-  text: string
+  children?: (HTMLElement | Text | string)[]
 ): HTMLElementTagNameMap[ElementType] {
   const element = document.createElement(elementType);
 
-  const textLines = text.split(/\r?\n/);
+  function isString(value: any): value is string {
+    return typeof value === "string" || value instanceof String;
+  }
 
-  textLines.forEach((line, index) => {
-    if (index > 0) {
-      element.appendChild(document.createElement("br"));
-    }
-
-    element.appendChild(document.createTextNode(line));
-  });
-
-  parentElement.appendChild(element);
+  if (children) {
+    appendChildren(
+      element,
+      children.flatMap((child) =>
+        isString(child)
+          ? // Auto-convert string into broken text lines
+            child
+              .split(/\r?\n/)
+              .flatMap((line, index) =>
+                index > 0
+                  ? [document.createElement("br"), document.createTextNode(line)]
+                  : document.createTextNode(line)
+              )
+          : // Forward child as-is
+            child
+      )
+    );
+  }
 
   return element;
 }
 
-function createTable() {
-  return document.createElement("table");
+function createElementWithInitializerAndChildren<ElementType extends keyof HTMLElementTagNameMap>(
+  elementType: ElementType,
+  initializer: (element: HTMLElementTagNameMap[ElementType]) => void,
+  children?: (HTMLElement | Text | string)[]
+): HTMLElementTagNameMap[ElementType] {
+  const element = createElementWithChildren(elementType, children);
+
+  initializer(element);
+
+  return element;
 }
 
-function createTableCell(text: string, elementType: "th" | "td" = "td"): HTMLTableCellElement {
-  const tableCellElement = document.createElement(elementType);
-  tableCellElement.appendChild(document.createTextNode(text));
-
-  return tableCellElement;
+function createAnchorElementWithChildren(url: URL, children?: (HTMLElement | Text | string)[]) {
+  return createElementWithInitializerAndChildren(
+    "a",
+    (anchor) => (anchor.href = url.href),
+    children
+  );
 }
 
-function createTableLinkCell(text: string, url: URL): HTMLTableCellElement {
-  const tableCellElement = document.createElement("td");
+//
+// Display: Not found
+//
 
-  const anchorElement = document.createElement("a");
-  anchorElement.appendChild(document.createTextNode(text));
-  anchorElement.href = url.href;
-
-  tableCellElement.appendChild(anchorElement);
-
-  return tableCellElement;
-}
-
-function appendTableRow(tableElement: HTMLTableElement, cells: HTMLTableCellElement[]) {
-  const tableRow = document.createElement("tr");
-
-  cells.forEach((cell) => tableRow.appendChild(cell));
-
-  tableElement.appendChild(tableRow);
+function displayNotFound(): HTMLElement[] {
+  return [
+    createElementWithChildren("h2", ["Not found"]),
+    createElementWithChildren("div", ["Apologies - we must have dropped some data somewhere..."]),
+  ];
 }
 
 //
@@ -142,106 +156,124 @@ function appendTableRow(tableElement: HTMLTableElement, cells: HTMLTableCellElem
 //
 
 function displayShotIndex(
-  parentElement: HTMLDivElement,
   productionFilter: (production: Production) => boolean = () => true,
   shotFilter: (shot: Shot) => boolean = () => true
-) {
-  const shotIndexTable = createTable();
-  {
-    // Build table header row
-    appendTableRow(shotIndexTable, [
-      createTableCell("Production", "th"),
-      createTableCell("Operator", "th"),
-      createTableCell("Description", "th"),
-    ]);
-
-    // Build per-production rows
-    TheShotsProductions.forEach((production) => {
-      if (!productionFilter(production)) {
-        return;
-      }
-
-      const productionDisplayName = `${production.productionName} (${production.productionYear})`;
-      let didDisplayProductionName = false;
-      let latestOperatorName = "";
-
-      production.shots.forEach((shot, shotIndex) => {
-        if (!shotFilter(shot)) {
-          return;
+): HTMLElement[] {
+  return [
+    createElementWithChildren("table", [
+      // Build table header row
+      createElementWithChildren("tr", [
+        createElementWithChildren("th", ["Production"]),
+        createElementWithChildren("th", ["Operator"]),
+        createElementWithChildren("th", ["Description"]),
+      ]),
+      // Build shot rows
+      ...TheShotsProductions.flatMap((production) => {
+        if (!productionFilter(production)) {
+          return [];
         }
 
-        const operatorName =
-          shot.operatorName +
-          (shot.secondaryOperatorName ? ` and ${shot.secondaryOperatorName}` : "");
+        const productionDisplayName = `${production.productionName} (${production.productionYear})`;
 
-        appendTableRow(shotIndexTable, [
-          createTableCell(!didDisplayProductionName ? productionDisplayName : ""),
-          createTableCell(operatorName !== latestOperatorName ? operatorName : ""),
-          createTableLinkCell(
-            shot.shortDescription,
-            getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
-          ),
-        ]);
+        let didDisplayProductionName = false;
+        let latestOperatorData = "";
 
-        didDisplayProductionName = true;
-        latestOperatorName = operatorName;
-      });
-    });
-  }
+        return production.shots.flatMap((shot) => {
+          if (!shotFilter(shot)) {
+            return [];
+          }
 
-  // Commit shot index
-  parentElement.appendChild(shotIndexTable);
+          // Evaluate what we should display
+          const shouldDisplayProductionName = !didDisplayProductionName;
+
+          const operatorData = shot.operatorName + (shot.secondaryOperatorName ?? ""); // Not for display purposes, just for tracking
+          const shouldDisplayOperators = operatorData !== latestOperatorData;
+
+          // Update state for next row
+          didDisplayProductionName = true;
+          latestOperatorData = operatorData;
+
+          // Display shot row
+          return createElementWithChildren("tr", [
+            createElementWithChildren(
+              "td",
+              shouldDisplayProductionName
+                ? [
+                    createAnchorElementWithChildren(
+                      getURLFor("production", urlForProduction(production)),
+                      [productionDisplayName]
+                    ),
+                  ]
+                : []
+            ),
+            createElementWithChildren(
+              "td",
+              shouldDisplayOperators
+                ? [
+                    createAnchorElementWithChildren(
+                      getURLFor("operator", urlForOperator(shot.operatorName)),
+                      [shot.operatorName]
+                    ),
+                    ...(shot.secondaryOperatorName
+                      ? [
+                          createElementWithChildren("span", [" and "]),
+                          createAnchorElementWithChildren(
+                            getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
+                            [shot.secondaryOperatorName]
+                          ),
+                        ]
+                      : []),
+                  ]
+                : []
+            ),
+            createElementWithChildren("td", [
+              createAnchorElementWithChildren(
+                getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) }),
+                [shot.shortDescription]
+              ),
+            ]),
+          ]);
+        });
+      }),
+    ]),
+  ];
 }
 
-function displayIndex(parentElement: HTMLDivElement, _urlParams: URLSearchParams) {
-  displayShotIndex(parentElement);
+function displayIndex(_urlParams: URLSearchParams): HTMLElement[] {
+  return displayShotIndex();
 }
 
-function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+function displayOperator(urlParams: URLSearchParams): HTMLElement[] {
   const operatorName = operatorFromURL(urlParams);
 
   if (!operatorName) {
-    return displayNotFound(parentElement);
+    return displayNotFound();
   }
 
-  appendElementWithText(parentElement, "h2", operatorName);
+  return [
+    createElementWithChildren("h2", [operatorName]),
 
-  displayShotIndex(
-    parentElement,
-    () => true,
-    (shot: Shot) =>
-      shot.operatorName === operatorName || shot.secondaryOperatorName === operatorName
-  );
+    ...displayShotIndex(
+      () => true,
+      (shot: Shot) =>
+        shot.operatorName === operatorName || shot.secondaryOperatorName === operatorName
+    ),
+  ];
 }
 
-function displayProduction(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+function displayProduction(urlParams: URLSearchParams): HTMLElement[] {
   const production = productionFromURL(urlParams);
 
   if (!production) {
-    return displayNotFound(parentElement);
+    return displayNotFound();
   }
 
-  appendElementWithText(
-    parentElement,
-    "h2",
-    `${production.productionName} (${production.productionYear})`
-  );
-
-  displayShotIndex(parentElement, (p) => p === production);
-}
-
-//
-// Display: Not found
-//
-
-function displayNotFound(parentElement: HTMLDivElement) {
-  appendElementWithText(parentElement, "h2", "Not found");
-
-  appendElementWithText(
-    parentElement,
-    "div",
-    "Apologies - we must have dropped some data somewhere..."
-  );
+  return [
+    createElementWithChildren("h2", [
+      `${production.productionName} (${production.productionYear})`,
+    ]),
+    ...displayShotIndex((p) => p === production),
+  ];
 }
 
 //
@@ -261,28 +293,21 @@ function getShotTimestampString(shot: Shot): string | undefined {
   )}`;
 }
 
-function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
   // Find shot
   const production = productionFromURL(urlParams);
 
   if (!production) {
-    return displayNotFound(parentElement);
+    return displayNotFound();
   }
 
   const shot = shotFromURL(urlParams, production);
 
   if (!shot) {
-    return displayNotFound(parentElement);
+    return displayNotFound();
   }
 
-  // Show production details
-  appendElementWithText(
-    parentElement,
-    "h2",
-    `${production.productionName} (${production.productionYear})`
-  );
-
-  // Show shot name
+  // Create shot name
   let shotName = `"${shot.shortDescription}" by ${shot.operatorName}`;
   {
     // Prepend episode
@@ -303,129 +328,138 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
     }
   }
 
-  appendElementWithText(parentElement, "h3", shotName);
+  // Create display
+  return [
+    // Show production details
+    createElementWithChildren("h2", [
+      `${production.productionName} (${production.productionYear})`,
+    ]),
+    // Show show name
+    createElementWithChildren("h3", [shotName]),
 
-  // Show shot data
-  appendElementWithText(parentElement, "div", shot.description);
+    // Show shot data
+    createElementWithChildren("div", [shot.description]),
 
-  if (shot.operatorComments) {
-    appendElementWithText(parentElement, "h4", "Operator comments");
-    appendElementWithText(parentElement, "div", shot.operatorComments);
-  }
+    ...(shot.operatorComments
+      ? [
+          createElementWithChildren("h4", ["Operator comments"]),
+          createElementWithChildren("div", [shot.operatorComments]),
+        ]
+      : []),
 
-  if (shot.equipment) {
-    appendElementWithText(parentElement, "h4", "Equipment");
-    appendElementWithText(parentElement, "div", shot.equipment);
-  }
+    ...(shot.equipment
+      ? [
+          createElementWithChildren("h4", ["Equipment"]),
+          createElementWithChildren("div", [shot.equipment]),
+        ]
+      : []),
+  ];
 }
 
 //
 // Top-level
 //
 
-function buildSelectorRow(
-  parentElement: HTMLElement,
-  urlParams: URLSearchParams,
-  pageMode: PageMode
-) {
-  const headerDiv = document.createElement("div");
-  headerDiv.classList.add("the_shots_selectors");
+function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+  const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
 
-  //
-  // Build Operator selector
-  //
-  {
-    const selectElement = document.createElement("select");
+  return [
+    createElementWithInitializerAndChildren(
+      "select",
+      (selectElement) => {
+        selectElement.onchange = () => {
+          // Filter out nil option
+          const selectedOperator = selectElement.value;
 
-    const nilOptionElement = appendElementWithText(
-      selectElement,
-      "option",
-      "- Operators -"
-    ) as HTMLOptionElement;
-    nilOptionElement.value = "";
+          if (!selectedOperator) {
+            return;
+          }
 
-    const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
+          // Navigate to URL
+          window.location.href = getURLFor("operator", urlForOperator(selectedOperator)).href;
+        };
+      },
+      [
+        createElementWithInitializerAndChildren(
+          "option",
+          (optionElement) => (optionElement.value = ""),
+          ["- Operators -"]
+        ),
+        ...TheShotsSortedOperatorNames.map((operatorName) =>
+          createElementWithInitializerAndChildren(
+            "option",
+            (optionElement) => {
+              if (operatorName === selectedOperatorName) {
+                optionElement.selected = true;
+              }
+            },
+            [operatorName]
+          )
+        ),
+      ]
+    ),
+  ];
+}
 
-    TheShotsSortedOperatorNames.forEach((operatorName) => {
-      const optionElement = appendElementWithText(selectElement, "option", operatorName);
+function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+  const selectedProduction = productionFromURL(urlParams);
 
-      if (operatorName === selectedOperatorName) {
-        optionElement.selected = true;
-      }
-    });
+  return [
+    createElementWithInitializerAndChildren(
+      "select",
+      (selectElement) => {
+        selectElement.onchange = () => {
+          // Filter out nil option
+          const selectedProductionIndex = parseInt(selectElement.value);
 
-    selectElement.onchange = () => {
-      // Filter out nil option
-      const selectedOperator = selectElement.value;
+          if (selectedProductionIndex < 0) {
+            return;
+          }
 
-      if (!selectedOperator) {
-        return;
-      }
+          const selectedProduction = TheShotsProductions[selectedProductionIndex];
 
-      // Navigate to URL
-      window.location.href = getURLFor("operator", urlForOperator(selectedOperator)).href;
-    };
+          // Navigate to URL
+          window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
+        };
+      },
+      [
+        createElementWithInitializerAndChildren(
+          "option",
+          (optionElement) => (optionElement.value = "-1"),
+          ["- Productions -"]
+        ),
+        ...TheShotsProductions.map((production, index) =>
+          createElementWithInitializerAndChildren(
+            "option",
+            (optionElement) => {
+              optionElement.value = index.toString();
 
-    headerDiv.appendChild(selectElement);
-  }
+              if (production === selectedProduction) {
+                optionElement.selected = true;
+              }
+            },
+            [`${production.productionName} (${production.productionYear})`]
+          )
+        ),
+      ]
+    ),
+  ];
+}
 
-  //
-  // Build Production selector
-  //
-  {
-    const selectElement = document.createElement("select");
-
-    const nilOptionElement = appendElementWithText(
-      selectElement,
-      "option",
-      "- Productions -"
-    ) as HTMLOptionElement;
-    nilOptionElement.value = "-1";
-
-    const selectedProduction = pageMode === "production" ? productionFromURL(urlParams) : undefined;
-
-    TheShotsProductions.forEach((production, index) => {
-      const productionOptionElement = appendElementWithText(
-        selectElement,
-        "option",
-        `${production.productionName} (${production.productionYear})`
-      );
-      productionOptionElement.value = index.toString();
-
-      if (production === selectedProduction) {
-        productionOptionElement.selected = true;
-      }
-    });
-
-    selectElement.onchange = () => {
-      // Filter out nil option
-      const selectedProductionIndex = parseInt(selectElement.value);
-
-      if (selectedProductionIndex < 0) {
-        return;
-      }
-
-      const selectedProduction = TheShotsProductions[selectedProductionIndex];
-
-      // Navigate to URL
-      window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
-    };
-
-    headerDiv.appendChild(selectElement);
-  }
-
-  //
-  // Build "All shots" index link
-  //
-  if (pageMode !== "index") {
-    const anchorElement = document.createElement("a");
-    anchorElement.appendChild(document.createTextNode("All shots"));
-    anchorElement.href = getURLFor("index").href;
-
-    headerDiv.appendChild(anchorElement);
-  }
-
-  parentElement.appendChild(headerDiv);
+function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+  return [
+    createElementWithInitializerAndChildren(
+      "div",
+      (divElement) => divElement.classList.add("the_shots_selectors"),
+      [
+        ...buildOperatorSelector(urlParams, pageMode),
+        ...buildProductionSelector(urlParams, pageMode),
+        ...(pageMode !== "index"
+          ? [createAnchorElementWithChildren(getURLFor("index"), ["All shots"])]
+          : []),
+      ]
+    ),
+  ];
 }
 
 // Find and populate index wrapper element
@@ -440,7 +474,7 @@ if (shotsParentDiv) {
   const pageMode = pageModeFromURL(urlParams);
 
   // Build header/selector row
-  buildSelectorRow(shotsParentDiv, urlParams, pageMode);
+  appendChildren(shotsParentDiv, buildSelectorRow(urlParams, pageMode));
 
   // Show content
   const contentFunctionByPageMode = {
@@ -450,5 +484,5 @@ if (shotsParentDiv) {
     shot: displayShotDetails,
   };
 
-  contentFunctionByPageMode[pageMode](shotsParentDiv, urlParams);
+  appendChildren(shotsParentDiv, contentFunctionByPageMode[pageMode](urlParams));
 }
