@@ -33,24 +33,25 @@ const shotsDatabaseDestinationFile = process.argv.length >= 3 ? process.argv[3] 
 const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
 
 const productionShotSchema = yup.object({
+  // Operator info
+  operatorName: yup.string().required().matches(OperatorNameRegex),
+  secondaryOperatorName: yup.string().matches(OperatorNameRegex, { excludeEmptyString: true }),
+  // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   episode: yup.string(),
   link: yup.string().matches(/^https:\/\/vimeo.com\/\d+/, { excludeEmptyString: true }),
+  // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),
+  // Optional additional content
   operatorComments: yup.string(),
   equipment: yup.string(),
 });
 
 const productionFileSchema = yup
   .object({
-    // Shot info
     productionName: yup.string().required().matches(productionNameAndYearRegex),
     status: yup.string().required().oneOf(ProductionStatusValues),
-    // Operator info
-    operatorName: yup.string().required().matches(OperatorNameRegex),
-    secondaryOperatorName: yup.string().matches(OperatorNameRegex, { excludeEmptyString: true }),
-    // Shots
     shots: yup.array().of(productionShotSchema),
   })
   .required();
@@ -96,6 +97,7 @@ function parseShot(shot: yup.InferType<typeof productionShotSchema>): Shot {
     ...shot,
     timestamp: parseTimestamp(shot.timestamp),
     // Fix up typing of non-optional fields (yup type inference is being special)
+    operatorName: shot.operatorName as string, // Validated by yup above (but typed poorly)
     shortDescription: shot.shortDescription as string,
     description: shot.description as string,
   };
@@ -116,8 +118,6 @@ const shotsDb: Production[] = productions
     return {
       ...parseProductionNameAndYear(production.productionName),
       status: production.status,
-      operatorName: production.operatorName as string, // Validated by yup above (but typed poorly)
-      secondaryOperatorName: production.secondaryOperatorName,
       shots: production.shots.map((shot) => parseShot(shot)),
     };
   });
@@ -152,7 +152,7 @@ shotsDb.forEach((production) => {
 
 outputStream.write(`];\n`);
 
-// - Unique and sorted operators
+// - Unique and sorted operators (to save a small bit of effort at runtime)
 function operatorNameSortKeyForOperator(operatorName: string): string {
   const operatorNameSegments = operatorName.match(OperatorNameRegex); // Validated by yup above
 
@@ -164,23 +164,25 @@ function operatorNameSortKeyForOperator(operatorName: string): string {
 
 const operatorsMap = new Map<string, string>();
 {
-  shotsDb.forEach((shot) => {
-    operatorsMap.set(operatorNameSortKeyForOperator(shot.operatorName), shot.operatorName);
+  shotsDb.forEach((production) => {
+    production.shots.forEach((shot) => {
+      operatorsMap.set(operatorNameSortKeyForOperator(shot.operatorName), shot.operatorName);
 
-    if (shot.secondaryOperatorName) {
-      operatorsMap.set(
-        operatorNameSortKeyForOperator(shot.secondaryOperatorName),
-        shot.secondaryOperatorName
-      );
-    }
+      if (shot.secondaryOperatorName) {
+        operatorsMap.set(
+          operatorNameSortKeyForOperator(shot.secondaryOperatorName),
+          shot.secondaryOperatorName
+        );
+      }
+    });
   });
 }
 
-const sortedOperatorNames = Array.from(operatorsMap.keys()).sort();
+const sortedOperatorNameKeys = Array.from(operatorsMap.keys()).sort();
 
 outputStream.write(`export const TheShotsSortedOperatorNames: string[] = [\n`);
 
-sortedOperatorNames.forEach((operatorNameSortKey) => {
+sortedOperatorNameKeys.forEach((operatorNameSortKey) => {
   outputStream.write(`  "${operatorsMap.get(operatorNameSortKey)}",\n`);
 });
 

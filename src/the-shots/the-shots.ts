@@ -114,10 +114,14 @@ function appendTableRow(tableElement: HTMLTableElement, cells: HTMLTableCellElem
 }
 
 //
-// Display: Index
+// Display: Indexes
 //
 
-function displayShotIndex(parentElement: HTMLDivElement) {
+function displayShotIndex(
+  parentElement: HTMLDivElement,
+  productionFilter: (production: Production) => boolean = () => true,
+  shotFilter: (shot: Shot) => boolean = () => true
+) {
   const shotIndexTable = createTable();
   {
     // Build table header row
@@ -129,23 +133,73 @@ function displayShotIndex(parentElement: HTMLDivElement) {
 
     // Build per-production rows
     TheShotsProductions.forEach((production) => {
+      if (!productionFilter(production)) {
+        return;
+      }
+
       const productionDisplayName = `${production.productionName} (${production.productionYear})`;
+      let didDisplayProductionName = false;
+      let latestOperatorName = "";
 
       production.shots.forEach((shot, shotIndex) => {
+        if (!shotFilter(shot)) {
+          return;
+        }
+
+        const operatorName =
+          shot.operatorName +
+          (shot.secondaryOperatorName ? ` and ${shot.secondaryOperatorName}` : "");
+
         appendTableRow(shotIndexTable, [
-          createTableCell(shotIndex === 0 ? productionDisplayName : ""),
-          createTableCell(shotIndex === 0 ? production.operatorName : ""),
+          createTableCell(!didDisplayProductionName ? productionDisplayName : ""),
+          createTableCell(operatorName !== latestOperatorName ? operatorName : ""),
           createTableLinkCell(
             shot.shortDescription,
             getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
           ),
         ]);
+
+        didDisplayProductionName = true;
+        latestOperatorName = operatorName;
       });
     });
   }
 
   // Commit shot index
   parentElement.appendChild(shotIndexTable);
+}
+
+function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+  const operatorName = urlParams.get("operatorName");
+
+  if (!operatorName) {
+    return displayNotFound(parentElement);
+  }
+
+  appendElementWithText(parentElement, "h2", operatorName);
+
+  displayShotIndex(
+    parentElement,
+    () => true,
+    (shot: Shot) =>
+      shot.operatorName === operatorName || shot.secondaryOperatorName === operatorName
+  );
+}
+
+function displayProduction(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
+  const production = productionFromURL(urlParams);
+
+  if (!production) {
+    return displayNotFound(parentElement);
+  }
+
+  appendElementWithText(
+    parentElement,
+    "h2",
+    `${production.productionName} (${production.productionYear})`
+  );
+
+  displayShotIndex(parentElement, (p) => p === production);
 }
 
 //
@@ -201,11 +255,16 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
   );
 
   // Show shot name
-  let shotName = `"${shot.shortDescription}" by ${production.operatorName}`;
+  let shotName = `"${shot.shortDescription}" by ${shot.operatorName}`;
   {
     // Prepend episode
     if (shot.episode) {
       shotName = `${shot.episode}: ${shotName}`;
+    }
+
+    // Append secondary operator
+    if (shot.secondaryOperatorName) {
+      shotName += ` and ${shot.secondaryOperatorName}`;
     }
 
     // Append offset
@@ -230,102 +289,6 @@ function displayShotDetails(parentElement: HTMLDivElement, urlParams: URLSearchP
     appendElementWithText(parentElement, "h4", "Equipment");
     appendElementWithText(parentElement, "div", shot.equipment);
   }
-}
-
-//
-// Display: Operator
-//
-function displayOperator(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
-  const operatorName = urlParams.get("operatorName");
-
-  if (!operatorName) {
-    return displayNotFound(parentElement);
-  }
-
-  // Find productions this operator has worked on
-  const productions = TheShotsProductions.filter(
-    (production) =>
-      production.operatorName === operatorName || production.secondaryOperatorName === operatorName
-  );
-
-  if (!productions || productions.length === 0) {
-    return displayNotFound(parentElement);
-  }
-
-  // Display operator name
-  appendElementWithText(parentElement, "h2", operatorName);
-
-  // Display matching productions
-  const shotIndexTable = createTable();
-  {
-    // Build table header row
-    appendTableRow(shotIndexTable, [
-      createTableCell("Production", "th"),
-      createTableCell("Description", "th"),
-    ]);
-
-    // Build per-production rows
-    productions.forEach((production) => {
-      const productionDisplayName = `${production.productionName} (${production.productionYear})`;
-
-      production.shots.forEach((shot, shotIndex) => {
-        appendTableRow(shotIndexTable, [
-          createTableCell(shotIndex === 0 ? productionDisplayName : ""),
-          createTableLinkCell(
-            shot.shortDescription,
-            getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
-          ),
-        ]);
-      });
-    });
-  }
-
-  // Commit shot index
-  parentElement.appendChild(shotIndexTable);
-}
-
-//
-// Display: Production
-//
-
-function displayProduction(parentElement: HTMLDivElement, urlParams: URLSearchParams) {
-  // Find production
-  const production = productionFromURL(urlParams);
-
-  if (!production) {
-    return displayNotFound(parentElement);
-  }
-
-  // Display production name
-  appendElementWithText(
-    parentElement,
-    "h2",
-    `${production.productionName} (${production.productionYear})`
-  );
-
-  // Display shots
-  const shotIndexTable = createTable();
-  {
-    // Build table header row
-    appendTableRow(shotIndexTable, [
-      createTableCell("Operator", "th"),
-      createTableCell("Description", "th"),
-    ]);
-
-    // Build per-production rows
-    production.shots.forEach((shot, shotIndex) => {
-      appendTableRow(shotIndexTable, [
-        createTableCell(shotIndex === 0 ? production.operatorName : ""),
-        createTableLinkCell(
-          shot.shortDescription,
-          getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) })
-        ),
-      ]);
-    });
-  }
-
-  // Commit shot index
-  parentElement.appendChild(shotIndexTable);
 }
 
 //

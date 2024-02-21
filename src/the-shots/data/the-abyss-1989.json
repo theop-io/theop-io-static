@@ -1,15 +1,16 @@
 {
   "productionName": "The Abyss (1989)",
   "status": "draft",
-  "operatorName": "James Muro",
   "shots": [
     {
       "timestamp": "10:00",
+      "operatorName": "James Muro",
       "shortDescription": "Tight Quarters (Part 1)",
       "description": "This is one of many great shots from this film.  Most of the action takes place aboard the sea vessel which has some extremely confining sets and corridors.  Often times, clearance between Muro, his gear, and the walls was a matter of inches."
     },
     {
       "timestamp": "10:45",
+      "operatorName": "James Muro",
       "shortDescription": "Tight Quarters (Part 2)",
       "description": "One of the great things about this shot is the camera moving through the bulkheads, which bring the clearance down to virtually nothing."
     }

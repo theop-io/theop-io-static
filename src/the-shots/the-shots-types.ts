@@ -5,6 +5,9 @@ export type Timestamp = {
 };
 
 export type Shot = {
+  operatorName: string;
+  secondaryOperatorName?: string;
+
   timestamp?: Timestamp;
   episode?: string;
   link?: string;
@@ -23,9 +26,6 @@ export type Production = {
   productionYear: number;
 
   status: (typeof ProductionStatusValues)[number];
-
-  operatorName: string;
-  secondaryOperatorName?: string;
 
   shots: Shot[];
 };
