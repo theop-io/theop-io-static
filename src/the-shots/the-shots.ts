@@ -398,7 +398,7 @@ function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): 
 }
 
 function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
-  const selectedProduction = productionFromURL(urlParams);
+  const selectedProduction = pageMode === "production" ? productionFromURL(urlParams) : undefined;
 
   return [
     createElementWithInitializerAndChildren(
