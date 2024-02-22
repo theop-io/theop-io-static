@@ -153,7 +153,7 @@ function displayNotFound(): HTMLElement[] {
 // Display snippets/helpers
 //
 
-function createShotOperatorsElements(shot: Shot): HTMLElement[] {
+function createShotOperatorsElements(shot: Shot): (HTMLElement | Text)[] {
   return [
     createAnchorElementWithChildren(
       getURLFor("operator", urlForOperator(shot.operatorName)),
@@ -161,7 +161,7 @@ function createShotOperatorsElements(shot: Shot): HTMLElement[] {
     ),
     ...(shot.secondaryOperatorName
       ? [
-          createElementWithChildren("span", " and "),
+          document.createTextNode(" and "),
           createAnchorElementWithChildren(
             getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
             shot.secondaryOperatorName
