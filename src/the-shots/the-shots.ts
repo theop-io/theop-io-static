@@ -90,7 +90,7 @@ function appendChildren(parentElement: HTMLElement, children: (HTMLElement | Tex
 
 function createElementWithChildren<ElementType extends keyof HTMLElementTagNameMap>(
   elementType: ElementType,
-  children?: (HTMLElement | Text | string)[]
+  ...children: (HTMLElement | Text | string)[]
 ): HTMLElementTagNameMap[ElementType] {
   const element = document.createElement(elementType);
 
@@ -98,24 +98,22 @@ function createElementWithChildren<ElementType extends keyof HTMLElementTagNameM
     return typeof value === "string" || value instanceof String;
   }
 
-  if (children) {
-    appendChildren(
-      element,
-      children.flatMap((child) =>
-        isString(child)
-          ? // Auto-convert string into broken text lines
-            child
-              .split(/\r?\n/)
-              .flatMap((line, index) =>
-                index > 0
-                  ? [document.createElement("br"), document.createTextNode(line)]
-                  : document.createTextNode(line)
-              )
-          : // Forward child as-is
-            child
-      )
-    );
-  }
+  appendChildren(
+    element,
+    children.flatMap((child) =>
+      isString(child)
+        ? // Auto-convert string into broken text lines
+          child
+            .split(/\r?\n/)
+            .flatMap((line, index) =>
+              index > 0
+                ? [document.createElement("br"), document.createTextNode(line)]
+                : document.createTextNode(line)
+            )
+        : // Forward child as-is
+          child
+    )
+  );
 
   return element;
 }
@@ -123,20 +121,20 @@ function createElementWithChildren<ElementType extends keyof HTMLElementTagNameM
 function createElementWithInitializerAndChildren<ElementType extends keyof HTMLElementTagNameMap>(
   elementType: ElementType,
   initializer: (element: HTMLElementTagNameMap[ElementType]) => void,
-  children?: (HTMLElement | Text | string)[]
+  ...children: (HTMLElement | Text | string)[]
 ): HTMLElementTagNameMap[ElementType] {
-  const element = createElementWithChildren(elementType, children);
+  const element = createElementWithChildren(elementType, ...children);
 
   initializer(element);
 
   return element;
 }
 
-function createAnchorElementWithChildren(url: URL, children?: (HTMLElement | Text | string)[]) {
+function createAnchorElementWithChildren(url: URL, ...children: (HTMLElement | Text | string)[]) {
   return createElementWithInitializerAndChildren(
     "a",
     (anchor) => (anchor.href = url.href),
-    children
+    ...children
   );
 }
 
@@ -146,8 +144,8 @@ function createAnchorElementWithChildren(url: URL, children?: (HTMLElement | Tex
 
 function displayNotFound(): HTMLElement[] {
   return [
-    createElementWithChildren("h2", ["Not found"]),
-    createElementWithChildren("div", ["Apologies - we must have dropped some data somewhere..."]),
+    createElementWithChildren("h2", "Not found"),
+    createElementWithChildren("div", "Apologies - we must have dropped some data somewhere..."),
   ];
 }
 
@@ -160,13 +158,15 @@ function displayShotIndex(
   shotFilter: (shot: Shot) => boolean = () => true
 ): HTMLElement[] {
   return [
-    createElementWithChildren("table", [
+    createElementWithChildren(
+      "table",
       // Build table header row
-      createElementWithChildren("tr", [
-        createElementWithChildren("th", ["Production"]),
-        createElementWithChildren("th", ["Operator"]),
-        createElementWithChildren("th", ["Description"]),
-      ]),
+      createElementWithChildren(
+        "tr",
+        createElementWithChildren("th", "Production"),
+        createElementWithChildren("th", "Operator"),
+        createElementWithChildren("th", "Description")
+      ),
       // Build shot rows
       ...TheShotsProductions.flatMap((production) => {
         if (!productionFilter(production)) {
@@ -194,48 +194,50 @@ function displayShotIndex(
           latestOperatorData = operatorData;
 
           // Display shot row
-          return createElementWithChildren("tr", [
+          return createElementWithChildren(
+            "tr",
             createElementWithChildren(
               "td",
-              shouldDisplayProductionName
+              ...(shouldDisplayProductionName
                 ? [
                     createAnchorElementWithChildren(
                       getURLFor("production", urlForProduction(production)),
-                      [productionDisplayName]
+                      productionDisplayName
                     ),
                   ]
-                : []
+                : [])
             ),
             createElementWithChildren(
               "td",
-              shouldDisplayOperators
+              ...(shouldDisplayOperators
                 ? [
                     createAnchorElementWithChildren(
                       getURLFor("operator", urlForOperator(shot.operatorName)),
-                      [shot.operatorName]
+                      shot.operatorName
                     ),
                     ...(shot.secondaryOperatorName
                       ? [
-                          createElementWithChildren("span", [" and "]),
+                          createElementWithChildren("span", " and "),
                           createAnchorElementWithChildren(
                             getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
-                            [shot.secondaryOperatorName]
+                            shot.secondaryOperatorName
                           ),
                         ]
                       : []),
                   ]
-                : []
+                : [])
             ),
-            createElementWithChildren("td", [
+            createElementWithChildren(
+              "td",
               createAnchorElementWithChildren(
                 getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) }),
-                [shot.shortDescription]
-              ),
-            ]),
-          ]);
+                shot.shortDescription
+              )
+            )
+          );
         });
-      }),
-    ]),
+      })
+    ),
   ];
 }
 
@@ -251,7 +253,7 @@ function displayOperator(urlParams: URLSearchParams): HTMLElement[] {
   }
 
   return [
-    createElementWithChildren("h2", [operatorName]),
+    createElementWithChildren("h2", operatorName),
 
     ...displayShotIndex(
       () => true,
@@ -269,9 +271,7 @@ function displayProduction(urlParams: URLSearchParams): HTMLElement[] {
   }
 
   return [
-    createElementWithChildren("h2", [
-      `${production.productionName} (${production.productionYear})`,
-    ]),
+    createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
     ...displayShotIndex((p) => p === production),
   ];
 }
@@ -331,26 +331,24 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
   // Create display
   return [
     // Show production details
-    createElementWithChildren("h2", [
-      `${production.productionName} (${production.productionYear})`,
-    ]),
+    createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
     // Show show name
-    createElementWithChildren("h3", [shotName]),
+    createElementWithChildren("h3", shotName),
 
     // Show shot data
-    createElementWithChildren("div", [shot.description]),
+    createElementWithChildren("div", shot.description),
 
     ...(shot.operatorComments
       ? [
-          createElementWithChildren("h4", ["Operator comments"]),
-          createElementWithChildren("div", [shot.operatorComments]),
+          createElementWithChildren("h4", "Operator comments"),
+          createElementWithChildren("div", shot.operatorComments),
         ]
       : []),
 
     ...(shot.equipment
       ? [
-          createElementWithChildren("h4", ["Equipment"]),
-          createElementWithChildren("div", [shot.equipment]),
+          createElementWithChildren("h4", "Equipment"),
+          createElementWithChildren("div", shot.equipment),
         ]
       : []),
   ];
@@ -379,24 +377,23 @@ function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): 
           window.location.href = getURLFor("operator", urlForOperator(selectedOperator)).href;
         };
       },
-      [
+
+      createElementWithInitializerAndChildren(
+        "option",
+        (optionElement) => (optionElement.value = ""),
+        "- Operators -"
+      ),
+      ...TheShotsSortedOperatorNames.map((operatorName) =>
         createElementWithInitializerAndChildren(
           "option",
-          (optionElement) => (optionElement.value = ""),
-          ["- Operators -"]
-        ),
-        ...TheShotsSortedOperatorNames.map((operatorName) =>
-          createElementWithInitializerAndChildren(
-            "option",
-            (optionElement) => {
-              if (operatorName === selectedOperatorName) {
-                optionElement.selected = true;
-              }
-            },
-            [operatorName]
-          )
-        ),
-      ]
+          (optionElement) => {
+            if (operatorName === selectedOperatorName) {
+              optionElement.selected = true;
+            }
+          },
+          operatorName
+        )
+      )
     ),
   ];
 }
@@ -422,26 +419,25 @@ function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode)
           window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
         };
       },
-      [
+
+      createElementWithInitializerAndChildren(
+        "option",
+        (optionElement) => (optionElement.value = "-1"),
+        "- Productions -"
+      ),
+      ...TheShotsProductions.map((production, index) =>
         createElementWithInitializerAndChildren(
           "option",
-          (optionElement) => (optionElement.value = "-1"),
-          ["- Productions -"]
-        ),
-        ...TheShotsProductions.map((production, index) =>
-          createElementWithInitializerAndChildren(
-            "option",
-            (optionElement) => {
-              optionElement.value = index.toString();
+          (optionElement) => {
+            optionElement.value = index.toString();
 
-              if (production === selectedProduction) {
-                optionElement.selected = true;
-              }
-            },
-            [`${production.productionName} (${production.productionYear})`]
-          )
-        ),
-      ]
+            if (production === selectedProduction) {
+              optionElement.selected = true;
+            }
+          },
+          `${production.productionName} (${production.productionYear})`
+        )
+      )
     ),
   ];
 }
@@ -451,13 +447,12 @@ function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
     createElementWithInitializerAndChildren(
       "div",
       (divElement) => divElement.classList.add("the_shots_selectors"),
-      [
-        ...buildOperatorSelector(urlParams, pageMode),
-        ...buildProductionSelector(urlParams, pageMode),
-        ...(pageMode !== "index"
-          ? [createAnchorElementWithChildren(getURLFor("index"), ["All shots"])]
-          : []),
-      ]
+
+      ...buildOperatorSelector(urlParams, pageMode),
+      ...buildProductionSelector(urlParams, pageMode),
+      ...(pageMode !== "index"
+        ? [createAnchorElementWithChildren(getURLFor("index"), "All shots")]
+        : [])
     ),
   ];
 }
