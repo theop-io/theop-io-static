@@ -13,7 +13,7 @@ collections:
     # How it's presented in the admin UI
     label: "The Shots"
     label_singular: "Production"
-    summary: "{{productionName}} ({{operatorName}}) [{{status}}]"
+    summary: "{{productionName}} [{{status}}]"
     editor:
       preview: false # Our previews are useless/non-existent so just suppress them
 
