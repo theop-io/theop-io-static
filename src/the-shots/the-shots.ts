@@ -150,6 +150,28 @@ function displayNotFound(): HTMLElement[] {
 }
 
 //
+// Display snippets/helpers
+//
+
+function createShotOperatorsElements(shot: Shot): HTMLElement[] {
+  return [
+    createAnchorElementWithChildren(
+      getURLFor("operator", urlForOperator(shot.operatorName)),
+      shot.operatorName
+    ),
+    ...(shot.secondaryOperatorName
+      ? [
+          createElementWithChildren("span", " and "),
+          createAnchorElementWithChildren(
+            getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
+            shot.secondaryOperatorName
+          ),
+        ]
+      : []),
+  ];
+}
+
+//
 // Display: Indexes
 //
 
@@ -209,23 +231,7 @@ function displayShotIndex(
             ),
             createElementWithChildren(
               "td",
-              ...(shouldDisplayOperators
-                ? [
-                    createAnchorElementWithChildren(
-                      getURLFor("operator", urlForOperator(shot.operatorName)),
-                      shot.operatorName
-                    ),
-                    ...(shot.secondaryOperatorName
-                      ? [
-                          createElementWithChildren("span", " and "),
-                          createAnchorElementWithChildren(
-                            getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
-                            shot.secondaryOperatorName
-                          ),
-                        ]
-                      : []),
-                  ]
-                : [])
+              ...(shouldDisplayOperators ? createShotOperatorsElements(shot) : [])
             ),
             createElementWithChildren(
               "td",
@@ -307,33 +313,26 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     return displayNotFound();
   }
 
-  // Create shot name
-  let shotName = `"${shot.shortDescription}" by ${shot.operatorName}`;
-  {
-    // Prepend episode
-    if (shot.episode) {
-      shotName = `${shot.episode}: ${shotName}`;
-    }
-
-    // Append secondary operator
-    if (shot.secondaryOperatorName) {
-      shotName += ` and ${shot.secondaryOperatorName}`;
-    }
-
-    // Append offset
-    const shotTimestamp = getShotTimestampString(shot);
-
-    if (shotTimestamp) {
-      shotName += ` (at ${shotTimestamp})`;
-    }
-  }
-
   // Create display
+  const shotTimestamp = getShotTimestampString(shot);
+
   return [
     // Show production details
-    createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
+    createElementWithChildren(
+      "h2",
+      createAnchorElementWithChildren(
+        getURLFor("production", urlForProduction(production)),
+        `${production.productionName} (${production.productionYear})`
+      )
+    ),
     // Show show name
-    createElementWithChildren("h3", shotName),
+    createElementWithChildren(
+      "h3",
+      shot.episode ? `${shot.episode}: ` : "",
+      `"${shot.shortDescription}" by `,
+      ...createShotOperatorsElements(shot),
+      shotTimestamp ? ` (at ${shotTimestamp})` : ""
+    ),
 
     // Show shot data
     createElementWithChildren("div", shot.description),
