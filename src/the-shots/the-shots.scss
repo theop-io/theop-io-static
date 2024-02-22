@@ -1,6 +1,20 @@
 #the_shots_wrapper {
+  .the_shots_selectors {
+    display: flex;
+    column-gap: 1em;
+    justify-content: start;
+
+    padding-bottom: 1em;
+  }
+
+  td,
   th {
     text-align: left;
+    padding-right: 1em;
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   a {
@@ -9,7 +23,7 @@
 
   h2 {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0.25em;
 
     font-size: 1.75rem;
   }
@@ -26,11 +40,5 @@
     margin-bottom: 0;
 
     font-size: 1.25rem;
-  }
-
-  .the_shots_selectors {
-    display: flex;
-    column-gap: 1em;
-    justify-content: start;
   }
 }
