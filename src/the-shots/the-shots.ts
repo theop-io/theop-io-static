@@ -441,6 +441,22 @@ function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode)
   ];
 }
 
+function buildRandomShotAnchor(): HTMLElement[] {
+  function getRandomArrayElement<T>(data: T[]): T {
+    return data[Math.floor(Math.random() * data.length)];
+  }
+
+  const randomProduction = getRandomArrayElement(TheShotsProductions);
+  const randomShot = getRandomArrayElement(randomProduction.shots);
+
+  return [
+    createAnchorElementWithChildren(
+      getURLFor("shot", { ...urlForProduction(randomProduction), ...urlForShot(randomShot) }),
+      "Random shot"
+    ),
+  ];
+}
+
 function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
   return [
     createElementWithInitializerAndChildren(
@@ -451,7 +467,8 @@ function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
       ...buildProductionSelector(urlParams, pageMode),
       ...(pageMode !== "index"
         ? [createAnchorElementWithChildren(getURLFor("index"), "All shots")]
-        : [])
+        : []),
+      ...buildRandomShotAnchor()
     ),
   ];
 }
