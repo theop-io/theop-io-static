@@ -10,9 +10,6 @@
       "shot-tag": "Super post"
     },
     {
-      "shot-tag": "Vehicle mount"
-    },
-    {
       "shot-tag": "Wave"
     },
     {
@@ -22,16 +19,40 @@
       "shot-tag": "Volt"
     },
     {
+      "shot-tag": "Running"
+    },
+    {
+      "shot-tag": "Skates"
+    },
+    {
+      "shot-tag": "Segway"
+    },
+    {
       "shot-tag": "Rickshaw"
     },
     {
       "shot-tag": "Hardmount"
     },
     {
+      "shot-tag": "Vehicle mount"
+    },
+    {
       "shot-tag": "AR"
     },
     {
+      "shot-tag": "Crane"
+    },
+    {
       "shot-tag": "Stairs"
+    },
+    {
+      "shot-tag": "Whip pan"
+    },
+    {
+      "shot-tag": "Film"
+    },
+    {
+      "shot-tag": "Live event"
     }
   ]
 }
