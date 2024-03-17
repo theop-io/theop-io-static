@@ -26,7 +26,7 @@ collections:
         field: status
 
     # How it's stored
-    folder: "src/the-shots/data" # Relative to repository root
+    folder: "src/the-shots/data/shots" # Relative to repository root
     format: "json" # Store in JSON
     create: true # Allow new documents to be created
     slug: "{{productionName}}"
