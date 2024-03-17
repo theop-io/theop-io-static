@@ -1,4 +1,8 @@
-import { TheShotsProductions, TheShotsSortedOperatorNames } from "./generated/the-shots-db";
+import {
+  TheShotsProductions,
+  TheShotsSortedOperatorNames,
+  TheShotsTags,
+} from "./generated/the-shots-db";
 import { Production, Shot } from "./the-shots-types";
 
 //
@@ -486,6 +490,50 @@ function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode)
   ];
 }
 
+function buildTagSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+  const selectedTag = pageMode === "tag" ? tagFromURL(urlParams) : undefined;
+
+  return [
+    createElementWithInitializerAndChildren(
+      "select",
+      (selectElement) => {
+        selectElement.onchange = () => {
+          // Filter out nil option
+          const selectedTagIndex = parseInt(selectElement.value);
+
+          if (selectedTagIndex < 0) {
+            return;
+          }
+
+          const selectedTag = TheShotsTags[selectedTagIndex];
+
+          // Navigate to URL
+          window.location.href = getURLFor("tag", urlForTag(selectedTag)).href;
+        };
+      },
+
+      createElementWithInitializerAndChildren(
+        "option",
+        (optionElement) => (optionElement.value = "-1"),
+        "- Tags -"
+      ),
+      ...TheShotsTags.map((tag, index) =>
+        createElementWithInitializerAndChildren(
+          "option",
+          (optionElement) => {
+            optionElement.value = index.toString();
+
+            if (tag === selectedTag) {
+              optionElement.selected = true;
+            }
+          },
+          tag
+        )
+      )
+    ),
+  ];
+}
+
 function buildRandomShotAnchor(): HTMLElement[] {
   function getRandomArrayElement<T>(data: T[]): T {
     return data[Math.floor(Math.random() * data.length)];
@@ -510,6 +558,7 @@ function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
 
       ...buildOperatorSelector(urlParams, pageMode),
       ...buildProductionSelector(urlParams, pageMode),
+      ...buildTagSelector(urlParams, pageMode),
       ...(pageMode !== "index"
         ? [createAnchorElementWithChildren(getURLFor("index"), "All shots")]
         : []),
