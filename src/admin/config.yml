@@ -9,6 +9,28 @@ media_folder: "src/uploads" # Shouldn't use this but it's required, so sure. Rel
 public_folder: "/uploads"
 
 collections:
+  - name: "tags" # Used in routes
+    # How it's presented in the admin UI
+    label: "Tags"
+    label_singular: "Tag"
+    editor:
+      preview: false # Our previews are useless/non-existent so just suppress them
+
+    files:
+      - name: "shot-tags"
+        # How it's presented in the admin UI
+        label: "Shot Tags"
+
+        # How it's stored
+        file: "src/the-shots/data/the-shots-tags.json"
+        format: "json"
+
+        # Fields
+        fields:
+          - name: "shot-tag"
+            label: "Tag"
+            widget: "string"
+
   - name: "the-shots" # Used in routes
     # How it's presented in the admin UI
     label: "The Shots"
