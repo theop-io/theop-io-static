@@ -406,132 +406,88 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
 // Top-level
 //
 
-function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
-  const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
-
+function buildSelector<T>(
+  options: T[],
+  selectedOption: T | undefined,
+  title: string,
+  labelForOption: (option: T) => string,
+  getURLFor: (option: T) => URL
+): HTMLElement[] {
   return [
     createElementWithInitializerAndChildren(
       "select",
       (selectElement) => {
         selectElement.onchange = () => {
           // Filter out nil option
-          const selectedOperator = selectElement.value;
+          const selectedIndex = parseInt(selectElement.value);
 
-          if (!selectedOperator) {
+          if (selectedIndex < 0) {
             return;
           }
 
+          const selectedItem = options[selectedIndex];
+
           // Navigate to URL
-          window.location.href = getURLFor("operator", urlForOperator(selectedOperator)).href;
+          window.location.href = getURLFor(selectedItem).href;
         };
       },
 
       createElementWithInitializerAndChildren(
         "option",
-        (optionElement) => (optionElement.value = ""),
-        "- Operators -"
+        (optionElement) => (optionElement.value = "-1"),
+        `- ${title} -`
       ),
-      ...TheShotsSortedOperatorNames.map((operatorName) =>
+      ...options.map((option, index) =>
         createElementWithInitializerAndChildren(
           "option",
           (optionElement) => {
-            if (operatorName === selectedOperatorName) {
+            optionElement.value = index.toString();
+
+            if (option === selectedOption) {
               optionElement.selected = true;
             }
           },
-          operatorName
+          labelForOption(option)
         )
       )
     ),
   ];
+}
+
+function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+  const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
+
+  return buildSelector(
+    TheShotsSortedOperatorNames,
+    selectedOperatorName,
+    "Operators",
+    (operatorName: string) => operatorName,
+    (operatorName: string) => getURLFor("operator", urlForOperator(operatorName))
+  );
 }
 
 function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
   const selectedProduction = pageMode === "production" ? productionFromURL(urlParams) : undefined;
 
-  return [
-    createElementWithInitializerAndChildren(
-      "select",
-      (selectElement) => {
-        selectElement.onchange = () => {
-          // Filter out nil option
-          const selectedProductionIndex = parseInt(selectElement.value);
-
-          if (selectedProductionIndex < 0) {
-            return;
-          }
-
-          const selectedProduction = TheShotsProductions[selectedProductionIndex];
-
-          // Navigate to URL
-          window.location.href = getURLFor("production", urlForProduction(selectedProduction)).href;
-        };
-      },
-
-      createElementWithInitializerAndChildren(
-        "option",
-        (optionElement) => (optionElement.value = "-1"),
-        "- Productions -"
-      ),
-      ...TheShotsProductions.map((production, index) =>
-        createElementWithInitializerAndChildren(
-          "option",
-          (optionElement) => {
-            optionElement.value = index.toString();
-
-            if (production === selectedProduction) {
-              optionElement.selected = true;
-            }
-          },
-          `${production.productionName} (${production.productionYear})`
-        )
-      )
-    ),
-  ];
+  return buildSelector(
+    TheShotsProductions,
+    selectedProduction,
+    "Productions",
+    (production: Production) => `${production.productionName} (${production.productionYear})`,
+    (production: Production) => getURLFor("production", urlForProduction(production))
+  );
 }
 
 function buildTagSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
   const selectedTag = pageMode === "tag" ? tagFromURL(urlParams) : undefined;
 
-  return [
-    createElementWithInitializerAndChildren(
-      "select",
-      (selectElement) => {
-        selectElement.onchange = () => {
-          // Filter out nil option
-          const selectedTagIndex = parseInt(selectElement.value);
-
-          if (selectedTagIndex < 0) {
-            return;
-          }
-
-          const selectedTag = TheShotsTags[selectedTagIndex];
-
-          // Navigate to URL
-          window.location.href = getURLFor("tag", urlForTag(selectedTag)).href;
-        };
-      },
-
-      createElementWithInitializerAndChildren(
-        "option",
-        (optionElement) => (optionElement.value = "-1"),
-        "- Tags -"
-      ),
-      ...TheShotsTags.map((tag, index) =>
-        createElementWithInitializerAndChildren(
-          "option",
-          (optionElement) => {
-            optionElement.value = index.toString();
-
-            if (tag === selectedTag) {
-              optionElement.selected = true;
-            }
-          },
-          tag
-        )
-      )
-    ),
-  ];
+  return buildSelector(
+    TheShotsTags,
+    selectedTag,
+    "Tags",
+    (tag: string) => tag,
+    (tag: string) => getURLFor("tag", urlForTag(tag))
+  );
 }
 
 function buildRandomShotAnchor(): HTMLElement[] {
