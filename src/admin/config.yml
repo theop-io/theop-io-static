@@ -122,6 +122,23 @@ collections:
               ['^https:\/\/vimeo.com\/\d+', "Please provide a URL like 'https://vimeo.com/...'"]
             required: false
 
+          - name: "tags"
+            label: "Tags"
+            widget: "relation"
+            required: false
+
+            # What we're referencing from
+            collection: "tags"
+            file: "shot-tags"
+
+            # What value we're referencing
+            value_field: "shot-tags.*.shot-tag"
+            search_fields: "shot-tags.*.shot-tag"
+
+            # How we're allowing ourselves to reference
+            multiple: true
+            min: 0
+
           # Content
           - name: "shortDescription"
             label: "Short Description"
