@@ -11,6 +11,7 @@ export type Shot = {
   timestamp?: Timestamp;
   episode?: string;
   link?: string;
+  tags?: string[];
 
   shortDescription: string;
   description: string;

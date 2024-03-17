@@ -15,15 +15,39 @@ import {
 // Process command line
 //
 
-if (process.argv.length < 3) {
+if (process.argv.length < 4) {
   console.error(
-    `Usage: ts-node ${process.argv[1]} <path-to-shots-data-directory> [<path-to-generated-output>]`
+    `Usage: ts-node ${process.argv[1]} <path-to-shots-data-directory> <path-to-shot-tags-file> [<path-to-generated-output>]`
   );
   process.exit(1);
 }
 
 const shotsSourceDirectory = process.argv[2];
-const shotsDatabaseDestinationFile = process.argv.length >= 3 ? process.argv[3] : null;
+const shotTagsSourceFile = process.argv[3];
+const shotsDatabaseDestinationFile = process.argv.length >= 4 ? process.argv[4] : null;
+
+//
+// Read list of known/allowed shot tags
+//
+
+function readKnownShotTags(sourceFile: string) {
+  const shotTagSchema = yup.object({
+    "shot-tag": yup.string().required(),
+  });
+
+  const shotTagsFileSchema = yup.object({
+    "shot-tags": yup.array().of(shotTagSchema),
+  });
+
+  const shotTagsData = fs.readFileSync(sourceFile, "utf-8");
+  const shotTagsJson = JSON.parse(shotTagsData);
+
+  const shotTagsEnvelope = shotTagsFileSchema.validateSync(shotTagsJson, { stripUnknown: true });
+
+  return shotTagsEnvelope["shot-tags"].flatMap((t) => t["shot-tag"]);
+}
+
+const shotTags = readKnownShotTags(shotTagsSourceFile);
 
 //
 // Define data shape
@@ -40,6 +64,7 @@ const productionShotSchema = yup.object({
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   episode: yup.string(),
   link: yup.string().matches(/^https:\/\/vimeo.com\/\d+/, { excludeEmptyString: true }),
+  tags: yup.array().of(yup.string().oneOf(shotTags)),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),
@@ -57,7 +82,7 @@ const productionFileSchema = yup
   .required();
 
 //
-// Read data
+// Read shots data
 //
 
 const productions = new Array<yup.InferType<typeof productionFileSchema>>();
@@ -187,6 +212,9 @@ sortedOperatorNameKeys.forEach((operatorNameSortKey) => {
 });
 
 outputStream.write(`];\n`);
+
+// - Tags
+outputStream.write(`export const TheShotsTags: string[] = ${JSON.stringify(shotTags)};\n`);
 
 // Close file
 outputStream.end();

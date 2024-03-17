@@ -5,7 +5,7 @@ import { Production, Shot } from "./the-shots-types";
 // Data tools
 //
 
-const PageModes = <const>["index", "operator", "production", "shot"];
+const PageModes = <const>["index", "operator", "production", "shot", "tag"];
 type PageMode = (typeof PageModes)[number];
 
 function isValidPageMode(pageMode: string): pageMode is PageMode {
@@ -78,6 +78,15 @@ function shotFromURL(urlParams: URLSearchParams, production: Production): Shot |
   }
 
   return shots[0];
+}
+
+function urlForTag(tag: string) {
+  return { tag };
+}
+
+function tagFromURL(urlParams: URLSearchParams): string | undefined {
+  const tag = urlParams.get("tag");
+  return tag ?? undefined;
 }
 
 //
@@ -171,6 +180,17 @@ function createShotOperatorsElements(shot: Shot): (HTMLElement | Text)[] {
   ];
 }
 
+function createShotTagsElements(shot: Shot): (HTMLElement | Text)[] {
+  const createShotTagElement = (tag: string) =>
+    createAnchorElementWithChildren(getURLFor("tag", urlForTag(tag)), tag);
+
+  return shot.tags
+    ? shot.tags.flatMap((x, index) =>
+        !index ? createShotTagElement(x) : [document.createTextNode(", "), createShotTagElement(x)]
+      )
+    : [];
+}
+
 //
 // Display: Indexes
 //
@@ -187,7 +207,8 @@ function displayShotIndex(
         "tr",
         createElementWithChildren("th", "Production"),
         createElementWithChildren("th", "Operator"),
-        createElementWithChildren("th", "Description")
+        createElementWithChildren("th", "Description"),
+        createElementWithChildren("th", "Tags")
       ),
       // Build shot rows
       ...TheShotsProductions.flatMap((production) => {
@@ -239,7 +260,8 @@ function displayShotIndex(
                 getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) }),
                 shot.shortDescription
               )
-            )
+            ),
+            createElementWithChildren("td", ...createShotTagsElements(shot))
           );
         });
       })
@@ -279,6 +301,22 @@ function displayProduction(urlParams: URLSearchParams): HTMLElement[] {
   return [
     createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
     ...displayShotIndex((p) => p === production),
+  ];
+}
+
+function displayTag(urlParams: URLSearchParams): HTMLElement[] {
+  const tag = tagFromURL(urlParams);
+
+  if (!tag) {
+    return displayNotFound();
+  }
+
+  return [
+    createElementWithChildren("h2", tag),
+    ...displayShotIndex(
+      () => true,
+      (shot: Shot) => shot.tags?.includes(tag) || false
+    ),
   ];
 }
 
@@ -331,7 +369,14 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       shot.episode ? `${shot.episode}: ` : "",
       `"${shot.shortDescription}" by `,
       ...createShotOperatorsElements(shot),
-      shotTimestamp ? ` (at ${shotTimestamp})` : ""
+      shotTimestamp ? ` (at ${shotTimestamp})` : "",
+      ...(shot.tags
+        ? [
+            document.createTextNode(" ("),
+            ...createShotTagsElements(shot),
+            document.createTextNode(")"),
+          ]
+        : [])
     ),
 
     // Show shot data
@@ -493,6 +538,7 @@ if (shotsParentDiv) {
     operator: displayOperator,
     production: displayProduction,
     shot: displayShotDetails,
+    tag: displayTag,
   };
 
   appendChildren(shotsParentDiv, contentFunctionByPageMode[pageMode](urlParams));
