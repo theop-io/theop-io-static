@@ -24,6 +24,10 @@ collections:
         # How it's stored
         file: "src/the-shots/data/the-shots-tags.json"
         format: "json"
+        create: true # Allow new tags to be created
+
+        # How it's indexed
+        identifier_field: "shot-tag"
 
         # Fields
         fields:
