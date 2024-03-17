@@ -1,1 +1,37 @@
-{ "shot-tags": [] }
+{
+  "shot-tags": [
+    {
+      "shot-tag": "High mode"
+    },
+    {
+      "shot-tag": "Low mode"
+    },
+    {
+      "shot-tag": "Super post"
+    },
+    {
+      "shot-tag": "Vehicle mount"
+    },
+    {
+      "shot-tag": "Wave"
+    },
+    {
+      "shot-tag": "Trinity"
+    },
+    {
+      "shot-tag": "Volt"
+    },
+    {
+      "shot-tag": "Rickshaw"
+    },
+    {
+      "shot-tag": "Hardmount"
+    },
+    {
+      "shot-tag": "AR"
+    },
+    {
+      "shot-tag": "Stairs"
+    }
+  ]
+}
