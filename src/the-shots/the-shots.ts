@@ -382,21 +382,39 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
           ]
         : [])
     ),
+    createElementWithInitializerAndChildren(
+      "div",
+      (element: HTMLElement) => element.classList.add("the_shots_column"),
 
-    // Show shot data
-    createElementWithChildren("div", shot.description),
+      // Show shot data
+      createElementWithChildren("div", shot.description),
 
-    ...(shot.operatorComments
+      ...(shot.operatorComments
+        ? [
+            createElementWithChildren("h4", "Operator comments"),
+            createElementWithChildren("div", shot.operatorComments),
+          ]
+        : []),
+
+      ...(shot.equipment
+        ? [
+            createElementWithChildren("h4", "Equipment"),
+            createElementWithChildren("div", shot.equipment),
+          ]
+        : [])
+    ),
+    ...(shot.link
       ? [
-          createElementWithChildren("h4", "Operator comments"),
-          createElementWithChildren("div", shot.operatorComments),
-        ]
-      : []),
-
-    ...(shot.equipment
-      ? [
-          createElementWithChildren("h4", "Equipment"),
-          createElementWithChildren("div", shot.equipment),
+          createElementWithInitializerAndChildren(
+            "div",
+            (element: HTMLElement) =>
+              element.classList.add("the_shots_column", "the_shots_video_container"),
+            createElementWithInitializerAndChildren("iframe", (element) => {
+              element.src = shot.link ?? "";
+              element.allow = "encrypted-media";
+              element.allowFullscreen = true;
+            })
+          ),
         ]
       : []),
   ];

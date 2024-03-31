@@ -1,10 +1,47 @@
 #the_shots_wrapper {
+  @include clearfix;
+
   .the_shots_selectors {
     display: flex;
     column-gap: 1em;
     justify-content: start;
 
     padding-bottom: 1em;
+  }
+
+  .the_shots_column {
+    // Position
+    float: left;
+    width: 50%;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+
+    // Padding
+    padding-right: 1em;
+  }
+
+  .the_shots_video_container {
+    // Positioning
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+
+    iframe,
+    object,
+    embed {
+      // Positioning
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      // Styling
+      border: 0px;
+    }
   }
 
   td,
