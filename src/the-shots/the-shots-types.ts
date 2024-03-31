@@ -10,8 +10,8 @@ export type Shot = {
 
   timestamp?: Timestamp;
   episode?: string;
-  link?: string;
   tags?: string[];
+  vimeoId?: number;
 
   shortDescription: string;
   description: string;

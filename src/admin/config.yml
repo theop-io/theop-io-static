@@ -115,13 +115,6 @@ collections:
             widget: "string"
             required: false
 
-          - name: "link"
-            label: "Link to video"
-            widget: "string"
-            pattern:
-              ['^https:\/\/vimeo.com\/\d+', "Please provide a URL like 'https://vimeo.com/...'"]
-            required: false
-
           - name: "tags"
             label: "Tags"
             widget: "relation"
@@ -138,6 +131,13 @@ collections:
             # How we're allowing ourselves to reference
             multiple: true
             min: 0
+
+          - name: "vimeoId"
+            label: "Vimeo video ID"
+            widget: "number"
+            value_type: int
+            hint: "The <videoId> of a link like 'https://vimeo.com/<videoId>'"
+            required: false
 
           # Content
           - name: "shortDescription"

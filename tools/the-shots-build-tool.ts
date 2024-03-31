@@ -63,8 +63,8 @@ const productionShotSchema = yup.object({
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   episode: yup.string(),
-  link: yup.string().matches(/^https:\/\/vimeo.com\/\d+/, { excludeEmptyString: true }),
   tags: yup.array().of(yup.string().oneOf(shotTags)),
+  vimeoId: yup.number().integer(),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),

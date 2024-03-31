@@ -403,14 +403,14 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
           ]
         : [])
     ),
-    ...(shot.link
+    ...(shot.vimeoId
       ? [
           createElementWithInitializerAndChildren(
             "div",
             (element: HTMLElement) =>
               element.classList.add("the_shots_column", "the_shots_video_container"),
             createElementWithInitializerAndChildren("iframe", (element) => {
-              element.src = shot.link ?? "";
+              element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
               element.allow = "encrypted-media";
               element.allowFullscreen = true;
             })
