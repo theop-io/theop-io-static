@@ -1,9 +1,6 @@
 #the_shots_wrapper {
   @include clearfix;
 
-  // So padding is included in e.g. width: 50%
-  box-sizing: border-box;
-
   .the_shots_selectors {
     display: flex;
     column-gap: 1em;
@@ -13,6 +10,9 @@
   }
 
   .the_shots_column {
+    // Include padding in e.g. width: 50%
+    box-sizing: border-box;
+
     // Position
     float: left;
     width: 50%;
