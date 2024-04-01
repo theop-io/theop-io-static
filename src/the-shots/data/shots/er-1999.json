@@ -3,18 +3,22 @@
   "productionName": "ER (1999)",
   "shots": [
     {
+      "shortDescription": "THis is not a shot from ER",
+      "episodic": {
+        "season": 4,
+        "episode": 12
+      },
+      "equipment": "Pro, Panafelx, ",
       "operatorName": "Dave Chameides",
-      "episode": "S4/E12",
+      "operatorComments": "THis was a tough shot",
       "tags": [
         "High mode",
         "Wave",
         "Volt"
       ],
+      "episode": "S4/E12",
       "description": "Its a shot from Shame",
-      "vimeoId": 47601435,
-      "shortDescription": "THis is not a shot from ER",
-      "operatorComments": "THis was a tough shot",
-      "equipment": "Pro, Panafelx, "
+      "vimeoId": 47601435
     }
   ]
 }
