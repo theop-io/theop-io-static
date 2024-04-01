@@ -110,6 +110,22 @@ collections:
             pattern: ['^\d+:(?:\d{2}:)?\d{2}$', "Provide timestamp as min:sec or hour:min:sec"]
             required: false
 
+          - name: "episodic"
+            label: "TV Show"
+            widget: "object"
+            summary: "Season {{fields.season}} Episode {{fields.episode}}"
+            fields:
+              - name: "season"
+                label: "Season"
+                widget: "number"
+                value_type: "int"
+                required: false
+              - name: "episode"
+                label: "Episode"
+                widget: "number"
+                value_type: "int"
+                required: false
+
           - name: "episode"
             label: "Episode"
             widget: "string"
