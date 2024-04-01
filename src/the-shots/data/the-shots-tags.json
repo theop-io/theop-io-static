@@ -13,37 +13,34 @@
       "shot-tag": "Wave"
     },
     {
+      "shot-tag": "Volt"
+    },
+    {
       "shot-tag": "Trinity"
     },
     {
-      "shot-tag": "Volt"
+      "shot-tag": "Stairs"
+    },
+    {
+      "shot-tag": "Step on/Step Off"
     },
     {
       "shot-tag": "Running"
     },
     {
-      "shot-tag": "Skates"
-    },
-    {
-      "shot-tag": "Segway"
+      "shot-tag": "Hardmount"
     },
     {
       "shot-tag": "Rickshaw"
     },
     {
-      "shot-tag": "Hardmount"
+      "shot-tag": "Segway"
     },
     {
       "shot-tag": "Vehicle mount"
     },
     {
       "shot-tag": "AR"
-    },
-    {
-      "shot-tag": "Crane"
-    },
-    {
-      "shot-tag": "Stairs"
     },
     {
       "shot-tag": "Whip pan"
@@ -53,9 +50,6 @@
     },
     {
       "shot-tag": "Live event"
-    },
-    {
-      "shot-tag": "Step on/Step Off"
     }
   ]
 }
