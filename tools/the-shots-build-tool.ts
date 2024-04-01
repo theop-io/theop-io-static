@@ -63,12 +63,23 @@ const productionShotSchema = yup.object({
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   episodic: yup.object({
-    season: yup.number().integer(),
-    episode: yup.number().integer(),
+    season: yup
+      .number()
+      .integer()
+      // .transform() empty strings left behind when there _was_ a number and it was removed
+      // (DecapCMS handles this somewhat poorly)
+      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
+    episode: yup
+      .number()
+      .integer()
+      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
     episodeTitle: yup.string(),
   }),
   tags: yup.array().of(yup.string().oneOf(shotTags)),
-  vimeoId: yup.number().integer(),
+  vimeoId: yup
+    .number()
+    .integer()
+    .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),
