@@ -113,17 +113,21 @@ collections:
           - name: "episodic"
             label: "TV Show"
             widget: "object"
-            summary: "Season {{fields.season}} Episode {{fields.episode}}"
+            summary: "Season {{fields.season}} Episode {{fields.episode}} ({{fields.episode_title}})"
             fields:
               - name: "season"
-                label: "Season"
+                label: "Season Number"
                 widget: "number"
                 value_type: "int"
                 required: false
               - name: "episode"
-                label: "Episode"
+                label: "Episode Number"
                 widget: "number"
                 value_type: "int"
+                required: false
+              - name: "episode_title"
+                label: "Episode Title"
+                widget: "string"
                 required: false
 
           - name: "episode"
