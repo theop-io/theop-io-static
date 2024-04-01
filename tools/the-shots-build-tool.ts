@@ -62,7 +62,11 @@ const productionShotSchema = yup.object({
   secondaryOperatorName: yup.string().matches(operatorNameRegex, { excludeEmptyString: true }),
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
-  episode: yup.string(),
+  episodic: yup.object({
+    season: yup.number().integer(),
+    episode: yup.number().integer(),
+    episodeTitle: yup.string(),
+  }),
   tags: yup.array().of(yup.string().oneOf(shotTags)),
   vimeoId: yup.number().integer(),
   // Content

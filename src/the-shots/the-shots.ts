@@ -341,6 +341,21 @@ function getShotTimestampString(shot: Shot): string | undefined {
   )}`;
 }
 
+function shotHasEpisodicDetails(shot: Shot): boolean {
+  return !!shot.episodic && !!shot.episodic.season && !!shot.episodic.episode;
+}
+
+function getShotEpisodicDetailsString(shot: Shot): string {
+  if (!shotHasEpisodicDetails(shot)) {
+    return "";
+  }
+
+  return (
+    `S${shot.episodic?.season}E${shot.episodic?.episode}` +
+    (shot.episodic?.episodeTitle ? ` "${shot.episodic.episodeTitle}"` : "")
+  );
+}
+
 function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
   // Find shot
   const production = productionFromURL(urlParams);
@@ -357,6 +372,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
 
   // Create display
   const shotTimestamp = getShotTimestampString(shot);
+  const episodicDetailsString = getShotEpisodicDetailsString(shot);
 
   return [
     // Show production details
@@ -370,7 +386,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     // Show show name
     createElementWithChildren(
       "h3",
-      shot.episode ? `${shot.episode}: ` : "",
+      episodicDetailsString + (episodicDetailsString ? ": " : ""),
       `"${shot.shortDescription}" by `,
       ...createShotOperatorsElements(shot),
       shotTimestamp ? ` (at ${shotTimestamp})` : "",

@@ -4,12 +4,18 @@ export type Timestamp = {
   seconds: number;
 };
 
+export type ShotEpisodicData = {
+  season?: number;
+  episode?: number;
+  episodeTitle?: string;
+};
+
 export type Shot = {
   operatorName: string;
   secondaryOperatorName?: string;
 
   timestamp?: Timestamp;
-  episode?: string;
+  episodic?: ShotEpisodicData;
   tags?: string[];
   vimeoId?: number;
 

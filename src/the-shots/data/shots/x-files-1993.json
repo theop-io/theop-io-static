@@ -3,14 +3,13 @@
   "productionName": "X-Files (1993)",
   "shots": [
     {
-      "episode": "S6E3 Triangle",
       "operatorName": "David Luckenbach",
       "shortDescription": "Aboard the Ship",
       "description": "The X-Files episode \"Triangle\" was one of the most creatively shot episodes of the entire series. Chris Carter envisioned one episode made of four non-stop, real-time shots.\n\nThis shot is just a small piece of a longer shot, following Duchovny's character around an old Nazi ship.\n\nLike the other shots of this episode, there are edits well hidden in the camera movements.  The darkness of many areas of the ship allowed for easy concealment of those edits. The shot was no less challenging, however. The tight quarters of the ship restricted movement considerably, and decreased the margin of error.",
       "episodic": {
         "season": 6,
         "episode": 3,
-        "episode_title": "Triangle"
+        "episodeTitle": "Triangle"
       }
     }
   ]

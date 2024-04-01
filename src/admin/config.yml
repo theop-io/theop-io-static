@@ -125,15 +125,10 @@ collections:
                 widget: "number"
                 value_type: "int"
                 required: false
-              - name: "episode_title"
+              - name: "episodeTitle"
                 label: "Episode Title"
                 widget: "string"
                 required: false
-
-          - name: "episode"
-            label: "Episode"
-            widget: "string"
-            required: false
 
           - name: "tags"
             label: "Tags"
