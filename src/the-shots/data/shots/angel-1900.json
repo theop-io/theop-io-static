@@ -1,14 +1,17 @@
 {
-  "productionName": "Angel (1900)",
+  "productionName": "Angel (2002)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Joe Broderick",
       "episodic": {
-        "episodeTitle": "Conviction"
+        "episodeTitle": "Conviction",
+        "season": 5,
+        "episode": 1
       },
       "shortDescription": "The New Office",
-      "description": "This is a great little oner.  Despite its length, there is little to no gratuitous movement.  It is all motivated by action in some way.  The camera is basically going from traditional shot to shot - two shots, over the shoulders, wide, etc.  The difference is that it is finding an elegant way of moving in between.  One great moment is the smoothness in which the camera pulls back from the two men in the doorway, only to be swept right into the next piece."
+      "description": "This is a great little oner.  Despite its length, there is little to no gratuitous movement.  It is all motivated by action in some way.  The camera is basically going from traditional shot to shot - two shots, over the shoulders, wide, etc.  The difference is that it is finding an elegant way of moving in between.  One great moment is the smoothness in which the camera pulls back from the two men in the doorway, only to be swept right into the next piece.",
+      "vimeoId": 929751659
     }
   ]
 }
