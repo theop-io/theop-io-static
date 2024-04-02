@@ -63,6 +63,8 @@ export const productionShotSchema = yup.object({
   secondaryOperatorName: yup.string().matches(operatorNameRegex, { excludeEmptyString: true }),
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
+  directorName: yup.string(),
+  dpName: yup.string(),
   episodic: yup.object({
     season: yup
       .number()
@@ -94,8 +96,6 @@ export const productionFileSchema = yup
     productionName: yup.string().required().matches(productionNameAndYearRegex),
     status: yup.string().required().oneOf(ProductionStatusValues),
     productionImdbLink: yup.string().matches(productionImdbLinkRegex, { excludeEmptyString: true }),
-    directorName: yup.string(),
-    dpName: yup.string(),
     shots: yup.array().of(productionShotSchema),
   })
   .required();
@@ -172,8 +172,6 @@ const shotsDb: Production[] = productions
     return {
       ...parseProductionNameAndYear(production.productionName),
       imdbTitleId: parseProductionImdbLink(production.productionImdbLink),
-      directorName: production.directorName,
-      dpName: production.dpName,
       status: production.status,
       shots: production.shots.map((shot) => parseShot(shot)),
     };

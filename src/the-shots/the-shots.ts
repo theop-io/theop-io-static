@@ -391,16 +391,6 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
           ),
         ]
       : []),
-    createElementWithInitializerAndChildren(
-      "span",
-      (element) => element.classList.add("ph2"),
-      production.directorName ? `Directed by ${production.directorName}` : ""
-    ),
-    createElementWithInitializerAndChildren(
-      "span",
-      (element) => element.classList.add("ph2"),
-      production.dpName ? `Cinematography by ${production.dpName}` : ""
-    ),
     // Show show name
     createElementWithChildren(
       "h3",
@@ -421,6 +411,17 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       (element: HTMLElement) => element.classList.add("the_shots_column"),
 
       // Show shot data
+      createElementWithInitializerAndChildren(
+        "span",
+        (element) => element.classList.add("pr2"),
+        shot.directorName ? `Directed by ${shot.directorName}` : ""
+      ),
+      createElementWithInitializerAndChildren(
+        "span",
+        (element) => element.classList.add("pr2"),
+        shot.dpName ? `Cinematography by ${shot.dpName}` : ""
+      ),
+
       createElementWithChildren("div", shot.description),
 
       ...(shot.operatorComments

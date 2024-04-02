@@ -96,18 +96,6 @@ collections:
           ]
         required: false
 
-      - name: "directorName"
-        label: "Director Name"
-        hint: "e.g. 'James Cameron'"
-        widget: "string"
-        required: false
-
-      - name: "dpName"
-        label: "DP Name"
-        hint: "e.g. 'Mikael Salomon'"
-        widget: "string"
-        required: false
-
       # List of shots
       - name: "shots"
         label: "Shots"
@@ -130,6 +118,18 @@ collections:
             widget: "string"
             hint: "e.g. '12:45' for 12 minutes 45 seconds in, or '1:45:00' for one hour and 45 minutes in"
             pattern: ['^\d+:(?:\d{2}:)?\d{2}$', "Provide timestamp as min:sec or hour:min:sec"]
+            required: false
+
+          - name: "directorName"
+            label: "Director Name"
+            hint: "e.g. 'James Cameron'"
+            widget: "string"
+            required: false
+
+          - name: "dpName"
+            label: "DP Name"
+            hint: "e.g. 'Mikael Salomon'"
+            widget: "string"
             required: false
 
           - name: "episodic"

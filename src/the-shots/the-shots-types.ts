@@ -15,6 +15,8 @@ export type Shot = {
   secondaryOperatorName?: string;
 
   timestamp?: Timestamp;
+  directorName?: string;
+  dpName?: string;
   episodic?: ShotEpisodicData;
   tags?: string[];
   vimeoId?: number;
@@ -35,8 +37,6 @@ export type Production = {
   status: (typeof ProductionStatusValues)[number];
 
   imdbTitleId?: string;
-  directorName?: string;
-  dpName?: string;
 
   shots: Shot[];
 };
