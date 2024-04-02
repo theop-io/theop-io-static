@@ -11,7 +11,8 @@
     "serve": "npm run codegen && webpack serve --config webpack.dev.ts",
     "lint": "eslint .",
     "format:fix": "prettier --write ./*",
-    "build-dev": "npm run codegen && webpack --config webpack.dev.ts"
+    "build-dev": "npm run codegen && webpack --config webpack.dev.ts",
+    "dev:rewrite-imported-shots-data": "ts-node ./tools/rewrite-imported-shots-data.ts"
   },
   "author": "Robin Giese",
   "private": true,

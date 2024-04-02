@@ -57,7 +57,7 @@ const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
 const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
 const operatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
 
-const productionShotSchema = yup.object({
+export const productionShotSchema = yup.object({
   // Operator info
   operatorName: yup.string().required().matches(operatorNameRegex),
   secondaryOperatorName: yup.string().matches(operatorNameRegex, { excludeEmptyString: true }),
@@ -89,7 +89,7 @@ const productionShotSchema = yup.object({
   equipment: yup.string(),
 });
 
-const productionFileSchema = yup
+export const productionFileSchema = yup
   .object({
     productionName: yup.string().required().matches(productionNameAndYearRegex),
     status: yup.string().required().oneOf(ProductionStatusValues),
