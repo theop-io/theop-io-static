@@ -1,0 +1,24 @@
+{
+  "productionName": "Boogie Nights",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Andy Shuttleworth",
+      "episodic": {},
+      "shortDescription": "Opening Sequence",
+      "description": "An amazing opening sequence.  Starting on a crane, moving through a couple dutch rolls and tilts down to the ground, entering the club, and tracking the action for nearly 3 minutes."
+    },
+    {
+      "operatorName": "Andy Shuttleworth",
+      "episodic": {},
+      "shortDescription": "First Scene",
+      "description": "This shot tracks the actors down a couple hallways and into a narrow set of stairs.  Well done in the confined spaces."
+    },
+    {
+      "operatorName": "Andy Shuttleworth",
+      "episodic": {},
+      "shortDescription": "Burt's House",
+      "description": "Another Boogie Nights long shot.  This one tracks Reynolds through his house.  It ends in a nice close-up of Moore looking at herself in the mirror."
+    }
+  ]
+}

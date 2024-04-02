@@ -1,0 +1,18 @@
+{
+  "productionName": "Love Affair",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Randy Nolen",
+      "episodic": {},
+      "shortDescription": "Opening Shot",
+      "description": "Opening shots are always very important in establishing the feeling of the movie to come.  This shot is nice, fast paced, and executed very well despite moving backwards rapidly.  The most difficult lock-offs to do are those that end after a pan.  This one demonstrates a solid lock-off coming out of a pan."
+    },
+    {
+      "operatorName": "Garrett Brown",
+      "episodic": {},
+      "shortDescription": "On the Boat",
+      "description": "Another use for the Steadicam.  The boat and actors are stationary and no, it is not poor operating.  The tipping horizons are all intentional, used as a device to simulate a moving boat."
+    }
+  ]
+}

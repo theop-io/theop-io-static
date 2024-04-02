@@ -1,0 +1,12 @@
+{
+  "productionName": "Star Wars: Return of the Jedi",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Garrett Brown",
+      "episodic": {},
+      "shortDescription": "Speed Bike Sequence",
+      "description": "Another one of the famous scenes from cinema history.  The effect of speed was created by walking the Steadicam through the forest, shooting at 1fps.  When played back at 24fps, the motion is 24 times as fast.  Of course, the actors, bikes and pyrotechnics were all shot separately."
+    }
+  ]
+}

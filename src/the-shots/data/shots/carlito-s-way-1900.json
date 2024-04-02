@@ -1,0 +1,30 @@
+{
+  "productionName": "Carlito's Way",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Larry McConkey",
+      "episodic": {},
+      "shortDescription": "Talking on the Yacht",
+      "description": "This shot leads our two actors around the yacht as they deliver their dialog.  The greatest element of this shot is the walk down the staircase."
+    },
+    {
+      "operatorName": "Larry McConkey",
+      "episodic": {},
+      "shortDescription": "The Subway Chase",
+      "description": "This is the beginning of what is about to be one of the final scenes of the movie.  The entire scene, incorporates some terrific Steadicam work at both fast and slow paces, on stairs, in cramped environments, etc."
+    },
+    {
+      "operatorName": "Larry McConkey",
+      "episodic": {},
+      "shortDescription": "The Subway Chase, Pt 2",
+      "description": "This is a continuation of the first subway chase shot.  This one takes place entirely on the subway, weaving in and out between people and poles."
+    },
+    {
+      "operatorName": "Larry McConkey",
+      "episodic": {},
+      "shortDescription": "Grand Central Chase",
+      "description": "This is a very nice and long tracking shot of Pacino as he runs from his attackers.  The shot travels all around the station, and finally ends up on an escalator."
+    }
+  ]
+}

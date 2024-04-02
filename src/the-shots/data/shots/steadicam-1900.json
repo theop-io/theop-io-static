@@ -1,0 +1,24 @@
+{
+  "productionName": "Steadicam",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Patrick van Weeren",
+      "episodic": {},
+      "shortDescription": "Handsfree First Use",
+      "description": "This video shows van Weeren getting some great use out of the new HandsFree system.  While still in its infancy, it is easy to see the potential for such a tool in the future of productions of all types."
+    },
+    {
+      "operatorName": "n/a n/a",
+      "episodic": {},
+      "shortDescription": "Merlin Demonstrations",
+      "description": "This video demonstrates the amazing versatility of such a small and simple piece of equipment.  The stabilization capabilities of the system rivals that of its larger and more expensive counterparts."
+    },
+    {
+      "operatorName": "n/a n/a",
+      "episodic": {},
+      "shortDescription": "Paris Workshop Video",
+      "description": "A fun little video to watch containing some highlights from the Paris International Workshop.  Although the cuts happen quickly, if you have ever taken a workshop, you can tell immediately what drill is being exercised.  \r\n\r\nSome of the operators featured are Garrett Brown, Jerry Holway and Kareem La Vaullée."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "productionName": "Full Metal Jacket",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "John Ward",
+      "episodic": {},
+      "shortDescription": "Let's Get it Done",
+      "description": "A great shot in low mode, running with the soldiers as they advance to their target.  The inaccuracy of the frame at times, and shakiness of the shot was certainly deliberate to enhance the audience's experience as they run along with the soldiers.  Additionally, Kubrick is known for being a perfectionist when it comes to his shots, and he didn't like something, we wouldn't be seeing it."
+    },
+    {
+      "operatorName": "John Ward",
+      "episodic": {},
+      "shortDescription": "Smokey Run",
+      "description": "Another shot running with the soldiers.  There is a very clever device used in these shots from FMJ.  Since the operator certainly cannot run as fast as the soldiers, and with the addition of smoke to the scene, it is not long before the subject would be lost.  However, the operator places himself in the middle of the line of soldiers, so as one disappears, another is right there to take his place."
+    }
+  ]
+}

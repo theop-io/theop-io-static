@@ -1,0 +1,20 @@
+{
+  "productionName": "FOX Television",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "David Allen Grove",
+      "episodic": {},
+      "shortDescription": "American Idol Promo",
+      "description": "Fast paced promo piece, shot music video style.  There is a good amount of fast movement, as well as low-mode, both of which are difficult elements.",
+      "operatorComments": "This aired during the Results show of American Idol 2006.\r\n6 contestants remain.\r\n85-90% Steadicam. \r\nShot at the Paramount Pictures back lot.\r\nTethered to a video cable except for the low mode shot of the tables being knocked over. It was just too critical of a shot.."
+    },
+    {
+      "operatorName": "David Allen Grove",
+      "episodic": {},
+      "shortDescription": "American Idol Promo",
+      "description": "Another promo, shot music video style.  Much of the video is shot in low-mode, which seems to echo the laid back and \"low\" Los Angeles, hip-hop feeling.",
+      "operatorComments": "This aired during the Results show of American Idol 2006. 3 contestants remain: Tylor Hicks, Katherine McPhee and Elliot Yamin 85-90% Steadicam. \r\n\r\nThis was shot at the Sea Port Marina and Hotel in Long Beach. Lots and lots of low-mode. Tethered to a video cable.  I flew the rig and camera up-side-down. They flipped the image in post. Transition time to go into low mode or high mode was around 15 seconds or so."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "productionName": "Casino",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Garrett Brown",
+      "episodic": {},
+      "shortDescription": "The Money Trail",
+      "description": "This is a great example of using the Steadicam to storytell.  In one shot, we travel into the back rooms of the casino where the money is handled.  The shot is narrated by DeNiro as the camera hits each key mark in the shot."
+    },
+    {
+      "operatorName": "Randy Nolen",
+      "episodic": {},
+      "shortDescription": "Where's My Money",
+      "description": "Beginning on a crane, we step off and track the actors into the betting house."
+    }
+  ]
+}

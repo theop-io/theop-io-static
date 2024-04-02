@@ -1,0 +1,18 @@
+{
+  "productionName": "Harry Potter and the Prisoner of Azkaban",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Alastair Rae",
+      "episodic": {},
+      "shortDescription": "Nighttime Woods",
+      "description": "Starting off with a well executed, fast run down the path, quickly changing to a nice, controlled slow movement wrapping around the tree as the characters catch their breath."
+    },
+    {
+      "operatorName": "Alf Tramontin",
+      "episodic": {},
+      "shortDescription": "Time Necklace",
+      "description": "Beginning with a smooth wraparound of the characters, the camera pushes in tight on a necklace, quickly pulling back for a visual effects sequence.  When the sequence concludes, an excellent job is done running down the hall after the actors, even up a few stairs.  At the end, the CG takes over again."
+    }
+  ]
+}

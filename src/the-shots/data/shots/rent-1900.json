@@ -1,0 +1,48 @@
+{
+  "productionName": "Rent",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Tango Maureen pt 1",
+      "description": "This shot is a great combination of many aspects of operating: tilting, tracking, circling, pushing, lock-offs, etc."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Tango Maureen pt 2",
+      "description": "This shot begins on just a few of the characters, and then pulls out to show the entire room of dancers.  This is a great shot showcasing some excellent slow-moving work that would often be replaced with cutting to a dolly shot.  Instead, Arnot's skill allows the take to continue wide, and back to close-up uninterrupted."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Tango Maureen pt 3",
+      "description": "This shot tracks around the actors 180 degrees before following them back up to the stage.  It contains excellent headroom maintenance as Arnot walks up the stage stairs."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Santa Fe",
+      "description": "This is a great example of operating within a confined space.  Shot on an actual NYC subway car, the skill of the operator, along with the abilities of the new Alien Revolution allowed for very dynamic camera movement in a very non-dynamic environment."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "La Vie Boheme",
+      "description": "This shot tracks around the cast and set as they sing inside a restaurant.  This shot, and the entire production of \"Rent\" was one of the first major productions to use the new Alien Revolution technology."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Take Me or Leave Me pt 1",
+      "description": "This shot involves excellent tracking of the actors as they move throughout the set."
+    },
+    {
+      "operatorName": "Will Arnot",
+      "episodic": {},
+      "shortDescription": "Take Me or Leave Me pt 2",
+      "description": "This shot tracks the actors partway down a set of stairs and into a pool room as they sing.  The new Alien Revolution was used to track the actress across the pool table."
+    }
+  ]
+}

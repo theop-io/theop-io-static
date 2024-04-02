@@ -1,0 +1,30 @@
+{
+  "productionName": "Rescue Me",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Alec Jarnagin",
+      "episodic": {
+        "episodeTitle": "Pussified"
+      },
+      "shortDescription": "A Laborious Fire",
+      "description": "On a series that is shot primarily handheld, it is unique to see some of the more action-intensive scenes shot on Steadicam.  It goes against convention, but in doing so, we get a much different sense of what is happening in the story.  The audience view is much more objective, allowing the performances of the actors to dictate the energy of the scene.\r\n\r\nOperating in such conditions is no simple task, and obviously when working with any sort of pyrotechnics, everybody in front and behind the camera must know exactly where they are and where they're going at all times.  Case in point, as Alec backs down a hall here, notice just how close he comes to a giant wall of flames - and yes, they're real."
+    },
+    {
+      "operatorName": "Alec Jarnagin",
+      "episodic": {
+        "episodeTitle": "Solo"
+      },
+      "shortDescription": "Tommy's Dream",
+      "description": "A unique shot.  It is 7.5 minutes long (with one cut), yet it remains within a space the size of a two-bedroom apartment.  Depicting a dream sequence, the operator and crew do a wonderful job of maintaining interest without relying on long walks through various locations.  \r\n\r\nThere are probably too many to list in a short description, but as you watch try to envision what might be taking place just outside of the vision of the lens.  The coordination necessary to execute such a seemingly simple shot will quickly be apparent."
+    },
+    {
+      "operatorName": "Alec Jarnagin",
+      "episodic": {
+        "episodeTitle": "High"
+      },
+      "shortDescription": "Best Part About Arson",
+      "description": "This shot is a great example of making dialog come to life on screen.  A five page conversation is turned into a journey of sorts as the actors make their way through the fire scene, finding various items and meeting various people.  \r\n\r\nWhile much of it may seem improvised, with two sets of stairs, falling ceilings, and a ton of smoke, timing in a shot like this could not be more critical.  \r\n\r\nOne final device that is enjoyable to watch is the device chosen to represent the firemen when their faces are obscured by smoke.  The little chest flashlight is a simple but perfect solution."
+    }
+  ]
+}

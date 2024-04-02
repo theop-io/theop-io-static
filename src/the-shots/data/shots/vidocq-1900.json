@@ -1,0 +1,18 @@
+{
+  "productionName": "Vidocq",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Alessandro Brambilla",
+      "episodic": {},
+      "shortDescription": "In the Lab",
+      "description": "A very interesting tracking shot around the laboratory.  Shot on a very wide lens, the background distorts as the camera moves, creating a unique feeling.  At the end of the shot, the camera becomes part of the special effects, taking on almost the POV of the electricity as it jumps from conductor to conductor."
+    },
+    {
+      "operatorName": "Alessandro Brambilla",
+      "episodic": {},
+      "shortDescription": "The Secret Door",
+      "description": "Never stopping the camera, we maintain a very nice, steady movement around the office as the actor searches for a way into the secret passageway.  The wide lens makes the room appear much larger and slightly distorted."
+    }
+  ]
+}

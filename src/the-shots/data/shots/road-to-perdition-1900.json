@@ -1,0 +1,18 @@
+{
+  "productionName": "Road to Perdition",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "P. Scott Sakamoto",
+      "episodic": {},
+      "shortDescription": "The Underground Nightclub",
+      "description": "This shot tracks the characters through a crowded underground nightclub.  The cinematography in this shot is excellent as we move from blue, to red, to green."
+    },
+    {
+      "operatorName": "P. Scott Sakamoto",
+      "episodic": {},
+      "shortDescription": "The Assassination",
+      "description": "A great shot, combining many challenging elements.  We start above, looking down as Hanks steps off the elevator.  We begin to track Hanks from above, and then slowly begin to drop down to eye level.  The tracking continues into the hotel room where the assassination takes place.  We end on a very clever way to show what has happened in the other room, without moving the camera."
+    }
+  ]
+}

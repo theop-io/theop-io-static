@@ -1,0 +1,14 @@
+{
+  "productionName": "The Simpsons",
+  "status": "draft",
+  "shots": [
+    {
+      "operatorName": "Larry McConkey",
+      "episodic": {
+        "episodeTitle": "(18:08) The Haw-Hawed Couple"
+      },
+      "shortDescription": "Goodfellas tribute",
+      "description": "The episode of \"The Simpsons\" entitled \"The Haw-Hawed Couple\" paid homage to Larry McConkey's legendary Copacabana shot from \"Goodfellas\".  The animators kept perfect horizons!"
+    }
+  ]
+}
