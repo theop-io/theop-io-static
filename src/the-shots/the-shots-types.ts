@@ -34,5 +34,9 @@ export type Production = {
 
   status: (typeof ProductionStatusValues)[number];
 
+  imdbTitleId?: string;
+  directorName?: string;
+  dpName?: string;
+
   shots: Shot[];
 };

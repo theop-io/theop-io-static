@@ -383,6 +383,24 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
         `${production.productionName} (${production.productionYear})`
       )
     ),
+    ...(production.imdbTitleId
+      ? [
+          createAnchorElementWithChildren(
+            new URL(`https://www.imdb.com/title/${production.imdbTitleId}`),
+            "IMDb"
+          ),
+        ]
+      : []),
+    createElementWithInitializerAndChildren(
+      "span",
+      (element) => element.classList.add("ph2"),
+      production.directorName ? `Directed by ${production.directorName}` : ""
+    ),
+    createElementWithInitializerAndChildren(
+      "span",
+      (element) => element.classList.add("ph2"),
+      production.dpName ? `Cinematography by ${production.dpName}` : ""
+    ),
     // Show show name
     createElementWithChildren(
       "h3",

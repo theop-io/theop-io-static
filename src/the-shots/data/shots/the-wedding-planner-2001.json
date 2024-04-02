@@ -1,6 +1,9 @@
 {
   "status": "published",
   "productionName": "The Wedding Planner (2001)",
+  "productionImdbLink": "https://www.imdb.com/title/tt0209475/?ref_=nv_sr_srsg_0_tt_8_nm_0_q",
+  "directorName": "Adam Shankman",
+  "dpName": "Julio Macat",
   "shots": [
     {
       "vimeoId": 20631813,

@@ -54,6 +54,7 @@ const shotTags = readKnownShotTags(shotTagsSourceFile);
 //
 
 const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
+const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
 const operatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
 
 const productionShotSchema = yup.object({
@@ -92,6 +93,9 @@ const productionFileSchema = yup
   .object({
     productionName: yup.string().required().matches(productionNameAndYearRegex),
     status: yup.string().required().oneOf(ProductionStatusValues),
+    productionImdbLink: yup.string().matches(productionImdbLinkRegex, { excludeEmptyString: true }),
+    directorName: yup.string(),
+    dpName: yup.string(),
     shots: yup.array().of(productionShotSchema),
   })
   .required();
@@ -152,11 +156,24 @@ function parseProductionNameAndYear(productionName: string) {
   };
 }
 
+function parseProductionImdbLink(productionImdbLink?: string) {
+  if (!productionImdbLink) {
+    return undefined;
+  }
+
+  const productionImdbLinkComponents = productionImdbLink.match(productionImdbLinkRegex); // Validated by yup above
+
+  return productionImdbLinkComponents[1].trim(); // [1] = first capture group = `tt\d+`
+}
+
 const shotsDb: Production[] = productions
   .filter((production) => production.status === "published")
   .map((production) => {
     return {
       ...parseProductionNameAndYear(production.productionName),
+      imdbTitleId: parseProductionImdbLink(production.productionImdbLink),
+      directorName: production.directorName,
+      dpName: production.dpName,
       status: production.status,
       shots: production.shots.map((shot) => parseShot(shot)),
     };
