@@ -1,12 +1,17 @@
 {
-  "productionName": "Adidas (1900)",
+  "productionName": "Adidas (2006)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Mark Emery Moore",
       "episodic": {},
       "shortDescription": "Nike vs. Adidas",
-      "description": "A very amusing, yet very true twist on a commonly themed sports footwear commercial.  Definitely a favorite amongst Steadicam Operators."
+      "description": "A very amusing, yet very true twist on a commonly themed sports footwear commercial.  Definitely a favorite amongst Steadicam Operators.",
+      "tags": [
+        "Running",
+        "Low mode"
+      ],
+      "vimeoId": 929751134
     }
   ]
 }
