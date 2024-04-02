@@ -1,12 +1,17 @@
 {
-  "productionName": "Artificial Intelligence: AI (1900)",
+  "productionName": "Artificial Intelligence: AI (2001)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Chris Haarhoff",
       "episodic": {},
       "shortDescription": "Mommy!",
-      "description": "A great shot demonstrating excellent control through pans, tilts, speed changes, and stairs.  To make it all the more difficult, we are in low mode, making dynamic balance harder to achieve."
+      "description": "A great shot demonstrating excellent control through pans, tilts, speed changes, and stairs.  To make it all the more difficult, we are in low mode, making dynamic balance harder to achieve.",
+      "directorName": "Steven Spielberg",
+      "vimeoId": 929751286,
+      "tags": [
+        "Low mode"
+      ]
     },
     {
       "operatorName": "Chris Haarhoff",
@@ -14,5 +19,6 @@
       "shortDescription": "His True Self",
       "description": "An amazingly well controlled shot.  Most notable is the ramping of the speed at the end landing in a sudden and solid lock-off."
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0212720/"
 }
