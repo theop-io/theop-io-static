@@ -1,5 +1,5 @@
 {
-  "productionName": "The Contender",
+  "productionName": "The Contender (1900)",
   "status": "draft",
   "shots": [
     {
@@ -11,7 +11,8 @@
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
-      "shortDescription": "Presidential Announcement"
+      "shortDescription": "Presidential Announcement",
+      "description": "..."
     },
     {
       "operatorName": "Henry Tirl",
@@ -22,7 +23,8 @@
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
-      "shortDescription": "Special Hearings"
+      "shortDescription": "Special Hearings",
+      "description": "..."
     }
   ]
 }

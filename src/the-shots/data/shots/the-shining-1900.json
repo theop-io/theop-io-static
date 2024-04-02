@@ -1,5 +1,5 @@
 {
-  "productionName": "The Shining",
+  "productionName": "The Shining (1900)",
   "status": "draft",
   "shots": [
     {
@@ -11,7 +11,8 @@
     {
       "operatorName": "Garrett Brown",
       "episodic": {},
-      "shortDescription": "Big Wheels"
+      "shortDescription": "Big Wheels",
+      "description": "..."
     },
     {
       "operatorName": "Garrett Brown",

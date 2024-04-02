@@ -26,7 +26,7 @@ theShotsData.forEach((importedShot) => {
     productions.get(productionName) ??
     ((): ProductionFile => {
       const production: ProductionFile = {
-        productionName: productionName,
+        productionName: `${productionName} (1900)`,
         status: "draft",
         shots: [],
       };
@@ -54,7 +54,9 @@ productions.forEach((production) => {
   fs.writeFileSync(
     path.join(
       "src/the-shots/data/shots",
-      `${production.productionName.replace(/[^a-zA-Z0-9]/g, "-")}-1900.json`.toLowerCase()
+      `${production.productionName
+        .replace(/[\(\)]/g, "")
+        .replace(/[^a-zA-Z0-9]/g, "-")}.json`.toLowerCase()
     ),
     JSON.stringify(production, null, 2 /* pretty-print */)
   );
