@@ -1,12 +1,13 @@
 {
-  "productionName": "Angel Eyes (1900)",
+  "productionName": "Angel Eyes (2001)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Peter Rosenfeld",
       "episodic": {},
       "shortDescription": "Up the stairs",
-      "description": "In a single, seemingly effortless shot, we circle and climb the stairs, almost dancing with the actress as we change from objective to POV and back a couple times."
+      "description": "In a single, seemingly effortless shot, we circle and climb the stairs, almost dancing with the actress as we change from objective to POV and back a couple times.",
+      "vimeoId": 929751739
     }
   ]
 }
