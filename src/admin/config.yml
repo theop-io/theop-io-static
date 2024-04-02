@@ -94,16 +94,19 @@ collections:
             '^https:\/\/www\.imdb\.com\/title\/tt\d+',
             "Format like https://www.imdb.com/title/tt0096754[/...whatever]",
           ]
+        required: false
 
       - name: "directorName"
         label: "Director Name"
         hint: "e.g. 'James Cameron'"
         widget: "string"
+        required: false
 
       - name: "dpName"
         label: "DP Name"
         hint: "e.g. 'Mikael Salomon'"
         widget: "string"
+        required: false
 
       # List of shots
       - name: "shots"
