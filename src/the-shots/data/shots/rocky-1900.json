@@ -1,12 +1,13 @@
 {
-  "productionName": "Rocky (1900)",
+  "productionName": "Rocky (1976)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Garrett Brown",
       "episodic": {},
       "shortDescription": "The Meat Locker",
-      "description": "We track the actors through the meat locker.  Although the technology was in its infancy, Garrett executes the shot, employing all the characteristics of a good shot operators strive for today: headroom, composition, horizons, etc."
+      "description": "We track the actors through the meat locker.  Although the technology was in its infancy, Garrett executes the shot flawlessly, employing all the characteristics of a good shot operators strive for today: headroom, composition, horizons, etc.",
+      "vimeoId": 929902309
     },
     {
       "operatorName": "Garrett Brown",
