@@ -1,13 +1,20 @@
 {
-  "productionName": "Bound for Glory (1900)",
-  "status": "draft",
+  "productionName": "Bound for Glory (1976)",
+  "status": "published",
   "shots": [
     {
-      "operatorName": "Garrett Brown",
+      "shortDescription": "...and it begins",
       "episodic": {},
-      "shortDescription": "Birth of the Steadicam",
+      "operatorName": "Garrett Brown",
+      "directorName": "Hal Ashby",
+      "dpName": "Haskell Wexler",
+      "operatorComments": "--Excerpt from <i>The Steadicam Letter</i> March, 1989\r\n\r\nEarly in 1975, we were engaged to shoot on <i>Bound For Glory</i>. Haskell was DP and had persuaded the late Hal Ashby to try an extravagant time-consuming, expensive mega-shot with complete reliance on our contraption.  We had only one throated magazine.  I had never been on a feature set until I arrived in Stockton, CA and entered Ashby's enormous migrant worker camp with 900 extras.  Neither had I seen a Chapman Titan Crane in person, prior to being put up on the platform 30 feet in the air, hands shaking violently, with Don Thorin, the regular operator, who said, \"Look, that's funny, the camera isn't shaking!\"\r\n\r\nI got two rehearsals, and we broke for lunch, during which I had a beer and Don calmed me down a bit.  Then we made just three four-minute takes, (We had to run back to the darkroom for ten minutes in between each to reload the magazine).  As the crane boomed down beside David Caradine, I got off and \"walked\" with him across the huge camp and most of the way back, dodging kids and crowds and tent ropes and vehicles.  In the end, I was numb with fatigue and nerves, and the whole crew flowed away to resume the regular work without a backward glance.\r\n\r\nIt was two nights later (just after asking the producer if he was the projectionist!), that I finally saw our amazing shot and received a standing ovation (with real clapping and real standing!) from the large crowd in the screening room.  Amazing!  I stayed on the set for several more weeks and made a few nice shots, but the unit had progressed into night shooting and without a follow-focus system, it was clear that we weren't going to be of much use.",
+      "tags": [
+        "High mode"
+      ],
       "description": "Probably the most famous Steadicam shot in history.  Not for its precision, or execution, but it's place in Steadicam history.  \r\n\r\n\"Bound for Glory\" is the first film to ever use the new tool.  At the time, the Steadicam was nothing more than a makeshift sled and vest, with a Luxo Lamp arm.  The shot, however, still has many of the key elements necessary to make a great shot even by today's standards.  This proves how much of great Steadicam operation is reliant upon the operator alone, not the equipment.",
-      "operatorComments": "--Excerpt from <i>The Steadicam Letter</i> March, 1989\r\n\r\nEarly in 1975, we were engaged to shoot on <i>Bound For Glory</i>. Haskell was DP and had persuaded the late Hal Ashby to try an extravagant time-consuming, expensive mega-shot with complete reliance on our contraption.  We had only one throated magazine.  I had never been on a feature set until I arrived in Stockton, CA and entered Ashby's enormous migrant worker camp with 900 extras.  Neither had I seen a Chapman Titan Crane in person, prior to being put up on the platform 30 feet in the air, hands shaking violently, with Don Thorin, the regular operator, who said, \"Look, that's funny, the camera isn't shaking!\"\r\n\r\nI got two rehearsals, and we broke for lunch, during which I had a beer and Don calmed me down a bit.  Then we made just three four-minute takes, (We had to run back to the darkroom for ten minutes in between each to reload the magazine).  As the crane boomed down beside David Caradine, I got off and \"walked\" with him across the huge camp and most of the way back, dodging kids and crowds and tent ropes and vehicles.  In the end, I was numb with fatigue and nerves, and the whole crew flowed away to resume the regular work without a backward glance.\r\n\r\nIt was two nights later (just after asking the producer if he was the projectionist!), that I finally saw our amazing shot and received a standing ovation (with real clapping and real standing!) from the large crowd in the screening room.  Amazing!  I stayed on the set for several more weeks and made a few nice shots, but the unit had progressed into night shooting and without a follow-focus system, it was clear that we weren't going to be of much use."
+      "vimeoId": 929914629
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0074235/?ref_=fn_al_tt_1"
 }
