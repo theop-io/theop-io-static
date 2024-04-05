@@ -429,8 +429,24 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
             createElementWithChildren("h4", "Operator comments"),
             createElementWithChildren("div", shot.operatorComments),
           ]
+        : [])
+    ),
+    createElementWithInitializerAndChildren(
+      "div",
+      (element: HTMLElement) => element.classList.add("the_shots_column"),
+      ...(shot.vimeoId
+        ? [
+            createElementWithInitializerAndChildren(
+              "div",
+              (element) => element.classList.add("the_shots_video_container"),
+              createElementWithInitializerAndChildren("iframe", (element) => {
+                element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
+                element.allow = "encrypted-media";
+                element.allowFullscreen = true;
+              })
+            ),
+          ]
         : []),
-
       ...(shot.equipment
         ? [
             createElementWithChildren("h4", "Equipment"),
@@ -438,20 +454,6 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
           ]
         : [])
     ),
-    ...(shot.vimeoId
-      ? [
-          createElementWithInitializerAndChildren(
-            "div",
-            (element: HTMLElement) =>
-              element.classList.add("the_shots_column", "the_shots_video_container"),
-            createElementWithInitializerAndChildren("iframe", (element) => {
-              element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
-              element.allow = "encrypted-media";
-              element.allowFullscreen = true;
-            })
-          ),
-        ]
-      : []),
   ];
 }
 
