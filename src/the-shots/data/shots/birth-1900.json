@@ -1,6 +1,6 @@
 {
   "productionName": "Birth (1900)",
-  "status": "draft",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Garrett Brown",
@@ -12,7 +12,8 @@
       "operatorName": "Stephen Consentino",
       "episodic": {},
       "shortDescription": "Into the Classroom",
-      "description": "This shot follows our actor into and out of his classroom.  There are two points to note in this shot.  The first being, we don't see a lot of tracking shots of children.  For that reason, the shot is interestingly unique.  When the shot cuts from leading to a slow push down the hall after our actor, the operating is excellent.  Slow, controlled and gentile: again a quality that seems simple but is one of the most difficult to master."
+      "description": "This shot follows our actor into and out of his classroom.  There are two points to note in this shot.  The first being, we don't see a lot of tracking shots of children.  For that reason, the shot is interestingly unique.  When the shot cuts from leading to a slow push down the hall after our actor, the operating is excellent.  Slow, controlled and gentile: again a quality that seems simple but is one of the most difficult to master.",
+      "vimeoId": 294942
     }
   ]
 }
