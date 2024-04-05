@@ -67,7 +67,7 @@ collections:
     fields:
       - name: "productionName"
         label: "Production Name/Year" # Needs to be unique; hopefully including the year makes it so.
-        hint: "e.g. 'The Abyss (1989)'"
+        hint: "e.g. 'The Abyss (1989)'; for TV shows: year of debut, e.g. 'E.R. (1994)'"
         widget: "string"
         pattern:
           [
