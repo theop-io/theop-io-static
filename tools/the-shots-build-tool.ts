@@ -15,16 +15,16 @@ import {
 // Process command line
 //
 
-if (process.argv.length < 4) {
+if (process.argv.length < 5) {
   console.error(
-    `Usage: ts-node ${process.argv[1]} <path-to-shots-data-directory> <path-to-shot-tags-file> [<path-to-generated-output>]`
+    `Usage: ts-node ${process.argv[1]} <path-to-shots-data-directory> <path-to-shot-tags-file> <path-to-generated-output>`
   );
   process.exit(1);
 }
 
 const shotsSourceDirectory = process.argv[2];
 const shotTagsSourceFile = process.argv[3];
-const shotsDatabaseDestinationFile = process.argv.length >= 4 ? process.argv[4] : null;
+const shotsDatabaseDestinationFile = process.argv[4];
 
 //
 // Read list of known/allowed shot tags
@@ -36,7 +36,7 @@ function readKnownShotTags(sourceFile: string) {
   });
 
   const shotTagsFileSchema = yup.object({
-    "shot-tags": yup.array().of(shotTagSchema),
+    "shot-tags": yup.array().of(shotTagSchema).required(),
   });
 
   const shotTagsData = fs.readFileSync(sourceFile, "utf-8");
@@ -78,7 +78,7 @@ export const productionShotSchema = yup.object({
       .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
     episodeTitle: yup.string(),
   }),
-  tags: yup.array().of(yup.string().oneOf(shotTags)),
+  tags: yup.array().of(yup.string().oneOf(shotTags).required()),
   vimeoId: yup
     .number()
     .integer()
@@ -96,7 +96,7 @@ export const productionFileSchema = yup
     productionName: yup.string().required().matches(productionNameAndYearRegex),
     status: yup.string().required().oneOf(ProductionStatusValues),
     productionImdbLink: yup.string().matches(productionImdbLinkRegex, { excludeEmptyString: true }),
-    shots: yup.array().of(productionShotSchema),
+    shots: yup.array().of(productionShotSchema).required(),
   })
   .required();
 
@@ -150,6 +150,10 @@ function parseShot(shot: yup.InferType<typeof productionShotSchema>): Shot {
 function parseProductionNameAndYear(productionName: string) {
   const productionNameAndYear = productionName.match(productionNameAndYearRegex); // Validated by yup above
 
+  if (!productionNameAndYear) {
+    throw new Error(`Could not parse production name ${productionName}`);
+  }
+
   return {
     productionName: productionNameAndYear[1].trim(), // [1] = first capture group
     productionYear: parseInt(productionNameAndYear[2]), // [2] = second capture group
@@ -162,6 +166,10 @@ function parseProductionImdbLink(productionImdbLink?: string) {
   }
 
   const productionImdbLinkComponents = productionImdbLink.match(productionImdbLinkRegex); // Validated by yup above
+
+  if (!productionImdbLinkComponents) {
+    throw new Error(`Could not parse production IMDb link ${productionImdbLink}`);
+  }
 
   return productionImdbLinkComponents[1].trim(); // [1] = first capture group = `tt\d+`
 }
@@ -224,6 +232,10 @@ outputStream.write(`];\n`);
 // - Unique and sorted operators (to save a small bit of effort at runtime)
 function operatorNameSortKeyForOperator(operatorName: string): string {
   const operatorNameSegments = operatorName.match(operatorNameRegex); // Validated by yup above
+
+  if (!operatorNameSegments) {
+    throw new Error(`Could not parse operator name ${operatorName}`);
+  }
 
   const firstName = operatorNameSegments[1]; // [1] = first capture group
   const lastName = operatorNameSegments[2]; // [2] = second capture group

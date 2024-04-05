@@ -81,11 +81,12 @@ wordsList.forEach((line, index) => {
 
   // Check for duplicates
   const primaryWordKey = wordKeyFromWord(displayName);
+  const previouslyDefinedOnLineNumber = wordKeyToLineNumber.get(primaryWordKey);
 
-  if (wordKeyToLineNumber.has(primaryWordKey)) {
+  if (previouslyDefinedOnLineNumber) {
     return syntaxError(
       `Word "${displayName}" previously defined on line ${
-        wordKeyToLineNumber.get(primaryWordKey) + 1
+        previouslyDefinedOnLineNumber + 1
       }, redefined`
     );
   }
