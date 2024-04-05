@@ -30,10 +30,10 @@ function getURLFor(pageMode: PageMode, additionalParameters?: { [key: string]: s
   return url;
 }
 
-function pageModeFromURL(urlParams: URLSearchParams): PageMode {
+function pageModeFromURL(urlParams: URLSearchParams): PageMode | undefined {
   const pageMode_String = urlParams.get("pageMode");
 
-  return pageMode_String && isValidPageMode(pageMode_String) ? pageMode_String : "index";
+  return pageMode_String && isValidPageMode(pageMode_String) ? pageMode_String : undefined;
 }
 
 function urlForOperator(operatorName: string) {
@@ -545,7 +545,7 @@ function buildTagSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
   );
 }
 
-function buildRandomShotAnchor(): HTMLElement[] {
+function buildRandomShotURL(): URL {
   function getRandomArrayElement<T>(data: T[]): T {
     return data[Math.floor(Math.random() * data.length)];
   }
@@ -553,12 +553,11 @@ function buildRandomShotAnchor(): HTMLElement[] {
   const randomProduction = getRandomArrayElement(TheShotsProductions);
   const randomShot = getRandomArrayElement(randomProduction.shots);
 
-  return [
-    createAnchorElementWithChildren(
-      getURLFor("shot", { ...urlForProduction(randomProduction), ...urlForShot(randomShot) }),
-      "Random shot"
-    ),
-  ];
+  return getURLFor("shot", { ...urlForProduction(randomProduction), ...urlForShot(randomShot) });
+}
+
+function buildRandomShotAnchor(): HTMLElement[] {
+  return [createAnchorElementWithChildren(buildRandomShotURL(), "Random shot")];
 }
 
 function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
@@ -589,17 +588,22 @@ if (shotsParentDiv) {
   const urlParams = new URLSearchParams(window.location.search);
   const pageMode = pageModeFromURL(urlParams);
 
-  // Build header/selector row
-  appendChildren(shotsParentDiv, buildSelectorRow(urlParams, pageMode));
+  if (!pageMode) {
+    // Home page -> go to a random shot
+    window.location.replace(buildRandomShotURL());
+  } else {
+    // Build header/selector row
+    appendChildren(shotsParentDiv, buildSelectorRow(urlParams, pageMode));
 
-  // Show content
-  const contentFunctionByPageMode = {
-    index: displayIndex,
-    operator: displayOperator,
-    production: displayProduction,
-    shot: displayShotDetails,
-    tag: displayTag,
-  };
+    // Show content
+    const contentFunctionByPageMode = {
+      index: displayIndex,
+      operator: displayOperator,
+      production: displayProduction,
+      shot: displayShotDetails,
+      tag: displayTag,
+    };
 
-  appendChildren(shotsParentDiv, contentFunctionByPageMode[pageMode](urlParams));
+    appendChildren(shotsParentDiv, contentFunctionByPageMode[pageMode](urlParams));
+  }
 }
