@@ -198,9 +198,23 @@ const outputStream = fs.createWriteStream(shotsDatabaseDestinationFile, {
 outputStream.write(`import { Production } from "../the-shots-types";\n`);
 
 // - Productions
+//   - sort while ignoring "The " prefix
+const productionsMap = new Map<string /* sort key */, Production>();
+
+shotsDb.forEach((production) =>
+  productionsMap.set(
+    `${production.productionName} ${production.productionYear}`.replace(/^The +/, ""),
+    production
+  )
+);
+
+const sortedProductionNames = Array.from(productionsMap.keys()).sort();
+
 outputStream.write(`export const TheShotsProductions: Production[] = [\n`);
 
-shotsDb.forEach((production) => {
+sortedProductionNames.forEach((sortedProductionName) => {
+  const production = productionsMap.get(sortedProductionName);
+
   outputStream.write(JSON.stringify(production, null, 2));
   outputStream.write(`,\n`);
 });
