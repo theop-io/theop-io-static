@@ -381,21 +381,21 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       createAnchorElementWithChildren(
         getURLFor("production", urlForProduction(production)),
         `${production.productionName} (${production.productionYear})`
-      )
-    ),
-    ...(production.imdbTitleId
-      ? [
-          createElementWithInitializerAndChildren("a", (element) => {
-            // Link substance
-            element.href = new URL(`https://www.imdb.com/title/${production.imdbTitleId}`).href;
-            element.target = "_blank";
-            element.rel = "noopener noreferrer";
+      ),
+      ...(production.imdbTitleId
+        ? [
+            createElementWithInitializerAndChildren("a", (element) => {
+              // Link substance
+              element.href = new URL(`https://www.imdb.com/title/${production.imdbTitleId}`).href;
+              element.target = "_blank";
+              element.rel = "noopener noreferrer";
 
-            // Link style
-            element.classList.add("imdb-link", "svg-logo-imdb");
-          }),
-        ]
-      : []),
+              // Link style
+              element.classList.add("imdb-link", "svg-logo-imdb");
+            }),
+          ]
+        : [])
+    ),
     // Show show name
     createElementWithChildren(
       "h3",
