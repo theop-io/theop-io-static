@@ -385,8 +385,13 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     ),
     ...(production.imdbTitleId
       ? [
-          createAnchorElementWithChildren(
-            new URL(`https://www.imdb.com/title/${production.imdbTitleId}`),
+          createElementWithInitializerAndChildren(
+            "a",
+            (element) => {
+              element.href = new URL(`https://www.imdb.com/title/${production.imdbTitleId}`).href;
+              element.target = "_blank";
+              element.rel = "noopener noreferrer";
+            },
             "IMDb"
           ),
         ]
