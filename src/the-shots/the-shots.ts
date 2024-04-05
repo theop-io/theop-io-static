@@ -416,22 +416,31 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       (element: HTMLElement) => element.classList.add("the_shots_column"),
 
       // Show shot data
-      createElementWithInitializerAndChildren(
-        "span",
-        (element) => element.classList.add("pr2"),
-        shot.directorName ? `Directed by ${shot.directorName}` : ""
-      ),
-      createElementWithInitializerAndChildren(
-        "span",
-        (element) => element.classList.add("pr2"),
-        shot.dpName ? `Cinematography by ${shot.dpName}` : ""
-      ),
+      ...(shot.directorName
+        ? [
+            createElementWithChildren(
+              "div",
+              createElementWithChildren("b", "Directed by "),
+              shot.directorName
+            ),
+          ]
+        : []),
+      ...(shot.dpName
+        ? [
+            createElementWithChildren(
+              "div",
+              createElementWithChildren("b", "Cinematography by "),
+              shot.dpName
+            ),
+          ]
+        : []),
 
+      createElementWithChildren("h4", "Description"),
       createElementWithChildren("div", shot.description),
 
       ...(shot.operatorComments
         ? [
-            createElementWithChildren("h4", "Operator comments"),
+            createElementWithChildren("h4", "Operator Commentary"),
             createElementWithChildren("div", shot.operatorComments),
           ]
         : [])
