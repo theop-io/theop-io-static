@@ -385,15 +385,15 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     ),
     ...(production.imdbTitleId
       ? [
-          createElementWithInitializerAndChildren(
-            "a",
-            (element) => {
-              element.href = new URL(`https://www.imdb.com/title/${production.imdbTitleId}`).href;
-              element.target = "_blank";
-              element.rel = "noopener noreferrer";
-            },
-            "IMDb"
-          ),
+          createElementWithInitializerAndChildren("a", (element) => {
+            // Link substance
+            element.href = new URL(`https://www.imdb.com/title/${production.imdbTitleId}`).href;
+            element.target = "_blank";
+            element.rel = "noopener noreferrer";
+
+            // Link style
+            element.classList.add("imdb-link", "svg-logo-imdb");
+          }),
         ]
       : []),
     // Show show name

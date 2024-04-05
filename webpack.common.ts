@@ -2,7 +2,7 @@ import * as path from "path";
 
 import { Configuration } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import * as HtmlBundlerPlugin from "html-bundler-webpack-plugin";
+import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 
 const coreConfiguration: Configuration = {
   target: ["web", "es5"],
@@ -15,7 +15,15 @@ const coreConfiguration: Configuration = {
       },
       {
         test: /\.(css|sass|scss)$/,
-        use: ["css-loader", "sass-loader"],
+        use: [
+          {
+            loader: "css-loader",
+            options: {
+              url: false, // Don't parse urls in CSS (allows us to specify inline SVGs)
+            },
+          },
+          "sass-loader",
+        ],
       },
       {
         test: /\.(yaml|yml)$/,
