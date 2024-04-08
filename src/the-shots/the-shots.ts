@@ -402,14 +402,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       episodicDetailsString + (episodicDetailsString ? ": " : ""),
       `"${shot.shortDescription}" by `,
       ...createShotOperatorsElements(shot),
-      shotTimestamp ? ` (at ${shotTimestamp})` : "",
-      ...(shot.tags
-        ? [
-            document.createTextNode(" ("),
-            ...createShotTagsElements(shot),
-            document.createTextNode(")"),
-          ]
-        : [])
+      shotTimestamp ? ` (at ${shotTimestamp})` : ""
     ),
     createElementWithInitializerAndChildren(
       "div",
@@ -433,6 +426,9 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
               shot.dpName
             ),
           ]
+        : []),
+      ...(shot.tags
+        ? [createElementWithChildren("strong", "Features "), ...createShotTagsElements(shot)]
         : []),
 
       createElementWithChildren("h4", "Description"),
