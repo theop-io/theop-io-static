@@ -1,12 +1,13 @@
 {
-  "productionName": "Aviv Geffen (1900)",
-  "status": "draft",
+  "productionName": "Aviv Geffen (2006)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Haim Assias",
       "episodic": {},
       "shortDescription": "Tomorrow",
-      "description": "A nice little one-shot music video.  There are great variations in speed and composition.  The video depicts a divorce meeting between a couple whose world is turning around and around."
+      "description": "A nice little one-shot music video.  There are great variations in speed and composition.  The video depicts a divorce meeting between a couple whose world is turning around and around.",
+      "vimeoId": 929904152
     }
   ]
 }
