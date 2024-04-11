@@ -1,12 +1,13 @@
 {
-  "productionName": "Any Given Sunday (1900)",
-  "status": "draft",
+  "productionName": "Any Given Sunday (1999)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "James Muro",
       "episodic": {},
       "shortDescription": "The Big Game",
-      "description": "This shot is a mix of all types of shooting.  A couple of the most eye catching cuts in the shot involve James and his lightweight running rig as he gives us some POV shots of the players running down the field."
+      "description": "This shot is a mix of all types of shooting.  A couple of the most eye catching cuts in the shot involve James and his lightweight running rig as he gives us some POV shots of the players running down the field.",
+      "vimeoId": 929903676
     }
   ]
 }
