@@ -1,6 +1,6 @@
 {
-  "productionName": "Band of Brothers (1900)",
-  "status": "draft",
+  "productionName": "Band of Brothers (2001)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Paul Edwards",
@@ -8,7 +8,8 @@
         "episodeTitle": "(04) Replacements"
       },
       "shortDescription": "Band Of Brothers Montage",
-      "description": "This file contains several clips from the episode.  Take close note of the second to last shot of the soldiers at night.  The shot is very low, very slow, and very stable.  Very nice."
+      "description": "This file contains several clips from the episode.  Take close note of the second to last shot of the soldiers at night.  The shot is very low, very slow, and very stable.  Very nice.",
+      "vimeoId": 929913767
     }
   ]
 }
