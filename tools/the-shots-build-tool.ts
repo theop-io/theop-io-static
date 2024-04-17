@@ -56,6 +56,7 @@ const shotTags = readKnownShotTags(shotTagsSourceFile);
 const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
 const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
 const operatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
+const vimeoLinkRegex = /^https:\/\/vimeo\.com\/(\d+)(\?.*)?$/;
 
 export const productionShotSchema = yup.object({
   // Operator info
@@ -79,10 +80,7 @@ export const productionShotSchema = yup.object({
     episodeTitle: yup.string(),
   }),
   tags: yup.array().of(yup.string().oneOf(shotTags).required()),
-  vimeoId: yup
-    .number()
-    .integer()
-    .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
+  vimeoLink: yup.string().matches(vimeoLinkRegex),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),
@@ -136,10 +134,27 @@ function parseTimestamp(timestamp?: string): Timestamp | undefined {
   };
 }
 
+function parseVimeoLink(vimeoLink?: string): number | undefined {
+  if (!vimeoLink) {
+    return undefined;
+  }
+
+  const vimeoLinkGroups = vimeoLink.match(vimeoLinkRegex); // Validated by yup above
+
+  if (!vimeoLinkGroups) {
+    throw new Error(`Could not parse Vimeo link ${vimeoLink}`);
+  }
+
+  return parseInt(vimeoLinkGroups[1]); // [1] = first capture group
+}
+
 function parseShot(shot: yup.InferType<typeof productionShotSchema>): Shot {
+  const { vimeoLink, ...shotWithoutVimeoLink } = shot;
+
   return {
-    ...shot,
+    ...shotWithoutVimeoLink,
     timestamp: parseTimestamp(shot.timestamp),
+    vimeoId: parseVimeoLink(vimeoLink),
     // Fix up typing of non-optional fields (yup type inference is being special)
     operatorName: shot.operatorName as string, // Validated by yup above (but typed poorly)
     shortDescription: shot.shortDescription as string,

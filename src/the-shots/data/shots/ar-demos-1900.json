@@ -13,14 +13,14 @@
       "episodic": {},
       "shortDescription": "Plane",
       "description": "This is a great behind the scenes look at the filming of a video using the Alien Revolution.  The side-by-side display is a great way to see the new tool in action.",
-      "vimeoId": 929903967
+      "vimeoLink": "https://vimeo.com/929903967"
     },
     {
       "operatorName": "Chris McGuire",
       "episodic": {},
       "shortDescription": "Soldier BTS",
       "description": "A behind the scenes look at the making of the \"Soldier\" demonstration video.",
-      "vimeoId": 929903998
+      "vimeoLink": "https://vimeo.com/929903998"
     },
     {
       "operatorName": "Chris McGuire",
@@ -39,7 +39,7 @@
       "episodic": {},
       "shortDescription": "Soldier",
       "description": "This was one of the first demonstration videos showcasing the capabilities of the Alien Revolution system, that was released to the public.  Viewing it, it is very easy to see how this new tool improved upon the Steadicam design.",
-      "vimeoId": 929904039
+      "vimeoLink": "https://vimeo.com/929904039"
     }
   ]
 }
