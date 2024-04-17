@@ -156,3 +156,25 @@ div.header-nav-folder-content {
   // Text
   font-weight: bold;
 }
+
+//
+// Archive pages (e.g. The Library)
+//
+
+ul.archive-group-list {
+  // Force the dropdown (conceptually, select box) to pop over the archive content
+  // instead of sliding down the content.
+  position: absolute;
+
+  // Seems to be the right spacing to show up just underneath the "select" box
+  top: 50px;
+
+  // Seems to be the background color used by the select box
+  background-color: #faf9f7;
+
+  // Somehow the padding is present for all other sides but the top, so add it back
+  padding-top: 12px !important;
+
+  // Site-specific design tweak
+  border: 1px solid red;
+}
