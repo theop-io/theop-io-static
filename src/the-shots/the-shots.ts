@@ -211,7 +211,7 @@ function displayShotIndex(
         "tr",
         createElementWithChildren("th", "Production"),
         createElementWithChildren("th", "Operator"),
-        createElementWithChildren("th", "Description"),
+        createElementWithChildren("th", "Shot"),
         createElementWithChildren("th", "Tags")
       ),
       // Build shot rows
