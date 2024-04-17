@@ -19,8 +19,7 @@ productionFiles.forEach((productionFileName) => {
   }
 });
 
-function migrateVimeoIdToVimeoLink(production: any): boolean
-{
+function migrateVimeoIdToVimeoLink(production: any): boolean {
   let didModifyData = false;
 
   const shots = production.shots;
