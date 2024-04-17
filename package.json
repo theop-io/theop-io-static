@@ -14,7 +14,8 @@
     "format:fix": "prettier --write ./*",
     "build-dev": "npm run codegen && webpack --config webpack.dev.ts",
     "dev:rewrite-imported-shots-data": "ts-node ./tools/rewrite-imported-shots-data.ts",
-    "dev:migrate-shots-data": "ts-node ./tools/migrate-shots-data.ts"
+    "dev:migrate-shots-data": "ts-node ./tools/migrate-shots-data.ts",
+    "dev:update-shots-filenames": "ts-node ./tools/update-shots-filenames.ts"
   },
   "author": "Robin Giese",
   "private": true,
