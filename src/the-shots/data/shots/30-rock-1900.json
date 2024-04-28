@@ -1,5 +1,5 @@
 {
-  "productionName": "30 Rock (1900)",
+  "productionName": "30 Rock (2006)",
   "status": "draft",
   "shots": [
     {
@@ -10,5 +10,6 @@
       "shortDescription": "Good Walk-and-Talk",
       "description": "The writers of NBC's \"30 Rock\" give a clever nod to one of the most common type of Steadicam moves in the book.  The \"Roundy-Round\" has got to be next."
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0496424/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_30%2520rock"
 }
