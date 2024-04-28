@@ -1,12 +1,14 @@
 {
-  "productionName": "Arlington Road (1900)",
+  "productionName": "Arlington Road (1999)",
   "status": "draft",
   "shots": [
     {
       "operatorName": "Jim McConkey",
       "episodic": {},
       "shortDescription": "He's Hiding Something",
-      "description": "Very nice, basic tracking shot of the actors.  The shot includes a couple pauses and quarter circles, as well as a small set of stairs."
+      "description": "Very nice, basic tracking shot of the actors.  The shot includes a couple pauses and quarter circles, as well as a small set of stairs.",
+      "directorName": "Mark Pellington",
+      "dpName": "Bobby Bukowski"
     },
     {
       "operatorName": "Jim McConkey",
@@ -20,5 +22,6 @@
       "shortDescription": "There's a Bomb",
       "description": "The climax scene of the movie, the camera tracks around a struggle in the underground parking garage of the FBI building."
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0496424/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_30%2520rock"
 }
