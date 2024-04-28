@@ -1,6 +1,6 @@
 {
   "productionName": "Crazy as Hell (1900)",
-  "status": "draft",
+  "status": "published",
   "shots": [
     {
       "operatorName": "David Chameides",
@@ -14,7 +14,8 @@
       "episodic": {},
       "shortDescription": "BTS: Bus Shot",
       "description": "Behind the scenes footage of the crane step-off into the bus from \"Crazy As Hell\".  \r\n\r\n<a href=\"/shots_detail.cfm?shotID=262\">Click here</a> for finished shot.",
-      "operatorComments": "Talk about parking a cadillac in a closet!"
+      "operatorComments": "Talk about parking a cadillac in a closet!",
+      "vimeoLink": "https://vimeo.com/934288953"
     }
   ]
 }
