@@ -1,6 +1,6 @@
 {
-  "productionName": "Crash (1900)",
-  "status": "draft",
+  "productionName": "Crash (2004)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "James Muro",
@@ -12,7 +12,11 @@
       "operatorName": "James Muro",
       "episodic": {},
       "shortDescription": "On the Phone",
-      "description": "James Muro is commonly associated with some of the great running shots in films.  This shot is the complete antithesis of running.  Moving at such a slow, but consistent pace, keeping the operator and camera virtually invisible is a very difficult skill to master."
+      "description": "James Muro is commonly associated with some of the great running shots in films.  This shot is the complete antithesis of running.  Moving at such a slow, but consistent pace, keeping the operator and camera virtually invisible is a very difficult skill to master.",
+      "vimeoLink": "https://vimeo.com/934288886?share=copy",
+      "directorName": "Paul Haggis",
+      "dpName": "James Muro"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0375679/?ref_=nv_sr_srsg_1_tt_7_nm_1_q_crash"
 }
