@@ -1,12 +1,14 @@
 {
-  "productionName": "Chariots of Fire (1900)",
-  "status": "draft",
+  "productionName": "Chariots of Fire (1988)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Michael Connor",
       "episodic": {},
       "shortDescription": "Club Signups",
-      "description": "One of the earlier shots from Steadicam history.  It is an early example of the type of shot we see often in productions of today: entering and establishing a large room and crowd."
+      "description": "One of the earlier shots from Steadicam history.  It is an early example of the type of shot we see often in productions of today: entering and establishing a large room and crowd.",
+      "vimeoLink": "https://vimeo.com/934288508?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0082158/?ref_=fn_al_tt_1"
 }
