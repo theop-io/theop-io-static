@@ -1,24 +1,28 @@
 {
-  "productionName": "The Cooler (1900)",
-  "status": "draft",
+  "productionName": "The Cooler (2003)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Colin Hudson",
       "episodic": {},
       "shortDescription": "Opening Sequence",
-      "description": "This shot opens the film, and establishes the setting--a busy casino.  The shot begins POV style.  The key thing to note is the way each camera movement is directed by an action on screen: the waitress, the dealer's over the shoulder look, the man's hand shooting the dice."
+      "description": "This shot opens the film, and establishes the setting--a busy casino.  The shot begins POV style.  The key thing to note is the way each camera movement is directed by an action on screen: the waitress, the dealer's over the shoulder look, the man's hand shooting the dice.",
+      "vimeoLink": "https://vimeo.com/934288689?share=copy"
     },
     {
       "operatorName": "Colin Hudson",
       "episodic": {},
       "shortDescription": "Noisy Neighbors",
-      "description": "While not a long move, covering a lot of distance, it is an excellent example of great, consistent control at a slow speed."
+      "description": "While not a long move, covering a lot of distance, it is an excellent example of great, consistent control at a slow speed.",
+      "vimeoLink": "https://vimeo.com/934288698?share=copy"
     },
     {
       "operatorName": "Colin Hudson",
       "episodic": {},
       "shortDescription": "Cooling",
-      "description": "This shot is a great demonstration of the use of booming and tilting.  We first boom down low to catch his hand touching the table, we then boom up high while tilting down to view the table, we then boom back down low while tilting high to frame up the dealer."
+      "description": "This shot is a great demonstration of the use of booming and tilting.  We first boom down low to catch his hand touching the table, we then boom up high while tilting down to view the table, we then boom back down low while tilting high to frame up the dealer.",
+      "vimeoLink": "https://vimeo.com/934288718?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0318374/?ref_=fn_al_tt_1"
 }
