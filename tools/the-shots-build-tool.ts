@@ -55,13 +55,12 @@ const shotTags = readKnownShotTags(shotTagsSourceFile);
 
 const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
 const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
-const operatorNameRegex = /(\p{Letter}+) (\p{Letter}+)/u;
 const vimeoLinkRegex = /^https:\/\/vimeo\.com\/(\d+)(\?.*)?$/;
 
 export const productionShotSchema = yup.object({
   // Operator info
-  operatorName: yup.string().required().matches(operatorNameRegex),
-  secondaryOperatorName: yup.string().matches(operatorNameRegex, { excludeEmptyString: true }),
+  operatorName: yup.string().required(),
+  secondaryOperatorName: yup.string(),
   // Optional metadata
   timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
   directorName: yup.string(),
@@ -246,16 +245,10 @@ outputStream.write(`];\n`);
 
 // - Unique and sorted operators (to save a small bit of effort at runtime)
 function operatorNameSortKeyForOperator(operatorName: string): string {
-  const operatorNameSegments = operatorName.match(operatorNameRegex); // Validated by yup above
+  const operatorNameSegments = operatorName.split(" ");
 
-  if (!operatorNameSegments) {
-    throw new Error(`Could not parse operator name ${operatorName}`);
-  }
-
-  const firstName = operatorNameSegments[1]; // [1] = first capture group
-  const lastName = operatorNameSegments[2]; // [2] = second capture group
-
-  return `${lastName}${firstName}`; // used for `.sort()` below
+  // LastNameFirstName (best effort)
+  return `${operatorNameSegments[operatorNameSegments.length - 1]}${operatorNameSegments[0]}`; // used for `.sort()` below
 }
 
 const operatorsMap = new Map<string, string>();
