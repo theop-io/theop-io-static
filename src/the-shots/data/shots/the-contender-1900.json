@@ -1,30 +1,45 @@
 {
-  "productionName": "The Contender (1900)",
-  "status": "draft",
+  "productionName": "The Contender (2000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
       "shortDescription": "In the Oval Office",
-      "description": "This shot includes some very delicate movement - some of the most difficult movement to execute.  It is a great example of changing composition: beginning with an extreme closeup and ending in a square three-shot."
+      "description": "This shot includes some very delicate movement - some of the most difficult movement to execute.  It is a great example of changing composition: beginning with an extreme closeup and ending in a square three-shot.",
+      "vimeoLink": "https://vimeo.com/934288603?share=copy",
+      "tags": [
+        "High mode",
+        "Film"
+      ]
     },
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
       "shortDescription": "Presidential Announcement",
-      "description": "..."
+      "description": "...",
+      "vimeoLink": "https://vimeo.com/934288628?share=copy"
     },
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
       "shortDescription": "Through the Capitol",
-      "description": "This shot begins with a very large decent from a crane.  It immediatly goes into the climbing of the stairs of the Capitol steps.  \r\n\r\nThere is an edit buried as we enter the building where the shot continues at a fast pace.  It includes a very rapid and interesting descent of a staircase and ends in an excellent lock-off.\r\n\r\nA quick eye will notice one of the Steadicam operator's tools of the trade.  As the camera descends the stairs inside the building, the ramp built to allow the operator to quickly descend the stairs is visible for a fraction of a second."
+      "description": "This shot begins with a very large decent from a crane.  It immediatly goes into the climbing of the stairs of the Capitol steps.  \r\n\r\nThere is an edit buried as we enter the building where the shot continues at a fast pace.  It includes a very rapid and interesting descent of a staircase and ends in an excellent lock-off.\r\n\r\nA quick eye will notice one of the Steadicam operator's tools of the trade.  As the camera descends the stairs inside the building, the ramp built to allow the operator to quickly descend the stairs is visible for a fraction of a second.",
+      "vimeoLink": "https://vimeo.com/934288647?share=copy",
+      "tags": [
+        "High mode",
+        "Step on/Step Off",
+        "Stairs",
+        "Film"
+      ]
     },
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
       "shortDescription": "Special Hearings",
-      "description": "..."
+      "description": "...",
+      "vimeoLink": "https://vimeo.com/934288673?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0208874/?ref_=fn_al_tt_1"
 }
