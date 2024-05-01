@@ -244,38 +244,31 @@ sortedProductionNames.forEach((sortedProductionName) => {
 outputStream.write(`];\n`);
 
 // - Unique and sorted operators (to save a small bit of effort at runtime)
+const uniqueOperatorNames = [
+  ...new Set(
+    shotsDb
+      .flatMap((production) =>
+        production.shots.flatMap((shot) => [shot.operatorName, shot.secondaryOperatorName])
+      )
+      .filter((x): x is string => !!x)
+  ),
+];
+
 function operatorNameSortKeyForOperator(operatorName: string): string {
-  const operatorNameSegments = operatorName.split(" ");
-
-  // LastNameFirstName (best effort)
-  return `${operatorNameSegments[operatorNameSegments.length - 1]}${operatorNameSegments[0]}`; // used for `.sort()` below
+  // Prioritize ordering by last name
+  return operatorName.split(" ").reverse().join("");
 }
 
-const operatorsMap = new Map<string, string>();
-{
-  shotsDb.forEach((production) => {
-    production.shots.forEach((shot) => {
-      operatorsMap.set(operatorNameSortKeyForOperator(shot.operatorName), shot.operatorName);
+const sortedUniqueOperatorNames = uniqueOperatorNames.sort((lhs, rhs) =>
+  // Horrifically inefficient but it's a tiny dataset
+  operatorNameSortKeyForOperator(lhs).localeCompare(operatorNameSortKeyForOperator(rhs))
+);
 
-      if (shot.secondaryOperatorName) {
-        operatorsMap.set(
-          operatorNameSortKeyForOperator(shot.secondaryOperatorName),
-          shot.secondaryOperatorName
-        );
-      }
-    });
-  });
-}
-
-const sortedOperatorNameKeys = Array.from(operatorsMap.keys()).sort();
-
-outputStream.write(`export const TheShotsSortedOperatorNames: string[] = [\n`);
-
-sortedOperatorNameKeys.forEach((operatorNameSortKey) => {
-  outputStream.write(`  "${operatorsMap.get(operatorNameSortKey)}",\n`);
-});
-
-outputStream.write(`];\n`);
+outputStream.write(
+  `export const TheShotsSortedOperatorNames: string[] = ${JSON.stringify(
+    sortedUniqueOperatorNames
+  )};\n`
+);
 
 // - Tags
 outputStream.write(`export const TheShotsTags: string[] = ${JSON.stringify(shotTags)};\n`);
