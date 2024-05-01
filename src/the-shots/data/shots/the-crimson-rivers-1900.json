@@ -1,30 +1,35 @@
 {
-  "productionName": "The Crimson Rivers (1900)",
-  "status": "draft",
+  "productionName": "The Crimson Rivers (2000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jean-Baptiste Thibaud",
       "episodic": {},
       "shortDescription": "Chasing the Killer",
-      "description": "Nice sequence, void of soundtrack, really makes the efforts of the chase stand out."
+      "description": "Nice sequence, void of soundtrack, really makes the efforts of the chase stand out.",
+      "vimeoLink": "https://vimeo.com/934289016?share=copy"
     },
     {
       "operatorName": "Jean-Baptiste Thibaud",
       "episodic": {},
       "shortDescription": "School Halls",
-      "description": "This shot employs a very interesting method of switching from one character's POV to the other.  Instead of using a traditional cut, the operator uses the turning of the corner and continues the motion landing with a frame 180 degrees from the original."
+      "description": "This shot employs a very interesting method of switching from one character's POV to the other.  Instead of using a traditional cut, the operator uses the turning of the corner and continues the motion landing with a frame 180 degrees from the original.",
+      "vimeoLink": "https://vimeo.com/934289090?share=copy"
     },
     {
       "operatorName": "Jean-Baptiste Thibaud",
       "episodic": {},
       "shortDescription": "The Playground",
-      "description": "There are two interesting elements in this shot.  When the actor first steps out of the building, virtually the entire frame is within a reasonable focus.  As the actor takes his moment for thought, the camera moves close enough to allow for everything but the actor to fall completely out of focus.  This helps to bring the audience right into the thoughts of the character.\r\n\r\nAs the actor re-enters the building, the movement around the woman is extremely smooth and consistent, landing in an excellent lock-off to frame the two of them."
+      "description": "There are two interesting elements in this shot.  When the actor first steps out of the building, virtually the entire frame is within a reasonable focus.  As the actor takes his moment for thought, the camera moves close enough to allow for everything but the actor to fall completely out of focus.  This helps to bring the audience right into the thoughts of the character.\r\n\r\nAs the actor re-enters the building, the movement around the woman is extremely smooth and consistent, landing in an excellent lock-off to frame the two of them.",
+      "vimeoLink": "https://vimeo.com/934289055?share=copy"
     },
     {
       "operatorName": "Jean-Baptiste Thibaud",
       "episodic": {},
       "shortDescription": "Walk through the woods",
-      "description": "A great example of consistent distance and headroom, despite some very uneven terrain."
+      "description": "A great example of consistent distance and headroom, despite some very uneven terrain.",
+      "vimeoLink": "https://vimeo.com/934289120?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0228786/?ref_=fn_al_tt_1"
 }
