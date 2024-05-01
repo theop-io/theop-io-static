@@ -1,12 +1,19 @@
 {
-  "productionName": "Cellular (1900)",
-  "status": "draft",
+  "productionName": "Cellular (2004)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Gregory Smith",
       "episodic": {},
       "shortDescription": "Entering the Police Station",
-      "description": "This shot begins as what we believe is a typical vehicle tracking shot, but continues to roll after the vehicle stops, the driver steps out and walks into the police station - all in the one take."
+      "description": "This shot begins as what we believe is a typical vehicle tracking shot, but continues to roll after the vehicle stops, the driver steps out and walks into the police station - all in the one take.",
+      "vimeoLink": "https://vimeo.com/934288491?share=copy",
+      "tags": [
+        "High mode",
+        "Stairs",
+        "Step on/Step Off",
+        "Film"
+      ]
     }
   ]
 }
