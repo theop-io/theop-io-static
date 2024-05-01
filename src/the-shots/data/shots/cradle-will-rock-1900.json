@@ -1,6 +1,6 @@
 {
-  "productionName": "Cradle Will Rock (1900)",
-  "status": "draft",
+  "productionName": "Cradle Will Rock (1999)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jim McConkey",
@@ -12,7 +12,8 @@
       "operatorName": "Jim McConkey",
       "episodic": {},
       "shortDescription": "Entering the Theatre",
-      "description": "What begins as a relatively common sidewalk tracking shot, ends with one of the smoothest crane step-ons ever done.  The transition from pavement to crane is invisible, something even the most seasoned operators strive for."
+      "description": "What begins as a relatively common sidewalk tracking shot, ends with one of the smoothest crane step-ons ever done.  The transition from pavement to crane is invisible, something even the most seasoned operators strive for.",
+      "vimeoLink": "https://vimeo.com/934288786?share=copy"
     },
     {
       "operatorName": "Jim McConkey",
@@ -20,5 +21,6 @@
       "shortDescription": "We Need Another Theatre",
       "description": "A shot like this is loved by both actors and operators.  For the operator, it is a fun shot to set up, rehearse and shoot.  The actors also like it because they can perform the full scene without the need to stop for different camera angles.  \r\n\r\nOne thing to note is towards the end of the shot when the actor sits down in the chair.  The camera boom down is timed perfectly, maintaining excellent headroom, hiding such a drastic change in height."
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0150216/?ref_=fn_al_tt_1"
 }
