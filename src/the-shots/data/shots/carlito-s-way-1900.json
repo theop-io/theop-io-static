@@ -1,30 +1,54 @@
 {
-  "productionName": "Carlito's Way (1900)",
-  "status": "draft",
+  "productionName": "Carlito's Way (1993)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Larry McConkey",
       "episodic": {},
       "shortDescription": "Talking on the Yacht",
-      "description": "This shot leads our two actors around the yacht as they deliver their dialog.  The greatest element of this shot is the walk down the staircase."
+      "description": "This shot leads our two actors around the yacht as they deliver their dialog.  The greatest element of this shot is the walk down the staircase.",
+      "vimeoLink": "https://vimeo.com/934288390?share=copy",
+      "tags": [
+        "High mode",
+        "Stairs",
+        "Film"
+      ]
     },
     {
       "operatorName": "Larry McConkey",
       "episodic": {},
       "shortDescription": "The Subway Chase",
-      "description": "This is the beginning of what is about to be one of the final scenes of the movie.  The entire scene, incorporates some terrific Steadicam work at both fast and slow paces, on stairs, in cramped environments, etc."
+      "description": "This is the beginning of what is about to be one of the final scenes of the movie.  The entire scene, incorporates some terrific Steadicam work at both fast and slow paces, on stairs, in cramped environments, etc.",
+      "vimeoLink": "https://vimeo.com/934288404?share=copy",
+      "tags": [
+        "High mode",
+        "Stairs",
+        "Running",
+        "Hardmount",
+        "Film"
+      ]
     },
     {
       "operatorName": "Larry McConkey",
       "episodic": {},
       "shortDescription": "The Subway Chase, Pt 2",
-      "description": "This is a continuation of the first subway chase shot.  This one takes place entirely on the subway, weaving in and out between people and poles."
+      "description": "This is a continuation of the first subway chase shot.  This one takes place entirely on the subway, weaving in and out between people and poles.",
+      "vimeoLink": "https://vimeo.com/934288424?share=copy",
+      "tags": [
+        "High mode",
+        "Film"
+      ]
     },
     {
       "operatorName": "Larry McConkey",
       "episodic": {},
       "shortDescription": "Grand Central Chase",
-      "description": "This is a very nice and long tracking shot of Pacino as he runs from his attackers.  The shot travels all around the station, and finally ends up on an escalator."
+      "description": "This is a very nice and long tracking shot of Pacino as he runs from his attackers.  The shot travels all around the station, and finally ends up on an escalator.",
+      "vimeoLink": "https://vimeo.com/934288441?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0106519/?ref_=fn_al_tt_1"
 }
