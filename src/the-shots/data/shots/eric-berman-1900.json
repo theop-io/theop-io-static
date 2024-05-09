@@ -1,12 +1,13 @@
 {
-  "productionName": "Eric Berman (1900)",
-  "status": "draft",
+  "productionName": "Eric Berman (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Haim Assias",
       "episodic": {},
       "shortDescription": "What Else",
-      "description": "A single shot music video.  The shoot took 5 hours."
+      "description": "A single shot music video.  The shoot took 5 hours.",
+      "vimeoLink": "https://vimeo.com/944409587?share=copy"
     }
   ]
 }
