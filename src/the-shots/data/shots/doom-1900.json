@@ -1,12 +1,17 @@
 {
-  "productionName": "Doom (1900)",
-  "status": "draft",
+  "productionName": "Doom (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Alf Tramontin",
       "episodic": {},
       "shortDescription": "FPS Sequence",
-      "description": "A very interesting shot to watch.  The film, obviously based on the video game, has successfully replicated the POV feel of the game.  Some of the creature effects, as well as the gun are CG, but the movement through the set is practical Steadicam."
+      "description": "A very interesting shot to watch.  The film, obviously based on the video game, has successfully replicated the POV feel of the game.  Some of the creature effects, as well as the gun are CG, but the movement through the set is practical Steadicam.",
+      "vimeoLink": "https://vimeo.com/944409339?share=copy",
+      "tags": [
+        "Whip pan"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0419706/?ref_=nv_sr_srsg_3_tt_7_nm_1_q_Doom"
 }
