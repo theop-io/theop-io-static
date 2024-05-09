@@ -1,12 +1,17 @@
 {
-  "productionName": "Dirty Dancing (1900)",
-  "status": "draft",
+  "productionName": "Dirty Dancing (1987)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Randy Nolen",
       "episodic": {},
       "shortDescription": "The Time of My Life",
-      "description": "Simply a classic shot from cinema history.  This shot will undoubtedly appear in any montage featuring Patrick Swayze, Jennifer Grey, or just plain great movie moments."
+      "description": "Simply a classic shot from cinema history.  This shot will undoubtedly appear in any montage featuring Patrick Swayze, Jennifer Grey, or just plain great movie moments.",
+      "vimeoLink": "https://vimeo.com/944409313?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0092890/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_dirty%2520dancing"
 }
