@@ -1,20 +1,27 @@
 {
-  "status": "published",
   "productionName": "Deep Impact (1998)",
-  "productionImdbLink": "https://www.imdb.com/title/tt0120647/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Deep%2520Impact",
+  "status": "published",
   "shots": [
     {
-      "shortDescription": "Come On Come on",
-      "vimeoLink": "https://vimeo.com/944409236?share=copy",
-      "description": "A frenetic move through the office and beyond.",
-      "tags": [
-        "High mode",
-        "Running",
-        "Film",
-        "Whip pan"
-      ],
       "operatorName": "Guy Bee",
-      "directorName": "Mimi Leder"
+      "directorName": "Mimi Leder",
+      "tags": [
+        "Film"
+      ],
+      "shortDescription": "Come on Come On",
+      "description": "Frenetic move through an office and beyond.",
+      "vimeoLink": "https://vimeo.com/944409236?share=copy"
+    },
+    {
+      "operatorName": "Guy Bee",
+      "directorName": "Mimi Leder",
+      "tags": [
+        "Film"
+      ],
+      "vimeoLink": "https://vimeo.com/944409267?share=copy",
+      "shortDescription": "The Press",
+      "description": "Simple elegant move through crowded hallways"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0120647/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Deep%2520Impact"
 }
