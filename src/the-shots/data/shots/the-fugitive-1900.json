@@ -1,12 +1,28 @@
 {
-  "productionName": "The Fugitive (1900)",
-  "status": "draft",
+  "productionName": "The Fugitive (1993)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Robert Ulland",
       "episodic": {},
       "shortDescription": "St. Patrick's Day Parade",
-      "description": "Here is a great use of the Steadicam to enhance the elements of the scene: confusion, noise, crowds, searching."
+      "description": "Here is a great use of the Steadicam to enhance the elements of the scene: confusion, noise, crowds, searching.",
+      "vimeoLink": "https://vimeo.com/945493501?share=copy",
+      "tags": [
+        "High mode",
+        "Film"
+      ]
+    },
+    {
+      "operatorName": "Robert Ulland",
+      "tags": [
+        "High mode",
+        "Film"
+      ],
+      "vimeoLink": "https://vimeo.com/945493495?share=copy",
+      "shortDescription": "Police Briefing",
+      "description": "A nice move around the police briefing room."
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0106977/?ref_=fn_al_tt_1"
 }
