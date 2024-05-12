@@ -1,18 +1,26 @@
 {
-  "productionName": "Good Night, and Good Luck. (1900)",
-  "status": "draft",
+  "productionName": "Good Night, and Good Luck. (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Colin Anderson",
       "episodic": {},
       "shortDescription": "Senator McCarthy",
-      "description": "This is a small leading shot.  The shot starts out in a lock-off, boomed low as the actor is seated.  The lock-off is executed with great stability, and could easily be mistaken for tripod if it did not begin to move.  Consistent headroom is kept while the actor stands, as well as when he climbs a small flight of stairs."
+      "description": "This is a small leading shot.  The shot starts out in a lock-off, boomed low as the actor is seated.  The lock-off is executed with great stability, and could easily be mistaken for tripod if it did not begin to move.  Consistent headroom is kept while the actor stands, as well as when he climbs a small flight of stairs.",
+      "tags": [
+        "High mode"
+      ],
+      "vimeoLink": "https://vimeo.com/945493588?share=copy"
     },
     {
       "operatorName": "Colin Anderson",
       "episodic": {},
       "shortDescription": "Live Voice-over",
-      "description": "This shot is a fast paced, leading shot as the actor rushes through the newsroom.  Great composition is kept, despite the pace and commotion in the room."
+      "description": "This shot is a fast paced, leading shot as the actor rushes through the newsroom.  Great composition is kept, despite the pace and commotion in the room.",
+      "vimeoLink": "https://vimeo.com/945493595?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
   ]
 }
