@@ -1,12 +1,17 @@
 {
-  "productionName": "Four Rooms (1900)",
-  "status": "draft",
+  "productionName": "Four Rooms (1995)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jonathan Brown",
       "episodic": {},
       "shortDescription": "The Wrong Man",
-      "description": "An incredibly unique shot.  We switch back and forth from 3rd to 1st person as the shot unfolds.  It's not what one would consider a typical Steadicam \"long-shot\" in that it tracks a number of characters over great distance.  Instead, we remain within this singular room while the action unfolds."
+      "description": "An incredibly unique shot.  We switch back and forth from 3rd to 1st person as the shot unfolds.  It's not what one would consider a typical Steadicam \"long-shot\" in that it tracks a number of characters over great distance.  Instead, we remain within this singular room while the action unfolds.",
+      "vimeoLink": "https://vimeo.com/945493448?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0113101/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Four%2520Rooms"
 }
