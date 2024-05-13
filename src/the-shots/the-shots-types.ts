@@ -10,6 +10,10 @@ export type ShotEpisodicData = {
   episodeTitle?: string;
 };
 
+export type ShotEquipment = {
+  item: string;
+};
+
 export type Shot = {
   operatorName: string;
   secondaryOperatorName?: string;
@@ -25,7 +29,7 @@ export type Shot = {
   description: string;
 
   operatorComments?: string;
-  equipment?: string;
+  equipmentList?: ShotEquipment[];
 };
 
 export const ProductionStatusValues = ["published", "draft"] as const;

@@ -457,10 +457,13 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
             ),
           ]
         : []),
-      ...(shot.equipment
+      ...(shot.equipmentList
         ? [
             createElementWithChildren("h4", "Equipment"),
-            createElementWithChildren("div", shot.equipment),
+            createElementWithChildren(
+              "ul",
+              ...shot.equipmentList.map((e) => createElementWithChildren("li", e.item))
+            ),
           ]
         : [])
     ),

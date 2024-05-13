@@ -85,7 +85,11 @@ export const productionShotSchema = yup.object({
   description: yup.string().required(),
   // Optional additional content
   operatorComments: yup.string(),
-  equipment: yup.string(),
+  equipmentList: yup.array().of(
+    yup.object({
+      item: yup.string().required(),
+    })
+  ),
 });
 
 export const productionFileSchema = yup
