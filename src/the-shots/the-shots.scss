@@ -1,6 +1,9 @@
 #the_shots_wrapper {
   @include clearfix;
 
+  $the-shots-highlight: #62a044; // Pantone 369U
+  // also consider #00b140
+
   .the_shots_selectors {
     display: flex;
     column-gap: 1em;
@@ -58,7 +61,7 @@
   }
 
   a {
-    color: red;
+    color: $the-shots-highlight;
   }
 
   h2 {
@@ -80,6 +83,7 @@
     margin-bottom: 0;
 
     font-size: 1.25rem;
+    color: $the-shots-highlight;
   }
 
   h2,
