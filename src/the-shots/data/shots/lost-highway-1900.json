@@ -6,7 +6,12 @@
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "Title Sequence",
-      "description": "While it is certainly not a traditional Steadicam shot, it could be considered a traditional David Lynch shot - whatever that may be.\r\n\r\nIt has earned its place in Steadicam shot history due to its outside-the-box thinking.  The production could easily have mounted the camera on a vehicle to get the shot.  However, this would have created an image that would've been too steady - lifeless.  Handheld would have been too shaky.  The Steadicam provided just enough drift that when the footage was sped up, the frame is given the life necessary to set the proper tone."
+      "description": "While it is certainly not a traditional Steadicam shot, it could be considered a traditional David Lynch shot - whatever that may be.\r\n\r\nIt has earned its place in Steadicam shot history due to its outside-the-box thinking.  The production could easily have mounted the camera on a vehicle to get the shot.  However, this would have created an image that would've been too steady - lifeless.  Handheld would have been too shaky.  The Steadicam provided just enough drift that when the footage was sped up, the frame is given the life necessary to set the proper tone.",
+      "equipmentList": [
+        {
+          "item": "Vehicle"
+        }
+      ]
     }
   ]
 }

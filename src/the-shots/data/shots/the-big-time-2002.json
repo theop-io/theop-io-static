@@ -8,7 +8,15 @@
       "shortDescription": "The Busy Office",
       "description": "This shot follows a number of our characters around a busy office set.  A set and environment such as this almost requires a Steadicam to help enhance the energy created by the great amount of movement.  When the movement stops, there are great lock-offs.",
       "operatorComments": "I would say that it is an example of the influence of \"ER\" on the use of steadicam in TV.  The pilot was produced by the folks at ER and the Director was a veteran of ER and The West Wing.  Perhaps by tooling down the hallway we create energy for the characters and there lives.  We actually covered the 1st portion of the shot on 85mm but they only used a small portion of it.  I don't think it was because of the work as I remember being satisfied with the takes we did.",
-      "vimeoLink": "https://vimeo.com/929914076"
+      "vimeoLink": "https://vimeo.com/929914076",
+      "equipmentList": [
+        {
+          "item": "Moviecam Compact"
+        },
+        {
+          "item": "85mm (partially)"
+        }
+      ]
     }
   ]
 }

@@ -6,31 +6,59 @@
       "operatorName": "Tilman Büttner",
       "episodic": {},
       "shortDescription": "Opening Moments",
-      "description": "This is the opening shot of the only feature-length film in history to be shot in one complete take.  \"Cut\" will be called about one hour and thirty minutes later.  Here, we follow the characters out of the carriage and into the hermitage."
+      "description": "This is the opening shot of the only feature-length film in history to be shot in one complete take.  \"Cut\" will be called about one hour and thirty minutes later.  Here, we follow the characters out of the carriage and into the hermitage.",
+      "equipmentList": [
+        {
+          "item": "SONY HDW-F900"
+        }
+      ]
     },
     {
       "operatorName": "Tilman Büttner",
       "episodic": {},
       "shortDescription": "Hall of Statues",
-      "description": "(Elapsed: 20 min, 30 sec) We follow our main character as he meanders through the hall of statues - the statues themselves becoming subjects of the composition at times."
+      "description": "(Elapsed: 20 min, 30 sec) We follow our main character as he meanders through the hall of statues - the statues themselves becoming subjects of the composition at times.",
+      "equipmentList": [
+        {
+          "item": "SONY HDW-F900"
+        }
+      ]
     },
     {
       "operatorName": "Tilman Büttner",
       "episodic": {},
       "shortDescription": "Through the Courtyard",
-      "description": "(Elapsed: 50 minutes) This shot takes us from inside to outside to inside again.  Being shot in the cold of winter, there was a very large concern of condensation on the equipment as it returned from the outside back indoors.  Had this happened, the entire shot (and film) would need to be redone.  Luckily, the condensation did not form, and therefore did not ruin the take."
+      "description": "(Elapsed: 50 minutes) This shot takes us from inside to outside to inside again.  Being shot in the cold of winter, there was a very large concern of condensation on the equipment as it returned from the outside back indoors.  Had this happened, the entire shot (and film) would need to be redone.  Luckily, the condensation did not form, and therefore did not ruin the take.",
+      "equipmentList": [
+        {
+          "item": "SONY HDW-F900"
+        }
+      ]
     },
     {
       "operatorName": "Tilman Büttner",
       "episodic": {},
       "shortDescription": "Chasing the Dancers",
-      "description": "(Elapsed: 1 hour, 8 minutes) In this shot, we move quickly down a long hall after a group of young dancers.  Although running shots can and are done often, they are challenging, and usually require more than one take.  In the case of this film, they did not have that liberty.  In order to ensure the take would be clean, as well as give Buttner's legs a much needed break, the crew wheeled in a dolly on which Buttner stood as he was pushed down the hall after the girls."
+      "description": "(Elapsed: 1 hour, 8 minutes) In this shot, we move quickly down a long hall after a group of young dancers.  Although running shots can and are done often, they are challenging, and usually require more than one take.  In the case of this film, they did not have that liberty.  In order to ensure the take would be clean, as well as give Buttner's legs a much needed break, the crew wheeled in a dolly on which Buttner stood as he was pushed down the hall after the girls.",
+      "equipmentList": [
+        {
+          "item": "Dolly"
+        },
+        {
+          "item": "SONY HDW-F900"
+        }
+      ]
     },
     {
       "operatorName": "Tilman Büttner",
       "episodic": {},
       "shortDescription": "The Grand Hall",
-      "description": "(Elapsed: 1 hour, 28 minutes) This shot shows the sheer scale of this production.  To see the number of people involved, in addition to the one-take nature of this film, it is obvious that this took a level of organization and coordination not frequently seen."
+      "description": "(Elapsed: 1 hour, 28 minutes) This shot shows the sheer scale of this production.  To see the number of people involved, in addition to the one-take nature of this film, it is obvious that this took a level of organization and coordination not frequently seen.",
+      "equipmentList": [
+        {
+          "item": "SONY HDW-F900"
+        }
+      ]
     }
   ]
 }

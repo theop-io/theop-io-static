@@ -24,13 +24,23 @@
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Santa Fe",
-      "description": "This is a great example of operating within a confined space.  Shot on an actual NYC subway car, the skill of the operator, along with the abilities of the new Alien Revolution allowed for very dynamic camera movement in a very non-dynamic environment."
+      "description": "This is a great example of operating within a confined space.  Shot on an actual NYC subway car, the skill of the operator, along with the abilities of the new Alien Revolution allowed for very dynamic camera movement in a very non-dynamic environment.",
+      "equipmentList": [
+        {
+          "item": "Alien Revolution"
+        }
+      ]
     },
     {
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "La Vie Boheme",
-      "description": "This shot tracks around the cast and set as they sing inside a restaurant.  This shot, and the entire production of \"Rent\" was one of the first major productions to use the new Alien Revolution technology."
+      "description": "This shot tracks around the cast and set as they sing inside a restaurant.  This shot, and the entire production of \"Rent\" was one of the first major productions to use the new Alien Revolution technology.",
+      "equipmentList": [
+        {
+          "item": "Alien Revolution"
+        }
+      ]
     },
     {
       "operatorName": "Will Arnot",
@@ -42,7 +52,12 @@
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Take Me or Leave Me pt 2",
-      "description": "This shot tracks the actors partway down a set of stairs and into a pool room as they sing.  The new Alien Revolution was used to track the actress across the pool table."
+      "description": "This shot tracks the actors partway down a set of stairs and into a pool room as they sing.  The new Alien Revolution was used to track the actress across the pool table.",
+      "equipmentList": [
+        {
+          "item": "Alien Revolution"
+        }
+      ]
     }
   ]
 }

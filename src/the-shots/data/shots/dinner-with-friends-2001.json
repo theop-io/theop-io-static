@@ -8,7 +8,18 @@
       "shortDescription": "Sidewalk Walk and Talk",
       "description": "A simple but well executed walk-and-talk.  We start with a tilt down on the actors as they emerge from the subway and proceed down the sidewalk.  This is another shot demonstrating perfection of the basics.",
       "operatorComments": "Casey's Bar in downtown LA standing in for NYC. This was my first time operating for Roger Deakins (with Norman Jewison directing), so although it was a deceptively simple shot I wanted it to be perfecto.",
-      "vimeoLink": "https://vimeo.com/944409297?share=copy"
+      "vimeoLink": "https://vimeo.com/944409297?share=copy",
+      "equipmentList": [
+        {
+          "item": "PRO 1, PRO arm, vest"
+        },
+        {
+          "item": "Moviecam SL"
+        },
+        {
+          "item": "Cooke S4's"
+        }
+      ]
     }
   ],
   "productionImdbLink": "https://www.imdb.com/title/tt0271461/?ref_=fn_al_tt_1"

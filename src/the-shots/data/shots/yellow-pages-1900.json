@@ -6,7 +6,15 @@
       "operatorName": "Yosu Inchaustegui",
       "episodic": {},
       "shortDescription": "Lip dub for Yellow pages",
-      "description": "A good working day... This video was made in only 4-5hours..\r\nCamera Canon Mark-II 5D\r\nSled: Ultra2"
+      "description": "A good working day... This video was made in only 4-5hours..\r\nCamera Canon Mark-II 5D\r\nSled: Ultra2",
+      "equipmentList": [
+        {
+          "item": "Canon Mark-II 5D"
+        },
+        {
+          "item": "Ultra2 with antlers"
+        }
+      ]
     }
   ]
 }

@@ -6,7 +6,15 @@
       "operatorName": "Valentin Monge",
       "episodic": {},
       "shortDescription": "Sur le vif",
-      "description": "An amazing physical feat of operating.  A vast majority of this video is at speeds no slower than a jog, not to mention navigating stairs and other obstacles.  The spaces in which they are shooting are too small for dollies, rickshaws or vehicles.  It is 100% human, and 100% incredible."
+      "description": "An amazing physical feat of operating.  A vast majority of this video is at speeds no slower than a jog, not to mention navigating stairs and other obstacles.  The spaces in which they are shooting are too small for dollies, rickshaws or vehicles.  It is 100% human, and 100% incredible.",
+      "equipmentList": [
+        {
+          "item": "Cinema Products 3A"
+        },
+        {
+          "item": "Arri 35-3"
+        }
+      ]
     }
   ]
 }

@@ -7,7 +7,30 @@
       "episodic": {},
       "shortDescription": "Thursday's Child",
       "description": "This is a music video by a Dutch pop group.  It is shot entirely on Steadicam.  The timeframe in which the entire shoot took place was very small.  The video is a great example of the versatility of the tool, and the operator.",
-      "operatorComments": "I shot that video in 2005. We shot it in a art musea and we had only 6 hours to do it. It took 2 hours of pre lighting, one hour for the reharsel and 3 hours for the shoot. Inside and outside. Because of the copyright of the paintings we shot mostly long lenses. Up to 85mm.  Some of the song was run at double speed."
+      "operatorComments": "I shot that video in 2005. We shot it in a art musea and we had only 6 hours to do it. It took 2 hours of pre lighting, one hour for the reharsel and 3 hours for the shoot. Inside and outside. Because of the copyright of the paintings we shot mostly long lenses. Up to 85mm.  Some of the song was run at double speed.",
+      "equipmentList": [
+        {
+          "item": "Glidecam Gold"
+        },
+        {
+          "item": "Benz 5000 Follow Focus"
+        },
+        {
+          "item": "Shot on XD-Cam"
+        },
+        {
+          "item": "Progressive"
+        },
+        {
+          "item": "Pro35 Adapter"
+        },
+        {
+          "item": "Prime Lenses"
+        },
+        {
+          "item": "Kino Ringlight"
+        }
+      ]
     }
   ]
 }

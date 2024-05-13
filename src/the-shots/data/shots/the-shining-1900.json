@@ -48,7 +48,18 @@
       "operatorName": "Garrett Brown",
       "episodic": {},
       "shortDescription": "Danny Chase",
-      "description": "This is a great behind the scenes look at the shooting of a piece of Danny's chase.  It shows Garrett and his wheelchair setup that was used throughout the production of the film."
+      "description": "This is a great behind the scenes look at the shooting of a piece of Danny's chase.  It shows Garrett and his wheelchair setup that was used throughout the production of the film.",
+      "equipmentList": [
+        {
+          "item": "Model II"
+        },
+        {
+          "item": "Garfield Mount"
+        },
+        {
+          "item": "Wheelchair"
+        }
+      ]
     },
     {
       "operatorName": "Garrett Brown",

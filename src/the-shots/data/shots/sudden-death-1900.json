@@ -6,7 +6,12 @@
       "operatorName": "Jerry Holway",
       "episodic": {},
       "shortDescription": "Flying off the ice",
-      "description": "Some shots are just plain fun to watch.  As an operator, thinking about what it would be like to do a shot like this, it almost makes you dizzy.  \r\n\r\nJerry used his Skyman invention to pull this one off.  A pulley system, attached to a truck outside the stadium lifted him from the ice, all the way through the roof.  It must've been a blast!"
+      "description": "Some shots are just plain fun to watch.  As an operator, thinking about what it would be like to do a shot like this, it almost makes you dizzy.  \r\n\r\nJerry used his Skyman invention to pull this one off.  A pulley system, attached to a truck outside the stadium lifted him from the ice, all the way through the roof.  It must've been a blast!",
+      "equipmentList": [
+        {
+          "item": "Skyman"
+        }
+      ]
     }
   ]
 }
