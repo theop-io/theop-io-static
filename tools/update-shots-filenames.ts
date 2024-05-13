@@ -26,11 +26,14 @@ productionFiles.forEach((productionFileName) => {
 
     const revisedProductionFileName = `${productionName
       .replace(/[\(\)]/g, "")
-      .replace(/[^a-zA-Z0-9]/g, "-")}-${productionYear}.json`.toLowerCase();
+      .replace(/[^a-zA-Z0-9]/g, "-")}-${String(productionYear).padStart(
+      4,
+      "0"
+    )}.json`.toLowerCase();
 
     if (productionFileName !== revisedProductionFileName) {
       console.log(`Renaming ${productionFileName} -> ${revisedProductionFileName}`);
-      
+
       fs.renameSync(
         path.join(shotsSourceDirectory, productionFileName),
         path.join(shotsSourceDirectory, revisedProductionFileName)
