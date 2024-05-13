@@ -212,7 +212,7 @@ function displayShotIndex(
         createElementWithChildren("th", "Production"),
         createElementWithChildren("th", "Operator"),
         createElementWithChildren("th", "Shot"),
-        createElementWithChildren("th", "Tags")
+        createElementWithChildren("th", "Features")
       ),
       // Build shot rows
       ...TheShotsProductions.flatMap((production) => {
@@ -549,7 +549,7 @@ function buildTagSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
   return buildSelector(
     TheShotsTags,
     selectedTag,
-    "Tags",
+    "Features",
     (tag: string) => tag,
     (tag: string) => getURLFor("tag", urlForTag(tag))
   );
