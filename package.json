@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "codegen": "npm-run-all --parallel codegen:*",
     "codegen:svg2css": "ts-node ./tools/svg-to-css.ts ./src/assets/packed ./src/generated/svg.scss",
-    "codegen:shots": "ts-node ./tools/the-shots-build-tool.ts ./src/the-shots/data/shots ./src/the-shots/data/the-shots-tags.json ./src/the-shots/generated/the-shots-db.ts",
+    "codegen:shots": "ts-node ./tools/the-shots-build-tool.ts ./src/the-shots/generated/the-shots-db.ts",
     "codegen:words": "ts-node ./tools/the-words-build-tool.ts ./src/the-words/the-words-list.txt ./src/the-words/generated/the-words-db.ts",
     "build": "npm run codegen && webpack --config webpack.prod.ts",
     "serve": "npm run codegen && webpack serve --config webpack.dev.ts",

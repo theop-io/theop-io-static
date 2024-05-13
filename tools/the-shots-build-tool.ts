@@ -2,115 +2,42 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import * as yup from "yup";
+
+import { Production, Shot, Timestamp } from "../src/the-shots/the-shots-types";
 
 import {
-  Production,
-  ProductionStatusValues,
-  Shot,
-  Timestamp,
-} from "../src/the-shots/the-shots-types";
+  productionFileSchema,
+  productionImdbLinkRegex,
+  parseProductionNameAndYear,
+  ProductionFile,
+  ProductionShot,
+  shotDbRoot,
+  shotTags,
+  vimeoLinkRegex,
+} from "./the-shots-cms";
 
 //
 // Process command line
 //
 
-if (process.argv.length < 5) {
-  console.error(
-    `Usage: ts-node ${process.argv[1]} <path-to-shots-data-directory> <path-to-shot-tags-file> <path-to-generated-output>`
-  );
+if (process.argv.length < 3) {
+  console.error(`Usage: ts-node ${process.argv[1]} <path-to-generated-output>`);
   process.exit(1);
 }
 
-const shotsSourceDirectory = process.argv[2];
-const shotTagsSourceFile = process.argv[3];
-const shotsDatabaseDestinationFile = process.argv[4];
-
-//
-// Read list of known/allowed shot tags
-//
-
-function readKnownShotTags(sourceFile: string) {
-  const shotTagSchema = yup.object({
-    "shot-tag": yup.string().required(),
-  });
-
-  const shotTagsFileSchema = yup.object({
-    "shot-tags": yup.array().of(shotTagSchema).required(),
-  });
-
-  const shotTagsData = fs.readFileSync(sourceFile, "utf-8");
-  const shotTagsJson = JSON.parse(shotTagsData);
-
-  const shotTagsEnvelope = shotTagsFileSchema.validateSync(shotTagsJson, { stripUnknown: true });
-
-  return shotTagsEnvelope["shot-tags"].flatMap((t) => t["shot-tag"]);
-}
-
-const shotTags = readKnownShotTags(shotTagsSourceFile);
-
-//
-// Define data shape
-//
-
-const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
-const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
-const vimeoLinkRegex = /^https:\/\/vimeo\.com\/(\d+)(\?.*)?$/;
-
-export const productionShotSchema = yup.object({
-  // Operator info
-  operatorName: yup.string().required(),
-  secondaryOperatorName: yup.string(),
-  // Optional metadata
-  timestamp: yup.string().matches(/^\d+:(?:\d{2}:)?\d{2}$/, { excludeEmptyString: true }),
-  directorName: yup.string(),
-  dpName: yup.string(),
-  episodic: yup.object({
-    season: yup
-      .number()
-      .integer()
-      // .transform() empty strings left behind when there _was_ a number and it was removed
-      // (DecapCMS handles this somewhat poorly)
-      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
-    episode: yup
-      .number()
-      .integer()
-      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
-    episodeTitle: yup.string(),
-  }),
-  tags: yup.array().of(yup.string().oneOf(shotTags).required()),
-  vimeoLink: yup.string().matches(vimeoLinkRegex),
-  // Content
-  shortDescription: yup.string().required(),
-  description: yup.string().required(),
-  // Optional additional content
-  operatorComments: yup.string(),
-  equipmentList: yup.array().of(
-    yup.object({
-      item: yup.string().required(),
-    })
-  ),
-});
-
-export const productionFileSchema = yup
-  .object({
-    productionName: yup.string().required().matches(productionNameAndYearRegex),
-    status: yup.string().required().oneOf(ProductionStatusValues),
-    productionImdbLink: yup.string().matches(productionImdbLinkRegex, { excludeEmptyString: true }),
-    shots: yup.array().of(productionShotSchema).required(),
-  })
-  .required();
+const shotsDatabaseDestinationFile = process.argv[2];
 
 //
 // Read shots data
 //
 
-const productions = new Array<yup.InferType<typeof productionFileSchema>>();
+const productions = new Array<ProductionFile>();
 
-const productionFiles = fs.readdirSync(shotsSourceDirectory);
+const productionDbRoot = path.join(shotDbRoot, "shots");
+const productionFiles = fs.readdirSync(productionDbRoot);
 
 productionFiles.forEach((productionFileName) => {
-  const productionFilePath = path.join(shotsSourceDirectory, productionFileName);
+  const productionFilePath = path.join(productionDbRoot, productionFileName);
   const productionData = fs.readFileSync(productionFilePath, "utf-8");
   const productionJson = JSON.parse(productionData);
 
@@ -151,7 +78,7 @@ function parseVimeoLink(vimeoLink?: string): number | undefined {
   return parseInt(vimeoLinkGroups[1]); // [1] = first capture group
 }
 
-function parseShot(shot: yup.InferType<typeof productionShotSchema>): Shot {
+function parseShot(shot: ProductionShot): Shot {
   const { vimeoLink, ...shotWithoutVimeoLink } = shot;
 
   return {
@@ -162,19 +89,6 @@ function parseShot(shot: yup.InferType<typeof productionShotSchema>): Shot {
     operatorName: shot.operatorName as string, // Validated by yup above (but typed poorly)
     shortDescription: shot.shortDescription as string,
     description: shot.description as string,
-  };
-}
-
-function parseProductionNameAndYear(productionName: string) {
-  const productionNameAndYear = productionName.match(productionNameAndYearRegex); // Validated by yup above
-
-  if (!productionNameAndYear) {
-    throw new Error(`Could not parse production name ${productionName}`);
-  }
-
-  return {
-    productionName: productionNameAndYear[1].trim(), // [1] = first capture group
-    productionYear: parseInt(productionNameAndYear[2]), // [2] = second capture group
   };
 }
 

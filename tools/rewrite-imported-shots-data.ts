@@ -5,7 +5,7 @@ import * as path from "path";
 import * as yup from "yup";
 
 import theShotsData from "../src/the-shots/imported-data/the-shots-data";
-import { productionFileSchema, productionShotSchema } from "./the-shots-build-tool";
+import { productionFileSchema, productionShotSchema } from "./the-shots-cms";
 
 type ProductionFile = yup.InferType<typeof productionFileSchema>;
 
