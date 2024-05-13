@@ -197,8 +197,8 @@ collections:
           - name: "equipmentList"
             label: "Equipment"
             widget: "list"
-            field:
-              - name: "equipment"
+            fields:
+              - name: "item"
                 label: "Item"
                 widget: "text"
             required: false
