@@ -194,7 +194,11 @@ collections:
             label: "Operator Comments"
             widget: "text"
             required: false
-          - name: "equipment"
+          - name: "equipmentList"
             label: "Equipment"
-            widget: "text"
+            widget: "list"
+            field:
+              - name: "equipment"
+                label: "Item"
+                widget: "text"
             required: false
