@@ -1,12 +1,14 @@
 {
-  "productionName": "Halloween (1900)",
-  "status": "draft",
+  "productionName": "Halloween II (2007)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "BJ McDonnell",
       "episodic": {},
       "shortDescription": "Walk Through the Cemetary",
-      "description": "A nice oner covering a large amount of dialog and physical space.  Some of the best moments of the shot include the subtle moves in and out of the dialog as the characters are talking close."
+      "description": "A nice oner covering a large amount of dialog and physical space.  Some of the best moments of the shot include the subtle moves in and out of the dialog as the characters are talking close.",
+      "vimeoLink": "https://vimeo.com/945508629?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt1311067/?ref_=nm_flmg_t_81_cam"
 }
