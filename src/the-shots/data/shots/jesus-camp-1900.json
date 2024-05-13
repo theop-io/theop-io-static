@@ -1,12 +1,17 @@
 {
-  "productionName": "Jesus Camp (1900)",
-  "status": "draft",
+  "productionName": "Jesus Camp (2006)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Andrew Jansen",
       "episodic": {},
       "shortDescription": "Interest in the Steadicam",
-      "description": "In one of the extended scenes from the film, Ted Haggard takes an exceptional interest in the Steadicam.  \r\n\r\nAll other elements aside, the lens flare is very interesting in this shot, with multiple flares converging at one spot in the center of the frame.  When there is a subject in that center, they appear almost \"heavenly\"..... go figure."
+      "description": "In one of the extended scenes from the film, Ted Haggard takes an exceptional interest in the Steadicam.  \r\n\r\nAll other elements aside, the lens flare is very interesting in this shot, with multiple flares converging at one spot in the center of the frame.  When there is a subject in that center, they appear almost \"heavenly\"..... go figure.",
+      "vimeoLink": "https://vimeo.com/945508877?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0486358/?ref_=nv_sr_srsg_0_tt_2_nm_6_q_jesus%2520camp"
 }
