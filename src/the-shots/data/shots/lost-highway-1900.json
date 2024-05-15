@@ -1,6 +1,6 @@
 {
-  "productionName": "Lost Highway (1900)",
-  "status": "draft",
+  "productionName": "Lost Highway (1997)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Dan Kneece",
@@ -11,7 +11,14 @@
         {
           "item": "Vehicle"
         }
-      ]
+      ],
+      "directorName": "David Lynch",
+      "tags": [
+        "Film",
+        "Hardmount"
+      ],
+      "vimeoLink": "https://vimeo.com/946550788?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0116922/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_lost%2520highway"
 }
