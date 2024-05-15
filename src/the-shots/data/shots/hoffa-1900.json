@@ -1,12 +1,19 @@
 {
-  "productionName": "Hoffa (1900)",
-  "status": "draft",
+  "productionName": "Hoffa (1992)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Larry McConkey",
       "episodic": {},
       "shortDescription": "The Loading Docks",
-      "description": "This shot begins with a very interesting dissolve into the Steadicam shot.  We step onto a crane which takes us up and over the crowd of workers, before setting down on the other side of the street.  The shot continues into and through the warehouse."
+      "description": "This shot begins with a very interesting dissolve into the Steadicam shot.  We step onto a crane which takes us up and over the crowd of workers, before setting down on the other side of the street.  The shot continues into and through the warehouse.",
+      "vimeoLink": "https://vimeo.com/945508701?share=copy",
+      "tags": [
+        "Step on/Step Off",
+        "High mode",
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0104427/?ref_=nv_sr_srsg_0_tt_3_nm_5_q_hoffa"
 }
