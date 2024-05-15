@@ -1,18 +1,27 @@
 {
   "productionName": "Harry Potter and the Prisoner of Azkaban (1900)",
-  "status": "draft",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Alastair Rae",
       "episodic": {},
       "shortDescription": "Nighttime Woods",
-      "description": "Starting off with a well executed, fast run down the path, quickly changing to a nice, controlled slow movement wrapping around the tree as the characters catch their breath."
+      "description": "Starting off with a well executed, fast run down the path, quickly changing to a nice, controlled slow movement wrapping around the tree as the characters catch their breath.",
+      "vimeoLink": "https://vimeo.com/945508667?share=copy",
+      "tags": [
+        "Running"
+      ]
     },
     {
       "operatorName": "Alf Tramontin",
       "episodic": {},
       "shortDescription": "Time Necklace",
-      "description": "Beginning with a smooth wraparound of the characters, the camera pushes in tight on a necklace, quickly pulling back for a visual effects sequence.  When the sequence concludes, an excellent job is done running down the hall after the actors, even up a few stairs.  At the end, the CG takes over again."
+      "description": "Beginning with a smooth wraparound of the characters, the camera pushes in tight on a necklace, quickly pulling back for a visual effects sequence.  When the sequence concludes, an excellent job is done running down the hall after the actors, even up a few stairs.  At the end, the CG takes over again.",
+      "vimeoLink": "https://vimeo.com/945508673?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0304141/?ref_=nv_sr_srsg_3_tt_8_nm_0_q_harry%2520potter"
 }
