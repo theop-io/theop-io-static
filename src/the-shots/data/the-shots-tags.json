@@ -1,6 +1,9 @@
 {
   "shot-tags": [
     {
+      "shot-tag": "Film"
+    },
+    {
       "shot-tag": "High mode"
     },
     {
@@ -10,6 +13,9 @@
       "shot-tag": "Super post"
     },
     {
+      "shot-tag": "Stairs"
+    },
+    {
       "shot-tag": "Wave"
     },
     {
@@ -17,9 +23,6 @@
     },
     {
       "shot-tag": "Trinity"
-    },
-    {
-      "shot-tag": "Stairs"
     },
     {
       "shot-tag": "Step on/Step Off"
@@ -46,13 +49,13 @@
       "shot-tag": "Whip pan"
     },
     {
-      "shot-tag": "Film"
-    },
-    {
       "shot-tag": "Live event"
     },
     {
       "shot-tag": "BTS"
+    },
+    {
+      "shot-tag": "Escalator"
     }
   ]
 }
