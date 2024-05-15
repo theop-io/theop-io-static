@@ -1,12 +1,17 @@
 {
-  "productionName": "King Arthur (1900)",
-  "status": "draft",
+  "productionName": "King Arthur (2004)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jörg Widmer",
       "episodic": {},
       "shortDescription": "Circling the Horse",
-      "description": "This shot has some very interesting framing, almost creating an effect like the camera and actors are on a turntable.  The subject of the shot, as well as the character dirty in the foreground are held perfectly as the horse circles the actor, creating a very interesting look."
+      "description": "This shot has some very interesting framing, almost creating an effect like the camera and actors are on a turntable.  The subject of the shot, as well as the character dirty in the foreground are held perfectly as the horse circles the actor, creating a very interesting look.",
+      "vimeoLink": "https://vimeo.com/946550635?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0349683/?ref_=nv_sr_srsg_3_tt_8_nm_0_q_king%2520arthur"
 }
