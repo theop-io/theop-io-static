@@ -1,6 +1,6 @@
 {
-  "productionName": "Kill Bill: Vol. 1 (1900)",
-  "status": "draft",
+  "productionName": "Kill Bill: Vol. 1 (2003)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Larry McConkey",
@@ -11,7 +11,14 @@
         {
           "item": "Pegasus Crane"
         }
-      ]
+      ],
+      "directorName": "Quentin Tarantino",
+      "tags": [
+        "Film",
+        "Step on/Step Off"
+      ],
+      "vimeoLink": "https://vimeo.com/946550589?share=copy"
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0266697/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_kill%2520bill"
 }
