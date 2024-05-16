@@ -1,18 +1,27 @@
 {
-  "productionName": "Love Affair (1900)",
-  "status": "draft",
+  "productionName": "Love Affair (1994)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Randy Nolen",
       "episodic": {},
       "shortDescription": "Opening Shot",
-      "description": "Opening shots are always very important in establishing the feeling of the movie to come.  This shot is nice, fast paced, and executed very well despite moving backwards rapidly.  The most difficult lock-offs to do are those that end after a pan.  This one demonstrates a solid lock-off coming out of a pan."
+      "description": "Opening shots are always very important in establishing the feeling of the movie to come.  This shot is nice, fast paced, and executed very well despite moving backwards rapidly.  The most difficult lock-offs to do are those that end after a pan.  This one demonstrates a solid lock-off coming out of a pan.",
+      "vimeoLink": "https://vimeo.com/946550847?share=copy",
+      "tags": [
+        "Film"
+      ]
     },
     {
       "operatorName": "Garrett Brown",
       "episodic": {},
       "shortDescription": "On the Boat",
-      "description": "Another use for the Steadicam.  The boat and actors are stationary and no, it is not poor operating.  The tipping horizons are all intentional, used as a device to simulate a moving boat."
+      "description": "Another use for the Steadicam.  The boat and actors are stationary and no, it is not poor operating.  The tipping horizons are all intentional, used as a device to simulate a moving boat.",
+      "vimeoLink": "https://vimeo.com/946550861?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0110391/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Love%2520Affair"
 }
