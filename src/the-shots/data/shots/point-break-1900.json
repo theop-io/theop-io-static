@@ -1,12 +1,17 @@
 {
-  "productionName": "Point Break (1900)",
-  "status": "draft",
+  "productionName": "Point Break (1991)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "James Muro",
       "episodic": {},
       "shortDescription": "Welcome to the Department",
-      "description": "Our distance between camera and subject changes often throughout this long shot, giving the AC a difficult task.  Muro's whip pans throughout this shot are dead on each time."
+      "description": "Our distance between camera and subject changes often throughout this long shot, giving the AC a difficult task.  Muro's whip pans throughout this shot are dead on each time.",
+      "vimeoLink": "https://vimeo.com/946962163?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0102685/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_point%2520break"
 }
