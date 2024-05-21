@@ -1,18 +1,27 @@
 {
-  "productionName": "Philadelphia (1900)",
-  "status": "draft",
+  "productionName": "Philadelphia (1993)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Garrett Brown",
       "episodic": {},
       "shortDescription": "The Summons",
-      "description": "An incredibly smooth shot, even by Steadicam standards.  This demonstrates a perfect balance between human operation and simply letting the Steadicam do its job.  Too much human will cause noticeable movement in the frame.  Too much machine will cause the framing to be lost."
+      "description": "An incredibly smooth shot, even by Steadicam standards.  This demonstrates a perfect balance between human operation and simply letting the Steadicam do its job.  Too much human will cause noticeable movement in the frame.  Too much machine will cause the framing to be lost.",
+      "tags": [
+        "Film"
+      ],
+      "vimeoLink": "https://vimeo.com/946962124?share=copy"
     },
     {
       "operatorName": "Garrett Brown",
       "episodic": {},
       "shortDescription": "Exiting the Courthouse",
-      "description": "This shot is a nice example of the introduction of a large crowd, and showing the feeling of the character trying to make his way through it."
+      "description": "This shot is a nice example of the introduction of a large crowd, and showing the feeling of the character trying to make his way through it.",
+      "vimeoLink": "https://vimeo.com/946962144?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0107818/?ref_=nv_sr_srsg_3_tt_8_nm_0_q_philadelphia"
 }
