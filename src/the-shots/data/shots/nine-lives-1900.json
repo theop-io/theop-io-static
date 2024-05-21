@@ -1,6 +1,6 @@
 {
-  "productionName": "Nine Lives (1900)",
-  "status": "draft",
+  "productionName": "Nine Lives (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Dan Kneece",
@@ -17,6 +17,11 @@
         {
           "item": "Preston FIZ"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/946961926?share=copy",
+      "tags": [
+        "Film",
+        "Low mode"
       ]
     },
     {
@@ -34,6 +39,10 @@
         {
           "item": "Preston FIZ"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "tags": [
+        "Film"
       ]
     },
     {
@@ -51,31 +60,55 @@
         {
           "item": "Preston FIZ"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "tags": [
+        "Film"
       ]
     },
     {
       "operatorName": "Henry Tirl",
       "episodic": {},
       "shortDescription": "Henry Tirl Interview",
-      "description": "In this behind the scenes interview, Henry Tirl discusses the challenges of executing a long one-shot."
+      "description": "In this behind the scenes interview, Henry Tirl discusses the challenges of executing a long one-shot.",
+      "tags": [
+        "BTS"
+      ],
+      "vimeoLink": "https://vimeo.com/946961952?share=copy"
     },
     {
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "The Graveyard Scene",
-      "description": "This clip has some excellent behind the scenes footage and narration by Dan Kneece of the graveyard scene from \"Nine Lives\"."
+      "description": "This clip has some excellent behind the scenes footage and narration by Dan Kneece of the graveyard scene from \"Nine Lives\".",
+      "vimeoLink": "https://vimeo.com/946961968?share=copy",
+      "tags": [
+        "BTS",
+        "Low mode",
+        "Film"
+      ]
     },
     {
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "Dan Kneece Interview",
-      "description": "In this behind the scenes interview, Dan Kneece describes why he took the job on this film."
+      "description": "In this behind the scenes interview, Dan Kneece describes why he took the job on this film.",
+      "tags": [
+        "BTS"
+      ],
+      "vimeoLink": "https://vimeo.com/946961981?share=copy"
     },
     {
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "Dan's Equipment",
-      "description": "In this behind the scenes interview with Dan Kneece, Dan talks about the gear he used in the filming of the movie."
+      "description": "In this behind the scenes interview with Dan Kneece, Dan talks about the gear he used in the filming of the movie.",
+      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "tags": [
+        "Film",
+        "BTS"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0420015/?ref_=fn_al_tt_2"
 }
