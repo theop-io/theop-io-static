@@ -1,6 +1,6 @@
 {
-  "productionName": "Sudden Death (1900)",
-  "status": "draft",
+  "productionName": "Sudden Death (1995)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jerry Holway",
@@ -11,7 +11,12 @@
         {
           "item": "Skyman"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949132927?share=copy",
+      "tags": [
+        "Film"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0114576/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Sudden%2520Death"
 }
