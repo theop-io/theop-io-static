@@ -1,12 +1,17 @@
 {
-  "productionName": "Shakespeare in Love (1900)",
-  "status": "draft",
+  "productionName": "Shakespeare in Love (1998)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Vince McGahon",
       "episodic": {},
       "shortDescription": "Old Alleys and Streets",
-      "description": "This is a very nice shot due to its pace, its direction and its footing.  The characters are in a heated discussion, therefore moving forward at a brisk walk.  The camera leads them, meaning the operator either needs to be backing up or operating Don Juan, neither of which are easy.  Adding to the difficulty is the footing of the sets.  The streets of the time period were not nice smooth pavement.  They were uneven dirt, mud and cobblestone.  McGahon does a great job here of overcoming all three of those obstacles."
+      "description": "This is a very nice shot due to its pace, its direction and its footing.  The characters are in a heated discussion, therefore moving forward at a brisk walk.  The camera leads them, meaning the operator either needs to be backing up or operating Don Juan, neither of which are easy.  Adding to the difficulty is the footing of the sets.  The streets of the time period were not nice smooth pavement.  They were uneven dirt, mud and cobblestone.  McGahon does a great job here of overcoming all three of those obstacles.",
+      "vimeoLink": "https://vimeo.com/949132378?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0138097/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_shakespeare%2520in%2520love"
 }
