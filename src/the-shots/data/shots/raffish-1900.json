@@ -1,6 +1,6 @@
 {
-  "productionName": "Raffish (1900)",
-  "status": "draft",
+  "productionName": "Raffish (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Job Scholtze",
@@ -30,7 +30,8 @@
         {
           "item": "Kino Ringlight"
         }
-      ]
+      ],
+      "vimeoLink": "https://vimeo.com/948532622?share=copy"
     }
   ]
 }
