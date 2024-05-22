@@ -1,6 +1,6 @@
 {
-  "productionName": "Steadicam (1900)",
-  "status": "draft",
+  "productionName": "Steadicam Demos (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Patrick van Weeren",
@@ -11,10 +11,11 @@
         {
           "item": "HandsFree transporter."
         }
-      ]
+      ],
+      "vimeoLink": "https://vimeo.com/949132834?share=copy"
     },
     {
-      "operatorName": "n/a n/a",
+      "operatorName": "Unknown",
       "episodic": {},
       "shortDescription": "Merlin Demonstrations",
       "description": "This video demonstrates the amazing versatility of such a small and simple piece of equipment.  The stabilization capabilities of the system rivals that of its larger and more expensive counterparts.",
@@ -22,13 +23,15 @@
         {
           "item": "Steadicam Merlin"
         }
-      ]
+      ],
+      "vimeoLink": "https://vimeo.com/949132860?share=copy"
     },
     {
-      "operatorName": "n/a n/a",
+      "operatorName": "Unknown",
       "episodic": {},
       "shortDescription": "Paris Workshop Video",
-      "description": "A fun little video to watch containing some highlights from the Paris International Workshop.  Although the cuts happen quickly, if you have ever taken a workshop, you can tell immediately what drill is being exercised.  \r\n\r\nSome of the operators featured are Garrett Brown, Jerry Holway and Kareem La Vaullée."
+      "description": "A fun little video to watch containing some highlights from the Paris International Workshop.  Although the cuts happen quickly, if you have ever taken a workshop, you can tell immediately what drill is being exercised.  \r\n\r\nSome of the operators featured are Garrett Brown, Jerry Holway and Kareem La Vaullée.",
+      "vimeoLink": "https://vimeo.com/949132794?share=copy"
     }
   ]
 }
