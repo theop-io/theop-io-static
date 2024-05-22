@@ -1,6 +1,6 @@
 {
-  "productionName": "Rescue Me (1900)",
-  "status": "draft",
+  "productionName": "Rescue Me (2004)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Alec Jarnagin",
@@ -13,6 +13,11 @@
         {
           "item": "Sony F-900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532810?share=copy",
+      "tags": [
+        "Film",
+        "High mode"
       ]
     },
     {
@@ -26,6 +31,10 @@
         {
           "item": "F-900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532844?share=copy",
+      "tags": [
+        "High mode"
       ]
     },
     {
@@ -39,6 +48,10 @@
         {
           "item": "F-900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532831?share=copy",
+      "tags": [
+        "High mode"
       ]
     }
   ]
