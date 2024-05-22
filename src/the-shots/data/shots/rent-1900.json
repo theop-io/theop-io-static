@@ -1,24 +1,36 @@
 {
-  "productionName": "Rent (1900)",
-  "status": "draft",
+  "productionName": "Rent (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Tango Maureen pt 1",
-      "description": "This shot is a great combination of many aspects of operating: tilting, tracking, circling, pushing, lock-offs, etc."
+      "description": "This shot is a great combination of many aspects of operating: tilting, tracking, circling, pushing, lock-offs, etc.",
+      "vimeoLink": "https://vimeo.com/949119510?share=copy",
+      "tags": [
+        "AR"
+      ]
     },
     {
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Tango Maureen pt 2",
-      "description": "This shot begins on just a few of the characters, and then pulls out to show the entire room of dancers.  This is a great shot showcasing some excellent slow-moving work that would often be replaced with cutting to a dolly shot.  Instead, Arnot's skill allows the take to continue wide, and back to close-up uninterrupted."
+      "description": "This shot begins on just a few of the characters, and then pulls out to show the entire room of dancers.  This is a great shot showcasing some excellent slow-moving work that would often be replaced with cutting to a dolly shot.  Instead, Arnot's skill allows the take to continue wide, and back to close-up uninterrupted.",
+      "vimeoLink": "https://vimeo.com/948532742?share=copy",
+      "tags": [
+        "AR"
+      ]
     },
     {
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Tango Maureen pt 3",
-      "description": "This shot tracks around the actors 180 degrees before following them back up to the stage.  It contains excellent headroom maintenance as Arnot walks up the stage stairs."
+      "description": "This shot tracks around the actors 180 degrees before following them back up to the stage.  It contains excellent headroom maintenance as Arnot walks up the stage stairs.",
+      "vimeoLink": "https://vimeo.com/948532754?share=copy",
+      "tags": [
+        "AR"
+      ]
     },
     {
       "operatorName": "Will Arnot",
@@ -29,6 +41,10 @@
         {
           "item": "Alien Revolution"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532768?share=copy",
+      "tags": [
+        "AR"
       ]
     },
     {
@@ -40,13 +56,21 @@
         {
           "item": "Alien Revolution"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532777?share=copy",
+      "tags": [
+        "AR"
       ]
     },
     {
       "operatorName": "Will Arnot",
       "episodic": {},
       "shortDescription": "Take Me or Leave Me pt 1",
-      "description": "This shot involves excellent tracking of the actors as they move throughout the set."
+      "description": "This shot involves excellent tracking of the actors as they move throughout the set.",
+      "vimeoLink": "https://vimeo.com/948532791?share=copy",
+      "tags": [
+        "AR"
+      ]
     },
     {
       "operatorName": "Will Arnot",
@@ -57,7 +81,12 @@
         {
           "item": "Alien Revolution"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948532800?share=copy",
+      "tags": [
+        "AR"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0294870/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_rent"
 }
