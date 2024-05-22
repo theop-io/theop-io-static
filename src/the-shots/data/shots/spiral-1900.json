@@ -1,18 +1,24 @@
 {
-  "productionName": "Spiral (1900)",
-  "status": "draft",
+  "productionName": "Spiral (2007)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "BJ McDonnell",
       "episodic": {},
       "shortDescription": "The Artist and the Model",
-      "description": "Each moment of this shot is excellent.  It is essentially a collection of great compositions, each connected by very subtle, smooth movement.  Great job by the focus puller in this shot also."
+      "description": "Each moment of this shot is excellent.  It is essentially a collection of great compositions, each connected by very subtle, smooth movement.  Great job by the focus puller in this shot also.",
+      "vimeoLink": "https://vimeo.com/949132736?share=copy"
     },
     {
       "operatorName": "BJ McDonnell",
       "episodic": {},
       "shortDescription": "The Artist's Apartment",
-      "description": "Similar to the other shot from this same film, any one of the moments in this shot could be used as a screengrab to represent the film - they're all visually beautiful.  Although the Steadicam doesn't cover much physical distance, the movement is perfectly timed and orchestrated with the action."
+      "description": "Similar to the other shot from this same film, any one of the moments in this shot could be used as a screengrab to represent the film - they're all visually beautiful.  Although the Steadicam doesn't cover much physical distance, the movement is perfectly timed and orchestrated with the action.",
+      "vimeoLink": "https://vimeo.com/949132713?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0491162/?ref_=nm_flmg_t_117_cam"
 }
