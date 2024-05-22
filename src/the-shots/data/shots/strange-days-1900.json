@@ -1,6 +1,6 @@
 {
-  "productionName": "Strange Days (1900)",
-  "status": "draft",
+  "productionName": "Strange Days (1995)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "James Muro",
@@ -14,7 +14,12 @@
         {
           "item": "Lightweight, modified Steadicam"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949132901?share=copy",
+      "tags": [
+        "Film"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0114558/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_strange%2520days"
 }
