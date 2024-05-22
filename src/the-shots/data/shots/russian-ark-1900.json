@@ -1,6 +1,6 @@
 {
-  "productionName": "Russian Ark (1900)",
-  "status": "draft",
+  "productionName": "Russian Ark (2002)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Tilman Büttner",
@@ -11,6 +11,10 @@
         {
           "item": "SONY HDW-F900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948533076?share=copy",
+      "tags": [
+        "High mode"
       ]
     },
     {
@@ -22,6 +26,10 @@
         {
           "item": "SONY HDW-F900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948533076?share=copy",
+      "tags": [
+        "High mode"
       ]
     },
     {
@@ -33,6 +41,10 @@
         {
           "item": "SONY HDW-F900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948533108?share=copy",
+      "tags": [
+        "High mode"
       ]
     },
     {
@@ -47,6 +59,10 @@
         {
           "item": "SONY HDW-F900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948533126?share=copy",
+      "tags": [
+        "High mode"
       ]
     },
     {
@@ -58,7 +74,12 @@
         {
           "item": "SONY HDW-F900"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/948533136?share=copy",
+      "tags": [
+        "High mode"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0318034/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_russian%2520ark"
 }
