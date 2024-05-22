@@ -1,12 +1,16 @@
 {
-  "productionName": "Serenity (1900)",
-  "status": "draft",
+  "productionName": "Serenity (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Mark Emery Moore",
       "episodic": {},
       "shortDescription": "Opening Sequence Aboard the Ship",
-      "description": "An excellent single shot in a movie that, unfortunately did not get a lot of attention.  This opening sequence is fantastic.  The set is a large part of a spacecraft and the camera goes all through it - upstairs, down corridors, through doorways and more.  \r\n\r\nIf you watch closely, slight zooms are used to close and retreat larger distances without forcing the camera operator to break into a run, or crowd the actors, or backpedal quickly."
+      "description": "An excellent single shot in a movie that, unfortunately did not get a lot of attention.  This opening sequence is fantastic.  The set is a large part of a spacecraft and the camera goes all through it - upstairs, down corridors, through doorways and more.  \r\n\r\nIf you watch closely, slight zooms are used to close and retreat larger distances without forcing the camera operator to break into a run, or crowd the actors, or backpedal quickly.",
+      "tags": [
+        "High mode"
+      ],
+      "vimeoLink": "https://vimeo.com/949132334?share=copy"
     }
   ]
 }
