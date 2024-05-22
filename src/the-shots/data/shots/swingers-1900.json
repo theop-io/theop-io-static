@@ -1,12 +1,17 @@
 {
-  "productionName": "Swingers (1900)",
-  "status": "draft",
+  "productionName": "Swingers (1996)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Doug Liman",
       "episodic": {},
       "shortDescription": "Goodfellas Tribute",
-      "description": "Another great tribute (see Simpsons Goodfellas Tribute) to the famous shot from Goodfellas.  Although this one was done handheld, it is still a great homage to a classic shot."
+      "description": "Another great tribute (see Simpsons Goodfellas Tribute) to the famous shot from Goodfellas.  Although this one was done handheld, it is still a great homage to a classic shot.",
+      "vimeoLink": "https://vimeo.com/949132941?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0117802/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_swingers"
 }
