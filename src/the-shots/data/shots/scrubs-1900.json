@@ -1,6 +1,6 @@
 {
-  "productionName": "Scrubs (1900)",
-  "status": "draft",
+  "productionName": "Scrubs (2001)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Charles Papert",
@@ -15,6 +15,10 @@
         {
           "item": "Aaton 16 XTRPROD"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949132277?share=copy",
+      "tags": [
+        "Film"
       ]
     },
     {
@@ -29,7 +33,12 @@
         {
           "item": "my own dumb face"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949132305?share=copy",
+      "tags": [
+        "Film"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0285403/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_scrubs"
 }
