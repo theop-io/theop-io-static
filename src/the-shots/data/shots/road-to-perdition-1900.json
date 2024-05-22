@@ -1,18 +1,27 @@
 {
-  "productionName": "Road to Perdition (1900)",
-  "status": "draft",
+  "productionName": "Road to Perdition (2002)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "P. Scott Sakamoto",
       "episodic": {},
       "shortDescription": "The Underground Nightclub",
-      "description": "This shot tracks the characters through a crowded underground nightclub.  The cinematography in this shot is excellent as we move from blue, to red, to green."
+      "description": "This shot tracks the characters through a crowded underground nightclub.  The cinematography in this shot is excellent as we move from blue, to red, to green.",
+      "vimeoLink": "https://vimeo.com/948532934?share=copy",
+      "tags": [
+        "Film"
+      ]
     },
     {
       "operatorName": "P. Scott Sakamoto",
       "episodic": {},
       "shortDescription": "The Assassination",
-      "description": "A great shot, combining many challenging elements.  We start above, looking down as Hanks steps off the elevator.  We begin to track Hanks from above, and then slowly begin to drop down to eye level.  The tracking continues into the hotel room where the assassination takes place.  We end on a very clever way to show what has happened in the other room, without moving the camera."
+      "description": "A great shot, combining many challenging elements.  We start above, looking down as Hanks steps off the elevator.  We begin to track Hanks from above, and then slowly begin to drop down to eye level.  The tracking continues into the hotel room where the assassination takes place.  We end on a very clever way to show what has happened in the other room, without moving the camera.",
+      "vimeoLink": "https://vimeo.com/948532947?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0257044/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_road%2520to%2520perdition"
 }
