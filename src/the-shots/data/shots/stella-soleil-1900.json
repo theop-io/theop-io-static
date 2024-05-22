@@ -1,6 +1,6 @@
 {
-  "productionName": "Stella Soleil (1900)",
-  "status": "draft",
+  "productionName": "Stella Soleil (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Charles Papert",
@@ -12,6 +12,10 @@
         {
           "item": "435, Slavecam"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949132878?share=copy",
+      "tags": [
+        "High mode"
       ]
     }
   ]
