@@ -1,24 +1,38 @@
 {
-  "productionName": "Very Long Engagement, A (1900)",
-  "status": "draft",
+  "productionName": "A Very Long Engagement (2004)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Valentin Monge",
       "episodic": {},
       "shortDescription": "The Marketplace",
-      "description": "Excellent shot.  Beginning with an amazingly slow and steady descent on a crane, moving into an incredibly smooth step-off, the shot winds through the marketplace, seeking out the actors.  \r\n\r\nThis shot required some incredible choreography, obviously.  One great moment is as the actress stops to ask one of the vendors a question, there is a rock solid lock-off.  The addition of the action of the lettuce tossing in the immediate foreground is one of those elements that made an ordinary lock-off, extraordinary."
+      "description": "Excellent shot.  Beginning with an amazingly slow and steady descent on a crane, moving into an incredibly smooth step-off, the shot winds through the marketplace, seeking out the actors.  \r\n\r\nThis shot required some incredible choreography, obviously.  One great moment is as the actress stops to ask one of the vendors a question, there is a rock solid lock-off.  The addition of the action of the lettuce tossing in the immediate foreground is one of those elements that made an ordinary lock-off, extraordinary.",
+      "vimeoLink": "https://vimeo.com/949150310?share=copy",
+      "tags": [
+        "Film",
+        "Step on/Step Off"
+      ]
     },
     {
       "operatorName": "Valentin Monge",
       "episodic": {},
       "shortDescription": "Running through the fields",
-      "description": "This shot is an excellent example of many different ways to use the Steadicam.  We get coverage of the actor running through the field from all angles: high, low, leading, following, closeup, wide, and more.  The final push into the closeup at the very end lands in a rock solid stop and lock-off."
+      "description": "This shot is an excellent example of many different ways to use the Steadicam.  We get coverage of the actor running through the field from all angles: high, low, leading, following, closeup, wide, and more.  The final push into the closeup at the very end lands in a rock solid stop and lock-off.",
+      "vimeoLink": "https://vimeo.com/949150350?share=copy",
+      "tags": [
+        "Running"
+      ]
     },
     {
       "operatorName": "Valentin Monge",
       "episodic": {},
       "shortDescription": "Prepare the Bayonets!",
-      "description": "A great way to establish the number of troops and their preparation for battle.  The camera almost acts as the order - having been called out at one end of the trench, the message travels from one soldier to the next, down the line."
+      "description": "A great way to establish the number of troops and their preparation for battle.  The camera almost acts as the order - having been called out at one end of the trench, the message travels from one soldier to the next, down the line.",
+      "vimeoLink": "https://vimeo.com/949150371?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0344510/?ref_=nv_sr_srsg_0_tt_5_nm_0_q_very%2520long%2520engagement"
 }
