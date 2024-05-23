@@ -1,6 +1,6 @@
 {
-  "productionName": "Tom yum goong (1900)",
-  "status": "draft",
+  "productionName": "Tom yum goong (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Somsak Srisawat",
@@ -15,6 +15,11 @@
         {
           "item": "10mm Zeiss"
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949150113?share=copy",
+      "tags": [
+        "Film",
+        "Stairs"
       ]
     }
   ]
