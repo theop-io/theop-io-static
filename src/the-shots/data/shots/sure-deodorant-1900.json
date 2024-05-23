@@ -1,6 +1,6 @@
 {
-  "productionName": "Sure Deodorant (1900)",
-  "status": "draft",
+  "productionName": "Sure Deodorant (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Will Arnot",
@@ -18,7 +18,11 @@
         {
           "item": "Arri 235"
         }
-      ]
+      ],
+      "tags": [
+        "AR"
+      ],
+      "vimeoLink": "https://vimeo.com/949560603?share=copy"
     }
   ]
 }
