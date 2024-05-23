@@ -1,6 +1,6 @@
 {
-  "productionName": "OK Go (1900)",
-  "status": "draft",
+  "productionName": "OK Go (0000)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Mic Waugh",
@@ -15,7 +15,8 @@
         {
           "item": "Glidecam X-45"
         }
-      ]
+      ],
+      "vimeoLink": "https://vimeo.com/949553502?share=copy"
     }
   ]
 }
