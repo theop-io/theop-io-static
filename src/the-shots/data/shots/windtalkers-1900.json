@@ -1,12 +1,17 @@
 {
-  "productionName": "Windtalkers (1900)",
-  "status": "draft",
+  "productionName": "Windtalkers (2002)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Gregory Lundsgaard",
       "episodic": {},
       "shortDescription": "I Can't Perform My Duty",
-      "description": "This is a great one-shot that would have normally been shot with at least 5 different angles.  The movement of the camera is direct and precise, giving the scene the heightened emotion it needs."
+      "description": "This is a great one-shot that would have normally been shot with at least 5 different angles.  The movement of the camera is direct and precise, giving the scene the heightened emotion it needs.",
+      "vimeoLink": "https://vimeo.com/949531957?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0245562/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_windtalkers"
 }
