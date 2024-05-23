@@ -1,6 +1,6 @@
 {
-  "productionName": "Wild at Heart (1900)",
-  "status": "draft",
+  "productionName": "Wild at Heart (1990)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Dan Kneece",
@@ -12,7 +12,12 @@
         {
           "item": "Steadicam Model II carrying a Gold Panaflex with John Russell eyepiece tap and Phillips tube camera. Seitz follow focus with Heden motors. 51 pound arm with black springs modified to be adjustable."
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949531925?share=copy",
+      "tags": [
+        "Film"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0100935/?ref_=fn_al_tt_1"
 }
