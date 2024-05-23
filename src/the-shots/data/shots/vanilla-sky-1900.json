@@ -1,6 +1,6 @@
 {
-  "productionName": "Vanilla Sky (1900)",
-  "status": "draft",
+  "productionName": "Vanilla Sky (2001)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Larry McConkey",
@@ -12,7 +12,12 @@
         {
           "item": "Rickshaw, crane, windscreen, gyros, and lots of great grips."
         }
+      ],
+      "vimeoLink": "https://vimeo.com/949150283?share=copy",
+      "tags": [
+        "Film"
       ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0259711/?ref_=fn_al_tt_1"
 }
