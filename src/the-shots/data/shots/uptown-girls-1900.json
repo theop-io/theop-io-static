@@ -1,12 +1,17 @@
 {
-  "productionName": "Uptown Girls (1900)",
-  "status": "draft",
+  "productionName": "Uptown Girls (2003)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Jim McConkey",
       "episodic": {},
       "shortDescription": "Serenade",
-      "description": "Excellent control at slow speeds.  The camera circles the couple on the bed.  The motion is so well done, it can almost be mistaken for a dolly."
+      "description": "Excellent control at slow speeds.  The camera circles the couple on the bed.  The motion is so well done, it can almost be mistaken for a dolly.",
+      "vimeoLink": "https://vimeo.com/949150251?share=copy",
+      "tags": [
+        "Film"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0263757/?ref_=fn_al_tt_1"
 }
