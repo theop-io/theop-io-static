@@ -1,12 +1,17 @@
 {
-  "productionName": "Thank You for Smoking (1900)",
-  "status": "draft",
+  "productionName": "Thank You for Smoking (2005)",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Tom Lohmann",
       "episodic": {},
       "shortDescription": "The Captain and the Club",
-      "description": "A great use of Steadicam as a third-person observer of the scene.  The operating down the large flight of stairs is excellent, even with a couple changes in composition.  Amazing control is demonstrated toward the end as the camera circles around the captain sitting in the chair.  Most likely, this was shot in \"low-high\" mode, which is often an awkward position to hold."
+      "description": "A great use of Steadicam as a third-person observer of the scene.  The operating down the large flight of stairs is excellent, even with a couple changes in composition.  Amazing control is demonstrated toward the end as the camera circles around the captain sitting in the chair.  Most likely, this was shot in \"low-high\" mode, which is often an awkward position to hold.",
+      "vimeoLink": "https://vimeo.com/949149890?share=copy",
+      "tags": [
+        "Stairs"
+      ]
     }
-  ]
+  ],
+  "productionImdbLink": "https://www.imdb.com/title/tt0427944/?ref_=fn_al_tt_1"
 }
