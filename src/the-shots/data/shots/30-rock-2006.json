@@ -1,6 +1,6 @@
 {
   "productionName": "30 Rock (2006)",
-  "status": "draft",
+  "status": "published",
   "shots": [
     {
       "operatorName": "Alec Jarnagin",
@@ -8,8 +8,12 @@
         "episodeTitle": "(1:04) Jack the Writer"
       },
       "shortDescription": "Good Walk-and-Talk",
-      "description": "The writers of NBC's \"30 Rock\" give a clever nod to one of the most common type of Steadicam moves in the book.  The \"Roundy-Round\" has got to be next."
+      "description": "The writers of NBC's \"30 Rock\" give a clever nod to one of the most common type of Steadicam moves in the book.  The \"Roundy-Round\" has got to be next.",
+      "vimeoLink": "https://vimeo.com/949150058?share=copy",
+      "tags": [
+        "High mode"
+      ]
     }
   ],
-  "productionImdbLink": "https://www.imdb.com/title/tt0496424/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_30%2520rock"
+  "productionImdbLink": "https://www.imdb.com/title/tt0496424/?ref_=nm_knf_t_2"
 }
