@@ -580,6 +580,15 @@ function buildRandomShotAnchor(): HTMLElement[] {
   return [createAnchorElementWithChildren(buildRandomShotURL(), "Random shot")];
 }
 
+function buildRequestAShotAnchor(): HTMLElement[] {
+  return [
+    createAnchorElementWithChildren(
+      new URL("/request-a-shot", window.location.href),
+      "Request a shot"
+    ),
+  ];
+}
+
 function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
   return [
     createElementWithInitializerAndChildren(
@@ -592,7 +601,8 @@ function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLE
       ...(pageMode !== "index"
         ? [createAnchorElementWithChildren(getURLFor("index"), "All shots")]
         : []),
-      ...buildRandomShotAnchor()
+      ...buildRandomShotAnchor(),
+      ...buildRequestAShotAnchor()
     ),
   ];
 }
