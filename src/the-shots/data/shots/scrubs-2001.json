@@ -17,9 +17,7 @@
         }
       ],
       "vimeoLink": "https://vimeo.com/949132277?share=copy",
-      "tags": [
-        "Film"
-      ]
+      "tags": ["Film"]
     },
     {
       "operatorName": "Charles Papert",
@@ -35,10 +33,7 @@
         }
       ],
       "vimeoLink": "https://vimeo.com/949132305?share=copy",
-      "tags": [
-        "Film",
-        "Cameo"
-      ]
+      "tags": ["Film", "Cameo"]
     }
   ],
   "productionImdbLink": "https://www.imdb.com/title/tt0285403/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_scrubs"

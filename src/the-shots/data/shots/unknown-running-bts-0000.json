@@ -4,10 +4,7 @@
   "shots": [
     {
       "operatorName": "Unknown",
-      "tags": [
-        "Running",
-        "BTS"
-      ],
+      "tags": ["Running", "BTS"],
       "vimeoLink": "https://vimeo.com/946550711?share=copy",
       "shortDescription": "Unknown",
       "description": "Unknown BTS"
