@@ -160,6 +160,7 @@ collections:
             # What we're referencing from
             collection: "tags"
             file: "shot-tags"
+            options_length: 1000 # Show all known tags
 
             # What value we're referencing
             value_field: "shot-tags.*.shot-tag"
