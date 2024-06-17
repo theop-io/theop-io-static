@@ -375,6 +375,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
   const episodicDetailsString = getShotEpisodicDetailsString(shot);
 
   return [
+    // -- Top level --
     // Show production details
     createElementWithChildren(
       "h2",
@@ -404,11 +405,13 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       ...createShotOperatorsElements(shot),
       shotTimestamp ? ` (at ${shotTimestamp})` : ""
     ),
+    // -- Columns --
+    // - Left column
     createElementWithInitializerAndChildren(
       "div",
       (element: HTMLElement) => element.classList.add("the_shots_column"),
 
-      // Show shot data
+      // Director
       ...(shot.directorName
         ? [
             createElementWithChildren(
@@ -418,6 +421,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
             ),
           ]
         : []),
+      // DP
       ...(shot.dpName
         ? [
             createElementWithChildren(
@@ -427,20 +431,32 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
             ),
           ]
         : []),
+      // Tags
       ...(shot.tags
         ? [createElementWithChildren("strong", "Features "), ...createShotTagsElements(shot)]
         : []),
-
+      // Description block
       createElementWithChildren("h4", "Description"),
       createElementWithChildren("div", shot.description),
-
+      // Operator comments block
       ...(shot.operatorComments
         ? [
             createElementWithChildren("h4", "Operator Commentary"),
             createElementWithChildren("div", shot.operatorComments),
           ]
+        : []),
+      // Equipment list block
+      ...(shot.equipmentList
+        ? [
+            createElementWithChildren("h4", "Equipment"),
+            createElementWithChildren(
+              "ul",
+              ...shot.equipmentList.map((e) => createElementWithChildren("li", e.item))
+            ),
+          ]
         : [])
     ),
+    // - Right column
     createElementWithInitializerAndChildren(
       "div",
       (element: HTMLElement) => element.classList.add("the_shots_column"),
@@ -454,15 +470,6 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
                 element.allow = "encrypted-media";
                 element.allowFullscreen = true;
               })
-            ),
-          ]
-        : []),
-      ...(shot.equipmentList
-        ? [
-            createElementWithChildren("h4", "Equipment"),
-            createElementWithChildren(
-              "ul",
-              ...shot.equipmentList.map((e) => createElementWithChildren("li", e.item))
             ),
           ]
         : [])
