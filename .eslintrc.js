@@ -10,5 +10,9 @@ module.exports = {
   ignorePatterns: [".eslintrc.js", "prettier.config.js", "dist/**"],
   rules: {
     "no-inner-declarations": "off", // I like inner declarations. Deal with it.
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
   },
 };

@@ -5,7 +5,7 @@ import * as path from "path";
 import * as yup from "yup";
 
 import theShotsData from "../src/the-shots/imported-data/the-shots-data";
-import { productionFileSchema, productionShotSchema } from "./the-shots-cms";
+import { productionFileSchema } from "./the-shots-cms";
 
 type ProductionFile = yup.InferType<typeof productionFileSchema>;
 
@@ -43,7 +43,7 @@ theShotsData.forEach((importedShot) => {
     episodic: { episodeTitle: importedShot.episode },
     // Content
     shortDescription: importedShot.shortDescription,
-    description: importedShot.description,
+    description: importedShot.description!,
     // Optional additional content
     operatorComments: importedShot.operatorComments,
     secondaryOperatorName: importedShot.altOperator,
@@ -55,7 +55,7 @@ productions.forEach((production) => {
     path.join(
       "src/the-shots/data/shots",
       `${production.productionName
-        .replace(/[\(\)]/g, "")
+        .replace(/[()]/g, "")
         .replace(/[^a-zA-Z0-9]/g, "-")}.json`.toLowerCase()
     ),
     JSON.stringify(production, null, 2 /* pretty-print */)

@@ -25,7 +25,7 @@ productionFiles.forEach((productionFileName) => {
     const productionYear = parseInt(productionNameAndYear[2]); // [2] = second capture group
 
     const revisedProductionFileName = `${productionName
-      .replace(/[\(\)]/g, "")
+      .replace(/[()]/g, "")
       .replace(/[^a-zA-Z0-9]/g, "-")}-${String(productionYear).padStart(
       4,
       "0"

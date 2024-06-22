@@ -37,17 +37,19 @@ productionFiles.forEach((productionFileName) => {
   }
 });
 
-function migrateVimeoIdToVimeoLink(production: ProductionFile): boolean {
+function _migrateVimeoIdToVimeoLink(production: ProductionFile): boolean {
   let didModifyData = false;
 
   const shots = production.shots;
 
-  shots.forEach((shot: any) => {
-    if (shot.vimeoId) {
+  shots.forEach((shot) => {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    if ((shot as any).vimeoId) {
       shot.vimeoLink = `https://vimeo.com/${shot.vimeoId}`;
-      delete shot.vimeoId;
+      delete (shot as any).vimeoId;
       didModifyData = true;
     }
+    /* eslint-enable @typescript-eslint/no-explicit-any */
   });
 
   return didModifyData;
