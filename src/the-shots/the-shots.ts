@@ -572,12 +572,18 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
         : []),
       // Description block
       createElementWithChildren("h4", "Description"),
-      createElementWithChildren("div", shot.description),
+      createElementWithInitializerAndChildren(
+        "div",
+        (element) => (element.innerHTML = shot.description)
+      ),
       // Operator comments block
       ...(shot.operatorComments
         ? [
             createElementWithChildren("h4", "Operator Commentary"),
-            createElementWithChildren("div", shot.operatorComments),
+            createElementWithInitializerAndChildren(
+              "div",
+              (element) => (element.innerHTML = shot.operatorComments!)
+            ),
           ]
         : []),
       // Equipment list block
@@ -586,7 +592,12 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
             createElementWithChildren("h4", "Equipment"),
             createElementWithChildren(
               "ul",
-              ...shot.equipmentList.map((e) => createElementWithChildren("li", e.item))
+              ...shot.equipmentList.map((e) =>
+                createElementWithInitializerAndChildren(
+                  "li",
+                  (element) => (element.innerHTML = e.item)
+                )
+              )
             ),
           ]
         : [])

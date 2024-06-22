@@ -2,6 +2,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { marked } from "marked";
 
 import { Production, Shot, Timestamp } from "../src/the-shots/the-shots-types";
 
@@ -106,6 +107,25 @@ function parseProductionImdbLink(productionImdbLink?: string) {
   return productionImdbLinkComponents[1].trim(); // [1] = first capture group = `tt\d+`
 }
 
+function renderMarkdown(md: string): string {
+  const renderedHtml = marked.parse(md) as string;
+
+  return renderedHtml.replace(/\n$/, ""); // Remove the trailing "\n" that `marked` somehow blesses us with
+}
+
+function renderShot(shot: Shot): Shot {
+  return {
+    ...shot,
+    description: renderMarkdown(shot.description),
+    operatorComments: shot.operatorComments ? renderMarkdown(shot.operatorComments) : undefined,
+    equipmentList: shot.equipmentList?.map((e) => {
+      return {
+        item: renderMarkdown(e.item),
+      };
+    }),
+  };
+}
+
 const shotsDb: Production[] = productions
   .filter((production) => production.status === "published")
   .map((production) => {
@@ -113,7 +133,7 @@ const shotsDb: Production[] = productions
       ...parseProductionNameAndYear(production.productionName),
       imdbTitleId: parseProductionImdbLink(production.productionImdbLink),
       status: production.status,
-      shots: production.shots.map((shot) => parseShot(shot)),
+      shots: production.shots.map((shot) => renderShot(parseShot(shot))),
     };
   });
 

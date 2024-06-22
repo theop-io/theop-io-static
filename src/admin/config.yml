@@ -188,12 +188,12 @@ collections:
             widget: "string"
           - name: "description"
             label: "Description"
-            widget: "text"
+            widget: "markdown"
 
           # Optional additional content
           - name: "operatorComments"
             label: "Operator Comments"
-            widget: "text"
+            widget: "markdown"
             required: false
           - name: "equipmentList"
             label: "Equipment"
@@ -201,5 +201,5 @@ collections:
             fields:
               - name: "item"
                 label: "Item"
-                widget: "text"
+                widget: "markdown"
             required: false
