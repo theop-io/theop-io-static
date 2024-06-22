@@ -128,6 +128,14 @@
 
       text-align: left;
       vertical-align: top; // text-top;
+
+      select {
+        // Mimic text of <th>
+        font-weight: bold;
+
+        // Blend into our alternating-row background somewhat
+        background-color: rgba(255, 255, 255, 0.8);
+      }
     }
 
     .is-repeat,
