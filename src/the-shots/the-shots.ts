@@ -203,7 +203,7 @@ function createProductionSelector(): HTMLElement {
   return createSelector(
     TheShotsProductions,
     "Production",
-    (production) => `${production.productionName} (${production.productionYear})`,
+    (production) => createProductionName(production),
     (production) => getURLFor("production", urlForProduction(production))
   );
 }
@@ -240,6 +240,12 @@ function displayNotFound(): HTMLElement[] {
 //
 // Display snippets/helpers
 //
+
+function createProductionName(production: Production): string {
+  return production.productionYear > 0
+    ? `${production.productionName} (${production.productionYear})`
+    : production.productionName;
+}
 
 function createShotOperatorsElements(
   shot: Shot,
@@ -331,7 +337,7 @@ function displayShotIndex(
           return [];
         }
 
-        const productionDisplayName = `${production.productionName} (${production.productionYear})`;
+        const productionDisplayName = createProductionName(production);
 
         return production.shots.flatMap((shot) => {
           if (!shotFilter(shot)) {
@@ -428,7 +434,7 @@ function displayProduction(urlParams: URLSearchParams): HTMLElement[] {
   }
 
   return [
-    createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
+    createElementWithChildren("h2", createProductionName(production)),
     ...displayShotIndex(true, (p) => p === production),
   ];
 }
@@ -507,7 +513,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       "h2",
       createAnchorElementWithChildren(
         getURLFor("production", urlForProduction(production)),
-        `${production.productionName} (${production.productionYear})`
+        createProductionName(production)
       ),
       ...(production.imdbTitleId
         ? [
