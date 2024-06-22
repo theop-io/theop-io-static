@@ -107,6 +107,7 @@ function createElementWithChildren<ElementType extends keyof HTMLElementTagNameM
 ): HTMLElementTagNameMap[ElementType] {
   const element = document.createElement(elementType);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function isString(value: any): value is string {
     return typeof value === "string" || value instanceof String;
   }
@@ -152,6 +153,80 @@ function createAnchorElementWithChildren(url: URL, ...children: (HTMLElement | T
 }
 
 //
+// Dropdowns (also used as column headers)
+//
+
+function createSelector<T>(
+  options: T[],
+  title: string,
+  labelForOption: (option: T) => string,
+  getURLForOption: (option: T) => URL
+): HTMLElement {
+  return createElementWithInitializerAndChildren(
+    "select",
+    // Define onChange
+    (selectElement) => {
+      selectElement.onchange = () => {
+        // Filter out title option
+        const selectedIndex = parseInt(selectElement.value);
+
+        if (selectedIndex < 0) {
+          return;
+        }
+
+        const selectedItem = options[selectedIndex];
+
+        // Navigate to URL
+        window.location.href = getURLForOption(selectedItem).href;
+      };
+    },
+    // Create default (title) <option>
+    createElementWithInitializerAndChildren(
+      "option",
+      (optionElement) => (optionElement.value = "-1"),
+      title
+    ),
+    // Map <option> list
+    ...options.map((option, index) =>
+      createElementWithInitializerAndChildren(
+        "option",
+        (optionElement) => {
+          optionElement.value = index.toString();
+        },
+        labelForOption(option)
+      )
+    )
+  );
+}
+
+function createProductionSelector(): HTMLElement {
+  return createSelector(
+    TheShotsProductions,
+    "Production",
+    (production) => `${production.productionName} (${production.productionYear})`,
+    (production) => getURLFor("production", urlForProduction(production))
+  );
+}
+
+function createOperatorSelector(): HTMLElement {
+  return createSelector(
+    TheShotsSortedOperatorNames,
+    "Operator",
+    (operatorName) => operatorName,
+    (operatorName) => getURLFor("operator", urlForOperator(operatorName))
+  );
+}
+
+function createTagSelector(): HTMLElement {
+  return createSelector(
+    TheShotsTags,
+    "Features",
+    (tag) => tag,
+    (tag) => getURLFor("tag", urlForTag(tag))
+  );
+}
+
+//
 // Display: Not found
 //
 
@@ -166,27 +241,37 @@ function displayNotFound(): HTMLElement[] {
 // Display snippets/helpers
 //
 
-function createShotOperatorsElements(shot: Shot): (HTMLElement | Text)[] {
+function createShotOperatorsElements(
+  shot: Shot,
+  options: { asLink: boolean }
+): (HTMLElement | Text | string)[] {
   return [
-    createAnchorElementWithChildren(
-      getURLFor("operator", urlForOperator(shot.operatorName)),
-      shot.operatorName
-    ),
+    options.asLink
+      ? createAnchorElementWithChildren(
+          getURLFor("operator", urlForOperator(shot.operatorName)),
+          shot.operatorName
+        )
+      : shot.operatorName,
     ...(shot.secondaryOperatorName
       ? [
           document.createTextNode(" and "),
-          createAnchorElementWithChildren(
-            getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
-            shot.secondaryOperatorName
-          ),
+          options.asLink
+            ? createAnchorElementWithChildren(
+                getURLFor("operator", urlForOperator(shot.secondaryOperatorName)),
+                shot.secondaryOperatorName
+              )
+            : shot.secondaryOperatorName,
         ]
       : []),
   ];
 }
 
-function createShotTagsElements(shot: Shot): (HTMLElement | Text)[] {
+function createShotTagsElements(
+  shot: Shot,
+  options: { asLink: boolean }
+): (HTMLElement | Text | string)[] {
   const createShotTagElement = (tag: string) =>
-    createAnchorElementWithChildren(getURLFor("tag", urlForTag(tag)), tag);
+    options.asLink ? createAnchorElementWithChildren(getURLFor("tag", urlForTag(tag)), tag) : tag;
 
   return shot.tags
     ? shot.tags.flatMap((x, index) =>
@@ -200,19 +285,45 @@ function createShotTagsElements(shot: Shot): (HTMLElement | Text)[] {
 //
 
 function displayShotIndex(
+  isFilteredView: boolean,
   productionFilter: (production: Production) => boolean = () => true,
   shotFilter: (shot: Shot) => boolean = () => true
 ): HTMLElement[] {
+  function createTableRowWithChildren(...children: (HTMLElement | Text | string)[]) {
+    return createElementWithInitializerAndChildren(
+      "tr",
+      (element) => (element.role = "row"),
+      ...children
+    );
+  }
+
+  function createTableColumnHeader(label: string | HTMLElement, elementClass?: string) {
+    return createElementWithInitializerAndChildren(
+      "th",
+      (element) => {
+        element.role = "columnheader";
+
+        if (elementClass) {
+          element.classList.add(elementClass);
+        }
+      },
+      label
+    );
+  }
+
+  // Track the previous row's values so we can visually indicate duplicates
+  let lastRowsProductionDisplayName = "";
+  let lastRowsOperatorData = "";
+
   return [
     createElementWithChildren(
       "table",
       // Build table header row
-      createElementWithChildren(
-        "tr",
-        createElementWithChildren("th", "Production"),
-        createElementWithChildren("th", "Operator"),
-        createElementWithChildren("th", "Shot"),
-        createElementWithChildren("th", "Features")
+      createTableRowWithChildren(
+        createTableColumnHeader(createProductionSelector()),
+        createTableColumnHeader(createOperatorSelector()),
+        createTableColumnHeader(createTagSelector()),
+        createTableColumnHeader("Shot", "not-small")
       ),
       // Build shot rows
       ...TheShotsProductions.flatMap((production) => {
@@ -222,50 +333,63 @@ function displayShotIndex(
 
         const productionDisplayName = `${production.productionName} (${production.productionYear})`;
 
-        let didDisplayProductionName = false;
-        let latestOperatorData = "";
-
         return production.shots.flatMap((shot) => {
           if (!shotFilter(shot)) {
             return [];
           }
 
           // Evaluate what we should display
-          const shouldDisplayProductionName = !didDisplayProductionName;
-
           const operatorData = shot.operatorName + (shot.secondaryOperatorName ?? ""); // Not for display purposes, just for tracking
-          const shouldDisplayOperators = operatorData !== latestOperatorData;
+
+          const isRepeatProductionName = productionDisplayName === lastRowsProductionDisplayName;
+          const isRepeatOperatorData = operatorData === lastRowsOperatorData;
 
           // Update state for next row
-          didDisplayProductionName = true;
-          latestOperatorData = operatorData;
+          lastRowsProductionDisplayName = productionDisplayName;
+          lastRowsOperatorData = operatorData;
 
           // Display shot row
-          return createElementWithChildren(
-            "tr",
-            createElementWithChildren(
+          return createTableRowWithChildren(
+            createElementWithInitializerAndChildren(
               "td",
-              ...(shouldDisplayProductionName
-                ? [
-                    createAnchorElementWithChildren(
-                      getURLFor("production", urlForProduction(production)),
-                      productionDisplayName
-                    ),
-                  ]
-                : [])
+              (element) => {
+                element.role = "cell";
+
+                if (isRepeatProductionName) {
+                  element.classList.add("is-repeat");
+                }
+              },
+              isFilteredView
+                ? productionDisplayName
+                : createAnchorElementWithChildren(
+                    getURLFor("production", urlForProduction(production)),
+                    productionDisplayName
+                  )
             ),
-            createElementWithChildren(
+            createElementWithInitializerAndChildren(
               "td",
-              ...(shouldDisplayOperators ? createShotOperatorsElements(shot) : [])
+              (element) => {
+                element.role = "cell";
+
+                if (isRepeatOperatorData) {
+                  element.classList.add("is-repeat");
+                }
+              },
+              ...createShotOperatorsElements(shot, { asLink: !isFilteredView })
             ),
-            createElementWithChildren(
+            createElementWithInitializerAndChildren(
               "td",
+              (element) => (element.role = "cell"),
+              ...createShotTagsElements(shot, { asLink: !isFilteredView })
+            ),
+            createElementWithInitializerAndChildren(
+              "td",
+              (element) => (element.role = "cell"),
               createAnchorElementWithChildren(
                 getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) }),
                 shot.shortDescription
               )
-            ),
-            createElementWithChildren("td", ...createShotTagsElements(shot))
+            )
           );
         });
       })
@@ -274,7 +398,7 @@ function displayShotIndex(
 }
 
 function displayIndex(_urlParams: URLSearchParams): HTMLElement[] {
-  return displayShotIndex();
+  return displayShotIndex(false);
 }
 
 function displayOperator(urlParams: URLSearchParams): HTMLElement[] {
@@ -288,6 +412,7 @@ function displayOperator(urlParams: URLSearchParams): HTMLElement[] {
     createElementWithChildren("h2", operatorName),
 
     ...displayShotIndex(
+      true,
       () => true,
       (shot: Shot) =>
         shot.operatorName === operatorName || shot.secondaryOperatorName === operatorName
@@ -304,7 +429,7 @@ function displayProduction(urlParams: URLSearchParams): HTMLElement[] {
 
   return [
     createElementWithChildren("h2", `${production.productionName} (${production.productionYear})`),
-    ...displayShotIndex((p) => p === production),
+    ...displayShotIndex(true, (p) => p === production),
   ];
 }
 
@@ -318,6 +443,7 @@ function displayTag(urlParams: URLSearchParams): HTMLElement[] {
   return [
     createElementWithChildren("h2", tag),
     ...displayShotIndex(
+      true,
       () => true,
       (shot: Shot) => shot.tags?.includes(tag) || false
     ),
@@ -402,7 +528,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       "h3",
       episodicDetailsString + (episodicDetailsString ? ": " : ""),
       `"${shot.shortDescription}" by `,
-      ...createShotOperatorsElements(shot),
+      ...createShotOperatorsElements(shot, { asLink: true }),
       shotTimestamp ? ` (at ${shotTimestamp})` : ""
     ),
     // -- Columns --
@@ -433,7 +559,10 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
         : []),
       // Tags
       ...(shot.tags
-        ? [createElementWithChildren("strong", "Features "), ...createShotTagsElements(shot)]
+        ? [
+            createElementWithChildren("strong", "Features "),
+            ...createShotTagsElements(shot, { asLink: true }),
+          ]
         : []),
       // Description block
       createElementWithChildren("h4", "Description"),
@@ -481,90 +610,6 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
 // Top-level
 //
 
-function buildSelector<T>(
-  options: T[],
-  selectedOption: T | undefined,
-  title: string,
-  labelForOption: (option: T) => string,
-  getURLFor: (option: T) => URL
-): HTMLElement[] {
-  return [
-    createElementWithInitializerAndChildren(
-      "select",
-      (selectElement) => {
-        selectElement.onchange = () => {
-          // Filter out nil option
-          const selectedIndex = parseInt(selectElement.value);
-
-          if (selectedIndex < 0) {
-            return;
-          }
-
-          const selectedItem = options[selectedIndex];
-
-          // Navigate to URL
-          window.location.href = getURLFor(selectedItem).href;
-        };
-      },
-
-      createElementWithInitializerAndChildren(
-        "option",
-        (optionElement) => (optionElement.value = "-1"),
-        `- ${title} -`
-      ),
-      ...options.map((option, index) =>
-        createElementWithInitializerAndChildren(
-          "option",
-          (optionElement) => {
-            optionElement.value = index.toString();
-
-            if (option === selectedOption) {
-              optionElement.selected = true;
-            }
-          },
-          labelForOption(option)
-        )
-      )
-    ),
-  ];
-}
-
-function buildOperatorSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
-  const selectedOperatorName = pageMode === "operator" ? operatorFromURL(urlParams) : undefined;
-
-  return buildSelector(
-    TheShotsSortedOperatorNames,
-    selectedOperatorName,
-    "Operators",
-    (operatorName: string) => operatorName,
-    (operatorName: string) => getURLFor("operator", urlForOperator(operatorName))
-  );
-}
-
-function buildProductionSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
-  const selectedProduction = pageMode === "production" ? productionFromURL(urlParams) : undefined;
-
-  return buildSelector(
-    TheShotsProductions,
-    selectedProduction,
-    "Productions",
-    (production: Production) => `${production.productionName} (${production.productionYear})`,
-    (production: Production) => getURLFor("production", urlForProduction(production))
-  );
-}
-
-function buildTagSelector(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
-  const selectedTag = pageMode === "tag" ? tagFromURL(urlParams) : undefined;
-
-  return buildSelector(
-    TheShotsTags,
-    selectedTag,
-    "Features",
-    (tag: string) => tag,
-    (tag: string) => getURLFor("tag", urlForTag(tag))
-  );
-}
-
 function buildRandomShotURL(): URL {
   function getRandomArrayElement<T>(data: T[]): T {
     return data[Math.floor(Math.random() * data.length)];
@@ -589,19 +634,16 @@ function buildRequestAShotAnchor(): HTMLElement[] {
   ];
 }
 
-function buildSelectorRow(urlParams: URLSearchParams, pageMode: PageMode): HTMLElement[] {
+function buildSelectorRow(pageMode: PageMode): HTMLElement[] {
   return [
     createElementWithInitializerAndChildren(
       "div",
       (divElement) => divElement.classList.add("the_shots_selectors"),
-
-      ...buildOperatorSelector(urlParams, pageMode),
-      ...buildProductionSelector(urlParams, pageMode),
-      ...buildTagSelector(urlParams, pageMode),
       ...(pageMode !== "index"
-        ? [createAnchorElementWithChildren(getURLFor("index"), "All shots")]
+        ? [createAnchorElementWithChildren(getURLFor("index"), "All shots"), "|"]
         : []),
       ...buildRandomShotAnchor(),
+      "|",
       ...buildRequestAShotAnchor()
     ),
   ];
@@ -614,6 +656,9 @@ if (shotsParentDiv) {
   // Clear "Loading..." message
   shotsParentDiv.innerHTML = "";
 
+  // Configure styling
+  shotsParentDiv.classList.add("the_shots");
+
   // Setup
   const urlParams = new URLSearchParams(window.location.search);
   const pageMode = pageModeFromURL(urlParams);
@@ -623,7 +668,7 @@ if (shotsParentDiv) {
     window.location.replace(buildRandomShotURL());
   } else {
     // Build header/selector row
-    appendChildren(shotsParentDiv, buildSelectorRow(urlParams, pageMode));
+    appendChildren(shotsParentDiv, buildSelectorRow(pageMode));
 
     // Show content
     const contentFunctionByPageMode = {

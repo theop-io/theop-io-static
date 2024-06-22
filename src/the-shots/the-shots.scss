@@ -1,4 +1,4 @@
-#the_shots_wrapper {
+.the_shots {
   @include clearfix;
 
   $the-shots-highlight: #62a044; // Pantone 369U
@@ -6,10 +6,12 @@
 
   .the_shots_selectors {
     display: flex;
-    column-gap: 1em;
+    column-gap: 0.5em;
     justify-content: start;
 
     padding-bottom: 1em;
+
+    color: gray;
   }
 
   .the_shots_column {
@@ -50,16 +52,6 @@
     }
   }
 
-  td,
-  th {
-    text-align: left;
-    padding-right: 1em;
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-
   a {
     color: $the-shots-highlight;
   }
@@ -97,5 +89,103 @@
     margin-left: 0.5rem;
 
     display: inline-block;
+  }
+
+  // Table settings for both regular and small screen display
+  // - Top-level
+  $the-shots-table-content: black;
+
+  table {
+    border-collapse: collapse; // Collapse borders into a single border whenever possible
+
+    color: $the-shots-table-content;
+
+    .not-small {
+      // Display by default
+      display: block;
+    }
+
+    // - Cells (header and data)
+    td,
+    th {
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+
+      padding-right: 1em;
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      text-align: left;
+      vertical-align: top; // text-top;
+    }
+
+    .is-repeat,
+    .is-repeat a {
+      // Hide the text by setting it to zero alpha bland
+      // - This retains the alternating-row background color
+      // - Note that we have plain text as well as linked rows, thus the explicit `a` override as well
+      color: rgba(0, 0, 0, 0.1);
+    }
+
+    // - Rows
+    // -> alternating background color
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    tr:nth-child(odd) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  @media screen and (max-width: 37em), print and (max-width: 5in) {
+    table {
+      // Constrain table to display width
+      display: block;
+
+      select {
+        // Speaking of, constrain the dropdowns to the width of the table, too
+        max-width: 100%;
+      }
+
+      .not-small {
+        // Hide
+        display: none;
+      }
+
+      tr,
+      th,
+      td {
+        // Collapse table rows
+        display: block;
+      }
+
+      .is-repeat {
+        // Fully restore repeat content
+        // since we've collapsed the rows.
+        //
+        // For plain text...
+        color: $the-shots-table-content;
+
+        a {
+          // ...and for anchors
+          color: $the-shots-highlight;
+        }
+      }
+
+      th:nth-of-type(1),
+      td:nth-of-type(1) {
+        // Indent the production name a little...
+        padding-left: 0.25em;
+      }
+
+      th,
+      td {
+        // ...and indent the others a bit more
+        padding-left: 1em;
+      }
+    }
   }
 }
