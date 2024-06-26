@@ -502,6 +502,9 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     return displayNotFound();
   }
 
+  // Find related shots
+  const relatedShots = production.shots.filter((s) => s.shortDescription !== shot.shortDescription);
+
   // Create display
   const shotTimestamp = getShotTimestampString(shot);
   const episodicDetailsString = getShotEpisodicDetailsString(shot);
@@ -620,6 +623,28 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
           ]
         : [])
     ),
+    // -- Top level again --
+    // Related shots
+    ...(relatedShots.length
+      ? [
+          createElementWithChildren("h4", "Additional shots from this production"),
+          createElementWithChildren(
+            "ul",
+            ...relatedShots.map((shot) =>
+              createElementWithChildren(
+                "li",
+                createAnchorElementWithChildren(
+                  getURLFor("shot", { ...urlForProduction(production), ...urlForShot(shot) }),
+                  shot.shortDescription
+                ),
+                ...(shot.tags
+                  ? [" (", ...createShotTagsElements(shot, { asLink: false }), ")"]
+                  : [])
+              )
+            )
+          ),
+        ]
+      : []),
   ];
 }
 
