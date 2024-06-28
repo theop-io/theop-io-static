@@ -4,12 +4,7 @@
   "shots": [
     {
       "operatorName": "Ari Robbins",
-      "tags": [
-        "High mode",
-        "Stairs",
-        "Elevator",
-        "Live event"
-      ],
+      "tags": ["High mode", "Stairs", "Elevator", "Live event"],
       "vimeoLink": "https://vimeo.com/960312390?share=copy",
       "shortDescription": "Final Video",
       "description": "This is an astonishing accomplishment and the fact that the music was recorded live is simply mind boggling. Massive zoom lens with massive zooms and some of the most finesse operating you will see anywhere. A must see.",
@@ -21,11 +16,7 @@
       "shortDescription": "First Take",
       "description": "Take one of an amazing video which allows you to compare it to the take they actually used. Incredible to see how subtle the differences are.",
       "operatorComments": "To see Ari Breakdown the shot check out https://www.theop.io/the-breakdown/ari-robbins-soc-say-something",
-      "tags": [
-        "High mode",
-        "Stairs",
-        "Elevator"
-      ]
+      "tags": ["High mode", "Stairs", "Elevator"]
     }
   ]
 }
