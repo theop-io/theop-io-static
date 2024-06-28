@@ -234,4 +234,4 @@ collections:
                 hint: 'You can define multiple words at the same time using a ''/'' (like "Upstage/Downstage")'
               - name: "definition"
                 label: "Definition"
-                widget: "string"
+                widget: "text"
