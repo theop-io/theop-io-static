@@ -140,7 +140,10 @@
       "word": "Shot Bag",
       "definition": "A small bag filled with actual metal gun shot, usually ten pounds."
     },
-    { "word": "Ball Buster", "definition": "A large sand bag, usually 35 pounds." },
+    {
+      "word": "Ball Buster",
+      "definition": "A large sand bag, usually 35 pounds."
+    },
     {
       "word": "Skoche",
       "definition": "A small amount. “Move that lamp over just a skoche for me.”"
@@ -281,10 +284,22 @@
       "word": "Day Playing",
       "definition": "Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays."
     },
-    { "word": "1 Inch", "definition": "25mm lens" },
-    { "word": "2 inch", "definition": "50mm lens" },
-    { "word": "3 inch", "definition": "75mm lens" },
-    { "word": "4 inch", "definition": "100mm lens" },
+    {
+      "word": "1 Inch",
+      "definition": "25mm lens"
+    },
+    {
+      "word": "2 inch",
+      "definition": "50mm lens"
+    },
+    {
+      "word": "3 inch",
+      "definition": "75mm lens"
+    },
+    {
+      "word": "4 inch",
+      "definition": "100mm lens"
+    },
     {
       "word": "5 inch",
       "definition": "Nothing really, but it's almost 6 inches. That's something right?"
@@ -321,12 +336,18 @@
       "word": "Sides (Bigs/Small)",
       "definition": "Printed pages of the day's script that have a small version of the call sheet on the front. It’s basically a program for the day's activities and as an op you can read the scene again during rehearsal and use it to recall a line cue. Most shows have smalls (smaller versions that easily fit into a pocket) and bigs (8x11 size for those who can’t read the small stuff). It's a huge waste of paper so I have a big pile of them at home that I use for note paper over time and there is still no explanation why small sides can't be printed to fill the whole page with the call sheet."
     },
-    { "word": "Honeywagon", "definition": "Mobile bathrooms on location" },
+    {
+      "word": "Honeywagon",
+      "definition": "Mobile bathrooms on location"
+    },
     {
       "word": "2 Banger/4 Banger/6 Banger",
       "definition": "Location bathrooms that come in 2, 4, or 6 stall sizes"
     },
-    { "word": "Ring it out", "definition": "Leaving set to pee. “Cover me while I ring it out.”" },
+    {
+      "word": "Ring it out",
+      "definition": "Leaving set to pee. “Cover me while I ring it out.”"
+    },
     {
       "word": "Hit the head",
       "definition": "Going to the bathroom. “Cover me while I hit the head.”"
@@ -503,7 +524,10 @@
       "word": "Magic Hour/Tragic Hour",
       "definition": "The time between sunset and dark that often has the best light for exterior shots. Magic hour is sometimes also referred to as tragic hour because companies will wait until just the right moment to shoot and then only have about 20 minutes or so of remaining light so everyone goes nuts."
     },
-    { "word": "Picture Car", "definition": "Any vehicle that will be seen on screen." },
+    {
+      "word": "Picture Car",
+      "definition": "Any vehicle that will be seen on screen."
+    },
     {
       "word": "Follow Van",
       "definition": "A van or truck outfitted with monitors for Director and DP that can follow a driving shot so they can see. Other follow vans may include hair, makeup, wardrobe, camera, grips and beyond."
@@ -616,7 +640,10 @@
       "word": "Sparkies",
       "definition": "Slang for electricians, also known collectively as “electric”"
     },
-    { "word": "Geny", "definition": "Short for a power generator used to keep everything running" },
+    {
+      "word": "Geny",
+      "definition": "Short for a power generator used to keep everything running"
+    },
     {
       "word": "French Hours",
       "definition": "A manner of working where the length of the day is predetermined (usually 10 hours) and needs to be ratified by eligible members of the crew and there is no break for lunch. Meals must be availbale to be eaten on set in between shots. If the crew goes over ten hours, penalties are paid."
@@ -701,7 +728,10 @@
       "word": "6 Step/8 Step/10 Step/12 Step",
       "definition": "Refers to ladders that are used on set for all sorts of reasons. They are generally part of the grip package. The number denotes the number of steps and therefore the size. \"Let's get a 6 step next to the dolly so I can operate the camera since it's on a riser.\""
     },
-    { "word": "Stuntie", "definition": "Slang for stunt actor or stunt person" },
+    {
+      "word": "Stuntie",
+      "definition": "Slang for stunt actor or stunt person"
+    },
     {
       "word": "Texas Switch",
       "definition": "Usually used for stunts, a trick where within the shot, a stunt player is seen doing the stunt and then the actual actor finishes the shot. \"The stuntie will ride the bike into that parked car and flip over the hood. Then our actor who is waiting in place, will get up and start to run away.\""
@@ -733,6 +763,10 @@
     {
       "word": "Wheels of Death",
       "definition": "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it."
+    },
+    {
+      "word": "Robin",
+      "definition": "Typing is really slow."
     }
   ]
 }
