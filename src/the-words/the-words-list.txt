@@ -47,13 +47,13 @@ Local 600 - The International Cinematographers Guild (ICG) which is the national
 Sand Bag - A heavy bag used to secure stands and such from falling over. Can be used for a million different things and often can make the difference in a shot.
 Shoe Leather - Unnecessary movement to cover space that is usually deemed worthy of cutting out. A person gets out of a car and has a long walk to the building to meet the protagonist and there is no value in the walk itself to build any drama. ‘We could continue the shot to the front door but it seems like a lot of shoe leather so let him out of frame quickly and we will pick it up at the front steps’.
 Rolling Reset - The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again.
-Shot Bag - "A small bag filled with actual metal gun shot, usually ten pounds."
-Ball Buster - "A large sand bag, usually 35 pounds."
-Skoche - "A small amount. “Move that lamp over just a skoche for me.”"
+Shot Bag - A small bag filled with actual metal gun shot, usually ten pounds.
+Ball Buster - A large sand bag, usually 35 pounds.
+Skoche - A small amount. “Move that lamp over just a skoche for me.”
 Organic - BS term used by operators to convince directors that what they are pitching is a great idea. "I know you had envisioned a 3 page steadicam shot that ends on a drone, but do you think that a camera on a sandbag in the corner might be more organic to the story?"
 Clicks - Denotes time period on a timecard. Most shows break the hour into 6 minute intervals so each hour has 10 intervals or ten clicks. “I put two clicks on your time card because parking is so far away from set.”
 Tailights - The absolute time a crew has to be at a location. This doesn't mean stopping shooting at that time, it means tail lights are leaving the location. “We are tailights at this location at midnight so we will probably have to finish shooting by 11 to allow the crew to wrap in time.”
-Going Again - "Shooting an additional take. “We got that and we are going again.”"
+Going Again - Shooting an additional take. “We got that and we are going again.”
 If it Aint It Aint - Slang term used to let everyone know that the present shot is the last shot of the day or at that location and anything not working can be packed away for the night/move to next location. “We have one more take of this shot and it's the last scene here so if it aint it aint.”
 Bogie - Used to describe someone you aren't supposed to see in the frame, generally during a lockup. “We should cut because I've got two bogies across the street pointing at us and taking pictures.”
 Martini - Last shot of the day. 'We are on the martini so anything that’s not working can head to the trucks.'.
@@ -70,8 +70,8 @@ Hot Set - A set that should not be touched, usually for continuity purposes but 
 Standing by - Someone or something is ready adn waiting. 'Let’s have the flowers standing by for the next scene', 'Second team is standing by and ready to step in once the ladders are out.'
 Fincheresque - Director David Fincher si known for being square to the background and having all the verticals and horizontals being stright. Making something Fincheresque is to have everything in the frame be sqaure and straight.
 Back Pan - Panning in the opposite direction of the camera move in order to keep something in frame. When the dolly is moving left to right and you need to stay with something you may need to backpan by panning left to right. 
-Grown Ups/ Adults - The Director, DP, or Producers. The people in charge.
-Flying in - Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on it’s way.
+Grown Ups/Adults - The Director, DP, or Producers. The people in charge.
+Flying in - Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on its way.
 Coverage - After the wide shot of the entire scene has been shot (generally called the Master shot), coverage is up next. This is where the camera generally gets closer to the actors and moves in as close as they choose to in one direction, and then generally does the same shots as a reverse on the other actor (if we are talking about two actors with classic coverage of a scene).
 Rickshaw - A small moving platform, usually with large biccycle type tires, that cane be pushed or pulled with a camera operator sitting on the seat. Often used for long straight steadicam shots where the steadicam is hard mounted they can also be used for long handheld shots where the operator is being moved a great distance but the grips can change up from shot to shot.
 Lambda Head - A head that can hang off the dolly or a job that gets the camera lower than a normal head but is still easily operated by the operator. Still a physically operated head, not a remote head.
@@ -98,7 +98,7 @@ Key Grip - Head of the grip department. The Key Grip is generally on set all the
 Best Boy - There are two best boys, grips and electricians, and they generally do not spend a lot of time on set. They are tasked with making sure their departments have everything they need for the days coming up, any special projects, and keeping all repairs in order so that everyone has everything they need to get things done on the day.
 Sides (Bigs/Small) - Printed pages of the day's script that have a small version of the call sheet on the front. It’s basically a program for the day's activities and as an op you can read the scene again during rehearsal and use it to recall a line cue. Most shows have smalls (smaller versions that easily fit into a pocket) and bigs (8x11 size for those who can’t read the small stuff). It's a huge waste of paper so I have a big pile of them at home that I use for note paper over time and there is still no explanation why small sides can't be printed to fill the whole page with the call sheet.
 Honeywagon - Mobile bathrooms on location
-2 banger/4 Banger/6 Banger - Location bathrooms that come in 2, 4, or 6 stall sizes
+2 Banger/4 Banger/6 Banger - Location bathrooms that come in 2, 4, or 6 stall sizes
 Ring it out - Leaving set to pee. “Cover me while I ring it out.”
 Hit the head - Going to the bathroom. “Cover me while I hit the head.”
 10-1 - Used to let someone know that you are going to the bathroom to pee. “Cover me I’m 10-1”
@@ -187,7 +187,7 @@ MOS - Mit Out Sound. German expression used as an acronym for shooting a scene t
 Fraturday - The unfortunate timing of a Friday shoot where you start late in the day and work into Saturday morning.
 French Overs - Over the shoulder shots where you are coming from behind the actors instead of in front. A good example is in a car where the actors are sitting in the front seat. Standard overs would mean the camera angles are in between the actor and the dashboard, form the side window perhaps, while french overs would be from the back seat. If an over is called for it’s assumed it’s a standard over not a french over.
 Tail Sticks/Tail Slate - If for some reason the head slate was missed, immediately after the director calls cut the operator will call out loud "tail sticks" to let sound and camera know not to cut. The sticks are held in and smacked upside down so the editors know it's a tail slate.
-Head sticks/Head Slate - When the slate is hit at the head of the take between roll cmaera and action. This is generally how it will be done.
+Head Sticks/Head Slate - When the slate is hit at the head of the take between roll cmaera and action. This is generally how it will be done.
 Wild wall - Also wild. A wall, or really anything, that can be moved either in the middle of a shot or at any other time, meaning it is not anchored down. “That wall is wild so we can pull it as the camera back up once it's out of view.”
 Single Net - A piece of netting in a frame put in front of a light, also called a single, that will take 1 stop of light away from a lighting unit.
 Double Net - A piece of netting in a frame put in front of a light, also called a double, that will reduce the amount of light by two stops.
@@ -199,7 +199,7 @@ Taillights - Refers to the trucks tailights leaving the set but is used to discu
 Bus to/Van to - Means you will drive to a specific location to park and then get into vehicles provided by produciton to get to the location. "Tomorrow is a van to as no parking is allowed at location." 
 Drive to - When parking is at the location. "Tomorrow is a drive to so make sure to check traffic ahead of time."
 Turn around - The time between when you wrap and when you start work the next day. Most unions have minimum turn arounds and alamost all of them are too short. Turning around denotes the point in a scene where you have shot everything in one direction and you are now "turning around" to shoot back in the other direction. "Remind me that we need to grab a close-up of the newspaper he is holding when we do the turn around."
-6/8/10/12 Step - Refers to ladders that are used on set for all sorts of reasons. They are generally part of the grip package. The number denotes the number of steps and therefore the size. "Let's get a 6 step next to the dolly so I can operate the camera since it's on a riser."
+6 Step/8 Step/10 Step/12 Step - Refers to ladders that are used on set for all sorts of reasons. They are generally part of the grip package. The number denotes the number of steps and therefore the size. "Let's get a 6 step next to the dolly so I can operate the camera since it's on a riser."
 Stuntie - Slang for stunt actor or stunt person
 Texas Switch - Usually used for stunts, a trick where within the shot, a stunt player is seen doing the stunt and then the actual actor finishes the shot. "The stuntie will ride the bike into that parked car and flip over the hood. Then our actor who is waiting in place, will get up and start to run away."
 Rack - To change focus between one part of the scene and something in a different plane of the scene. "When he picks up the cards, wait until I can see the hand he is holding before you rack to the background."
