@@ -2,6 +2,7 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import * as yup from "yup";
 
 import { wordKeyFromWord, TheWordsDatabase } from "../src/the-words/the-words-types";
 
@@ -9,21 +10,38 @@ import { wordKeyFromWord, TheWordsDatabase } from "../src/the-words/the-words-ty
 // Process command line
 //
 
-if (process.argv.length < 3) {
-  console.error(
-    `Usage: ts-node ${process.argv[1]} <path-to-words-text-file> [<path-to-generated-output>]`
-  );
+if (process.argv.length < 2) {
+  console.error(`Usage: ts-node ${process.argv[1]} [<path-to-generated-output>]`);
   process.exit(1);
 }
 
-const wordsSourceFile = process.argv[2];
-const wordsDatabaseDestinationFile = process.argv.length >= 3 ? process.argv[3] : null;
+const wordsDatabaseDestinationFile = process.argv.length >= 2 ? process.argv[2] : null;
 
 //
 // Read data
 //
 
-const wordsData = fs.readFileSync(wordsSourceFile, "utf-8");
+export const wordsDataFile = "./src/the-words/data/the-words.json";
+
+function readTheWordsData() {
+  const wordSchema = yup.object({
+    word: yup.string().required(),
+    definition: yup.string().required(),
+  });
+
+  const wordsFileSchema = yup.object({
+    "the-words": yup.array().of(wordSchema).required(),
+  });
+
+  const wordsData = fs.readFileSync(wordsDataFile, "utf-8");
+  const wordsJson = JSON.parse(wordsData);
+
+  const wordsEnvelope = wordsFileSchema.validateSync(wordsJson, { stripUnknown: true });
+
+  return wordsEnvelope["the-words"];
+}
+
+const wordsData = readTheWordsData();
 
 //
 // Process data
@@ -35,64 +53,18 @@ const wordsDb: TheWordsDatabase = {
   DisplayNamesInDisplayOrder: [],
 };
 
-const wordKeyToLineNumber = new Map<string, number>();
+wordsData.forEach((wordData) => {
+  const displayName = wordData.word.replace(/\"/g, "").trim();
+  const definition = wordData.definition.trim();
 
-// Initial cleaning
-const wordsList = wordsData.split(/\r?\n/).map((line) => line.trim());
-
-// Parse `term - definition`
-const syntaxErrors: string[] = [];
-
-wordsList.forEach((line, index) => {
-  function syntaxError(message: string) {
-    syntaxErrors.push(`${message} on line ${index + 1}:`);
-    syntaxErrors.push(`  ${line}`);
-  }
-
-  // Filter out empty and comment-only lines here so we still get accurate line numbers
-  if (!line || line.startsWith(";")) {
+  // Check for duplicates
+  if (wordsDb.DisplayNameToDefinition.has(displayName)) {
+    // Ignore this one
     return;
   }
 
-  // Split line into term (word) and definition
-  const termToDefinitionSeparator = " - ";
-  const separatorIndex = line.indexOf(termToDefinitionSeparator);
-
-  if (separatorIndex < 0) {
-    return syntaxError(`Missing '${termToDefinitionSeparator}' separator`);
-  }
-
-  const displayName = line.slice(0, separatorIndex).trim();
-  const definition = line.slice(separatorIndex + termToDefinitionSeparator.length).trim();
-
-  if (!displayName) {
-    return syntaxError(`Missing Term to the left of the '${termToDefinitionSeparator}' separator`);
-  }
-
-  if (!definition) {
-    return syntaxError(
-      `Missing Definition to the right of the '${termToDefinitionSeparator}' separator`
-    );
-  }
-
-  if (displayName.includes('"')) {
-    return syntaxError(`Term "${displayName}" should not include a quote (")`);
-  }
-
-  // Check for duplicates
-  const primaryWordKey = wordKeyFromWord(displayName);
-  const previouslyDefinedOnLineNumber = wordKeyToLineNumber.get(primaryWordKey);
-
-  if (previouslyDefinedOnLineNumber) {
-    return syntaxError(
-      `Word "${displayName}" previously defined on line ${
-        previouslyDefinedOnLineNumber + 1
-      }, redefined`
-    );
-  }
-
   // Commit primary word key
-  wordKeyToLineNumber.set(primaryWordKey, index);
+  const primaryWordKey = wordKeyFromWord(displayName);
 
   wordsDb.KeyToDisplayName.set(primaryWordKey, displayName);
   wordsDb.DisplayNameToDefinition.set(displayName, definition);
@@ -104,7 +76,8 @@ wordsList.forEach((line, index) => {
   splitDisplayName.forEach((secondaryDisplayName) => {
     // Syntax validation
     if (!secondaryDisplayName) {
-      return syntaxError(`Word "${displayName}" contains empty sections between slashes`);
+      // Ignore this one
+      return;
     }
 
     // Commit secondary word key, mapping to primary display name
@@ -113,13 +86,6 @@ wordsList.forEach((line, index) => {
     wordsDb.KeyToDisplayName.set(secondaryWordKey, displayName);
   });
 });
-
-if (syntaxErrors.length) {
-  syntaxErrors.forEach((syntaxError) => console.error(syntaxError));
-
-  // Exit
-  process.exit(5);
-}
 
 //
 // Output data
