@@ -757,6 +757,14 @@
       "definition": "A remotely controlled head, usually wireless these days, that can work on a crane or anywhere an operator cant get to, that can be panned, titlted, adn rolled around the nodal point of the camera via wheels in another location."
     },
     {
+      "word": "Grace",
+      "definition": "On union shows, grace can be asked for as an exception, in order to finish a shot that is in progress ie, doing one more take. 12 minutes without penalty is granted but after 12 it becomes a meal penalty."
+    },
+    {
+      "word": "Meal Penalty",
+      "definition": "On a union show, meals are guaranteed every six hours or else there are fines imposed known as meal penalties. A meal penalty is a certain amount of money (varies by contract) that is paid for every thirty minute period (or part thereof) after the 6 hours."
+    },
+    {
       "word": "Stabilized head",
       "definition": "A remote head that has electronic stabilization in it that will remove bumps and jolts that movement of the crane or vehicle may add to the image. It is extremely important to never assume that a head that is requested is stabilized and to make it clear that that is what you require for the shot. It is fairly hard to achieve any kind of crane move well without a stabilized head. Stabilized heads come in both 2 axis and 3 axis configurations."
     },
@@ -767,10 +775,6 @@
     {
       "word": "Wheels of Death",
       "definition": "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it."
-    },
-    {
-      "word": "Grace",
-      "definition": "On union shows, grace can be asked for as an exception, in order to finish a shot that is in progress ie, doing one more take. 12 minutes without penalty is granted but after 12 it becomes a meal penalty."
     }
   ]
 }
