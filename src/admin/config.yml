@@ -203,3 +203,35 @@ collections:
                 label: "Item"
                 widget: "markdown"
             required: false
+
+  - name: "words" # Used in routes
+    # How it's presented in the admin UI
+    label: "The Words"
+    label_singular: "Word"
+    editor:
+      preview: false # Our previews are useless/non-existent so just suppress them
+
+    files:
+      - name: "the-words"
+        # How it's presented in the admin UI
+        label: "The Words"
+
+        # How it's stored
+        file: "src/the-words/data/the-words.json"
+        format: "json"
+
+        # Fields
+        fields:
+          - name: "the-words"
+            label: "The Words"
+            label_singular: "Word"
+            description: "List of word definitions"
+            widget: "list"
+            fields:
+              - name: "word"
+                label: "Word"
+                widget: "string"
+                hint: 'You can define multiple words at the same time using a ''/'' (like "Upstage/Downstage")'
+              - name: "definition"
+                label: "Definition"
+                widget: "string"

@@ -1,0 +1,738 @@
+{
+  "the-words": [
+    {
+      "word": "Mayonnaise Commercial",
+      "definition": "What you tell lookie loos you are shooting so they become disinterested and walk on by. \"Hey is this the new Taylor Swift Music Video we heard about? Nope, just a mayonnaise commerical. Sorry\""
+    },
+    {
+      "word": "Skate Wheels",
+      "definition": "Two rows of skateboard wheels used under the wheels of a dolly. Skateboard wheels make it much easier and smoother to push a dolly on track."
+    },
+    {
+      "word": "Oner",
+      "definition": "When an entire scene is played in a single shot. A oner with coverage is a oner that they then decide to do coverage on after the fact, so not really a oner."
+    },
+    {
+      "word": "Master",
+      "definition": "Usually the first wide shot of a scene that sees the entire story and all the players. The average master will generally run the entire scene and blocking, coverage, and the line will be determined as things play out in it."
+    },
+    {
+      "word": "Rock and Roll Handle",
+      "definition": "When a zoom control is added to a pan handle on a fluid head so you can operate and zoom in and out at the same time with one hand. This was popular on music videos and is how it got it's name."
+    },
+    {
+      "word": "Assasins",
+      "definition": "Things on set that shouldn't be on set but that if seen, will kill your career. Water bottles, coffee cups, sides and phones. The big four. Be vigilant for there are assasins everywhere."
+    },
+    {
+      "word": "Remote Head",
+      "definition": "A two (pan/tilt) or three (pan/tilt/roll) axis head that is remotely controlled by either wheels or a joystick. These can generally be found on the end of a crane allowing the operator to operate a shot where they can’t get near the camera. Can also be on a dolly, on a ladder, or anywhere that a camera could be put where the operator can’t easily access it."
+    },
+    {
+      "word": "Practical",
+      "definition": "Something that is real and not fake or a prop. A practical location is an actual location - a diner, a drug store, a restaurant - as opposed to a set. A practical when talking about a light is a light that exists on screen and is being used for lighting. “The actor will then turn off the practical before she gets into bed.”"
+    },
+    {
+      "word": "Method Actor",
+      "definition": "An actor who subscribes to the method where they actually become the part on and usually off camera. Method actors can be tough to work with simply because it is hard to know when to discuss anything technical with them, if you can at all."
+    },
+    {
+      "word": "Put it on its feet",
+      "definition": "Actually starting to put the scene together as it will finally be seen. This is usually done after the actors read the words on set for the first time. “OK, now that we've read it through once, let's move around the room and put it on it’s feet.”"
+    },
+    {
+      "word": "Turning Around",
+      "definition": "Having shot in one direction you are now going to “turn around” to shoot in the opposite direction. Usually called out so that people know that equipment will have to be moved."
+    },
+    {
+      "word": "Solid",
+      "definition": "A piece of solid duvatene that light cannot pass through in a frame used to block out light from a scene or take care of lens flare."
+    },
+    {
+      "word": "Flop/Floppy",
+      "definition": "A 4x4 solid that has another 4x4 piece of black fabric that is attached on one edge and held in place by velcro on the opposite edge. Once in place, the “flop” part of the solid can be pulled down to either make a right angle or turn the 4x4 into a 4x8."
+    },
+    {
+      "word": "Apple Box",
+      "definition": "A wooden rectangular in various sizes used for all sorts of things from standing on to raising things up. Sizes are as follows: Pancake - 12x20x1, Quarter - 12x20x2, Half - 12x20x4, Full 12x20x8. Apple boxes are called from by name and asking for a complement means bring one of everything. “Not sure what we will need so bring me 2 pancakes, a half and a full and we will see if that works.”"
+    },
+    {
+      "word": "Sticks",
+      "definition": "Another word for a tripod base that the camera can sit on."
+    },
+    {
+      "word": "Fluid Head",
+      "definition": "A device that the camera is attached to that allows the operator to pan and tilt with precision. A fluid head has different settings that will allow for panning and tilting to require less or more effort as the shots calls for."
+    },
+    {
+      "word": "Wheels",
+      "definition": "A device that the camera is attached two with two wheels, one on the back and one on the left, which can be rotated to pan and tilt the camera with great precision. The rear wheel tilts and the left wheel pans. Wheels were designed to mimic the contrls of guns in bombers during World War II. Wheels are a much more exact way of moving the cmaera when compared to a fluid head."
+    },
+    {
+      "word": "Cup Blocks",
+      "definition": "A 6”x6”x2” piece of wood with a slight bowl carved out of the top of it. Cup blocks are used to raise things and since they have the indented bowl, furniture legs will sit in them and not slide off. They can easily be stacked to make things higher."
+    },
+    {
+      "word": "Wedge",
+      "definition": "A 12” wooden 2x4 cut on a diagonal so the one end of it is thin and it gradually increases to the far end. Camera wedges are much smaller versions of this."
+    },
+    {
+      "word": "Abby or Abby Singer",
+      "definition": "The name of a Hollywood First AD who notoriously would tell the crew that this is the last shot but then there was always one more. Consequently the 2nd to last shot became known as the “Abby Singer”."
+    },
+    {
+      "word": "Camera Wedge",
+      "definition": "A small wooden, plastic or metal wedge used to shim up and level a camera when it is on a surface such as the floor or a sandbag."
+    },
+    {
+      "word": "Dolly Track",
+      "definition": "Metal dolly track that is generally straight and interlocking. The dolly is placed on top of it with special wheels and can ride on the rails like a train. Dolly track can be as long as 100 feet or more but without specialty equipment can only go straight. There are rare occasions where curved track is used but it's not usually done."
+    },
+    {
+      "word": "Precision Track",
+      "definition": "Dolly track that has been machined to extreme tolerances so there are no bumps between the seams in the tracks."
+    },
+    {
+      "word": "Boards/Planks",
+      "definition": "Flat long pieces of wood, usually 1 foot wide, that can quickly be thrown down to achieve a smooth dolly shot. Usually come in 12 or 16'."
+    },
+    {
+      "word": "Dance Floor",
+      "definition": "Flat sheets of wood and plastic, usually 4'x8' that are built on uneven floor so that the dolly can be moved around smoothly but not in a straight line as if on track. Do not mention this around Cinematographer John Lindley ASC."
+    },
+    {
+      "word": "Pan Handle",
+      "definition": "A metal bar that extands from a fluid head and allows the operator to pan and tilt the camera simply by moving it up or down, or left or right. Can be removed and reconfigured if it is in the way of the shot."
+    },
+    {
+      "word": "Dolly Party",
+      "definition": "When four or more grips get together to carry a dolly up or down an area where it can't roll. “Let's get a dolly party over here to get this thing up those stairs.”"
+    },
+    {
+      "word": "Method acting",
+      "definition": "A style of acting created by Konstantin Stanislavski first popularized by Marlon Brando in On The Waterfront, whereby the actor is the character (usually on and off set) and never emerges as themselves."
+    },
+    {
+      "word": "Process",
+      "definition": "An actors process is how they go about acting and the method they use to get the perforances they need. \"Don't worry if he gets upset just before the take, it's his process to be able to get into character.\""
+    },
+    {
+      "word": "Reconnoiter",
+      "definition": "Sadly a word used completely incorrectly in the film industry to mean to move something. “Lets reconnoiter this couch over there so we can get the camera in place”. In reality reconnoiter means to scout out ahead of time and gather information. Use this term incorrectly around Simon Jarvis and he will lose his mind."
+    },
+    {
+      "word": "Local 600",
+      "definition": "The International Cinematographers Guild (ICG) which is the national union for people in camera and plubicity in the US."
+    },
+    {
+      "word": "Sand Bag",
+      "definition": "A heavy bag used to secure stands and such from falling over. Can be used for a million different things and often can make the difference in a shot."
+    },
+    {
+      "word": "Shoe Leather",
+      "definition": "Unnecessary movement to cover space that is usually deemed worthy of cutting out. A person gets out of a car and has a long walk to the building to meet the protagonist and there is no value in the walk itself to build any drama. ‘We could continue the shot to the front door but it seems like a lot of shoe leather so let him out of frame quickly and we will pick it up at the front steps’."
+    },
+    {
+      "word": "Rolling Reset",
+      "definition": "The scene (props, cameras, lighting cues, etc) will be reset while the cameras are rolling rather than cutting the cameras, resetting everything, and starting again."
+    },
+    {
+      "word": "Shot Bag",
+      "definition": "A small bag filled with actual metal gun shot, usually ten pounds."
+    },
+    { "word": "Ball Buster", "definition": "A large sand bag, usually 35 pounds." },
+    {
+      "word": "Skoche",
+      "definition": "A small amount. “Move that lamp over just a skoche for me.”"
+    },
+    {
+      "word": "Organic",
+      "definition": "BS term used by operators to convince directors that what they are pitching is a great idea. \"I know you had envisioned a 3 page steadicam shot that ends on a drone, but do you think that a camera on a sandbag in the corner might be more organic to the story?\""
+    },
+    {
+      "word": "Clicks",
+      "definition": "Denotes time period on a timecard. Most shows break the hour into 6 minute intervals so each hour has 10 intervals or ten clicks. “I put two clicks on your time card because parking is so far away from set.”"
+    },
+    {
+      "word": "Tailights",
+      "definition": "The absolute time a crew has to be at a location. This doesn't mean stopping shooting at that time, it means tail lights are leaving the location. “We are tailights at this location at midnight so we will probably have to finish shooting by 11 to allow the crew to wrap in time.”"
+    },
+    {
+      "word": "Going Again",
+      "definition": "Shooting an additional take. “We got that and we are going again.”"
+    },
+    {
+      "word": "If it Aint It Aint",
+      "definition": "Slang term used to let everyone know that the present shot is the last shot of the day or at that location and anything not working can be packed away for the night/move to next location. “We have one more take of this shot and it's the last scene here so if it aint it aint.”"
+    },
+    {
+      "word": "Bogie",
+      "definition": "Used to describe someone you aren't supposed to see in the frame, generally during a lockup. “We should cut because I've got two bogies across the street pointing at us and taking pictures.”"
+    },
+    {
+      "word": "Martini",
+      "definition": "Last shot of the day. 'We are on the martini so anything that’s not working can head to the trucks.'."
+    },
+    {
+      "word": "Upstage/Downstage",
+      "definition": "Upstage is away from camera, downstage is towards camera. Easy way to remember it is theater. Down stage is towards the audience and upstage is away from the audience."
+    },
+    {
+      "word": "Hot points",
+      "definition": "Verbal cue that something large that can hurt you is being brought onto set. Generally called out by electricians or grips who will often have to carry long pieces of equipment on their shoulders. When 'hot points' is called out, be extra aware."
+    },
+    {
+      "word": "Coming through",
+      "definition": "Often used in conjunction with hot points, an alert to let people know that they will need to move as someone is “coming through” with a piece of equipment and requires room to navigate."
+    },
+    {
+      "word": "Watch Your Back",
+      "definition": "keep your eyes open, be aware of your surroundings. “We’ve got equipment coming through this hallway so watch your back.”"
+    },
+    {
+      "word": "Lockup",
+      "definition": "When an area is being controlled and no outsiders are allowed in. Generally used when working on location and quite often having to do with traffic control. 'We are locked up' means that PAs are stationed in the appropriate areas to stop people not involved in the scene from wandering on camera. 'Breaking a lockup' means someone has sneaked thorugh."
+    },
+    {
+      "word": "Dutch/Dutch Angle",
+      "definition": "When the camera is not straight to the horizon but angled left to right or visa versa. Dutch angles are often used in highly stylized visuals such as music videos. Also known as a Tango head."
+    },
+    {
+      "word": "Dutch Head",
+      "definition": "A fluid head that the camera sits on that will alloow you to ducth the angle to one side or the other."
+    },
+    {
+      "word": "Two Headed Monster",
+      "definition": "When both cameras are placed on the same dolly side by side. Usually done to get a wide and tight with the same move."
+    },
+    {
+      "word": "Crafty",
+      "definition": "Also known as Craft Services. A table, truck, area that is set up for snacks and drinks to be grabbed on the go by the crew during the day."
+    },
+    {
+      "word": "Hot Set",
+      "definition": "A set that should not be touched, usually for continuity purposes but sometimes because it has been set up with special effects that can’t be disturbed. Signs and/or police tape are generally used to denote a hot set. 'Everyone should know this is now a hot set and no one should be on it except props and special effects.'"
+    },
+    {
+      "word": "Standing by",
+      "definition": "Someone or something is ready adn waiting. 'Let’s have the flowers standing by for the next scene', 'Second team is standing by and ready to step in once the ladders are out.'"
+    },
+    {
+      "word": "Fincheresque",
+      "definition": "Director David Fincher si known for being square to the background and having all the verticals and horizontals being stright. Making something Fincheresque is to have everything in the frame be sqaure and straight."
+    },
+    {
+      "word": "Back Pan",
+      "definition": "Panning in the opposite direction of the camera move in order to keep something in frame. When the dolly is moving left to right and you need to stay with something you may need to backpan by panning left to right."
+    },
+    {
+      "word": "Grown Ups/Adults",
+      "definition": "The Director, DP, or Producers. The people in charge."
+    },
+    {
+      "word": "Flying in",
+      "definition": "Also 'coming in hot'. Announced on set so someone realizes that the thing that was requested is on its way."
+    },
+    {
+      "word": "Coverage",
+      "definition": "After the wide shot of the entire scene has been shot (generally called the Master shot), coverage is up next. This is where the camera generally gets closer to the actors and moves in as close as they choose to in one direction, and then generally does the same shots as a reverse on the other actor (if we are talking about two actors with classic coverage of a scene)."
+    },
+    {
+      "word": "Rickshaw",
+      "definition": "A small moving platform, usually with large biccycle type tires, that cane be pushed or pulled with a camera operator sitting on the seat. Often used for long straight steadicam shots where the steadicam is hard mounted they can also be used for long handheld shots where the operator is being moved a great distance but the grips can change up from shot to shot."
+    },
+    {
+      "word": "Lambda Head",
+      "definition": "A head that can hang off the dolly or a job that gets the camera lower than a normal head but is still easily operated by the operator. Still a physically operated head, not a remote head."
+    },
+    {
+      "word": "Jib",
+      "definition": "A small, portable crane used in tight spaces that can work on a dolly or a fixed position."
+    },
+    {
+      "word": "Back to one",
+      "definition": "Usually called out when a shot needs to be stopped and restarted from the beginning (or on a rolling reset). Back to one means everyone, camera, actors, etc, should go back to the positions they started in and props should be reset to the beginning of the shot."
+    },
+    {
+      "word": "Tapeball",
+      "definition": "Literally a wadded up ball of tape usually used to angle out a glass picture frame or a glass cabinet that is throwing a bad reflection. 'Can someone tapeball the bottom left corner of that picture frame to get rid of the reflection of the light stand?'"
+    },
+    {
+      "word": "Follow Focus",
+      "definition": "A device the 1st AC uses to change the focus on a lens during the scene."
+    },
+    {
+      "word": "Low Mode",
+      "definition": "Usually refers to dolly or steadicam, when the camera is mounted lower/at the bottom so that it can get closer to the ground. On a dolly it often means dropping donw the front section os it doesn’t get as high but can get lower. On a steadicam, the rig is inverted and the camera hangs underneath."
+    },
+    {
+      "word": "High Mode",
+      "definition": "Usually refers to dolly or steadicam. When the camera is mounted in such a way that it can get higher but not as low. Also known as normal mode."
+    },
+    {
+      "word": "Riser",
+      "definition": "A metal piece that is used on a dolly to get the camera higher, which literally raises the camera. Can be used on sticks as well or anything that accepts a head and has a Mitchell mount. Usually comes in 3”, 6”, and 12” pieces"
+    },
+    {
+      "word": "Bowling Trophy",
+      "definition": "A large, usually 3 foot riser used for extremely high shots. Its name is derived from the fact that it looks like a trophy someone would hold over their head."
+    },
+    {
+      "word": "Day Playing",
+      "definition": "Coming in for just a day or two on a show rather than working for the run of the show. 'I'm day playing around right now but hoping to land something long term soon.' A day player is the term for someone who dayplays."
+    },
+    { "word": "1 Inch", "definition": "25mm lens" },
+    { "word": "2 inch", "definition": "50mm lens" },
+    { "word": "3 inch", "definition": "75mm lens" },
+    { "word": "4 inch", "definition": "100mm lens" },
+    {
+      "word": "5 inch",
+      "definition": "Nothing really, but it's almost 6 inches. That's something right?"
+    },
+    {
+      "word": "Jack Lord",
+      "definition": "Not used much anymore but he was an actor on the show Hawaii Five Oh and as such a Jack Lord was a 50mm lens."
+    },
+    {
+      "word": "Over/Over The Shoulder",
+      "definition": "Short for over the shoulder (OTS). A shot from behind one actor, across their shoulder, to another actor who is speaking to them."
+    },
+    {
+      "word": "The Line",
+      "definition": "An imaginary line that is drawn between two actors in a scene. Once the blocking has been determined, the camera should generally only shoot from that side of the line and not cross it."
+    },
+    {
+      "word": "Jumping the Line/Crossing the Line",
+      "definition": "When you purposely disreagard the line for the sake of the shot or to intentionally create tension."
+    },
+    {
+      "word": "Offset",
+      "definition": "A device that can be put on a dolly to allow the camera to sit somewhere other than the center of the boom arm. Offsets are used to move over things, under things, or just to gain a few inches left or right of center and be able the line things up correctly."
+    },
+    {
+      "word": "Key Grip",
+      "definition": "Head of the grip department. The Key Grip is generally on set all the time (with the exception being when they may scout a location ahead of time and will appoint a grip to be key for the day) is the person in charge of the grip department and generally in charge of all rigging, building, etc."
+    },
+    {
+      "word": "Best Boy",
+      "definition": "There are two best boys, grips and electricians, and they generally do not spend a lot of time on set. They are tasked with making sure their departments have everything they need for the days coming up, any special projects, and keeping all repairs in order so that everyone has everything they need to get things done on the day."
+    },
+    {
+      "word": "Sides (Bigs/Small)",
+      "definition": "Printed pages of the day's script that have a small version of the call sheet on the front. It’s basically a program for the day's activities and as an op you can read the scene again during rehearsal and use it to recall a line cue. Most shows have smalls (smaller versions that easily fit into a pocket) and bigs (8x11 size for those who can’t read the small stuff). It's a huge waste of paper so I have a big pile of them at home that I use for note paper over time and there is still no explanation why small sides can't be printed to fill the whole page with the call sheet."
+    },
+    { "word": "Honeywagon", "definition": "Mobile bathrooms on location" },
+    {
+      "word": "2 Banger/4 Banger/6 Banger",
+      "definition": "Location bathrooms that come in 2, 4, or 6 stall sizes"
+    },
+    { "word": "Ring it out", "definition": "Leaving set to pee. “Cover me while I ring it out.”" },
+    {
+      "word": "Hit the head",
+      "definition": "Going to the bathroom. “Cover me while I hit the head.”"
+    },
+    {
+      "word": "10-1",
+      "definition": "Used to let someone know that you are going to the bathroom to pee. “Cover me I’m 10-1”"
+    },
+    {
+      "word": "10-2",
+      "definition": "Used to let someone know that you are going to the bathroom to, ahem, evacuate your bowels. “Cover me, I’m 10-2”"
+    },
+    {
+      "word": "Wringing it out",
+      "definition": "used to let someone know you are leaving to go pee. “Cover me I’m hitting the head to ring it out”."
+    },
+    {
+      "word": "Cover me",
+      "definition": "Making sure someone's absence isnt felt when they have to step off set. When an operator has to leave for a minute they may ask the 1st AC to “cover me” or “keep an eye” in case someone needs the camera moved or a new element changes in the shot."
+    },
+    {
+      "word": "First team",
+      "definition": "The actors in the scene. “Let’s work out the details of the move with first team since they will likely do it differently.”"
+    },
+    {
+      "word": "Second Team",
+      "definition": "Also known as “stand ins” second teamers will take the actors marks and re-enact their movements for camera and lighting before first team comes back in."
+    },
+    {
+      "word": "Video Village",
+      "definition": "Usually a bunch of seats in front of a monitor or two where the director, scripty, and sometimes the producers or writer will sit."
+    },
+    {
+      "word": "PA",
+      "definition": "Production assistant. They are the bottom of the food chain and an entry level position but know this - they are why we are able to do what we do because they do everything from getting actors to set to locking up traffic to grabbing food to making sure everyone on set knows what is happening next. This industry couldn’t exist without them adn some day you will work for many of them, so be nice."
+    },
+    {
+      "word": "Marking Rehearsal",
+      "definition": "After a private rehearsal a marking rehearsal with the actors is generally called for. As the actors move around the room, a 2nd AC will drop tape marks on the floor (or physical marks if outside) to denote where the actors stop. This allows the second team to recreate what the actors are doing when the crew is lighting."
+    },
+    {
+      "word": "Private Rehearsal",
+      "definition": "Usually the first rehearsal which involves the director and the actors. Many times the DP and the script supervisor will be included as well as the camera ops. The intensity of the scene will usually determine if a private rehearsal is necessary or not as the actors and directors need time without everyone watching to work out the dramatic beats of a scene. A \"priavte private\" means no one but the director and the actors."
+    },
+    {
+      "word": "Clear the set",
+      "definition": "Called out, usually prior to a private rehearsal, when everyone is asked to leave the set for a few minutes. Can also be called out when there is a hazard."
+    },
+    {
+      "word": "Going hot",
+      "definition": "When special effects are used - squibs, sparks, explosions - this is generally the last step and is called out when the fx team hooks up the final wires to make the effect “live”. Everything should be in place and ready to go when the announcement that they are going hot is made."
+    },
+    {
+      "word": "Coming in hot",
+      "definition": "Coming in quickly. Usually denotes a driver coming to a quick stop or some sort of moving vehicle coming in fast. “Make sure you have enough room to pull out of the way because the driver will be coming in hot.”"
+    },
+    {
+      "word": "Call sheet",
+      "definition": "Emailed or hand delivered at the end of the day, the call sheet lists the next days work, location, call times, special equipment and a myriad other information. Safety bulletins involving the days work should also be attached. Around lunchtime a preliminary call sheet will generally come out which gives people a heads up as to what is coming donw the pike for the next day. Reading call sheets is extremely important in order to avoid surprises. At the bottom of most call sheets is a glimpse at the next two days as well and on the back is everyone's call times."
+    },
+    {
+      "word": "Call time",
+      "definition": "The time that you are expected to arrive on set. Be aware that there is crew call (the time listed on the front top of the call sheet in large numbers) and your call time (which may differ and is listed on the back of the call sheet by department and name)."
+    },
+    {
+      "word": "Pre-Call",
+      "definition": "Time before the crew call given to certain crew members so they can prepare gear/load in, etc before the day starts. Pre-Call is on the time card and affects your lunch and out times as well as turn around."
+    },
+    {
+      "word": "Greens",
+      "definition": "Crew member who is in charge of anything related to trees, shrubbery, nature in general, usually used to dress or hide things in an outside location. A lot of times you will simply call them by both their name and title. “Can someone ask Bob Greens to come over and help me cover up this area of the wall with a shrub?”"
+    },
+    {
+      "word": "Lookie Loos",
+      "definition": "Individuals standing and watching what you are shooting."
+    },
+    {
+      "word": "Props/Property",
+      "definition": "Props are any items that are actually used in the scene by an actor. Property is the name of the department who is in charge of all props. “Let property come in and grab these props before we start moving things so they don't get lost”."
+    },
+    {
+      "word": "On Set",
+      "definition": "The area that is being used for filming. Anything on set is anything that may be in font of the camera."
+    },
+    {
+      "word": "Set",
+      "definition": "Can mean the area that is being filmed (On Set) and also used as a term to let the 1st AD know you are ready, usually called out by the camera operator after slating has occurred."
+    },
+    {
+      "word": "Hot Biscuit/Hot brick",
+      "definition": "Charged battery that powers a walkie talkie and clips on to the back. Most sets will have 5 gallons buckets where charged batteries are clipped on the rim and dead batteries are dropped inside."
+    },
+    {
+      "word": "Dead soldier",
+      "definition": "Anything that is no longer useful but generally used to mean a dead battery."
+    },
+    {
+      "word": "Butt Dolly",
+      "definition": "A single seat on a riser with wheels, usually five or more, that is used for an operator to sit on and shoot handheld. The five or more wheels means that they can seamlessly move in any direction without having to first get the wheels straight."
+    },
+    {
+      "word": "Blocking",
+      "definition": "The art of figuring out where people will stand in a scene, how they will move, and what they will do. Good blocking can make a scene and make the way to shoot it seem effortless while bad blocking/no blocking can destroy the best written scene in the world."
+    },
+    {
+      "word": "DP/DOP/Director of Photography",
+      "definition": "The head of the camera, grip, and lighting department, the DP is the person who is in charge of the look of the show, the framing, the lighting, and anything visually oriented."
+    },
+    {
+      "word": "Boom",
+      "definition": "When used in the world of the dolly, the boom replies to vertically moving the camera through space using the (generally) hydraulic arm of the dolly. The dolly grip can boom the camera up and boom the camera down. When used in the world of sound, the boom is actually short for boom pole, a long pole the boom operator will use to hold a microphone over a scene."
+    },
+    {
+      "word": "Optical Flat",
+      "definition": "Clear piece of glass put in front of the lens in order to protect it from spray and debris and a special fx shot is being undertaken."
+    },
+    {
+      "word": "Tie Down",
+      "definition": "The screw and large washer underneath most heads that secures it to whatever base its being placed on."
+    },
+    {
+      "word": "C-Stand",
+      "definition": "Three legged stand used throughout the industry to hold thing ups, hold things in place, and beyond. They are generally topped by a knuckle of sorts with holes in it that can accept/grab just about anything."
+    },
+    {
+      "word": "Cutter",
+      "definition": "Another term for a flag when it is used to cut the light. “I’m getting flared in the lens right here, can you ask the key grip to fly in a cutter to take care of it?”"
+    },
+    {
+      "word": "ND",
+      "definition": "Neutral Density. A filter, sometimes in front of the lens and sometimes behind, that will stop light from hitting the sensor of the camera. ND filters generally come in sets of 3 (3,6,9) and each number means 1 more stop of light is detracted from the scene. A good quality ND will not change the image in any way beyond changing the amount of light that comes thorugh the lens and hits the sensor."
+    },
+    {
+      "word": "Pickle",
+      "definition": "The control on a telescoping arm the makes the crane/camera extend towards the subject or retract from the subject. There is usually one person who is “on the pickle” and deciding when and how to move the camera in that plane. Operators will often say “pickle in” or “pickle out” but since in and out can actually mean different things to different people many prefer to use extend and retract."
+    },
+    {
+      "word": "Dailies",
+      "definition": "A compendium (now usually online sadly) of the days filming that can be viewed. Dailies used to be projected every morning before work (sometimes after as well) and most people would show up to see them. As an operator or an assistant it was a fun but jaw clenching experience."
+    },
+    {
+      "word": "One Liner",
+      "definition": "Comes out ahead of a production and usually new versions appear throughout production as things change. A one liner will have each days work listed with info on timing, scenes, page count and potentially location."
+    },
+    {
+      "word": "In the movie",
+      "definition": "Meaning something that will actually be on the screen."
+    },
+    {
+      "word": "NIM",
+      "definition": "Not in the movie, means it will likely never make the final cut."
+    },
+    {
+      "word": "Cowboy",
+      "definition": "Classic framing of an individual that harkens back to the Westerns which shows an individual from the top of the head to the bottom of where the guns would be if in holsters at their side."
+    },
+    {
+      "word": "Headroom",
+      "definition": "The room in the frame that starts at the top of the head and ends at the top of the frame - so the space above the actor. Large headroom means an unnaturally large amount of space above the actor. Tight headroom means leaving less than would normally be seen. Headroom can be manipulated in order to psychologically tell the story unfolding."
+    },
+    {
+      "word": "Mise En Scene",
+      "definition": "French term for in front of the camera. If a director actually uses this term in a serious manner, run away as fast as you can."
+    },
+    {
+      "word": "Nights",
+      "definition": "Working from dusk till dawn. “Crap, we are working nights all next week.”"
+    },
+    {
+      "word": "Splits",
+      "definition": "Working mid morning until mid evening so starting at around 10 AM and working until 10 PM. A heavy/deep split is considered starting around 2 or 3 and working until 2 or 3 in the morning. “We are working a deep split at the end of the week so I’ll be able to get to the doctors Friday morning.”"
+    },
+    {
+      "word": "Magic Hour/Tragic Hour",
+      "definition": "The time between sunset and dark that often has the best light for exterior shots. Magic hour is sometimes also referred to as tragic hour because companies will wait until just the right moment to shoot and then only have about 20 minutes or so of remaining light so everyone goes nuts."
+    },
+    { "word": "Picture Car", "definition": "Any vehicle that will be seen on screen." },
+    {
+      "word": "Follow Van",
+      "definition": "A van or truck outfitted with monitors for Director and DP that can follow a driving shot so they can see. Other follow vans may include hair, makeup, wardrobe, camera, grips and beyond."
+    },
+    {
+      "word": "Center Punch",
+      "definition": "To frame someone or something in such a way that they are in the exact horizontal center of the frame."
+    },
+    {
+      "word": "On the truck",
+      "definition": "Literally residing on the truck. When a piece of equipment is available but not on set it is “on the truck” and needs to be sent for."
+    },
+    {
+      "word": "Hiatus",
+      "definition": "The down time when a show is not shooting but is coming back at some point. Usually refers to a tv show, which will be on hiatus in between seasons but can also happen in film, when a break is being taken for a season change, actor availability, or some other reason."
+    },
+    {
+      "word": "6th day",
+      "definition": "Most schedules shoot 5 days a week but the 6th day can happen as well as the dreaded 7th. As these days often cost much more it happens rarely and is a grueling thing for a crew to have to endure."
+    },
+    {
+      "word": "2nd meal",
+      "definition": "The first meal that is broken for during the day is lunch, regardless of what time of the day it is eaten and usually comes 6 hours into the day. 6 hours later, if you are still shooting, a second meal can be offered as well, either with or without a break."
+    },
+    {
+      "word": "Walking meal",
+      "definition": "A meal that is offered when, usually for timing reasons based on light or location, a break is not offered. Walking meals are generally handed out and eaten while the crew continues to work and are considered on the clock."
+    },
+    {
+      "word": "Walk Away",
+      "definition": "A meal break. usually at least one hour, where the crew is left to find their own meals as opossed to a catered meal provided by production."
+    },
+    {
+      "word": "Base Camp/Circus",
+      "definition": "Where the trailers, cast, hair and makeup, wardrobe, and the rest of the trucks are stationed."
+    },
+    {
+      "word": "Fire in The Hole",
+      "definition": "Called out by the AD and/or special fx before pyrotechnics are ignited. Fire in the hole means the next thing that is going to happen is an explosion of some kind."
+    },
+    {
+      "word": "Banana",
+      "definition": "Used to describe the path an actor takes from point a to point b instead of going in a straight line. “If you are able to banana as you cross the camera, it will be a more flattering angle as you come close.”"
+    },
+    {
+      "word": "Groucho",
+      "definition": "A request to an actor to stoop slightly as they stand up rather than standing straight up. While this may seem odd, it's asked for more often than not and actors can seamlessly pull it off. “Can you groucho a little out of the chair as I’m just about seeing off the set.” To hear a story about a crazy Tom Hanks Groucho listen to the Dave Emmerichs podcast."
+    },
+    {
+      "word": "Nickels Worth",
+      "definition": "A small amount. “When he comes through the door, pan with him a nickels worth before letting him leave the frame.”"
+    },
+    {
+      "word": "Branchalorous",
+      "definition": "A tree branch or similarly devised item placed in front of a lamp to create a broken up dappled look with the light. A branchalourous can also be used to describe a real piece of nature that is used to cover up something that you don't want to see in the frame. \"Just cover it with a brachalorous and we will never see it.\""
+    },
+    {
+      "word": "Hollywood it",
+      "definition": "To hold a piece of equipment instead of setting it on a stand. Usually done due to the need for something to only be in one part of the shot but that would then be seen when the caera moves. “Do me a favor and hollywood a flag in here for the beginning of the shot”"
+    },
+    {
+      "word": "86 That",
+      "definition": "Forget what was asked for as its no longer needed or plans have changed. Also used to cancel something that has just been done. “86 that call for the b camera, we are moving on.”"
+    },
+    {
+      "word": "On a bell",
+      "definition": "On stage and sometimes on a location a bell is rung once to let people know a take is about to happen and twice to let everyone know that it is finished. Once you are “on a bell” everyone not involved in the shot should be quiet and still."
+    },
+    {
+      "word": "C-47",
+      "definition": "Clothespin used for securing all sorts of things to all sorts of other things."
+    },
+    {
+      "word": "Grip Clip",
+      "definition": "Small metal spring clamp used to hold things together on set. They have a ton of uses and come in number 1, 2, and 3 sizes with 3 being the largest. “Someone grab me two number 1's. The opertor forgot his belt again and his pants are falling down."
+    },
+    {
+      "word": "Duvatene",
+      "definition": "Heavy black cloth carried in rolls by the grip department. Easy to rip into whatever size you need it is often used to shroud something that is causing a reflection or a kick."
+    },
+    {
+      "word": "Kick",
+      "definition": "Reflection of a soource of light back into the camera. “Hey can we have set dressing come in to rotate that mirror? I’m getting a kick in the lens from a light offstage.”"
+    },
+    {
+      "word": "New Deal",
+      "definition": "Called out when the shot that is in progress is finished (or scene) and you are moving on to the next one."
+    },
+    {
+      "word": "Moving on",
+      "definition": "Called out, usually by the 1st AD, to let the crew know that that shot is finished and the crew is moving on to set up the next shot."
+    },
+    {
+      "word": "One more for Lloyds",
+      "definition": "Lloyds of London is a famous insurance company and one more for Lloyds means we have a take we like, let's do one more just in case. Its rarely used but still one of the cooler things said. I say we bring it back."
+    },
+    {
+      "word": "On the day",
+      "definition": "When things are actually done in the future. “We will rehearse this right now with a stunt double but on the day the actor will jump off the ledge.”"
+    },
+    {
+      "word": "Get off your phone",
+      "definition": "If you hear this on set, do it. And stay that way. You're at work after all and you should be paying attention. While you're at it, get a haircut and stay off my lawn. Damn kids and their fancy gadgets thinking they know everything because of the \"interwebs\". Why in my day...."
+    },
+    {
+      "word": "Scripty",
+      "definition": "Short for script supervisor, the person who follows the dialogue, notes changes in the dialogue and keeps an eye on continuity. Ops will want to let scripty know when there is an issue with a take so there is a record. They can save you if you don't know which side of the line you'll be on too."
+    },
+    {
+      "word": "Sparkies",
+      "definition": "Slang for electricians, also known collectively as “electric”"
+    },
+    { "word": "Geny", "definition": "Short for a power generator used to keep everything running" },
+    {
+      "word": "French Hours",
+      "definition": "A manner of working where the length of the day is predetermined (usually 10 hours) and needs to be ratified by eligible members of the crew and there is no break for lunch. Meals must be availbale to be eaten on set in between shots. If the crew goes over ten hours, penalties are paid."
+    },
+    {
+      "word": "Copy",
+      "definition": "Said after someone gives a request or an instruction to do something to let them know that you heard and understood what they have said. Also “copy that” and “copy you”"
+    },
+    {
+      "word": "Lock Off",
+      "definition": "When a camera it is important for the frame to remain exactly as it is, usually for an effect or timelapse, the operator will set the locks on the head and freeze it where it is in place. Lock Offs can also include marking down a tremendous amount of information in case the camera is accidentally moved in between shots."
+    },
+    {
+      "word": "Per Diem",
+      "definition": "The money given to you on location to cover food for the day. Union per diem is generally in the $60/day realm. Back in the day, per diem was given on pay day as cash in little envelopes, but now it’s included in your paycheck. Ahh it was a good life."
+    },
+    {
+      "word": "MOS",
+      "definition": "Mit Out Sound. German expression used as an acronym for shooting a scene that does not require sound to be recorded. When this is done a head slate will usually be shot before the take with the sticks closed and the letters MOS on it to let editing know there is no sound track to sync up."
+    },
+    {
+      "word": "Fraturday",
+      "definition": "The unfortunate timing of a Friday shoot where you start late in the day and work into Saturday morning."
+    },
+    {
+      "word": "French Overs",
+      "definition": "Over the shoulder shots where you are coming from behind the actors instead of in front. A good example is in a car where the actors are sitting in the front seat. Standard overs would mean the camera angles are in between the actor and the dashboard, form the side window perhaps, while french overs would be from the back seat. If an over is called for it’s assumed it’s a standard over not a french over."
+    },
+    {
+      "word": "Tail Sticks/Tail Slate",
+      "definition": "If for some reason the head slate was missed, immediately after the director calls cut the operator will call out loud \"tail sticks\" to let sound and camera know not to cut. The sticks are held in and smacked upside down so the editors know it's a tail slate."
+    },
+    {
+      "word": "Head Sticks/Head Slate",
+      "definition": "When the slate is hit at the head of the take between roll cmaera and action. This is generally how it will be done."
+    },
+    {
+      "word": "Wild wall",
+      "definition": "Also wild. A wall, or really anything, that can be moved either in the middle of a shot or at any other time, meaning it is not anchored down. “That wall is wild so we can pull it as the camera back up once it's out of view.”"
+    },
+    {
+      "word": "Single Net",
+      "definition": "A piece of netting in a frame put in front of a light, also called a single, that will take 1 stop of light away from a lighting unit."
+    },
+    {
+      "word": "Double Net",
+      "definition": "A piece of netting in a frame put in front of a light, also called a double, that will reduce the amount of light by two stops."
+    },
+    {
+      "word": "Camera Left",
+      "definition": "To the right side of camera from the actors point of view. Camera left is the operators left. \"Please make sure you exit camera left when you head off camera.\""
+    },
+    {
+      "word": "Camera right",
+      "definition": "To the left side of camera from the actors point of view. Camera right is the operators right. \"Please make sure to exit camera right when you head off camera.\""
+    },
+    {
+      "word": "Prep",
+      "definition": "The time before the shoot starts where things are planned, organized, gear is checked out and built and everything is done that needs to be to be ready to hit the ground running on day 1. Most operators do not get prep but if you can go to the camera prep and build the camera to your liking you should always do so."
+    },
+    {
+      "word": "Wrap",
+      "definition": "The end of the day, or the end of the show. Denotes the time that you stop filming. We should wrap about 10 Pm tonight but the show doesn't wrap until October.\""
+    },
+    {
+      "word": "Taillights",
+      "definition": "Refers to the trucks tailights leaving the set but is used to discuss the time when everyone has to be out of the location or finsihed for the day. \"This neighborhood has strict rules so it's taillights at 10.\""
+    },
+    {
+      "word": "Bus to/Van to",
+      "definition": "Means you will drive to a specific location to park and then get into vehicles provided by produciton to get to the location. \"Tomorrow is a van to as no parking is allowed at location.\""
+    },
+    {
+      "word": "Drive to",
+      "definition": "When parking is at the location. \"Tomorrow is a drive to so make sure to check traffic ahead of time.\""
+    },
+    {
+      "word": "Turn around",
+      "definition": "The time between when you wrap and when you start work the next day. Most unions have minimum turn arounds and alamost all of them are too short. Turning around denotes the point in a scene where you have shot everything in one direction and you are now \"turning around\" to shoot back in the other direction. \"Remind me that we need to grab a close-up of the newspaper he is holding when we do the turn around.\""
+    },
+    {
+      "word": "6 Step/8 Step/10 Step/12 Step",
+      "definition": "Refers to ladders that are used on set for all sorts of reasons. They are generally part of the grip package. The number denotes the number of steps and therefore the size. \"Let's get a 6 step next to the dolly so I can operate the camera since it's on a riser.\""
+    },
+    { "word": "Stuntie", "definition": "Slang for stunt actor or stunt person" },
+    {
+      "word": "Texas Switch",
+      "definition": "Usually used for stunts, a trick where within the shot, a stunt player is seen doing the stunt and then the actual actor finishes the shot. \"The stuntie will ride the bike into that parked car and flip over the hood. Then our actor who is waiting in place, will get up and start to run away.\""
+    },
+    {
+      "word": "Rack",
+      "definition": "To change focus between one part of the scene and something in a different plane of the scene. \"When he picks up the cards, wait until I can see the hand he is holding before you rack to the background.\""
+    },
+    {
+      "word": "Telescoping Crane",
+      "definition": "A crane that has an accordian like mecahnism where it can extend and retract seamlessly controlled by a button called a pickle. A telescoping crane can be as small as 5 feet and as large as 80. Most have dedicated three axis heads and require at least two people to operate. They will generally be referred to by their brand names such as Moviebird, Technocrane, Miniscope, Hyrdroscope, or Scorpio to name a few."
+    },
+    {
+      "word": "2 Axis remote head",
+      "definition": "A remotely controlled head, usually wireless these days, that can work on a crane or anywhere an operator cant get to, that can be panned and tilted via wheels in another location. If someone mentiones a 2 axis remote head it is quite likely that it is a non-stabilized head."
+    },
+    {
+      "word": "3 Axis Remote Head",
+      "definition": "A remotely controlled head, usually wireless these days, that can work on a crane or anywhere an operator cant get to, that can be panned, titlted, adn rolled around the nodal point of the camera via wheels in another location."
+    },
+    {
+      "word": "Stabilized head",
+      "definition": "A remote head that has electronic stabilization in it that will remove bumps and jolts that movement of the crane or vehicle may add to the image. It is extremely important to never assume that a head that is requested is stabilized and to make it clear that that is what you require for the shot. It is fairly hard to achieve any kind of crane move well without a stabilized head. Stabilized heads come in both 2 axis and 3 axis configurations."
+    },
+    {
+      "word": "Gimbal",
+      "definition": "Originally reffered to the pan/tilt/roll heart of a steadicam, nowadays the term refers to the 3 axis remote \"heads\" such as the Ronin, Movi, or Stabileye that have brushless motors. They are lightweight and offer a great amount of versatility but are no where near the quality of a good stabilized head."
+    },
+    {
+      "word": "Wheels of Death",
+      "definition": "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it."
+    }
+  ]
+}
