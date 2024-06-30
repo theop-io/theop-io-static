@@ -55,7 +55,7 @@ const wordsDb: TheWordsDatabase = {
 
 wordsData.forEach((wordData) => {
   const displayName = wordData.word.replace(/\"/g, "").trim();
-  const definition = wordData.definition.trim();
+  const definition = wordData.definition.replace(/(\r\n|\r|\n)/g, " ").trim();
 
   // Check for duplicates
   if (wordsDb.DisplayNameToDefinition.has(displayName)) {
