@@ -749,6 +749,18 @@
       "definition": "A remotely controlled head, usually wireless these days, that can work on a crane or anywhere an operator cant get to, that can be panned and tilted via wheels in another location. If someone mentiones a 2 axis remote head it is quite likely that it is a non-stabilized head."
     },
     {
+      "word": "Picture's Up",
+      "definition": "Usually called out by the 1st AD to let everyone know that we are about to start rolling and everyone needs to be finished with tweaks and fixes. Its basically a \"clear the set of non combatants\" warning."
+    },
+    {
+      "word": "P-Mo/Peemo",
+      "definition": "Moveable bathroom unit for the crews use. Its a place of peace and solitude where for one brief moment, you can relax and be yourself before heading back out into battle. Enjoy these moments. Some days they are all you will get."
+    },
+    {
+      "word": "Echo",
+      "definition": "To repeat something out loud that you've been asked to relay. Usually asked of the PAs to create an announcement on set."
+    },
+    {
       "word": "50/50",
       "definition": "A shot of two characters, usually from the side in profile, as they face each other. In the doc and commercial worlds, a 50/50 can mean rolling the camera without anyone knowing (often used when there are kids or animals involved). In practical use it can be as simple as the AD or DP calling out \"50/50\" and the camera is turned on."
     },
@@ -761,6 +773,14 @@
       "definition": "On union shows, grace can be asked for as an exception, in order to finish a shot that is in progress ie, doing one more take. 12 minutes without penalty is granted but after 12 it becomes a meal penalty."
     },
     {
+      "word": "Lighting Mode",
+      "definition": "Usually called out by the first AD, it references the time between the marking rehearsal and the camera rolling where the scene is lit, camera moves are worked out, boom shadows are addressed, and anything else that needs to be done once the shot has been determined. \"Ok everyone, actors are headed back to basecamp and we are officially in lighting mode.\""
+    },
+    {
+      "word": "Basecamp",
+      "definition": "The main hub of produciton that is not part of the set, usually separate, the will often include hair and makeup trailers, productions trailers, actor trailers, AD trailers, costume trailers and anything else that needs to work with production but does not need to be close to set."
+    },
+    {
       "word": "Meal Penalty",
       "definition": "On a union show, meals are guaranteed every six hours or else there are fines imposed known as meal penalties. A meal penalty is a certain amount of money (varies by contract) that is paid for every thirty minute period (or part thereof) after the 6 hours."
     },
@@ -769,44 +789,8 @@
       "definition": "A remote head that has electronic stabilization in it that will remove bumps and jolts that movement of the crane or vehicle may add to the image. It is extremely important to never assume that a head that is requested is stabilized and to make it clear that that is what you require for the shot. It is fairly hard to achieve any kind of crane move well without a stabilized head. Stabilized heads come in both 2 axis and 3 axis configurations."
     },
     {
-      "word": "Gimbal",
-      "definition": "Originally reffered to the pan/tilt/roll heart of a steadicam, nowadays the term refers to the 3 axis remote \"heads\" such as the Ronin, Movi, or Stabileye that have brushless motors. They are lightweight and offer a great amount of versatility but are no where near the quality of a good stabilized head."
-    },
-    {
-      "word": "Wheels of Death",
-      "definition": "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it."
-    },
-    {
-      "word": "AD",
-      "definition": "Assistant Director"
-    },
-    {
-      "word": "Basecamp",
-      "definition": "The main hub of produciton that is not part of the set, usually separate, the will often include hair and makeup trailers, productions trailers, actor trailers, AD trailers, costume trailers and anything else that needs to work with production but does not need to be close to set."
-    },
-    {
-      "word": "BG or Background",
-      "definition": "The non speaking people who fill out the rest of the scene. Example, a dinner dance where there are two actors and the rest are BG."
-    },
-    {
-      "word": "Echo",
-      "definition": "To repeat something out loud that you've been asked to relay. Usually asked of the PAs to create an announcement on set."
-    },
-    {
       "word": "Last Looks",
       "definition": "Generally called out by the 1st AD to let everyone know that we are just about to roll camera. Last looks is specifically mentioned so that hair, makeup, and costume and do a final chekc to make sure actors look ok, but it's also a heads up to finish any business one may have before the shot commences."
-    },
-    {
-      "word": "Lighting Mode",
-      "definition": "Usually called out by the first AD, it references the time between the marking rehearsal and the camera rolling where the scene is lit, camera moves are worked out, boom shadows are addressed, and anything else that needs to be done once the shot has been determined. \"Ok everyone, actors are headed back to basecamp and we are officially in lighting mode.\""
-    },
-    {
-      "word": "P-Mo/Peemo",
-      "definition": "Moveable bathroom unit for the crews use. Its a place of peace and solitude where for one brief moment, you can relax and be yourself before heading back out into battle. Enjoy these moments. Some days they are all you will get."
-    },
-    {
-      "word": "Picture's Up",
-      "definition": "Usually called out by the 1st AD to let everyone know that we are about to start rolling and everyone needs to be finished with tweaks and fixes. Its basically a \"clear the set of non combatants\" warning."
     },
     {
       "word": "Pumpkin",
@@ -815,6 +799,22 @@
     {
       "word": "Transpo",
       "definition": "Refers to members of the transportation department, teamsters on union shows, who move all the trucks and the entire movie."
+    },
+    {
+      "word": "Gimbal",
+      "definition": "Originally reffered to the pan/tilt/roll heart of a steadicam, nowadays the term refers to the 3 axis remote \"heads\" such as the Ronin, Movi, or Stabileye that have brushless motors. They are lightweight and offer a great amount of versatility but are no where near the quality of a good stabilized head."
+    },
+    {
+      "word": "AD",
+      "definition": "Assistant Director"
+    },
+    {
+      "word": "BG or Background",
+      "definition": "The non speaking people who fill out the rest of the scene. Example, a dinner dance where there are two actors and the rest are BG."
+    },
+    {
+      "word": "Wheels of Death",
+      "definition": "Pizza, generally brought in for second meal and eaten while standing, most often over a garbage can at 2 in the morning. As an Op, yours will always be cold. Get used to it."
     }
   ]
 }
