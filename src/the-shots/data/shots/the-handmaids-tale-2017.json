@@ -1,0 +1,26 @@
+{
+  "status": "published",
+  "productionName": "The Handmaids Tale (2017)",
+  "productionImdbLink": "https://www.imdb.com/title/tt5834204/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_the%2520handmaids%2520tale",
+  "shots": [
+    {
+      "operatorName": "Mike Heathcoate",
+      "episodic": {
+        "season": 1
+      },
+      "tags": [
+        "High mode",
+        "Wave",
+        "Stairs"
+      ],
+      "vimeoLink": "https://vimeo.com/983142616?share=copy",
+      "shortDescription": "The Final Shot",
+      "description": "A simply sublime shot that most operators only dream of acheiveing. The steadicam feels as if it is effortlessly floating through the world (down a set of steps no less) and never varies. Note how the operator allows the characters to drop in the frame as they step down the stairs and his choice of framing as he hots the bottom landing and they are still on the stairs. There is no constant adjusting of headroom for this charachter or that but a study of the space that they inhabit. This is the kind of operating that should be studied and emulated and is one of those shots that raises our craft even higher. Bravo.",
+      "equipmentList": [
+        {
+          "item": "XCS Ultimate 1\n\nPRO arm\n\nWave\n\nArri ALexa Mini\n\nCanon K35 Lens"
+        }
+      ]
+    }
+  ]
+}
