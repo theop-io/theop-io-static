@@ -1,6 +1,12 @@
 .the_shots {
   @include clearfix;
 
+  @mixin small-screens-only {
+    @media screen and (max-width: 37em), print and (max-width: 5in) {
+      @content;
+    }
+  }
+
   $the-shots-highlight: #62a044; // Pantone 369U
   // also consider #00b140
 
@@ -14,6 +20,10 @@
     color: gray;
   }
 
+  .the_shots_columns_container {
+    @include clearfix;
+  }
+
   .the_shots_column {
     // Include padding in e.g. width: 50%
     box-sizing: border-box;
@@ -22,7 +32,7 @@
     float: left;
     width: 50%;
 
-    @media screen and (max-width: 1024px) {
+    @include small-screens-only {
       width: 100%;
     }
 
@@ -49,6 +59,11 @@
 
       // Styling
       border: 0px;
+    }
+
+    @include small-screens-only {
+      margin-top: 2em;
+      margin-bottom: 2em;
     }
   }
 
@@ -157,7 +172,7 @@
     }
   }
 
-  @media screen and (max-width: 37em), print and (max-width: 5in) {
+  @include small-screens-only {
     table {
       // Constrain table to display width
       display: block;

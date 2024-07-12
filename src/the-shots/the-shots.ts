@@ -541,87 +541,91 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       shotTimestamp ? ` (at ${shotTimestamp})` : ""
     ),
     // -- Columns --
-    // - Left column
     createElementWithInitializerAndChildren(
       "div",
-      (element: HTMLElement) => element.classList.add("the_shots_column"),
-
-      // Director
-      ...(shot.directorName
-        ? [
-            createElementWithChildren(
-              "div",
-              createElementWithChildren("b", "Directed by "),
-              shot.directorName
-            ),
-          ]
-        : []),
-      // DP
-      ...(shot.dpName
-        ? [
-            createElementWithChildren(
-              "div",
-              createElementWithChildren("b", "Cinematography by "),
-              shot.dpName
-            ),
-          ]
-        : []),
-      // Tags
-      ...(shot.tags
-        ? [
-            createElementWithChildren("strong", "Features "),
-            ...createShotTagsElements(shot, { asLink: true }),
-          ]
-        : []),
-      // Description block
-      createElementWithChildren("h4", "Description"),
+      (element: HTMLElement) => element.classList.add("the_shots_columns_container"),
+      // - Left column
       createElementWithInitializerAndChildren(
         "div",
-        (element) => (element.innerHTML = shot.description)
-      ),
-      // Operator comments block
-      ...(shot.operatorComments
-        ? [
-            createElementWithChildren("h4", "Operator Commentary"),
-            createElementWithInitializerAndChildren(
-              "div",
-              (element) => (element.innerHTML = shot.operatorComments!)
-            ),
-          ]
-        : []),
-      // Equipment list block
-      ...(shot.equipmentList
-        ? [
-            createElementWithChildren("h4", "Equipment"),
-            createElementWithChildren(
-              "ul",
-              ...shot.equipmentList.map((e) =>
-                createElementWithInitializerAndChildren(
-                  "li",
-                  (element) => (element.innerHTML = e.item)
+        (element: HTMLElement) => element.classList.add("the_shots_column"),
+
+        // Director
+        ...(shot.directorName
+          ? [
+              createElementWithChildren(
+                "div",
+                createElementWithChildren("b", "Directed by "),
+                shot.directorName
+              ),
+            ]
+          : []),
+        // DP
+        ...(shot.dpName
+          ? [
+              createElementWithChildren(
+                "div",
+                createElementWithChildren("b", "Cinematography by "),
+                shot.dpName
+              ),
+            ]
+          : []),
+        // Tags
+        ...(shot.tags
+          ? [
+              createElementWithChildren("strong", "Features "),
+              ...createShotTagsElements(shot, { asLink: true }),
+            ]
+          : []),
+        // Description block
+        createElementWithChildren("h4", "Description"),
+        createElementWithInitializerAndChildren(
+          "div",
+          (element) => (element.innerHTML = shot.description)
+        ),
+        // Operator comments block
+        ...(shot.operatorComments
+          ? [
+              createElementWithChildren("h4", "Operator Commentary"),
+              createElementWithInitializerAndChildren(
+                "div",
+                (element) => (element.innerHTML = shot.operatorComments!)
+              ),
+            ]
+          : []),
+        // Equipment list block
+        ...(shot.equipmentList
+          ? [
+              createElementWithChildren("h4", "Equipment"),
+              createElementWithChildren(
+                "ul",
+                ...shot.equipmentList.map((e) =>
+                  createElementWithInitializerAndChildren(
+                    "li",
+                    (element) => (element.innerHTML = e.item)
+                  )
                 )
-              )
-            ),
-          ]
-        : [])
-    ),
-    // - Right column
-    createElementWithInitializerAndChildren(
-      "div",
-      (element: HTMLElement) => element.classList.add("the_shots_column"),
-      ...(shot.vimeoId
-        ? [
-            createElementWithInitializerAndChildren(
-              "div",
-              (element) => element.classList.add("the_shots_video_container"),
-              createElementWithInitializerAndChildren("iframe", (element) => {
-                element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
-                element.allow = "encrypted-media";
-                element.allowFullscreen = true;
-              })
-            ),
-          ]
-        : [])
+              ),
+            ]
+          : [])
+      ),
+      // - Right column
+      createElementWithInitializerAndChildren(
+        "div",
+        (element: HTMLElement) => element.classList.add("the_shots_column"),
+        ...(shot.vimeoId
+          ? [
+              createElementWithInitializerAndChildren(
+                "div",
+                (element) => element.classList.add("the_shots_video_container"),
+                createElementWithInitializerAndChildren("iframe", (element) => {
+                  element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
+                  element.allow = "encrypted-media";
+                  element.allowFullscreen = true;
+                })
+              ),
+            ]
+          : [])
+      )
     ),
     // -- Top level again --
     // Related shots
