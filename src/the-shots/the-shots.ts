@@ -667,11 +667,11 @@ function buildRandomShotAnchor(): HTMLElement[] {
   return [createAnchorElementWithChildren(buildRandomShotURL(), "Random shot")];
 }
 
-function buildRequestAShotAnchor(): HTMLElement[] {
+function buildSuggestAShotAnchor(): HTMLElement[] {
   return [
     createAnchorElementWithChildren(
-      new URL("/request-a-shot", window.location.href),
-      "Request a shot"
+      new URL("/suggest-a-shot", window.location.href),
+      "Suggest a shot"
     ),
   ];
 }
@@ -686,7 +686,7 @@ function buildSelectorRow(pageMode: PageMode): HTMLElement[] {
         : []),
       ...buildRandomShotAnchor(),
       "|",
-      ...buildRequestAShotAnchor()
+      ...buildSuggestAShotAnchor()
     ),
   ];
 }
