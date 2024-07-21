@@ -230,6 +230,13 @@ collections:
         label: "Operator name"
         widget: "string"
 
+      - name: "memberships"
+        label: "Memberships"
+        widget: "select"
+        options: ["SOC", "ASC"]
+        multiple: true
+        required: false
+
       - name: "operatorActiveSinceYear"
         label: "Operator active since year"
         widget: "number"
