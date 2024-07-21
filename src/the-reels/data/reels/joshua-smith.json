@@ -1,5 +1,8 @@
 {
   "operatorName": "Joshua Smith",
   "operatorActiveSinceYear": 2021,
-  "vimeoLink": "https://vimeo.com/501941659"
+  "vimeoLink": "https://vimeo.com/501941659",
+  "operatorContactInfo": {
+    "email": "joshuadwsmith@gmail.com"
+  }
 }
