@@ -1,6 +1,10 @@
 {
   "operatorName": "Nich Musco",
   "operatorActiveSinceYear": 2021,
+  "operatorContactInfo": {
+    "instagram": "nmusco",
+    "url": "nichmusco.com"
+  },
   "vimeoLink": "https://vimeo.com/914086830",
   "memberships": ["SOC"]
 }
