@@ -75,94 +75,64 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
     createElementWithInitializerAndChildren(
       "div",
       (element) => element.classList.add("the_reels_header_row"),
-      // - Operator name (== reel) selector
+      // - Operator name
       createElementWithInitializerAndChildren(
-        "select",
-        // Define onChange
-        (selectElement) => {
-          selectElement.onchange = () => {
-            // Filter out title option
-            const selectedIndex = parseInt(selectElement.value);
-
-            if (selectedIndex < 0) {
-              return;
-            }
-
-            const selectedReel = TheReels[selectedIndex];
-
-            // Navigate to URL
-            window.location.href = getURLFor(urlForOperator(selectedReel.operatorName)).href;
-          };
-        },
-        // Map <option> list
-        ...TheReels.map((optionReel, index) =>
-          createElementWithInitializerAndChildren(
-            "option",
-            (optionElement) => {
-              optionElement.value = index.toString();
-
-              if (optionReel.operatorName === reel.operatorName) {
-                optionElement.selected = true;
-              }
-            },
-            `${optionReel.operatorName} (${optionReel.operatorActiveSinceYear})`
-          )
-        )
+        "span",
+        (element) => element.classList.add("the_reels_operator_name"),
+        reel.operatorName
       ),
       // - Contact info
-      ...(reel.operatorContactInfo.email ||
-      reel.operatorContactInfo.instagram ||
-      reel.operatorContactInfo.url
-        ? [
-            createElementWithInitializerAndChildren(
-              "span",
-              (element) => element.classList.add("the_reels_contact_info"),
-              ...(reel.operatorContactInfo.email
-                ? [
-                    createElementWithInitializerAndChildren("a", (element) => {
-                      // Link substance
-                      element.href = new URL(`mailto:${reel.operatorContactInfo.email}`).href;
-                      element.target = "_blank";
-                      element.rel = "noopener noreferrer";
+      createElementWithInitializerAndChildren(
+        "span",
+        (element) => element.classList.add("the_reels_contact_info"),
+        ...(reel.operatorContactInfo.email
+          ? [
+              createElementWithInitializerAndChildren("a", (element) => {
+                // Link substance
+                element.href = new URL(`mailto:${reel.operatorContactInfo.email}`).href;
+                element.target = "_blank";
+                element.rel = "noopener noreferrer";
 
-                      // Link style
-                      element.classList.add("contact-link", "svg-logo-mail");
-                    }),
-                  ]
-                : []),
-              ...(reel.operatorContactInfo.instagram
-                ? [
-                    createElementWithInitializerAndChildren("a", (element) => {
-                      // Link substance
-                      element.href = new URL(
-                        `https://instagram.com/${reel.operatorContactInfo.instagram}/`
-                      ).href;
-                      element.target = "_blank";
-                      element.rel = "noopener noreferrer";
+                // Link style
+                element.classList.add("contact-link", "svg-logo-mail");
+              }),
+            ]
+          : []),
+        ...(reel.operatorContactInfo.instagram
+          ? [
+              createElementWithInitializerAndChildren("a", (element) => {
+                // Link substance
+                element.href = new URL(
+                  `https://instagram.com/${reel.operatorContactInfo.instagram}/`
+                ).href;
+                element.target = "_blank";
+                element.rel = "noopener noreferrer";
 
-                      // Link style
-                      element.classList.add("contact-link", "svg-logo-instagram");
-                    }),
-                  ]
-                : []),
-              ...(reel.operatorContactInfo.url
-                ? [
-                    createElementWithInitializerAndChildren("a", (element) => {
-                      // Link substance
-                      element.href = new URL(`https://${reel.operatorContactInfo.url}/`).href;
-                      element.target = "_blank";
-                      element.rel = "noopener noreferrer";
+                // Link style
+                element.classList.add("contact-link", "svg-logo-instagram");
+              }),
+            ]
+          : []),
+        ...(reel.operatorContactInfo.url
+          ? [
+              createElementWithInitializerAndChildren("a", (element) => {
+                // Link substance
+                element.href = new URL(`https://${reel.operatorContactInfo.url}/`).href;
+                element.target = "_blank";
+                element.rel = "noopener noreferrer";
 
-                      // Link style
-                      element.classList.add("contact-link", "svg-logo-www");
-                    }),
-                  ]
-                : [])
-            ),
-          ]
-        : []),
+                // Link style
+                element.classList.add("contact-link", "svg-logo-www");
+              }),
+            ]
+          : [])
+      ),
       // - Next (random) reel button
-      createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
+      createElementWithInitializerAndChildren(
+        "span",
+        (element) => element.classList.add("the_reels_another_link"),
+        createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
+      )
     ),
     // Main row: reel video
     ...(reel.vimeoId
