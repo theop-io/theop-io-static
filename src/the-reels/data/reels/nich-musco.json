@@ -3,8 +3,9 @@
   "operatorActiveSinceYear": 2021,
   "operatorContactInfo": {
     "instagram": "nmusco",
-    "url": "nichmusco.com"
+    "url": "nichmusco.com",
+    "email": "nichmusco@gmail.com"
   },
-  "vimeoLink": "https://vimeo.com/914086830",
+  "videoLink": "https://vimeo.com/914086830",
   "memberships": ["SOC"]
 }

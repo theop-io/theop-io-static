@@ -8,7 +8,7 @@ import {
 
 import { TheReels } from "./generated/the-reels-db";
 
-import { Reel } from "./the-reels-types";
+import { Reel, VideoService } from "./the-reels-types";
 
 //
 // Data tools
@@ -60,6 +60,34 @@ function buildRandomReelURL(): URL {
 //
 // Display: Reel
 //
+
+function displayReelVideo(videoRef: string): HTMLElement {
+  const [videoService, videoId] = videoRef.split(":");
+
+  if (videoService === VideoService.YouTube) {
+    return createElementWithInitializerAndChildren(
+      "div",
+      (element) => element.classList.add("the_reels_video_container"),
+      createElementWithInitializerAndChildren("iframe", (element) => {
+        element.src = `https://www.youtube.com/embed/${videoId}`;
+        element.allow = "encrypted-media";
+        element.allowFullscreen = true;
+      })
+    );
+  } else if (videoService === VideoService.Vimeo) {
+    return createElementWithInitializerAndChildren(
+      "div",
+      (element) => element.classList.add("the_reels_video_container"),
+      createElementWithInitializerAndChildren("iframe", (element) => {
+        element.src = `https://player.vimeo.com/video/${videoId}`;
+        element.allow = "encrypted-media";
+        element.allowFullscreen = true;
+      })
+    );
+  } else {
+    return createElementWithChildren("div");
+  }
+}
 
 function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
   // Find reel
@@ -135,19 +163,7 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
       )
     ),
     // Main row: reel video
-    ...(reel.vimeoId
-      ? [
-          createElementWithInitializerAndChildren(
-            "div",
-            (element) => element.classList.add("the_reels_video_container"),
-            createElementWithInitializerAndChildren("iframe", (element) => {
-              element.src = `https://player.vimeo.com/video/${reel.vimeoId}`;
-              element.allow = "encrypted-media";
-              element.allowFullscreen = true;
-            })
-          ),
-        ]
-      : []),
+    displayReelVideo(reel.videoRef),
   ];
 }
 

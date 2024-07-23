@@ -2,8 +2,6 @@ import * as yup from "yup";
 
 export const theReelsDbRoot = "./src/the-reels/data";
 
-export const vimeoLinkRegex = /^https:\/\/vimeo\.com\/(\d+)(\?.*)?$/;
-
 const reelOperatorContactInfo = yup.object({
   email: yup.string(),
   instagram: yup.string(),
@@ -18,7 +16,7 @@ export const reelFileSchema = yup
     memberships: yup.array().of(yup.string().required()),
     operatorActiveSinceYear: yup.number().integer().required(),
     operatorContactInfo: reelOperatorContactInfo,
-    vimeoLink: yup.string().matches(vimeoLinkRegex),
+    videoLink: yup.string().required(),
   })
   .required();
 

@@ -3,15 +3,9 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { Reel, ContactInfo } from "../src/the-reels/the-reels-types";
+import { Reel, ContactInfo, VideoService } from "../src/the-reels/the-reels-types";
 
-import {
-  reelFileSchema,
-  ReelFile,
-  ReelOperatorContactInfo,
-  theReelsDbRoot,
-  vimeoLinkRegex,
-} from "./the-reels-cms";
+import { reelFileSchema, ReelFile, ReelOperatorContactInfo, theReelsDbRoot } from "./the-reels-cms";
 
 //
 // Process command line
@@ -55,33 +49,73 @@ function parseContactInfo(contactInfo: ReelOperatorContactInfo): ContactInfo {
   };
 }
 
-function parseVimeoLink(vimeoLink?: string): number | undefined {
-  if (!vimeoLink) {
+function parseVideoLink(videoLink?: string): string | undefined {
+  if (!videoLink) {
     return undefined;
   }
 
-  const vimeoLinkGroups = vimeoLink.match(vimeoLinkRegex); // Validated by yup above
+  const videoUrl = new URL(videoLink);
 
-  if (!vimeoLinkGroups) {
-    throw new Error(`Could not parse Vimeo link ${vimeoLink}`);
+  if (videoUrl.hostname.endsWith("youtube.com") && videoUrl.pathname === "/watch") {
+    // e.g. https://www.youtube.com/watch?v=M1mg0yLDzvU&list=RDzfpSn7ZYC0A&index=25&ab_channel=NPRMusic
+    const videoId = videoUrl.searchParams.get("v");
+
+    if (!videoId) {
+      return undefined;
+    }
+
+    return `${VideoService.YouTube}:${videoId}`;
+  } else if (videoUrl.hostname === "youtu.be") {
+    // e.g. https://youtu.be/M1mg0yLDzvU?si=9aihZTVI0vNp_T-F
+    const videoId = videoUrl.pathname.replace(/^\//, "");
+
+    if (!videoId) {
+      return undefined;
+    }
+
+    return `${VideoService.YouTube}:${videoId}`;
+  } else if (videoUrl.hostname === "vimeo.com") {
+    // e.g. https://vimeo.com/950425850?share=copy
+    const videoId = videoUrl.pathname.replace(/^\//, "");
+
+    if (!videoId) {
+      return undefined;
+    }
+
+    return `${VideoService.Vimeo}:${videoId}`;
+  } else {
+    return undefined;
   }
-
-  return parseInt(vimeoLinkGroups[1]); // [1] = first capture group
 }
 
-function reelFromCMSReel(reel: ReelFile): Reel {
+function reelFromCMSReel(reel: ReelFile): Reel | undefined {
+  const videoRef = parseVideoLink(reel.videoLink);
+
+  if (!videoRef) {
+    return undefined;
+  }
+
   return {
     operatorName: reel.operatorName + (reel.memberships ? ", " + reel.memberships.join(", ") : ""),
     operatorActiveSinceYear: reel.operatorActiveSinceYear,
     operatorContactInfo: parseContactInfo(reel.operatorContactInfo),
-    vimeoId: parseVimeoLink(reel.vimeoLink),
+    videoRef,
   };
 }
 
 // Map operator name (without any memberships added) to the projected reel record
 const reelsMap = new Map<string /* sort key */, Reel>();
 
-cmsReels.forEach((reelFile) => reelsMap.set(reelFile.operatorName, reelFromCMSReel(reelFile)));
+cmsReels.forEach((reelFile) => {
+  const reel = reelFromCMSReel(reelFile);
+
+  if (!reel) {
+    console.error(`Could not parse reel from ${JSON.stringify(reelFile)}`);
+    return;
+  }
+
+  reelsMap.set(reelFile.operatorName, reel);
+});
 
 // Sort operator names by last name
 const operatorNames = Array.from(reelsMap.keys());
