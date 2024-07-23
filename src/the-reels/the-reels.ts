@@ -99,7 +99,7 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
 
   // Create display
   return [
-    // Header row div
+    // Header row div: name and contact info
     createElementWithInitializerAndChildren(
       "div",
       (element) => element.classList.add("the_reels_header_row"),
@@ -154,13 +154,14 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
               }),
             ]
           : [])
-      ),
-      // - Next (random) reel button
-      createElementWithInitializerAndChildren(
-        "span",
-        (element) => element.classList.add("the_reels_another_link"),
-        createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
       )
+    ),
+    // Subheader row div: navigation
+    createElementWithInitializerAndChildren(
+      "div",
+      (element) => element.classList.add("the_reels_subheader_row"),
+      // - Next (random) reel button
+      createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
     ),
     // Main row: reel video
     displayReelVideo(reel.videoRef),

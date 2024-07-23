@@ -10,8 +10,6 @@
   .the_reels_header_row {
     font-size: 1.25rem;
 
-    padding-bottom: 1em;
-
     .the_reels_operator_name {
       font-weight: bold;
     }
@@ -19,10 +17,11 @@
     .the_reels_contact_info {
       margin-right: 1em;
     }
+  }
 
-    .the_reels_another_link {
-      font-size: 1rem;
-    }
+  .the_reels_subheader_row {
+    font-size: 1rem;
+    padding-bottom: 1em;
   }
 
   .the_reels_video_container {
