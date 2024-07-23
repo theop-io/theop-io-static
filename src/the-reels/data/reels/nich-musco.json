@@ -1,5 +1,5 @@
 {
-  "operatorName": "Nich Musco",
+  "operatorName": "Nick Musco",
   "operatorActiveSinceYear": 2021,
   "operatorContactInfo": {
     "instagram": "nmusco",
@@ -7,5 +7,7 @@
     "email": "nichmusco@gmail.com"
   },
   "videoLink": "https://vimeo.com/914086830",
-  "memberships": ["SOC"]
+  "memberships": [
+    "SOC"
+  ]
 }
