@@ -79,7 +79,7 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
       createElementWithInitializerAndChildren(
         "span",
         (element) => element.classList.add("the_reels_operator_name"),
-        reel.operatorName
+        `${reel.operatorName} (${reel.operatorActiveSinceYear})`
       ),
       // - Contact info
       createElementWithInitializerAndChildren(
