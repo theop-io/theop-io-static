@@ -172,7 +172,7 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
 // Top-level
 //
 
-// Find and populate index wrapper element
+// Find and populate per-reel page wrapper element
 const reelsParentDiv = document.querySelector<HTMLDivElement>("#the_reels_wrapper");
 
 if (reelsParentDiv) {
@@ -193,5 +193,47 @@ if (reelsParentDiv) {
   } else {
     // Show content
     appendChildren(reelsParentDiv, displayReelDetails(urlParams));
+  }
+}
+
+// Find and populate index page wrapper element (for debugging)
+const reelsIndexParentDiv = document.querySelector<HTMLDivElement>("#the_reels_index_wrapper");
+
+if (reelsIndexParentDiv) {
+  const displayPageUrl = reelsIndexParentDiv.dataset.displayPageUrl;
+
+  if (displayPageUrl) {
+    // Clear "Loading..." message
+    reelsIndexParentDiv.innerHTML = "";
+
+    // Configure styling
+    reelsIndexParentDiv.classList.add("the_reels");
+
+    // Insert index
+    const urlForReel = (reel: Reel) => {
+      const url = new URL(displayPageUrl, window.location.href);
+      const additionalParameters: { [key: string]: string } = urlForOperator(reel.operatorName);
+
+      Object.keys(additionalParameters).forEach((key) =>
+        url.searchParams.append(key, additionalParameters[key])
+      );
+
+      return url;
+    };
+
+    appendChildren(reelsIndexParentDiv, [
+      createElementWithChildren(
+        "ul",
+        ...TheReels.map((reel) =>
+          createElementWithChildren(
+            "li",
+            createAnchorElementWithChildren(
+              urlForReel(reel),
+              `${reel.operatorName} (${reel.operatorActiveSinceYear})`
+            )
+          )
+        )
+      ),
+    ]);
   }
 }
