@@ -44,12 +44,39 @@ function reelFromURL(urlParams: URLSearchParams): Reel | undefined {
   return reels[0];
 }
 
+const seenReelsStorageKey = "the-reels-seen";
+const seenReelsSeparator = ";";
+
+function getPreviouslySeenReels() {
+  return new Set(localStorage.getItem(seenReelsStorageKey)?.split(seenReelsSeparator) ?? []);
+}
+
+function setPreviouslySeenReels(seenReels: Set<string>) {
+  localStorage.setItem(seenReelsStorageKey, Array.from(seenReels).join(seenReelsSeparator));
+}
+
+function clearPreviouslySeenReels() {
+  localStorage.removeItem(seenReelsStorageKey);
+}
+
 function buildRandomReelURL(): URL {
   function getRandomArrayElement<T>(data: T[]): T {
     return data[Math.floor(Math.random() * data.length)];
   }
 
-  const randomReel = getRandomArrayElement(TheReels);
+  const previouslySeenReels = getPreviouslySeenReels();
+
+  var eligibleReels = TheReels.filter((reel) => !previouslySeenReels.has(reel.operatorName));
+
+  if (!eligibleReels.length) {
+    // We've now seen all reels -> reset
+    clearPreviouslySeenReels();
+
+    // ...and consider all possible reels
+    eligibleReels = TheReels;
+  }
+
+  const randomReel = getRandomArrayElement(eligibleReels);
 
   return getURLFor(urlForOperator(randomReel.operatorName));
 }
@@ -92,6 +119,13 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
 
   if (!reel) {
     return displayNotFound();
+  }
+
+  // Persist that we've viewed this reel
+  {
+    const previouslySeenReels = getPreviouslySeenReels();
+    previouslySeenReels.add(reel.operatorName);
+    setPreviouslySeenReels(previouslySeenReels);
   }
 
   // Create display
