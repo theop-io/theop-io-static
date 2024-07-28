@@ -5,30 +5,35 @@ import {
 
 import { VideoService } from "./video-embed-types";
 
-export function displayEmbeddedVideo(videoRef: string): HTMLElement {
-  const [videoService, videoId] = videoRef.split(":");
+function videoUrlFromVideoServiceAndId(videoService: VideoService, videoId: string) {
+  switch (videoService) {
+    case VideoService.YouTube:
+      return `https://www.youtube.com/embed/${videoId}`;
 
-  if (videoService === VideoService.YouTube) {
-    return createElementWithInitializerAndChildren(
-      "div",
-      (element) => element.classList.add("theop_video_container"),
-      createElementWithInitializerAndChildren("iframe", (element) => {
-        element.src = `https://www.youtube.com/embed/${videoId}`;
-        element.allow = "encrypted-media";
-        element.allowFullscreen = true;
-      })
-    );
-  } else if (videoService === VideoService.Vimeo) {
-    return createElementWithInitializerAndChildren(
-      "div",
-      (element) => element.classList.add("theop_video_container"),
-      createElementWithInitializerAndChildren("iframe", (element) => {
-        element.src = `https://player.vimeo.com/video/${videoId}`;
-        element.allow = "encrypted-media";
-        element.allowFullscreen = true;
-      })
-    );
-  } else {
+    case VideoService.Vimeo:
+      return `https://player.vimeo.com/video/${videoId}`;
+
+    default:
+      return undefined;
+  }
+}
+
+export function displayEmbeddedVideo(videoRef: string): HTMLElement {
+  const [videoService, aspectRatioClass, videoId] = videoRef.split(":");
+
+  const videoUrl = videoUrlFromVideoServiceAndId(videoService as VideoService, videoId);
+
+  if (!videoUrl) {
     return createElementWithChildren("div");
   }
+
+  return createElementWithInitializerAndChildren(
+    "div",
+    (element) => element.classList.add(`theop_video_container`, `theop_video_${aspectRatioClass}`),
+    createElementWithInitializerAndChildren("iframe", (element) => {
+      element.src = videoUrl;
+      element.allow = "encrypted-media";
+      element.allowFullscreen = true;
+    })
+  );
 }

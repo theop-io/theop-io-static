@@ -67,10 +67,10 @@ function parseTimestamp(timestamp?: string): Timestamp | undefined {
 }
 
 function parseShot(shot: ProductionShot): Shot {
-  const videoRef = videoRefFromVideoLink(shot.videoLink);
+  const videoRef = videoRefFromVideoLink(shot.videoLink, shot.videoAspectRatio);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { videoLink, ...shotWithoutVideoLink } = shot;
+  const { videoLink, videoAspectRatio, ...shotWithoutVideoLink } = shot;
 
   return {
     ...shotWithoutVideoLink,

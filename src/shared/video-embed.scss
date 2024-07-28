@@ -3,7 +3,6 @@
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  aspect-ratio: 16 / 9;
 
   iframe,
   object,
@@ -18,4 +17,24 @@
     // Styling
     border: 0px;
   }
+}
+
+.theop_video_43 {
+  aspect-ratio: 4 / 3;
+}
+
+.theop_video_169 {
+  aspect-ratio: 16 / 9;
+}
+
+.theop_video_1851 {
+  aspect-ratio: 1.85 / 1;
+}
+
+.theop_video_201 {
+  aspect-ratio: 2 / 1;
+}
+
+.theop_video_2391 {
+  aspect-ratio: 2.39 / 1;
 }

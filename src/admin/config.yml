@@ -170,6 +170,13 @@ collections:
             multiple: true
             min: 0
 
+          - name: "videoAspectRatio"
+            label: "Video aspect ratio"
+            widget: "select"
+            options: ["4:3", "16:9", "1.85:1", "2.0:1", "2.39:1"]
+            default: "16:9"
+            required: false
+
           - name: "videoLink"
             label: "YouTube/Vimeo video link"
             widget: "string"
@@ -257,6 +264,13 @@ collections:
             label: "Website"
             widget: "string"
             required: false
+
+      - name: "videoAspectRatio"
+        label: "Video aspect ratio"
+        widget: "select"
+        options: ["4:3", "16:9", "1.85:1", "2.0:1", "2.39:1"]
+        default: "16:9"
+        required: false
 
       - name: "videoLink"
         label: "YouTube/Vimeo video link"

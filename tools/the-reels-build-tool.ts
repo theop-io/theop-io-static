@@ -51,7 +51,7 @@ function parseContactInfo(contactInfo: ReelOperatorContactInfo): ContactInfo {
 }
 
 function reelFromCMSReel(reel: ReelFile): Reel | undefined {
-  const videoRef = videoRefFromVideoLink(reel.videoLink);
+  const videoRef = videoRefFromVideoLink(reel.videoLink, reel.videoAspectRatio);
 
   if (!videoRef) {
     return undefined;

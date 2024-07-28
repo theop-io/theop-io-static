@@ -17,6 +17,7 @@ export const reelFileSchema = yup
     operatorActiveSinceYear: yup.number().integer().required(),
     operatorContactInfo: reelOperatorContactInfo,
     videoLink: yup.string().required(),
+    videoAspectRatio: yup.string(),
   })
   .required();
 

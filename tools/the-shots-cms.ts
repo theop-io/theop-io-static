@@ -34,6 +34,7 @@ export const productionShotSchema = yup.object({
   }),
   tags: yup.array().of(yup.string().oneOf(shotTags).required()),
   videoLink: yup.string(),
+  videoAspectRatio: yup.string(),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),

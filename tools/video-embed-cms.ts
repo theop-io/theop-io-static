@@ -1,12 +1,21 @@
 import { VideoService } from "../src/shared/video-embed-types";
 
-export function videoRefFromVideoLink(videoLink?: string): string | undefined {
+export function videoRefFromVideoLink(
+  videoLink?: string,
+  videoAspectRatio?: string
+): string | undefined {
   if (!videoLink) {
     return undefined;
   }
 
   function linkForServiceAndId(videoService: VideoService, videoId: string | null | undefined) {
-    return videoId ? `${videoService}:${videoId}` : undefined;
+    const defaultAspectRatio = "16:9";
+
+    const aspectRatioClass = (videoAspectRatio ?? "16:9")
+      .replace(/\./g, "") // "2.39:1" -> "239:1"
+      .replace(":", ""); // "239:1" -> "2391"
+
+    return videoId ? `${videoService}:${aspectRatioClass}:${videoId}` : undefined;
   }
 
   const videoUrl = new URL(videoLink);
