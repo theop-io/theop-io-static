@@ -40,27 +40,7 @@
     padding-right: 1em;
   }
 
-  .the_shots_video_container {
-    // Positioning
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    aspect-ratio: 16 / 9;
-
-    iframe,
-    object,
-    embed {
-      // Positioning
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-      // Styling
-      border: 0px;
-    }
-
+  .theop_video_container {
     @include small-screens-only {
       margin-top: 2em;
       margin-bottom: 2em;

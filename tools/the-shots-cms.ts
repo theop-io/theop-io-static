@@ -10,7 +10,6 @@ export const shotTags = readKnownShotTags(path.join(shotDbRoot, "the-shots-tags.
 
 export const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
 export const productionImdbLinkRegex = /^https:\/\/www\.imdb\.com\/title\/(tt\d+)/;
-export const vimeoLinkRegex = /^https:\/\/vimeo\.com\/(\d+)(\?.*)?$/;
 
 export const productionShotSchema = yup.object({
   // Operator info
@@ -34,7 +33,7 @@ export const productionShotSchema = yup.object({
     episodeTitle: yup.string(),
   }),
   tags: yup.array().of(yup.string().oneOf(shotTags).required()),
-  vimeoLink: yup.string().matches(vimeoLinkRegex),
+  videoLink: yup.string(),
   // Content
   shortDescription: yup.string().required(),
   description: yup.string().required(),

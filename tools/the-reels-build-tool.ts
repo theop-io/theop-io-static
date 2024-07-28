@@ -3,9 +3,10 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { Reel, ContactInfo, VideoService } from "../src/the-reels/the-reels-types";
+import { Reel, ContactInfo } from "../src/the-reels/the-reels-types";
 
 import { reelFileSchema, ReelFile, ReelOperatorContactInfo, theReelsDbRoot } from "./the-reels-cms";
+import { videoRefFromVideoLink } from "./video-embed-cms";
 
 //
 // Process command line
@@ -49,41 +50,8 @@ function parseContactInfo(contactInfo: ReelOperatorContactInfo): ContactInfo {
   };
 }
 
-function parseVideoLink(videoLink?: string): string | undefined {
-  if (!videoLink) {
-    return undefined;
-  }
-
-  function linkForServiceAndId(videoService: VideoService, videoId: string | null | undefined) {
-    return videoId ? `${videoService}:${videoId}` : undefined;
-  }
-
-  const videoUrl = new URL(videoLink);
-
-  if (videoUrl.hostname.endsWith("youtube.com")) {
-    if (videoUrl.pathname === "/watch") {
-      // e.g. https://www.youtube.com/watch?v=M1mg0yLDzvU&list=RDzfpSn7ZYC0A&index=25&ab_channel=NPRMusic
-      return linkForServiceAndId(VideoService.YouTube, videoUrl.searchParams.get("v"));
-    } else if (videoUrl.pathname.startsWith("/embed/")) {
-      // e.g. https://www.youtube.com/embed/aTnm4vSUxL8?wmode=opaque
-      return linkForServiceAndId(
-        VideoService.YouTube,
-        videoUrl.pathname.substring("/embed/".length)
-      );
-    }
-  } else if (videoUrl.hostname === "youtu.be") {
-    // e.g. https://youtu.be/M1mg0yLDzvU?si=9aihZTVI0vNp_T-F
-    return linkForServiceAndId(VideoService.YouTube, videoUrl.pathname.replace(/^\//, ""));
-  } else if (videoUrl.hostname === "vimeo.com") {
-    // e.g. https://vimeo.com/950425850?share=copy
-    return linkForServiceAndId(VideoService.Vimeo, videoUrl.pathname.replace(/^\//, ""));
-  }
-
-  return undefined;
-}
-
 function reelFromCMSReel(reel: ReelFile): Reel | undefined {
-  const videoRef = parseVideoLink(reel.videoLink);
+  const videoRef = videoRefFromVideoLink(reel.videoLink);
 
   if (!videoRef) {
     return undefined;

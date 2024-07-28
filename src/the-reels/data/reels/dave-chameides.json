@@ -1,9 +1,7 @@
 {
   "operatorActiveSinceYear": 1990,
   "operatorName": "Dave Chameides",
-  "memberships": [
-    "SOC"
-  ],
+  "memberships": ["SOC"],
   "operatorContactInfo": {
     "email": "dave@theop.io",
     "instagram": "@davesdown",

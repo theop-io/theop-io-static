@@ -24,28 +24,6 @@
     padding-bottom: 1em;
   }
 
-  .the_reels_video_container {
-    // Positioning
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    aspect-ratio: 16 / 9;
-
-    iframe,
-    object,
-    embed {
-      // Positioning
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-      // Styling
-      border: 0px;
-    }
-  }
-
   .contact-link {
     height: 1.25rem;
     margin-left: 0.5rem;

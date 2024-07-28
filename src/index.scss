@@ -36,6 +36,8 @@
 }
 
 // Include projects
+@import "./shared/video-embed.scss";
+
 @import "./site-tweaks/site-tweaks.scss";
 @import "./the-library/the-library.scss";
 @import "./the-reels/the-reels.scss";

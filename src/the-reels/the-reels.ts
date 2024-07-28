@@ -1,14 +1,14 @@
 import {
   appendChildren,
-  createElementWithChildren,
   createElementWithInitializerAndChildren,
   createAnchorElementWithChildren,
   displayNotFound,
 } from "../shared/display-tools";
+import { displayEmbeddedVideo } from "../shared/video-embed";
 
 import { TheReels } from "./generated/the-reels-db";
 
-import { Reel, VideoService } from "./the-reels-types";
+import { Reel } from "./the-reels-types";
 import { urlForOperator } from "./the-reels-shared";
 
 //
@@ -66,7 +66,7 @@ function buildRandomReelURL(): URL {
 
   const previouslySeenReels = getPreviouslySeenReels();
 
-  var eligibleReels = TheReels.filter((reel) => !previouslySeenReels.has(reel.operatorName));
+  let eligibleReels = TheReels.filter((reel) => !previouslySeenReels.has(reel.operatorName));
 
   if (!eligibleReels.length) {
     // We've now seen all reels -> reset
@@ -84,34 +84,6 @@ function buildRandomReelURL(): URL {
 //
 // Display: Reel
 //
-
-function displayReelVideo(videoRef: string): HTMLElement {
-  const [videoService, videoId] = videoRef.split(":");
-
-  if (videoService === VideoService.YouTube) {
-    return createElementWithInitializerAndChildren(
-      "div",
-      (element) => element.classList.add("the_reels_video_container"),
-      createElementWithInitializerAndChildren("iframe", (element) => {
-        element.src = `https://www.youtube.com/embed/${videoId}`;
-        element.allow = "encrypted-media";
-        element.allowFullscreen = true;
-      })
-    );
-  } else if (videoService === VideoService.Vimeo) {
-    return createElementWithInitializerAndChildren(
-      "div",
-      (element) => element.classList.add("the_reels_video_container"),
-      createElementWithInitializerAndChildren("iframe", (element) => {
-        element.src = `https://player.vimeo.com/video/${videoId}`;
-        element.allow = "encrypted-media";
-        element.allowFullscreen = true;
-      })
-    );
-  } else {
-    return createElementWithChildren("div");
-  }
-}
 
 function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
   // Find reel
@@ -195,7 +167,7 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
       createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
     ),
     // Main row: reel video
-    displayReelVideo(reel.videoRef),
+    displayEmbeddedVideo(reel.videoRef),
   ];
 }
 

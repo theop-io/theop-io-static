@@ -23,7 +23,7 @@ export type Shot = {
   dpName?: string;
   episodic?: ShotEpisodicData;
   tags?: string[];
-  vimeoId?: number;
+  videoRef?: string;
 
   shortDescription: string;
   description: string;

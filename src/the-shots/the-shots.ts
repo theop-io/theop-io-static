@@ -5,6 +5,7 @@ import {
   createAnchorElementWithChildren,
   displayNotFound,
 } from "../shared/display-tools";
+import { displayEmbeddedVideo } from "../shared/video-embed";
 
 import {
   TheShotsProductions,
@@ -550,19 +551,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       createElementWithInitializerAndChildren(
         "div",
         (element: HTMLElement) => element.classList.add("the_shots_column"),
-        ...(shot.vimeoId
-          ? [
-              createElementWithInitializerAndChildren(
-                "div",
-                (element) => element.classList.add("the_shots_video_container"),
-                createElementWithInitializerAndChildren("iframe", (element) => {
-                  element.src = `https://player.vimeo.com/video/${shot.vimeoId}`;
-                  element.allow = "encrypted-media";
-                  element.allowFullscreen = true;
-                })
-              ),
-            ]
-          : [])
+        ...(shot.videoRef ? [displayEmbeddedVideo(shot.videoRef)] : [])
       )
     ),
     // -- Top level again --

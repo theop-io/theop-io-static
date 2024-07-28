@@ -14,8 +14,9 @@ import {
   ProductionShot,
   shotDbRoot,
   shotTags,
-  vimeoLinkRegex,
 } from "./the-shots-cms";
+
+import { videoRefFromVideoLink } from "./video-embed-cms";
 
 //
 // Process command line
@@ -65,27 +66,16 @@ function parseTimestamp(timestamp?: string): Timestamp | undefined {
   };
 }
 
-function parseVimeoLink(vimeoLink?: string): number | undefined {
-  if (!vimeoLink) {
-    return undefined;
-  }
-
-  const vimeoLinkGroups = vimeoLink.match(vimeoLinkRegex); // Validated by yup above
-
-  if (!vimeoLinkGroups) {
-    throw new Error(`Could not parse Vimeo link ${vimeoLink}`);
-  }
-
-  return parseInt(vimeoLinkGroups[1]); // [1] = first capture group
-}
-
 function parseShot(shot: ProductionShot): Shot {
-  const { vimeoLink, ...shotWithoutVimeoLink } = shot;
+  const videoRef = videoRefFromVideoLink(shot.videoLink);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { videoLink, ...shotWithoutVideoLink } = shot;
 
   return {
-    ...shotWithoutVimeoLink,
+    ...shotWithoutVideoLink,
     timestamp: parseTimestamp(shot.timestamp),
-    vimeoId: parseVimeoLink(vimeoLink),
+    videoRef,
     // Fix up typing of non-optional fields (yup type inference is being special)
     operatorName: shot.operatorName as string, // Validated by yup above (but typed poorly)
     shortDescription: shot.shortDescription as string,
