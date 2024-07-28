@@ -1,0 +1,18 @@
+{
+  "status": "published",
+  "productionName": "Making of the Shining (1980)",
+  "shots": [
+    {
+      "operatorName": "Garrett Brown",
+      "directorName": "Stanley Kubrick",
+      "tags": [
+        "Cameo",
+        "Historical"
+      ],
+      "videoAspectRatio": "4:3",
+      "videoLink": "https://www.youtube.com/watch?v=OukJ7jR4CaM",
+      "shortDescription": "BTS of The Shining",
+      "description": "Some calssic images of Garrett doing his thing."
+    }
+  ]
+}
