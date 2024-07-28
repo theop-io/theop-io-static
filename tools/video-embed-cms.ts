@@ -11,7 +11,7 @@ export function videoRefFromVideoLink(
   function linkForServiceAndId(videoService: VideoService, videoId: string | null | undefined) {
     const defaultAspectRatio = "16:9";
 
-    const aspectRatioClass = (videoAspectRatio ?? "16:9")
+    const aspectRatioClass = (videoAspectRatio ?? defaultAspectRatio)
       .replace(/\./g, "") // "2.39:1" -> "239:1"
       .replace(":", ""); // "239:1" -> "2391"
 
