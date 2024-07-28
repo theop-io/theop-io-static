@@ -18,7 +18,7 @@
           "item": "Preston FIZ"
         }
       ],
-      "vimeoLink": "https://vimeo.com/946961926?share=copy",
+      "videoLink": "https://vimeo.com/946961926?share=copy",
       "tags": ["Film", "Low mode"]
     },
     {
@@ -37,7 +37,7 @@
           "item": "Preston FIZ"
         }
       ],
-      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "videoLink": "https://vimeo.com/946961906?share=copy",
       "tags": ["Film"]
     },
     {
@@ -56,7 +56,7 @@
           "item": "Preston FIZ"
         }
       ],
-      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "videoLink": "https://vimeo.com/946961906?share=copy",
       "tags": ["Film"]
     },
     {
@@ -65,14 +65,14 @@
       "shortDescription": "Henry Tirl Interview",
       "description": "In this behind the scenes interview, Henry Tirl discusses the challenges of executing a long one-shot.",
       "tags": ["BTS"],
-      "vimeoLink": "https://vimeo.com/946961952?share=copy"
+      "videoLink": "https://vimeo.com/946961952?share=copy"
     },
     {
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "The Graveyard Scene",
       "description": "This clip has some excellent behind the scenes footage and narration by Dan Kneece of the graveyard scene from \"Nine Lives\".",
-      "vimeoLink": "https://vimeo.com/946961968?share=copy",
+      "videoLink": "https://vimeo.com/946961968?share=copy",
       "tags": ["BTS", "Low mode", "Film"]
     },
     {
@@ -81,14 +81,14 @@
       "shortDescription": "Dan Kneece Interview",
       "description": "In this behind the scenes interview, Dan Kneece describes why he took the job on this film.",
       "tags": ["BTS"],
-      "vimeoLink": "https://vimeo.com/946961981?share=copy"
+      "videoLink": "https://vimeo.com/946961981?share=copy"
     },
     {
       "operatorName": "Dan Kneece",
       "episodic": {},
       "shortDescription": "Dan's Equipment",
       "description": "In this behind the scenes interview with Dan Kneece, Dan talks about the gear he used in the filming of the movie.",
-      "vimeoLink": "https://vimeo.com/946961906?share=copy",
+      "videoLink": "https://vimeo.com/946961906?share=copy",
       "tags": ["Film", "BTS"]
     }
   ],

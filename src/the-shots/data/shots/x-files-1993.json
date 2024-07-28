@@ -11,14 +11,14 @@
         "episode": 3,
         "episodeTitle": "Triangle"
       },
-      "vimeoLink": "https://vimeo.com/949532072?share=copy",
+      "videoLink": "https://vimeo.com/949532072?share=copy",
       "tags": ["Film"]
     },
     {
       "operatorName": "David Luckenbach",
       "shortDescription": "FBI Headquarters",
       "description": "X Files Shot in HQ",
-      "vimeoLink": "https://vimeo.com/949531986?share=copy",
+      "videoLink": "https://vimeo.com/949531986?share=copy",
       "tags": ["Film"]
     }
   ],
