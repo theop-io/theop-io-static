@@ -3,12 +3,24 @@
   "status": "published",
   "shots": [
     {
-      "operatorName": "Colin Anderson",
-      "episodic": {},
       "shortDescription": "Senator McCarthy",
-      "description": "This is a small leading shot.  The shot starts out in a lock-off, boomed low as the actor is seated.  The lock-off is executed with great stability, and could easily be mistaken for tripod if it did not begin to move.  Consistent headroom is kept while the actor stands, as well as when he climbs a small flight of stairs.",
-      "tags": ["High mode"],
-      "videoLink": "https://vimeo.com/945493588?share=copy"
+      "episodic": {},
+      "equipmentList": [
+        {
+          "item": "PRO Sled, PRO Arm, PRO Gimbal, IIIA Vest,"
+        }
+      ],
+      "operatorName": "Colin Anderson",
+      "videoLink": "https://vimeo.com/945493588?share=copy",
+      "directorName": "George Clooney",
+      "dpName": "Robert Elswitt",
+      "operatorComments": "The shot is a fairly standard leading shot but there is one point worth telling. As I was leading David Straithern down the corridor I had to make a 180 deg turn and immediately begin ascending a steep staircase of about 5 stairs. Because I had to almost stop for the turn I had to ask the actor to accommodate that by slowing down without it appearing as if he was slowing for the camera. This small example underscores the importance of working with the actors and having them understand what issues you are dealing with. David could not have been nicer about it!",
+      "tags": [
+        "High mode",
+        "Film",
+        "Stairs"
+      ],
+      "description": "This is a small leading shot.  The shot starts out in a lock-off, boomed low as the actor is seated.  The lock-off is executed with great stability, and could easily be mistaken for tripod if it did not begin to move.  Consistent headroom is kept while the actor stands, as well as when he climbs a small flight of stairs."
     },
     {
       "operatorName": "Colin Anderson",
@@ -16,7 +28,9 @@
       "shortDescription": "Live Voice-over",
       "description": "This shot is a fast paced, leading shot as the actor rushes through the newsroom.  Great composition is kept, despite the pace and commotion in the room.",
       "videoLink": "https://vimeo.com/945493595?share=copy",
-      "tags": ["High mode"]
+      "tags": [
+        "High mode"
+      ]
     }
   ]
 }
