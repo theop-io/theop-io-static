@@ -3,9 +3,7 @@
   "shots": [
     {
       "videoAspectRatio": "16:9",
-      "tags": [
-        "Historical"
-      ],
+      "tags": ["Historical"],
       "description": "A live event created by Tiffen hosted by Charles Papert with operators, Andy Schwartz, Henry Tirl, Chris Haarhoff, and Neal Bryant.",
       "operatorComments": "",
       "operatorName": "Charles Papert",
