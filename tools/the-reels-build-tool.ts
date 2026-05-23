@@ -31,7 +31,7 @@ const reelFiles = fs.readdirSync(reelDbRoot);
 reelFiles.forEach((reelFileName) => {
   const reelFilePath = path.join(reelDbRoot, reelFileName);
   const reelData = fs.readFileSync(reelFilePath, "utf-8");
-  const reelJson = JSON.parse(reelData);
+  const reelJson: unknown = JSON.parse(reelData);
 
   const reel = reelFileSchema.validateSync(reelJson, { stripUnknown: true });
 

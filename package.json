@@ -21,6 +21,7 @@
   "author": "Robin Giese",
   "private": true,
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@tsconfig/recommended": "^1.0.13",
     "@types/node": "^25.9.1",
     "@types/youtube": "^0.2.0",
@@ -41,6 +42,7 @@
     "ts-loader": "^9.5.7",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.4",
     "webpack": "^5.107.1",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.4",

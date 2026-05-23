@@ -12,13 +12,15 @@ productionFiles.forEach((productionFileName) => {
   const productionData = fs.readFileSync(productionFilePath, "utf-8");
 
   try {
-    const productionJson = JSON.parse(productionData);
+    const productionJson = JSON.parse(productionData) as { productionName?: string };
 
     const productionNameAndYearRegex = /(.+)\((\d{4})\)/;
-    const productionNameAndYear = productionJson.productionName.match(productionNameAndYearRegex);
+    const productionNameAndYear = productionNameAndYearRegex.exec(
+      productionJson.productionName ?? ""
+    );
 
     if (!productionNameAndYear) {
-      throw new Error(`Could not parse production name ${productionJson.productionName}`);
+      throw new Error(`Could not parse production name ${productionJson.productionName ?? ""}`);
     }
 
     const productionName = productionNameAndYear[1].trim(); // [1] = first capture group
@@ -40,6 +42,6 @@ productionFiles.forEach((productionFileName) => {
       );
     }
   } catch (error) {
-    console.error(`Could not process ${productionFileName}: ${error}`);
+    console.error(`Could not process ${productionFileName}: ${String(error)}`);
   }
 });

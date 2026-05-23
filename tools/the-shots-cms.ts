@@ -25,11 +25,15 @@ export const productionShotSchema = yup.object({
       .integer()
       // .transform() empty strings left behind when there _was_ a number and it was removed
       // (DecapCMS handles this somewhat poorly)
-      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
+      .transform((value: number | undefined, originalValue: unknown) =>
+        originalValue === "" ? undefined : value
+      ),
     episode: yup
       .number()
       .integer()
-      .transform((value, originalValue) => (originalValue === "" ? undefined : value)),
+      .transform((value: number | undefined, originalValue: unknown) =>
+        originalValue === "" ? undefined : value
+      ),
     episodeTitle: yup.string(),
   }),
   tags: yup.array().of(yup.string().oneOf(shotTags).required()),
@@ -65,7 +69,7 @@ export type ProductionFile = yup.InferType<typeof productionFileSchema>;
 //
 
 export function parseProductionNameAndYear(productionName: string) {
-  const productionNameAndYear = productionName.match(productionNameAndYearRegex); // Validated by yup above
+  const productionNameAndYear = productionNameAndYearRegex.exec(productionName); // Validated by yup above
 
   if (!productionNameAndYear) {
     throw new Error(`Could not parse production name ${productionName}`);
@@ -91,7 +95,7 @@ function readKnownShotTags(sourceFile: string) {
   });
 
   const shotTagsData = fs.readFileSync(sourceFile, "utf-8");
-  const shotTagsJson = JSON.parse(shotTagsData);
+  const shotTagsJson: unknown = JSON.parse(shotTagsData);
 
   const shotTagsEnvelope = shotTagsFileSchema.validateSync(shotTagsJson, { stripUnknown: true });
 

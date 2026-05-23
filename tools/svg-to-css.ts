@@ -64,6 +64,7 @@ function cssFromSvg(name: string, inputSvg: string): string {
 
   const charactersToConvert = "%&#{}<>"; // courtesy of https://codepen.io/jakob-e/pen/doMoML. Note that '%' _has_ to come first.
 
+  // eslint-disable-next-line @typescript-eslint/no-misused-spread -- ASCII-only string, no Unicode concerns
   [...charactersToConvert].forEach((characterToConvert) => {
     encodedSvg = encodedSvg.replaceAll(
       characterToConvert,

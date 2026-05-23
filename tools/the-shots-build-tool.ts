@@ -41,7 +41,7 @@ const productionFiles = fs.readdirSync(productionDbRoot);
 productionFiles.forEach((productionFileName) => {
   const productionFilePath = path.join(productionDbRoot, productionFileName);
   const productionData = fs.readFileSync(productionFilePath, "utf-8");
-  const productionJson = JSON.parse(productionData);
+  const productionJson: unknown = JSON.parse(productionData);
 
   const production = productionFileSchema.validateSync(productionJson, { stripUnknown: true });
 
@@ -77,9 +77,9 @@ function parseShot(shot: ProductionShot): Shot {
     timestamp: parseTimestamp(shot.timestamp),
     videoRef,
     // Fix up typing of non-optional fields (yup type inference is being special)
-    operatorName: shot.operatorName as string, // Validated by yup above (but typed poorly)
-    shortDescription: shot.shortDescription as string,
-    description: shot.description as string,
+    operatorName: shot.operatorName, // Validated by yup above (but typed poorly)
+    shortDescription: shot.shortDescription,
+    description: shot.description,
   };
 }
 

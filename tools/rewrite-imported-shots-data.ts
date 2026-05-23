@@ -43,7 +43,7 @@ theShotsData.forEach((importedShot) => {
     episodic: { episodeTitle: importedShot.episode },
     // Content
     shortDescription: importedShot.shortDescription,
-    description: importedShot.description!,
+    description: importedShot.description ?? "",
     // Optional additional content
     operatorComments: importedShot.operatorComments,
     secondaryOperatorName: importedShot.altOperator,

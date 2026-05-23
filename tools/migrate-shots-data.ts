@@ -25,7 +25,7 @@ const productionFiles = fs.readdirSync(shotsSourceDirectory);
 productionFiles.forEach((productionFileName) => {
   const productionFilePath = path.join(shotsSourceDirectory, productionFileName);
   const productionData = fs.readFileSync(productionFilePath, "utf-8");
-  const productionJson = JSON.parse(productionData);
+  const productionJson: unknown = JSON.parse(productionData);
 
   const production = productionFileSchema.validateSync(productionJson, { stripUnknown: true });
 
@@ -43,13 +43,12 @@ function _migrateVimeoIdToVimeoLink(production: ProductionFile): boolean {
   const shots = production.shots;
 
   shots.forEach((shot) => {
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    if ((shot as any).vimeoId) {
-      shot.vimeoLink = `https://vimeo.com/${shot.vimeoId}`;
-      delete (shot as any).vimeoId;
+    const legacyShot = shot as unknown as { vimeoId?: string; vimeoLink?: string };
+    if (legacyShot.vimeoId) {
+      legacyShot.vimeoLink = `https://vimeo.com/${legacyShot.vimeoId}`;
+      delete legacyShot.vimeoId;
       didModifyData = true;
     }
-    /* eslint-enable @typescript-eslint/no-explicit-any */
   });
 
   return didModifyData;
@@ -89,7 +88,7 @@ function mergeInImportedEquipmentData(production: ProductionFile): boolean {
       return;
     }
 
-    if (shot.equipmentList && shot.equipmentList.length) {
+    if (shot.equipmentList?.length) {
       // Already have data
       return;
     }

@@ -29,7 +29,9 @@ export function displayEmbeddedVideo(videoRef: string): HTMLElement {
 
   return createElementWithInitializerAndChildren(
     "div",
-    (element) => element.classList.add(`theop_video_container`, `theop_video_${aspectRatioClass}`),
+    (element) => {
+      element.classList.add(`theop_video_container`, `theop_video_${aspectRatioClass}`);
+    },
     createElementWithInitializerAndChildren("iframe", (element) => {
       element.src = videoUrl;
       element.allow = "encrypted-media";

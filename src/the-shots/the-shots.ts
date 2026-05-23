@@ -18,22 +18,22 @@ import { Production, Shot } from "./the-shots-types";
 // Data tools
 //
 
-const PageModes = <const>["index", "operator", "production", "shot", "tag"];
+const PageModes = ["index", "operator", "production", "shot", "tag"] as const;
 type PageMode = (typeof PageModes)[number];
 
 function isValidPageMode(pageMode: string): pageMode is PageMode {
   return !!PageModes.find((p) => p === pageMode);
 }
 
-function getURLFor(pageMode: PageMode, additionalParameters?: { [key: string]: string }): URL {
+function getURLFor(pageMode: PageMode, additionalParameters?: Record<string, string>): URL {
   const url = new URL(window.location.href.split("?")[0]); // Strip existing searchParams
 
   url.searchParams.append("pageMode", pageMode);
 
   if (additionalParameters) {
-    Object.keys(additionalParameters).forEach((key) =>
-      url.searchParams.append(key, additionalParameters[key])
-    );
+    Object.keys(additionalParameters).forEach((key) => {
+      url.searchParams.append(key, additionalParameters[key]);
+    });
   }
 
   return url;
@@ -70,7 +70,7 @@ function productionFromURL(urlParams: URLSearchParams): Production | undefined {
       production.productionName === productionName && production.productionYear === productionYear
   );
 
-  if (!productions || productions.length !== 1) {
+  if (productions.length !== 1) {
     return undefined;
   }
 
@@ -86,7 +86,7 @@ function shotFromURL(urlParams: URLSearchParams, production: Production): Shot |
 
   const shots = production.shots.filter((shot) => shot.shortDescription === shotShortDescription);
 
-  if (!shots || shots.length !== 1) {
+  if (shots.length !== 1) {
     return undefined;
   }
 
@@ -390,7 +390,7 @@ function displayTag(urlParams: URLSearchParams): HTMLElement[] {
     ...displayShotIndex(
       true,
       () => true,
-      (shot: Shot) => shot.tags?.includes(tag) || false
+      (shot: Shot) => shot.tags?.includes(tag) ?? false
     ),
   ];
 }
@@ -482,11 +482,15 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
     // -- Columns --
     createElementWithInitializerAndChildren(
       "div",
-      (element: HTMLElement) => element.classList.add("the_shots_columns_container"),
+      (element: HTMLElement) => {
+        element.classList.add("the_shots_columns_container");
+      },
       // - Left column
       createElementWithInitializerAndChildren(
         "div",
-        (element: HTMLElement) => element.classList.add("the_shots_column"),
+        (element: HTMLElement) => {
+          element.classList.add("the_shots_column");
+        },
 
         // Director
         ...(shot.directorName
@@ -527,7 +531,7 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
               createElementWithChildren("h4", "Operator Commentary"),
               createElementWithInitializerAndChildren(
                 "div",
-                (element) => (element.innerHTML = shot.operatorComments!)
+                (element) => (element.innerHTML = shot.operatorComments ?? "")
               ),
             ]
           : []),
@@ -550,7 +554,9 @@ function displayShotDetails(urlParams: URLSearchParams): HTMLElement[] {
       // - Right column
       createElementWithInitializerAndChildren(
         "div",
-        (element: HTMLElement) => element.classList.add("the_shots_column"),
+        (element: HTMLElement) => {
+          element.classList.add("the_shots_column");
+        },
         ...(shot.videoRef ? [displayEmbeddedVideo(shot.videoRef)] : [])
       )
     ),
@@ -611,7 +617,9 @@ function buildSelectorRow(pageMode: PageMode): HTMLElement[] {
   return [
     createElementWithInitializerAndChildren(
       "div",
-      (divElement) => divElement.classList.add("the_shots_selectors"),
+      (divElement) => {
+        divElement.classList.add("the_shots_selectors");
+      },
       ...(pageMode !== "index"
         ? [createAnchorElementWithChildren(getURLFor("index"), "All shots"), "|"]
         : []),

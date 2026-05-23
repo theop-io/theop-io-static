@@ -1,12 +1,12 @@
-export type ContactInfo = {
+export interface ContactInfo {
   email?: string;
   instagram?: string;
   url?: string;
-};
+}
 
-export type Reel = {
+export interface Reel {
   operatorName: string;
   operatorActiveSinceYear: number;
   operatorContactInfo: ContactInfo;
   videoRef: string;
-};
+}

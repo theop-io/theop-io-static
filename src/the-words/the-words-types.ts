@@ -5,8 +5,8 @@ export function wordKeyFromWord(word: string) {
     .replace(/ /g, "_");
 }
 
-export type TheWordsDatabase = {
+export interface TheWordsDatabase {
   KeyToDisplayName: Map<string, string>;
   DisplayNameToDefinition: Map<string, string>;
-  DisplayNamesInDisplayOrder: Array<string>;
-};
+  DisplayNamesInDisplayOrder: string[];
+}

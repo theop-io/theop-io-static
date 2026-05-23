@@ -34,7 +34,7 @@ function readTheWordsData() {
   });
 
   const wordsData = fs.readFileSync(wordsDataFile, "utf-8");
-  const wordsJson = JSON.parse(wordsData);
+  const wordsJson: unknown = JSON.parse(wordsData);
 
   const wordsEnvelope = wordsFileSchema.validateSync(wordsJson, { stripUnknown: true });
 

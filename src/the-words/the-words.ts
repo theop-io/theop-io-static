@@ -189,7 +189,7 @@ function showWordTooltip(event: Event) {
   }
 
   // - Update tooltip position
-  computePosition(linkElement, tooltipElement, {
+  void computePosition(linkElement, tooltipElement, {
     placement: "bottom",
     middleware,
   }).then(({ x, y, placement, middlewareData }) => {
@@ -313,7 +313,7 @@ allWordsLinks.forEach((linkElement) => {
       return wordKeyFromWord(linkText);
     }
 
-    if (linkPrefixRemainder[0] === "_") {
+    if (linkPrefixRemainder.startsWith("_")) {
       // TheWords key is specified within the anchor itself
       return linkPrefixRemainder.slice(1);
     }

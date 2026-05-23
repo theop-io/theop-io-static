@@ -27,10 +27,6 @@ function sortOperatorList(operatorList: HTMLUListElement) {
     // Split tag into name components
     const tagComponents = tag.split("+");
 
-    if (!tagComponents) {
-      continue;
-    }
-
     // Build sort key starting with the last name component
     const tagSortKey = [tagComponents.pop(), ...tagComponents].join("");
 
@@ -44,7 +40,11 @@ function sortOperatorList(operatorList: HTMLUListElement) {
   const sortedTags = [...tagKeyToTagListItem.keys()].sort();
 
   for (const tag of sortedTags) {
-    operatorList.appendChild(tagKeyToTagListItem.get(tag)!);
+    const item = tagKeyToTagListItem.get(tag);
+
+    if (item) {
+      operatorList.appendChild(item);
+    }
   }
 }
 

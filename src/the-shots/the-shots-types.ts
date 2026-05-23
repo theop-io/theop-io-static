@@ -1,20 +1,20 @@
-export type Timestamp = {
+export interface Timestamp {
   hours: number;
   minutes: number;
   seconds: number;
-};
+}
 
-export type ShotEpisodicData = {
+export interface ShotEpisodicData {
   season?: number;
   episode?: number;
   episodeTitle?: string;
-};
+}
 
-export type ShotEquipment = {
+export interface ShotEquipment {
   item: string;
-};
+}
 
-export type Shot = {
+export interface Shot {
   operatorName: string;
   secondaryOperatorName?: string;
 
@@ -30,11 +30,11 @@ export type Shot = {
 
   operatorComments?: string;
   equipmentList?: ShotEquipment[];
-};
+}
 
 export const ProductionStatusValues = ["published", "draft"] as const;
 
-export type Production = {
+export interface Production {
   productionName: string;
   productionYear: number;
 
@@ -43,4 +43,4 @@ export type Production = {
   imdbTitleId?: string;
 
   shots: Shot[];
-};
+}

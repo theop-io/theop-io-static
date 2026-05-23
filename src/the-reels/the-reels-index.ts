@@ -25,11 +25,11 @@ if (reelsIndexParentDiv) {
     // Insert index
     const urlForReel = (reel: Reel) => {
       const url = new URL(displayPageUrl, window.location.href);
-      const additionalParameters: { [key: string]: string } = urlForOperator(reel.operatorName);
+      const additionalParameters: Record<string, string> = urlForOperator(reel.operatorName);
 
-      Object.keys(additionalParameters).forEach((key) =>
-        url.searchParams.append(key, additionalParameters[key])
-      );
+      Object.keys(additionalParameters).forEach((key) => {
+        url.searchParams.append(key, additionalParameters[key]);
+      });
 
       return url;
     };

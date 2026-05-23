@@ -144,11 +144,10 @@ async function fixYoutubeThumbnail(
     return;
   }
 
-  const oembedJson = await oembedResponse.json();
+  const oembedJson = (await oembedResponse.json()) as { thumbnail_url?: string };
 
   // Retrieve thumbnail
-  const thumbnailUrl =
-    "thumbnail_url" in oembedJson ? (oembedJson["thumbnail_url"] as string) : null;
+  const thumbnailUrl = oembedJson.thumbnail_url ?? null;
 
   // Apply
   if (thumbnailUrl) {
@@ -237,7 +236,7 @@ videoLibraryParentDivs.forEach((videoLibraryParentDiv) => {
 
           if (imageElement.naturalWidth <= youtubeBogusThumbnailImageWidth) {
             // Fire-and-forget (let this complete on its own time)
-            fixYoutubeThumbnail(videoDescriptor, imageElement);
+            void fixYoutubeThumbnail(videoDescriptor, imageElement);
           }
         },
         { once: true } // Don't retry

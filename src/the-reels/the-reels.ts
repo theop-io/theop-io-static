@@ -15,13 +15,13 @@ import { urlForOperator } from "./the-reels-shared";
 // Data tools
 //
 
-function getURLFor(additionalParameters?: { [key: string]: string }): URL {
+function getURLFor(additionalParameters?: Record<string, string>): URL {
   const url = new URL(window.location.href.split("?")[0]); // Strip existing searchParams
 
   if (additionalParameters) {
-    Object.keys(additionalParameters).forEach((key) =>
-      url.searchParams.append(key, additionalParameters[key])
-    );
+    Object.keys(additionalParameters).forEach((key) => {
+      url.searchParams.append(key, additionalParameters[key]);
+    });
   }
 
   return url;
@@ -37,7 +37,7 @@ function reelFromURL(urlParams: URLSearchParams): Reel | undefined {
 
   const reels = TheReels.filter((reel) => reel.operatorName === operatorName);
 
-  if (!reels || reels.length !== 1) {
+  if (reels.length !== 1) {
     return undefined;
   }
 
@@ -105,17 +105,23 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
     // Header row div: name and contact info
     createElementWithInitializerAndChildren(
       "div",
-      (element) => element.classList.add("the_reels_header_row"),
+      (element) => {
+        element.classList.add("the_reels_header_row");
+      },
       // - Operator name
       createElementWithInitializerAndChildren(
         "span",
-        (element) => element.classList.add("the_reels_operator_name"),
+        (element) => {
+          element.classList.add("the_reels_operator_name");
+        },
         `${reel.operatorName} (${reel.operatorActiveSinceYear})`
       ),
       // - Contact info
       createElementWithInitializerAndChildren(
         "span",
-        (element) => element.classList.add("the_reels_contact_info"),
+        (element) => {
+          element.classList.add("the_reels_contact_info");
+        },
         ...(reel.operatorContactInfo.email
           ? [
               createElementWithInitializerAndChildren("a", (element) => {
@@ -162,7 +168,9 @@ function displayReelDetails(urlParams: URLSearchParams): HTMLElement[] {
     // Subheader row div: navigation
     createElementWithInitializerAndChildren(
       "div",
-      (element) => element.classList.add("the_reels_subheader_row"),
+      (element) => {
+        element.classList.add("the_reels_subheader_row");
+      },
       // - Next (random) reel button
       createAnchorElementWithChildren(buildRandomReelURL(), "Show me another reel")
     ),
