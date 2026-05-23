@@ -1,13 +1,13 @@
 import * as path from "path";
 
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
-import { Configuration } from "webpack";
+import type { Configuration } from "webpack";
 import { merge } from "webpack-merge";
 
-import commonConfiguration from "./webpack.common";
+import commonConfiguration from "./webpack.common.mts";
 
 const devServerConfiguration: DevServerConfiguration = {
-  static: path.resolve(__dirname, "./dist"),
+  static: path.resolve("dist"),
   compress: true,
   port: 5055,
   open: false, // Set to `true` to automatically open new browser tab

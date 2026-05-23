@@ -1,7 +1,7 @@
-import { Configuration } from "webpack";
+import type { Configuration } from "webpack";
 import { merge } from "webpack-merge";
 
-import commonConfiguration from "./webpack.common";
+import commonConfiguration from "./webpack.common.mts";
 
 const prodConfiguration: Configuration = {
   mode: "production",

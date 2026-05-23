@@ -1,6 +1,6 @@
 import * as path from "path";
 
-import { Configuration } from "webpack";
+import type { Configuration } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import HtmlBundlerPlugin from "html-bundler-webpack-plugin";
 
@@ -49,7 +49,7 @@ const coreConfiguration: Configuration = {
     }),
   ],
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve("dist"),
   },
 };
 
