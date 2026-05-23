@@ -1,4 +1,4 @@
-@import "~@fancyapps/ui/dist/fancybox/fancybox";
+@use "../shared/mixins" as *;
 
 div.video-library {
   @include clearfix;
