@@ -1,4 +1,5 @@
 import YouTubePlayerFactory from "youtube-player";
+import type * as YT from "youtube";
 
 //
 // State
@@ -13,9 +14,10 @@ let activeYoutubePlayer: YT.Player | undefined = undefined;
 function onYouTubePlayerStateChange(poorlyTypedEvent: CustomEvent & { data: number }) {
   // Fix up somewhat shoddy typing in `youtube-player` package
   const event = poorlyTypedEvent as unknown as YT.OnStateChangeEvent;
+  const { PlayerState } = (window as Window & { YT: typeof YT }).YT;
 
   switch (event.data) {
-    case YT.PlayerState.PLAYING:
+    case PlayerState.PLAYING:
       {
         //
         // Play only one video at a time
@@ -39,8 +41,8 @@ function onYouTubePlayerStateChange(poorlyTypedEvent: CustomEvent & { data: numb
       }
       break;
 
-    case YT.PlayerState.PAUSED:
-    case YT.PlayerState.ENDED:
+    case PlayerState.PAUSED:
+    case PlayerState.ENDED:
       {
         //
         // Play only one video at a time
